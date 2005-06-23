@@ -16,9 +16,16 @@
         <property name="connection.driver_class">org.postgresql.Driver</property>
 
         <!-- mapping files -->
-        <!-- The following mapping element was auto-generated in -->
-        <!-- order for this file to conform to the Hibernate DTD -->
-        <mapping resource="Add valid path"/>
+        <mapping resource="com/schedule/hibernate/Appointments.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Blackboard.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Projects.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Messages.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Login.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Groups.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Preferences.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Roles.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/Tasks.hbm.xml"/>
+        <mapping resource="com/schedule/hibernate/User.hbm.xml"/>
 
     </session-factory>
 

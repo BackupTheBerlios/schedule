@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Jun 23 21:59:24 CEST 2005                         -->
+<hibernate-mapping package="com.schedule.hibernate">
+
+    <class name="Blackboard" table="Blackboard">
+        <id name="pid" column="PID" type="java.lang.Integer">
+            <generator class=""/>
+        </id>
+ 
+        <property name="subject" column="Subject" type="java.lang.String" />
+        <property name="body" column="Body" type="java.lang.String" />
+        <property name="date" column="Date" type="java.util.Date" />
+    </class>
+    
+</hibernate-mapping>

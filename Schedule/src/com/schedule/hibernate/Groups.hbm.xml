@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Jun 23 21:59:38 CEST 2005                         -->
+<hibernate-mapping package="com.schedule.hibernate">
+
+    <class name="Groups" table="Groups">
+        <composite-id name="id" class="GroupsKey">
+            <key-property name="gid" column="GID" type="java.lang.Integer"/>
+            <key-property name="pid" column="PID" type="java.lang.Integer"/>
+        </composite-id>
+ 
+        <property name="name" column="Name" type="java.lang.String" />
+        <property name="description" column="Description" type="java.lang.String" />
+    </class>
+    
+</hibernate-mapping>

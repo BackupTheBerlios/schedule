@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN" "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<faces-config>
+
+    <navigation-rule>
+        <from-view-id>/login.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>usersuccess</from-outcome>
+            <to-view-id>/main.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adminsuccess</from-outcome>
+            <to-view-id>/adminmain.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/login.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <managed-bean>
+        <description>Bean which represents a user.</description>
+        <managed-bean-name>UserBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.User</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <description>Bean which represents a users login.</description>
+        <managed-bean-name>LoginBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Login</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <description>Bean which represents a usergroup.</description>
+        <managed-bean-name>GroupBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Groups</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <description>Bean which represents a project.</description>
+        <managed-bean-name>ProjectBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.project</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <description>Bean which represents a user role.</description>
+        <managed-bean-name>RoleBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Roles</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+     <managed-bean>
+        <description>Bean which represents a message.</description>
+        <managed-bean-name>MessageBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Messages</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <description>Bean which represents a task</description>
+        <managed-bean-name>TaskBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Tasks</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <description>Bean which represents an appointment.</description>
+        <managed-bean-name>AppointmentBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Appointments</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <description>Bean which represents a users preferences.</description>
+        <managed-bean-name>PreferenceBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Preferences</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <description>Bean which represents a projects blackboard.</description>
+        <managed-bean-name>BlackboardBean</managed-bean-name>
+        <managed-bean-class>com.schedule.hibernate.Blackboard</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+</faces-config>
+
