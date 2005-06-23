@@ -40,7 +40,7 @@ public class Login
     			return "usersuccess";
     		}
     		
-    		if(this.getScreenname().equals("admin") && this.getPasswort().equals("admin"))
+    		if(this.getScreenname().equals("admin") && this.getPasswort().equals("adminpass"))
 		{
     			return "adminsuccess";
 		}
