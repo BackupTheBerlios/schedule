@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 2.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- properties -->
+        <property name="connection.username">s0503706</property>
+        <property name="connection.url">jdbc:postgresql://io.f4.fhtw-berlin.de:5432/s0503706</property>
+        <property name="dialect">net.sf.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="connection.password">hotsauce</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- mapping files -->
+        <!-- The following mapping element was auto-generated in -->
+        <!-- order for this file to conform to the Hibernate DTD -->
+        <mapping resource="Add valid path"/>
+
+    </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+   type="WEB"
+   name="Schedule"
+   id="myeclipse.1119516272000"
+   context-root="/Schedule"
+   j2ee-spec="1.4"
+   archive="Schedule.war">
+   <attributes>
+      <attribute name="webrootdir" value="&lt;prjroot&gt;" />
+   </attributes>
+</project-module>
+

@@ -1,0 +1,20 @@
+#
+#Thu Jun 23 10:49:53 CEST 2005
+config.password=hotsauce
+config.jarFiles[0]=C\:\\Java\\PostgreSQL JDBC Driver\\postgresql-8.0-311.jdbc3.jar
+config.name=PostgreSQL DB im F4
+config.username=s0503706
+config.dialect=PostgreSQL
+config.className=org.postgresql.Driver
+config.configFilepath=/Schedule/src/com/schedule/hibernate
+libInstallFolder=/WEB-INF/lib
+addLibs2Project=true
+config.url=jdbc\:postgresql\://io.f4.fhtw-berlin.de\:5432/s0503706
+config.configFilename=hibernate.cfg.xml
+config.useDriver=true
+configFile=/Schedule/src/com/schedule/hibernate/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=true
+config.basePersistenceClass=
+config.keyGenerator=
+config.copyJarFiles=true
