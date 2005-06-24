@@ -4,88 +4,112 @@
 <faces-config>
 
     <navigation-rule>
-        <from-view-id>/login.jsp</from-view-id>
+        <from-view-id>/pages/login.jsp</from-view-id>
         <navigation-case>
             <from-outcome>usersuccess</from-outcome>
-            <to-view-id>/main.jsp</to-view-id>
+            <to-view-id>/pages/main.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>adminsuccess</from-outcome>
-            <to-view-id>/adminmain.jsp</to-view-id>
+            <to-view-id>/pages/adminmain.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>failure</from-outcome>
-            <to-view-id>/login.jsp</to-view-id>
+            <to-view-id>/pages/login.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/pages/register.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/loginregistration.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/pages/register.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/pages/loginregistration.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/login.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/pages/loginregister.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <managed-bean>
         <description>Bean which represents a user.</description>
         <managed-bean-name>UserBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.User</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.UserBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <description>Bean which represents a users login.</description>
         <managed-bean-name>LoginBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Login</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.LoginBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <description>Bean which represents a usergroup.</description>
         <managed-bean-name>GroupBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Groups</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.GroupBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <description>Bean which represents a project.</description>
         <managed-bean-name>ProjectBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.project</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.ProjectBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <description>Bean which represents a user role.</description>
         <managed-bean-name>RoleBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Roles</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.RoleBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
      <managed-bean>
         <description>Bean which represents a message.</description>
         <managed-bean-name>MessageBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Messages</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.MessageBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
         <description>Bean which represents a task</description>
         <managed-bean-name>TaskBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Tasks</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.TaskBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
         <description>Bean which represents an appointment.</description>
         <managed-bean-name>AppointmentBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Appointments</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.AppointmentBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
         <description>Bean which represents a users preferences.</description>
         <managed-bean-name>PreferenceBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Preferences</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.PreferencesBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
         <description>Bean which represents a projects blackboard.</description>
         <managed-bean-name>BlackboardBean</managed-bean-name>
-        <managed-bean-class>com.schedule.hibernate.Blackboard</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.BlackboardBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
