@@ -9,11 +9,12 @@
 
     <session-factory>
         <!-- properties -->
-        <property name="connection.username">s0503706</property>
-        <property name="connection.url">jdbc:postgresql://io.f4.fhtw-berlin.de:5432/s0503706</property>
-        <property name="dialect">net.sf.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="connection.username">s0503919</property>
+        <property name="connection.url">jdbc:mysql://io.f4.fhtw-berlin.de:3306/s0503919</property>
+        <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>
         <property name="connection.password">hotsauce</property>
-        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hbm2ddl.auto">create</property>
 
         <!-- mapping files -->
         <mapping resource="com/schedule/hibernate/Appointments.hbm.xml"/>

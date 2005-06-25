@@ -20,8 +20,17 @@ public abstract class AbstractUser
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer uid;
+    private java.lang.Integer idUser;
 
+    /** Wert für den Foreign Key "Role */
+    private java.lang.Integer idRole;
+    
+    /** Wert für den Foreign Key "Login" */
+    private java.lang.Integer idLogin;
+    
+    /** Wert für den Foreign Key "Preferences" */
+    private java.lang.Integer idPreferences;
+    
     /** The value of the simple lastname property. */
     private java.lang.String lastname;
 
@@ -57,30 +66,85 @@ public abstract class AbstractUser
      * Constructor of AbstractUser instances given a simple primary key.
      * @param uid
      */
-    public AbstractUser(java.lang.Integer uid)
+    public AbstractUser(java.lang.Integer idUser)
     {
-        this.setUid(uid);
+        this.setIdUser(idUser);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getUid()
+    public java.lang.Integer getIdUser()
     {
-        return uid;
+        return idUser;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
-     * @param uid
+     * @param idUser
      */
-    public void setUid(java.lang.Integer uid)
+    public void setIdUser(java.lang.Integer idUser)
     {
         this.hashValue = 0;
-        this.uid = uid;
+        this.idUser = idUser;
     }
 
+    /**
+     * Gibt den Wert für den Forgeign Key "Role" zurück
+     * @return idRole
+     */
+    public java.lang.Integer getIdRole()
+    {
+    	return idRole;
+    }
+    
+    /**
+     * Setzt den Wert für den Foreign Key "Role"
+     * @param idRole
+     */
+    public void setIdRole(java.lang.Integer idRole)
+    {
+    	this.idRole = idRole;
+    }
+    
+    /**
+     * Gibt den Wert für den Forgeign Key "Login" zurück
+     * @return idRole
+     */
+    public java.lang.Integer getIdLogin()
+    {
+    	return idLogin;
+    }
+    
+    /**
+     * Setzt den Wert für den Foreign Key "Role"
+     * @param idRole
+     */
+    public void setIdLogin(java.lang.Integer idLogin)
+    {
+    	this.idLogin = idLogin;
+    }
+    
+    /**
+     * Gibt den Wert für den Forgeign Key "Login" zurück
+     * @return idRole
+     */
+    public java.lang.Integer getIdPreferences()
+    {
+    	return idPreferences;
+    }
+    
+    /**
+     * Setzt den Wert für den Foreign Key "Role"
+     * @param idRole
+     */
+    
+    public void setIdPreferences(java.lang.Integer idPreferences)
+    {
+    	this.idPreferences = idPreferences;
+    }
+    
     /**
      * Return the value of the Lastname column.
      * @return java.lang.String
@@ -237,9 +301,9 @@ public abstract class AbstractUser
         if (! (rhs instanceof User))
             return false;
         User that = (User) rhs;
-        if (this.getUid() != null && that.getUid() != null)
+        if (this.getIdUser() != null && that.getIdUser() != null)
         {
-            if (! this.getUid().equals(that.getUid()))
+            if (! this.getIdUser().equals(that.getIdUser()))
             {
                 return false;
             }
@@ -257,7 +321,7 @@ public abstract class AbstractUser
         if (this.hashValue == 0)
         {
             int result = 17;
-            int uidValue = this.getUid() == null ? 0 : this.getUid().hashCode();
+            int uidValue = this.getIdUser() == null ? 0 : this.getIdUser().hashCode();
             result = result * 37 + uidValue;
             this.hashValue = result;
         }

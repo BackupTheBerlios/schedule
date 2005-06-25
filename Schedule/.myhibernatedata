@@ -1,19 +1,19 @@
 #
-#Thu Jun 23 22:01:01 CEST 2005
+#Sun Jun 26 00:48:12 CEST 2005
 config.password=hotsauce
 config.jarFiles[0]=C\:\\Java\\PostgreSQL JDBC Driver\\postgresql-8.0-311.jdbc3.jar
 config.name=PostgreSQL DB im F4
 config.mappings[0]=com/schedule/hibernate/Appointments.hbm.xml
-config.mappings[3]=com/schedule/hibernate/Messages.hbm.xml
-config.mappings[6]=com/schedule/hibernate/Preferences.hbm.xml
+config.mappings[3]=com/schedule/hibernate/User.hbm.xml
+config.mappings[6]=com/schedule/hibernate/Roles.hbm.xml
 config.username=s0503706
-config.mappings[9]=com/schedule/hibernate/User.hbm.xml
+config.mappings[9]=com/schedule/hibernate/Tasks.hbm.xml
 config.dialect=PostgreSQL
 config.className=org.postgresql.Driver
 config.configFilepath=/Schedule/src/com/schedule/hibernate
-config.mappings[1]=com/schedule/hibernate/Blackboard.hbm.xml
-config.mappings[4]=com/schedule/hibernate/Login.hbm.xml
-config.mappings[7]=com/schedule/hibernate/Roles.hbm.xml
+config.mappings[1]=com/schedule/hibernate/Messages.hbm.xml
+config.mappings[4]=com/schedule/hibernate/Blackboard.hbm.xml
+config.mappings[7]=com/schedule/hibernate/Projects.hbm.xml
 libInstallFolder=/WEB-INF/lib
 addLibs2Project=true
 config.url=jdbc\:postgresql\://io.f4.fhtw-berlin.de\:5432/s0503706
@@ -21,10 +21,10 @@ config.configFilename=hibernate.cfg.xml
 config.useDriver=true
 configFile=/Schedule/src/com/schedule/hibernate/hibernate.cfg.xml
 createConfigFile=true
-config.mappings[2]=com/schedule/hibernate/Projects.hbm.xml
+config.mappings[2]=com/schedule/hibernate/Preferences.hbm.xml
 addLibs2Classpath=true
-config.mappings[5]=com/schedule/hibernate/Groups.hbm.xml
-config.mappings[8]=com/schedule/hibernate/Tasks.hbm.xml
+config.mappings[5]=com/schedule/hibernate/Login.hbm.xml
+config.mappings[8]=com/schedule/hibernate/Groups.hbm.xml
 config.basePersistenceClass=
 config.keyGenerator=
 config.copyJarFiles=true

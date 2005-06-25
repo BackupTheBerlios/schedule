@@ -20,7 +20,7 @@ public abstract class AbstractRoles
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer uid;
+    private java.lang.Integer idRole;
 
     /** The value of the simple name property. */
     private java.lang.String name;
@@ -39,9 +39,9 @@ public abstract class AbstractRoles
      * Constructor of AbstractRoles instances given a simple primary key.
      * @param uid
      */
-    public AbstractRoles(java.lang.Integer uid)
+    public AbstractRoles(java.lang.Integer idRole)
     {
-        this.setUid(uid);
+        this.setUid(idRole);
     }
 
     /**
@@ -50,17 +50,17 @@ public abstract class AbstractRoles
      */
     public java.lang.Integer getUid()
     {
-        return uid;
+        return idRole;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
      * @param uid
      */
-    public void setUid(java.lang.Integer uid)
+    public void setUid(java.lang.Integer idRole)
     {
         this.hashValue = 0;
-        this.uid = uid;
+        this.idRole = idRole;
     }
 
     /**

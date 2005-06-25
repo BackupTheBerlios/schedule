@@ -10,7 +10,7 @@
 
     <class name="Projects" table="Projects">
         <id name="pid" column="PID" type="java.lang.Integer">
-            <generator class=""/>
+            <generator class="native"/>
         </id>
  
         <property name="name" column="Name" type="java.lang.String" />

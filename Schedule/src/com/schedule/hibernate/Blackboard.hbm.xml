@@ -9,8 +9,8 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Blackboard" table="Blackboard">
-        <id name="pid" column="PID" type="java.lang.Integer">
-            <generator class=""/>
+        <id name="pid" column="idBlackboard" type="java.lang.Integer">
+            <generator class="native"/>
         </id>
  
         <property name="subject" column="Subject" type="java.lang.String" />

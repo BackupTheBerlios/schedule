@@ -20,7 +20,7 @@ public abstract class AbstractPreferences
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer uid;
+    private java.lang.Integer idPreferences;
 
     /**
      * Simple constructor of AbstractPreferences instances.
@@ -33,28 +33,28 @@ public abstract class AbstractPreferences
      * Constructor of AbstractPreferences instances given a simple primary key.
      * @param uid
      */
-    public AbstractPreferences(java.lang.Integer uid)
+    public AbstractPreferences(java.lang.Integer idPreferences)
     {
-        this.setUid(uid);
+        this.setIdPreferences(idPreferences);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getUid()
+    public java.lang.Integer getIdPreferences()
     {
-        return uid;
+        return idPreferences;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
      * @param uid
      */
-    public void setUid(java.lang.Integer uid)
+    public void setIdPreferences(java.lang.Integer idPreferences)
     {
         this.hashValue = 0;
-        this.uid = uid;
+        this.idPreferences = idPreferences;
     }
 
     /**
@@ -69,9 +69,9 @@ public abstract class AbstractPreferences
         if (! (rhs instanceof Preferences))
             return false;
         Preferences that = (Preferences) rhs;
-        if (this.getUid() != null && that.getUid() != null)
+        if (this.getIdPreferences() != null && that.getIdPreferences() != null)
         {
-            if (! this.getUid().equals(that.getUid()))
+            if (! this.getIdPreferences().equals(that.getIdPreferences()))
             {
                 return false;
             }
@@ -89,7 +89,7 @@ public abstract class AbstractPreferences
         if (this.hashValue == 0)
         {
             int result = 17;
-            int uidValue = this.getUid() == null ? 0 : this.getUid().hashCode();
+            int uidValue = this.getIdPreferences() == null ? 0 : this.getIdPreferences().hashCode();
             result = result * 37 + uidValue;
             this.hashValue = result;
         }

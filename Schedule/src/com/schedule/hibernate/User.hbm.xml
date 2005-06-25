@@ -9,9 +9,15 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="User" table="User">
-        <id name="uid" column="UID" type="java.lang.Integer">
-            <generator class=""/>
+        <id name="idUser" column="idUser" type="java.lang.Integer">
+            <generator class="native"/>
         </id>
+        <!-- jeder User kann genau eine Rolle haben -->
+        <many-to-one name="idRole" column="idRoles" class="Roles" unique="true" not-null="true" />
+ 		<!--  jeder User kann genau einen Login haben -->
+ 		<many-to-one name="idLogin" column="idLogin" class="Login" unique="true" not-null="true" />
+ 		<!--  jeder User kann mehrere Preferences haben - muss jedoch wenigstens eine Preference haben, da not null -->
+ 		<many-to-one name="idPreferences" column="idPreferences" class="Preferences" not-null="true" />
  
         <property name="lastname" column="Lastname" type="java.lang.String" />
         <property name="firstname" column="Firstname" type="java.lang.String" />
