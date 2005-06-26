@@ -9,6 +9,13 @@ package com.schedule.jsfbeans;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Session;
+
+import com.schedule.hibernate.HibernateManager;
+import com.schedule.hibernate.Login;
+
+
 /**
  * @author reinhard
  *
@@ -35,6 +42,7 @@ public class LoginBean {
 
     public String loginUser()
     {
+    	
     		if(this.getScreenname().equals("testuser") && this.getPassword().equals("password"))
     		{
     			return "usersuccess";
@@ -54,7 +62,29 @@ public class LoginBean {
     public String registerLogin()
     {
     		if(this.getScreenname()!=null && this.getPassword()!=null)
-    		{
+    		{		Session hbmsession = HibernateManager.getSession();
+	    	HibernateManager.beginTransaction();
+	    	
+	    	
+			
+			Login hbmlogin = new Login();
+			hbmlogin.setPasswort(this.password);
+			hbmlogin.setScreenname(this.screenname);
+			try {
+				hbmsession.saveOrUpdate(hbmlogin);
+			} catch (HibernateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			HibernateManager.commitTransaction();
+			try {
+				hbmsession.flush();
+			} catch (HibernateException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+    			
+    			
     			return "success";
     		}
     		
