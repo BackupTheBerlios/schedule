@@ -27,18 +27,49 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		//Objekt erzeugen
-		Roles neueRolle = new Roles();
-		neueRolle.setName("Admin");
-		neueRolle.setDescription("Systemadministrator");
 		
+		
+				
 		try {
 			//Hibernate Session erzeugen
 			Session session = HibernateSessionFactory.currentSession();
 			//Transaktion erzeugen
 			Transaction tx = session.beginTransaction();
+			
+//			Objekt erzeugen
+			Roles neueRolle = new Roles();
+			neueRolle.setName("Admin");
+			neueRolle.setDescription("Systemadministrator");
+			User us = new User();
+			us.setFirstname("Helmut");
+			us.setCity("Berlin");
+			us.setStreet("hallostreet");
+			us.setLastname("Schmidt");
+			us.setEmail("mail@hallo.de");
+			us.setPhone("1321321");
+			us.setTitle("Dr.");
+			us.setZip(new Integer(23232));
+			
+			Login lg =  new Login();
+			lg.setPasswort("test");
+			lg.setScreenname("fosion");
+
+			Preferences p = new Preferences();
+			
+			
 			//neues Objekt speichern
 			session.save(neueRolle);
+			session.save(lg);
+			session.save(p);
+			//Rollen ID zuweisen , diese gibt es nach dem gespeichert wurde...
+			
+			us.setIdRole(neueRolle.getIdRole());
+			us.setIdLogin(lg.getUid());
+			us.setIdPreferences(p.getIdPreferences());
+			us.setIdUser(lg.getUid());
+			//User speichern
+			//session.save(us);
+			session.flush();
 			//Transaktion an DB schicken
 			tx.commit();
 			//Debug-Ausgabe
