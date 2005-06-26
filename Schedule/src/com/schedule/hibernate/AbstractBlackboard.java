@@ -20,7 +20,7 @@ public abstract class AbstractBlackboard
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer pid;
+    private java.lang.Integer idBlackboard;
 
     /** The value of the simple subject property. */
     private java.lang.String subject;
@@ -42,28 +42,28 @@ public abstract class AbstractBlackboard
      * Constructor of AbstractBlackboard instances given a simple primary key.
      * @param pid
      */
-    public AbstractBlackboard(java.lang.Integer pid)
+    public AbstractBlackboard(java.lang.Integer idBlackboard)
     {
-        this.setPid(pid);
+        this.setIdBlackboard(idBlackboard);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getPid()
+    public java.lang.Integer getIdBlackboard()
     {
-        return pid;
+        return idBlackboard;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
      * @param pid
      */
-    public void setPid(java.lang.Integer pid)
+    public void setIdBlackboard(java.lang.Integer idBlackboard)
     {
         this.hashValue = 0;
-        this.pid = pid;
+        this.idBlackboard = idBlackboard;
     }
 
     /**
@@ -132,9 +132,9 @@ public abstract class AbstractBlackboard
         if (! (rhs instanceof Blackboard))
             return false;
         Blackboard that = (Blackboard) rhs;
-        if (this.getPid() != null && that.getPid() != null)
+        if (this.getIdBlackboard() != null && that.getIdBlackboard() != null)
         {
-            if (! this.getPid().equals(that.getPid()))
+            if (! this.getIdBlackboard().equals(that.getIdBlackboard()))
             {
                 return false;
             }
@@ -152,7 +152,7 @@ public abstract class AbstractBlackboard
         if (this.hashValue == 0)
         {
             int result = 17;
-            int pidValue = this.getPid() == null ? 0 : this.getPid().hashCode();
+            int pidValue = this.getIdBlackboard() == null ? 0 : this.getIdBlackboard().hashCode();
             result = result * 37 + pidValue;
             this.hashValue = result;
         }

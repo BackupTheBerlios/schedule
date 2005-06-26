@@ -20,8 +20,14 @@ public abstract class AbstractProjects
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer pid;
+    private java.lang.Integer idProjects;
 
+    /** Wert des Foreign Keys "Tasks" */
+    private java.lang.Integer idTasks;
+    
+    /** Wert des Foreign Keys "Blackboard */
+    private java.lang.Integer idBlackboard;
+    
     /** The value of the simple name property. */
     private java.lang.String name;
 
@@ -39,30 +45,66 @@ public abstract class AbstractProjects
      * Constructor of AbstractProjects instances given a simple primary key.
      * @param pid
      */
-    public AbstractProjects(java.lang.Integer pid)
+    public AbstractProjects(java.lang.Integer idProjects)
     {
-        this.setPid(pid);
+        this.setIdProjects(idProjects);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getPid()
+    public java.lang.Integer getIdProjects()
     {
-        return pid;
+        return idProjects;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
-     * @param pid
+     * @param idProjects
      */
-    public void setPid(java.lang.Integer pid)
+    public void setIdProjects(java.lang.Integer idProjects)
     {
         this.hashValue = 0;
-        this.pid = pid;
+        this.idProjects = idProjects;
+    }
+    
+    /**
+     * Liefert den Wert für den Foreign Key "Tasks" zurück
+     * @return java.lang.Integer
+     */
+    public java.lang.Integer getIdTasks()
+    {
+        return idTasks;
     }
 
+    /**
+     * Setzt den Wert für den Foreign Key "Tasks"
+     * @param idTasks
+     */
+    public void setIdTasks(java.lang.Integer idTasks)
+    {
+        this.idTasks = idTasks;
+    }
+
+    /**
+     * Liefert den Wert für den Foreign Key "Blackboard" zurück
+     * @return java.lang.Integer
+     */
+    public java.lang.Integer getIdBlackboard()
+    {
+        return idBlackboard;
+    }
+
+    /**
+     * Setzt den Wert für den Foreign Key "Blackboard"
+     * @param idBlackboard
+     */
+    public void setIdBlackboard(java.lang.Integer idBlackboard)
+    {
+        this.idBlackboard = idBlackboard;
+    }
+    
     /**
      * Return the value of the Name column.
      * @return java.lang.String
@@ -111,9 +153,9 @@ public abstract class AbstractProjects
         if (! (rhs instanceof Projects))
             return false;
         Projects that = (Projects) rhs;
-        if (this.getPid() != null && that.getPid() != null)
+        if (this.getIdProjects() != null && that.getIdProjects() != null)
         {
-            if (! this.getPid().equals(that.getPid()))
+            if (! this.getIdProjects().equals(that.getIdProjects()))
             {
                 return false;
             }
@@ -131,7 +173,7 @@ public abstract class AbstractProjects
         if (this.hashValue == 0)
         {
             int result = 17;
-            int pidValue = this.getPid() == null ? 0 : this.getPid().hashCode();
+            int pidValue = this.getIdProjects() == null ? 0 : this.getIdProjects().hashCode();
             result = result * 37 + pidValue;
             this.hashValue = result;
         }

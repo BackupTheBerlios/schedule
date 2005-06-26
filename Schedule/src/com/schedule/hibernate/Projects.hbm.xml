@@ -9,10 +9,14 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Projects" table="Projects">
-        <id name="pid" column="PID" type="java.lang.Integer">
+        <id name="idProjects" column="idProjects">
             <generator class="native"/>
         </id>
- 
+        <!-- ein Projekt enthält ein oder mehrere Tasks -->
+ 		<many-to-one name="idTasks" column="idTasks" class="Tasks" not-null="true" />
+ 		<!-- ein Projekt enthält ein oder mehrere Blackboard-Einträge -->
+ 		<many-to-one name="idBlackboard" column="idBlackboard" class="Blackboard" not-null="true" />
+ 		
         <property name="name" column="Name" type="java.lang.String" />
         <property name="description" column="Description" type="java.lang.String" />
     </class>

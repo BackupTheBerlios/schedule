@@ -9,7 +9,7 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Roles" table="Roles">
-        <id name="uid" column="idRoles">
+        <id name="idRole" column="idRoles">
             <generator class="native"/>
         </id>
  

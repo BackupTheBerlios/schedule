@@ -41,14 +41,14 @@ public abstract class AbstractRoles
      */
     public AbstractRoles(java.lang.Integer idRole)
     {
-        this.setUid(idRole);
+        this.setIdRole(idRole);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getUid()
+    public java.lang.Integer getIdRole()
     {
         return idRole;
     }
@@ -57,7 +57,7 @@ public abstract class AbstractRoles
      * Set the simple primary key value that identifies this object.
      * @param uid
      */
-    public void setUid(java.lang.Integer idRole)
+    public void setIdRole(java.lang.Integer idRole)
     {
         this.hashValue = 0;
         this.idRole = idRole;
@@ -111,9 +111,9 @@ public abstract class AbstractRoles
         if (! (rhs instanceof Roles))
             return false;
         Roles that = (Roles) rhs;
-        if (this.getUid() != null && that.getUid() != null)
+        if (this.getIdRole() != null && that.getIdRole() != null)
         {
-            if (! this.getUid().equals(that.getUid()))
+            if (! this.getIdRole().equals(that.getIdRole()))
             {
                 return false;
             }
@@ -131,7 +131,7 @@ public abstract class AbstractRoles
         if (this.hashValue == 0)
         {
             int result = 17;
-            int uidValue = this.getUid() == null ? 0 : this.getUid().hashCode();
+            int uidValue = this.getIdRole() == null ? 0 : this.getIdRole().hashCode();
             result = result * 37 + uidValue;
             this.hashValue = result;
         }

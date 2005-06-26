@@ -20,7 +20,7 @@ public abstract class AbstractTasks
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer tid;
+    private java.lang.Integer idTasks;
 
     /** The value of the simple subject property. */
     private java.lang.String subject;
@@ -45,28 +45,28 @@ public abstract class AbstractTasks
      * Constructor of AbstractTasks instances given a simple primary key.
      * @param tid
      */
-    public AbstractTasks(java.lang.Integer tid)
+    public AbstractTasks(java.lang.Integer idTasks)
     {
-        this.setTid(tid);
+        this.setIdTasks(idTasks);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getTid()
+    public java.lang.Integer getIdTasks()
     {
-        return tid;
+        return idTasks;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
-     * @param tid
+     * @param idTasks
      */
-    public void setTid(java.lang.Integer tid)
+    public void setIdTasks(java.lang.Integer idTasks)
     {
         this.hashValue = 0;
-        this.tid = tid;
+        this.idTasks = idTasks;
     }
 
     /**
@@ -153,9 +153,9 @@ public abstract class AbstractTasks
         if (! (rhs instanceof Tasks))
             return false;
         Tasks that = (Tasks) rhs;
-        if (this.getTid() != null && that.getTid() != null)
+        if (this.getIdTasks() != null && that.getIdTasks() != null)
         {
-            if (! this.getTid().equals(that.getTid()))
+            if (! this.getIdTasks().equals(that.getIdTasks()))
             {
                 return false;
             }
@@ -173,7 +173,7 @@ public abstract class AbstractTasks
         if (this.hashValue == 0)
         {
             int result = 17;
-            int tidValue = this.getTid() == null ? 0 : this.getTid().hashCode();
+            int tidValue = this.getIdTasks() == null ? 0 : this.getIdTasks().hashCode();
             result = result * 37 + tidValue;
             this.hashValue = result;
         }
