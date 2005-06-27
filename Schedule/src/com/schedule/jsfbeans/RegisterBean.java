@@ -55,7 +55,10 @@ public class RegisterBean {
     private java.lang.Integer zip;
     
     
-    
+    /**
+     * Registers a new user with the system
+     * @return "success" or "failure"
+     */
     public String register()
     {
 		Session hbmsession = HibernateManager.getSession();

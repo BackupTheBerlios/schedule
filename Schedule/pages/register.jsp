@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h2><h:outputText value="#{bundle.registration_header}" /></h2>
 
         <p>
-        <h:outputText value="#{bundle.register_login_comment}" />
+        <h:outputText value="#{bundle.register_comment}" />
         </p>
         
         <h:form id="loginRegisterForm">
