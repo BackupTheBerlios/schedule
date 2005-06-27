@@ -45,7 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </h:inputSecret></td>
                 <td><h:message for="regPassword" style="font-weight: bold; color: #FF0000;"/>
             </tr>
-            
+            <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>
             <tr>
                 <td><h:outputText value="#{bundle.register_title}" /></td>
                 <td><h:inputText id="regTitle" value="#{RegisterBean.title}">

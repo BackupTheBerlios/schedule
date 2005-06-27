@@ -95,10 +95,8 @@ public class RegisterBean {
 			e1.printStackTrace();
 			return "failure";
 		}
-			
-			
+		
 		return "success";
-
     }
 	
 	
