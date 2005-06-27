@@ -55,6 +55,12 @@ public abstract class AbstractUser
     /** The value of the simple zip property. */
     private java.lang.Integer zip;
 
+    /** Aktuelle Projekte des Nutzers */
+    private java.util.Set projects;
+    
+    /** Alle Gruppen denen dieser User angehört */
+    private java.util.Set groups;
+    
     /**
      * Simple constructor of AbstractUser instances.
      */
@@ -289,6 +295,42 @@ public abstract class AbstractUser
         this.zip = zip;
     }
 
+    /**
+     * Liefert die aktuellen Projekte des Nutzers zurück
+     * @return projects 
+     */
+    public java.util.Set getProjects()
+    {
+    	return projects;
+    }
+
+    /**
+     * Setzt die Projekte des Nutzers
+     * @param projects
+     */
+    public void setProjects(java.util.Set projects)
+    {
+    	this.projects = projects;
+    }
+    
+    /**
+     * liefert alle Gruppen zurück denen dieser User angehört
+     * @return java.util.Set groups
+     */
+    public java.util.Set getGroups()
+    {
+    	return groups;
+    }
+    
+    /**
+     * setzt die Gruppen denen der User angehört
+     * @param groups
+     */
+    public void setGroups(java.util.Set groups)
+    {
+    	this.groups = groups;
+    }
+    
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs

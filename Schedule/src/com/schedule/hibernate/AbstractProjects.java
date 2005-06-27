@@ -7,6 +7,7 @@
 package com.schedule.hibernate;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * A class that represents a row in the Projects table. 
@@ -34,6 +35,9 @@ public abstract class AbstractProjects
     /** The value of the simple description property. */
     private java.lang.String description;
 
+    /** Die aktuellen User, die dieses Projekt bearbeiten */
+    private Set users;
+    
     /**
      * Simple constructor of AbstractProjects instances.
      */
@@ -141,6 +145,24 @@ public abstract class AbstractProjects
         this.description = description;
     }
 
+    /**
+     * liefert die User zurück, die dieses Projekt bearbeiten
+     * @return java.util.Set users
+     */
+    public Set getUsers()
+    {
+    	return users;
+    }
+    
+    /**
+     * setzt die User, die dieses Projekt bearbeiten
+     * @param users
+     */
+    public void setUsers(Set users)
+    {
+    	this.users = users;
+    }
+    
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs

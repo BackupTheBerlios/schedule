@@ -16,6 +16,11 @@
  		<many-to-one name="idTasks" column="idTasks" class="Tasks" not-null="true" />
  		<!-- ein Projekt enthält ein oder mehrere Blackboard-Einträge -->
  		<many-to-one name="idBlackboard" column="idBlackboard" class="Blackboard" not-null="true" />
+ 		<!-- Mehrere Projekte können von mehreren Usern bearbeitet werden - bidirektionale Assoziation zur Tabelle User --> 
+ 		<set name="users" table="UserProjects" inverse="true">
+ 			<key column="idProjects" />
+ 			<many-to-many column="idUser" class="User" />	
+ 		</set>
  		
         <property name="name" column="Name" type="java.lang.String" />
         <property name="description" column="Description" type="java.lang.String" />

@@ -20,7 +20,7 @@ public abstract class AbstractLogin
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer uid;
+    private java.lang.Integer idLogin;
 
     /** The value of the simple screenname property. */
     private java.lang.String screenname;
@@ -42,28 +42,28 @@ public abstract class AbstractLogin
      * Constructor of AbstractLogin instances given a simple primary key.
      * @param uid
      */
-    public AbstractLogin(java.lang.Integer uid)
+    public AbstractLogin(java.lang.Integer idLogin)
     {
-        this.setUid(uid);
+        this.setIdLogin(idLogin);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getUid()
+    public java.lang.Integer getIdLogin()
     {
-        return uid;
+        return idLogin;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
      * @param uid
      */
-    public void setUid(java.lang.Integer uid)
+    public void setIdLogin(java.lang.Integer idLogin)
     {
         this.hashValue = 0;
-        this.uid = uid;
+        this.idLogin = idLogin;
     }
 
     /**
@@ -132,9 +132,9 @@ public abstract class AbstractLogin
         if (! (rhs instanceof Login))
             return false;
         Login that = (Login) rhs;
-        if (this.getUid() != null && that.getUid() != null)
+        if (this.getIdLogin() != null && that.getIdLogin() != null)
         {
-            if (! this.getUid().equals(that.getUid()))
+            if (! this.getIdLogin().equals(that.getIdLogin()))
             {
                 return false;
             }
@@ -152,7 +152,7 @@ public abstract class AbstractLogin
         if (this.hashValue == 0)
         {
             int result = 17;
-            int uidValue = this.getUid() == null ? 0 : this.getUid().hashCode();
+            int uidValue = this.getIdLogin() == null ? 0 : this.getIdLogin().hashCode();
             result = result * 37 + uidValue;
             this.hashValue = result;
         }

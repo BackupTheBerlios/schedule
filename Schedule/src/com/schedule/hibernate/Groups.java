@@ -25,9 +25,9 @@ public class Groups
      * Constructor of Groups instances given a composite primary key.
      * @param id
      */
-    public Groups(GroupsKey id)
+    public Groups(java.lang.Integer idGroups)
     {
-        super(id);
+        super(idGroups);
     }
 
     /* Add customized code below */

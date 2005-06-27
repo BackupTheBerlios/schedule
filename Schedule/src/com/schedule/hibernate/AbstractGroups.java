@@ -20,7 +20,7 @@ public abstract class AbstractGroups
     private int hashValue = 0;
 
     /** The simple primary key value. */
-    private GroupsKey id;
+    private java.lang.Integer idGroups;
 
     /** The value of the simple name property. */
     private java.lang.String name;
@@ -28,6 +28,9 @@ public abstract class AbstractGroups
     /** The value of the simple description property. */
     private java.lang.String description;
 
+    /** Alle User die zu dieser Gruppe gehören */
+    private java.util.Set user;
+    
     /**
      * Simple constructor of AbstractGroups instances.
      */
@@ -39,28 +42,28 @@ public abstract class AbstractGroups
      * Constructor of AbstractGroups instances given a composite primary key.
      * @param id
      */
-    public AbstractGroups(GroupsKey id)
+    public AbstractGroups(java.lang.Integer idGroups)
     {
-        this.setId(id);
+        this.setIdGroups(idGroups);
     }
 
     /**
      * Return the composite id instance that identifies this object.
      * @return GroupsKey
      */
-    public GroupsKey getId()
+    public java.lang.Integer getIdGroups()
     {
-        return this.id;
+        return this.idGroups;
     }
 
     /**
      * Set the composite id instance that identifies this object.
      * @param id
      */
-    public void setId(GroupsKey id)
+    public void setIdGroups(java.lang.Integer idGroups)
     {
         this.hashValue = 0;
-        this.id = id;
+        this.idGroups = idGroups;
     }
 
     /**
@@ -100,6 +103,24 @@ public abstract class AbstractGroups
     }
 
     /**
+     * liefert alle User dieser Gruppe zurück
+     * @return java.util.Set user
+     */
+    public java.util.Set getUser()
+    {
+    	return user;
+    }
+    
+    /**
+     * setzt die User in dieser Gruppe
+     * @param user
+     */
+    public void setUser(java.util.Set user)
+    {
+    	this.user = user;
+    }
+    
+    /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs
      * @return boolean
@@ -111,9 +132,9 @@ public abstract class AbstractGroups
         if (! (rhs instanceof Groups))
             return false;
         Groups that = (Groups) rhs;
-        if (this.getId() != null && that.getId() != null)
+        if (this.getIdGroups() != null && that.getIdGroups() != null)
         {
-            return (this.getId().equals(that.getId()));
+            return (this.getIdGroups().equals(that.getIdGroups()));
         }
         return true;
     }
@@ -128,13 +149,13 @@ public abstract class AbstractGroups
         if (this.hashValue == 0)
         {
             int result = 17;
-            if (this.getId() == null)
+            if (this.getIdGroups() == null)
             {
                 result = super.hashCode();
             }
             else
             {
-                result = this.getId().hashCode();
+                result = this.getIdGroups().hashCode();
             }
             this.hashValue = result;
         }

@@ -18,7 +18,16 @@
  		<many-to-one name="idLogin" column="idLogin" class="Login" unique="true" not-null="true" />
  		<!--  jeder User kann mehrere Preferences haben - muss jedoch wenigstens eine Preference haben, da not null -->
  		<many-to-one name="idPreferences" column="idPreferences" class="Preferences" not-null="true" />
- 
+ 		<!-- Mehrere User können mehrere Projekte bearbeiten - bidirektionale Assoziation zur Tabelle Projekte -->
+ 		<set name="projects" table="UserProjects">
+ 			<key column="idUser" />
+ 			<many-to-many column="idProjects" class="Projects" />
+ 		</set>
+ 		<set name="groups" table="UserGroups" inverse="true">
+ 			<key column="idUser" />
+ 			<many-to-many column="idGroups" class="Groups" />
+ 		</set>
+ 		
         <property name="lastname" column="Lastname" type="java.lang.String" />
         <property name="firstname" column="Firstname" type="java.lang.String" />
         <property name="title" column="Title" type="java.lang.String" />

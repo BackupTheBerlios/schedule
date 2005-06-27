@@ -27,9 +27,6 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		
-		
-				
 		try {
 			//Hibernate Session erzeugen
 			Session session = HibernateSessionFactory.currentSession();
@@ -64,11 +61,11 @@ public class Test {
 			//Rollen ID zuweisen , diese gibt es nach dem gespeichert wurde...
 			
 			us.setIdRole(neueRolle.getIdRole());
-			us.setIdLogin(lg.getUid());
+			us.setIdLogin(lg.getIdLogin());
 			us.setIdPreferences(p.getIdPreferences());
-			us.setIdUser(lg.getUid());
+			
 			//User speichern
-			//session.save(us);
+			session.save(us);
 			session.flush();
 			//Transaktion an DB schicken
 			tx.commit();
@@ -86,7 +83,6 @@ public class Test {
 				e1.printStackTrace();
 			}
 		}
-		
 		
 	}
 }

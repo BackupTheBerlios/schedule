@@ -9,7 +9,7 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Preferences" table="Preferences">
-        <id name="idPreferences" column="idPreferences">
+        <id name="idPreferences" column="idPreferences" type="java.lang.Integer">
             <generator class="native"/>
         </id>
  
