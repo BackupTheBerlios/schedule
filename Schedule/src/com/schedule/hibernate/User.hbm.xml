@@ -13,14 +13,7 @@
             <generator class="native"/>
         </id>
       
-        <!-- jeder User kann genau eine Rolle haben 
-        <many-to-one name="idRole" column="idRoles" class="Roles" unique="true" not-null="true" /> -->
- 		<!--  jeder User kann genau einen Login haben 
- 		<many-to-one name="idLogin" column="idLogin" class="Login" unique="true" not-null="true" /> -->
- 		<!--  jeder User kann mehrere Preferences haben - muss jedoch wenigstens eine Preference haben, da not null 
- 		<many-to-one name="idPreferences" column="idPreferences" class="Preferences" not-null="true" /> -->
- 		<!-- Mehrere User können mehrere Projekte bearbeiten - bidirektionale Assoziation zur Tabelle Projekte -->
- 		<set name="logins" inverse="true">
+        <set name="logins" inverse="true">
  			<key column="idUser"  />
  			<one-to-many class="Login"/>
  		</set>
@@ -31,6 +24,10 @@
  		<set name="groups" table="UserGroups" inverse="true">
  			<key column="idUser" />
  			<many-to-many column="idGroups" class="Groups" />
+ 		</set>
+ 		<set name="messages" inverse="true">
+ 			<key column="idUser" />
+ 			<one-to-many class="Messages" />
  		</set>
  		
         <property name="lastname" column="Lastname" type="java.lang.String" />

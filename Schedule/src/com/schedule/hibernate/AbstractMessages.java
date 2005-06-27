@@ -20,7 +20,7 @@ public abstract class AbstractMessages
     private int hashValue = 0;
 
     /** The simple primary key value. */
-    private MessagesKey id;
+    private java.lang.Integer idMessages;
 
     /** The value of the simple recipient property. */
     private java.lang.String recipient;
@@ -37,6 +37,9 @@ public abstract class AbstractMessages
     /** The value of the simple date property. */
     private java.util.Date date;
 
+    /** Der User der die Nachricht verfaßt hat */
+    private User user;
+    
     /**
      * Simple constructor of AbstractMessages instances.
      */
@@ -48,28 +51,28 @@ public abstract class AbstractMessages
      * Constructor of AbstractMessages instances given a composite primary key.
      * @param id
      */
-    public AbstractMessages(MessagesKey id)
+    public AbstractMessages(java.lang.Integer idMessages)
     {
-        this.setId(id);
+        this.setIdMessages(idMessages);
     }
 
     /**
      * Return the composite id instance that identifies this object.
      * @return MessagesKey
      */
-    public MessagesKey getId()
+    public java.lang.Integer getIdMessages()
     {
-        return this.id;
+        return this.idMessages;
     }
 
     /**
      * Set the composite id instance that identifies this object.
      * @param id
      */
-    public void setId(MessagesKey id)
+    public void setIdMessages(java.lang.Integer idMessages)
     {
         this.hashValue = 0;
-        this.id = id;
+        this.idMessages = idMessages;
     }
 
     /**
@@ -163,6 +166,24 @@ public abstract class AbstractMessages
     }
 
     /**
+     * liefert den User zurück, der diese Nachricht verfaßt hat
+     * @return User user
+     */
+    public User getUser()
+    {
+    	return user;
+    }
+    
+    /**
+     * setzt den User der diese Nachricht verfaßt hat
+     * @param user
+     */
+    public void setUser(User user)
+    {
+    	this.user = user;
+    }
+    
+    /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs
      * @return boolean
@@ -174,9 +195,9 @@ public abstract class AbstractMessages
         if (! (rhs instanceof Messages))
             return false;
         Messages that = (Messages) rhs;
-        if (this.getId() != null && that.getId() != null)
+        if (this.getIdMessages() != null && that.getIdMessages() != null)
         {
-            return (this.getId().equals(that.getId()));
+            return (this.getIdMessages().equals(that.getIdMessages()));
         }
         return true;
     }
@@ -191,13 +212,13 @@ public abstract class AbstractMessages
         if (this.hashValue == 0)
         {
             int result = 17;
-            if (this.getId() == null)
+            if (this.getIdMessages() == null)
             {
                 result = super.hashCode();
             }
             else
             {
-                result = this.getId().hashCode();
+                result = this.getIdMessages().hashCode();
             }
             this.hashValue = result;
         }

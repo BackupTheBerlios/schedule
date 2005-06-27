@@ -9,10 +9,10 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Messages" table="Messages">
-        <composite-id name="id" class="MessagesKey">
-            <key-property name="mid" column="MID" type="java.lang.Integer"/>
-            <key-property name="uid" column="UID" type="java.lang.Integer"/>
-        </composite-id>
+        <id name="idMessages" column="idMessages" type="java.lang.Integer">
+        	<generator class="native" />
+        </id>
+ 		<many-to-one name="user" column="idUser" />
  
         <property name="recipient" column="Recipient" type="java.lang.String" />
         <property name="subject" column="Subject" type="java.lang.String" />

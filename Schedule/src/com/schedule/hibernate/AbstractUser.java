@@ -65,6 +65,9 @@ public abstract class AbstractUser
     /** Alle Gruppen denen dieser User angehört */
     private java.util.Set groups;
     
+    /** Alle Nachrichten dieses Users */
+    private java.util.Set messages;
+    
     /**
      * Simple constructor of AbstractUser instances.
      */
@@ -73,6 +76,7 @@ public abstract class AbstractUser
     	logins = new java.util.HashSet();
     	projects = new java.util.HashSet();
     	groups = new java.util.HashSet();
+    	messages = new java.util.HashSet();
     }
 
     /**
@@ -304,7 +308,7 @@ public abstract class AbstractUser
 
     /**
      * Liefert die aktuellen Projekte des Nutzers zurück
-     * @return projects 
+     * @return java.util.Set logins 
      */
     public java.util.Set getLogins()
     {
@@ -313,7 +317,7 @@ public abstract class AbstractUser
 
     /**
      * Setzt die Projekte des Nutzers
-     * @param projects
+     * @param logins
      */
     public void setLogins(java.util.Set logins)
     {
@@ -336,6 +340,24 @@ public abstract class AbstractUser
     public void setProjects(java.util.Set projects)
     {
     	this.projects = projects;
+    }
+    
+    /**
+     * liefert alle Gruppen zurück denen dieser User angehört
+     * @return java.util.Set messages
+     */
+    public java.util.Set getMessages()
+    {
+    	return messages;
+    }
+    
+    /**
+     * setzt die Gruppen denen der User angehört
+     * @param messages
+     */
+    public void setMessages(java.util.Set messages)
+    {
+    	this.messages = messages;
     }
     
     /**

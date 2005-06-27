@@ -25,9 +25,9 @@ public class Messages
      * Constructor of Messages instances given a composite primary key.
      * @param id
      */
-    public Messages(MessagesKey id)
+    public Messages(java.lang.Integer idMessages)
     {
-        super(id);
+        super(idMessages);
     }
 
     /* Add customized code below */

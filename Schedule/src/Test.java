@@ -30,59 +30,72 @@ public class Test {
 	public static void main(String[] args) {
 		
 		try {
-			//Hibernate Session erzeugen
+			// Hibernate Session erzeugen
 			Session session = HibernateSessionFactory.currentSession();
-			//Transaktion erzeugen
+			// Transaktion erzeugen
 			Transaction tx = session.beginTransaction();
 			
-			//Objekt erzeugen
+
+			// neues Projekt erzeugen
 			Projects neuesProjekt = new Projects();
 			neuesProjekt.setName("Test-Projekt");
 			neuesProjekt.setDescription("Dies ist ein Testprojekt");
-			
+			//neuen User erzeugen
 			User neuerUser = new User();
 			neuerUser.setFirstname("Christian");
 			neuerUser.setLastname("Sukale");
 			neuerUser.setStreet("Karower Chaussee 185");
 			neuerUser.setZip(new Integer(13125));
 			neuerUser.setCity("Berlin");
-			
+			//neuen Login erzeugen
 			Login neuerLogin = new Login();
 			neuerLogin.setScreenname("rapid");
 			neuerLogin.setPasswort("hotsauce");
 			neuerLogin.setActive(new Byte("1"));
-			
+			//Login an User binden und umgekehrt
 			neuerLogin.setUser(neuerUser);
 			neuerUser.getLogins().add(neuerLogin);
-			
+			//noch einen neuen User erzeugen
 			User neuerUser2 = new User();
 			neuerUser2.setFirstname("Frank");
 			neuerUser2.setLastname("Otto");
 			neuerUser2.setStreet("Binzstraﬂe 52");
 			neuerUser2.setZip(new Integer(13125));
 			neuerUser2.setCity("Berlin");
-			
+			//noch einen neuen Login erzeugen
 			Login neuerLogin2 = new Login();
 			neuerLogin2.setScreenname("fosion");
 			neuerLogin2.setPasswort("franky");
 			neuerLogin2.setActive(new Byte("1"));
-			
+			//Login an User binden und umgekehrt
 			neuerLogin2.setUser(neuerUser2);
 			neuerUser2.getLogins().add(neuerLogin2);
-			
+			//die User an die Projekte binden und umgekehrt
 			neuesProjekt.getUsers().add(neuerUser);
 			neuesProjekt.getUsers().add(neuerUser2);
 			neuerUser.getProjects().add(neuesProjekt);
 			neuerUser2.getProjects().add(neuesProjekt);
 			
+
+			//neue Nachricht erzeugen
+			Messages neueMsg = new Messages();
+			neueMsg.setRecipient("rapid");
+			neueMsg.setSubject("Test");
+			neueMsg.setBody("Hi rapid, wollte nur mal testen ob es funktioniert");
+			//Nachricht an User binden und umgekehrt
+			neueMsg.setUser(neuerUser2); //Frank schickt mit eine Nachricht ;-)
+			neuerUser2.getMessages().add(neueMsg);
 			
-			
-			//neues Objekt speichern
+			//alle neuen Objekte speichern
 			session.save(neuesProjekt);
 			session.save(neuerUser);
 			session.save(neuerLogin);
 			session.save(neuerUser2);
 			session.save(neuerLogin2);
+			session.save(neueMsg);
+		
+			session.flush();
+
 			
 			tx.commit();
 			
@@ -99,6 +112,7 @@ public class Test {
 			System.out.println((String)str.get(0));
 			//User strrr = (User) session.createQuery("from User as us where us.firstname='Christian'").list();
 			//session.flush();
+
 			//Transaktion an DB schicken
 						
 			//named parameter (preferred)
