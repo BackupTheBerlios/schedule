@@ -12,6 +12,8 @@
  * Window - Preferences - Java - Code Style - Code Templates
  */
 
+import java.util.List;
+
 import com.schedule.hibernate.*;
 
 import net.sf.hibernate.*;
@@ -73,17 +75,47 @@ public class Test {
 			neuerUser.getProjects().add(neuesProjekt);
 			neuerUser2.getProjects().add(neuesProjekt);
 			
+			
+			
 			//neues Objekt speichern
 			session.save(neuesProjekt);
 			session.save(neuerUser);
 			session.save(neuerLogin);
 			session.save(neuerUser2);
 			session.save(neuerLogin2);
-		
+			
+			tx.commit();
+			
+			System.out.println("#####HQL querys#############");
+			
+			List users = (List) session.createQuery("from User").list();
+			User temp = (User)users.get(0);
+					
+			System.out.println(temp.getFirstname());
+			
+			List str = (List) session.createQuery("select us.lastname from User as us").list();
 			//session.flush();
 			//Transaktion an DB schicken
-			tx.commit();
-			//Debug-Ausgabe
+			System.out.println((String)str.get(0));
+			//User strrr = (User) session.createQuery("from User as us where us.firstname='Christian'").list();
+			//session.flush();
+			//Transaktion an DB schicken
+						
+//			named parameter (preferred)
+			Query q = session.createQuery("select usert.idUser from User usert where usert.firstname= :name");
+			q.setString("name", "Christian");
+			List ll = q.list();
+			System.out.println((Integer)ll.get(0));
+			
+			//subqueries
+			Query q1 = session.createQuery("from User as usert where usert.idUser = ("
+					+ "select lg.user.idUser from Login lg where lg.screenname= :screen)");
+			q1.setString("screen", "rapid");
+			List lll = q1.list();
+			temp= (User)lll.get(0);
+			System.out.println(temp.getFirstname());
+		
+			
 			System.out.println("Speichervorgang erfolgreich!");
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
