@@ -6,14 +6,16 @@
  */
 package com.schedule.jsfbeans;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import net.sf.hibernate.HibernateException;
-import net.sf.hibernate.Session;
+import net.sf.hibernate.*;
 
 import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.Login;
+import com.schedule.hibernate.User;
 
 
 /**
@@ -46,15 +48,26 @@ public class LoginBean {
      */
     public String loginUser()
     {
-    	
-    		if(this.getScreenname().equals("testuser") && this.getPassword().equals("password"))
-    		{
-    			return "usersuccess";
-    		}
-    		
-    		if(this.getScreenname().equals("admin") && this.getPassword().equals("adminpass"))
+    		Session sess = HibernateManager.getSession();
+    		List logins;
+		try {
+			// Hier mit where klausel, damit das performanter wird, dann
+			// kšnnen wir im Anschluss einfach gucken, ob es ein Resultat gibt
+			// wenn nicht, dann ist login/password falsch
+			logins = (List) sess.createQuery("from Login").list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return "failure";
+		}
+		
+		// Performance killer! 
+		for(int i=0; i<logins.size(); i++)
 		{
-    			return "adminsuccess";
+			Login temp = (Login)logins.get(i);
+			if( temp.getScreenname().equals(this.getScreenname()) && temp.getPasswort().equals(this.getPassword()))
+			{
+				return "success";
+			}
 		}
     		
     		FacesContext facesContext = FacesContext.getCurrentInstance(); 

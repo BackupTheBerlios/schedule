@@ -46,8 +46,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <td><h:message for="regPassword" style="font-weight: bold; color: #FF0000;"/>
             </tr>
             
-            <!--  #############  -->
-            
             <tr>
                 <td><h:outputText value="#{bundle.register_title}" /></td>
                 <td><h:inputText id="regTitle" value="#{RegisterBean.title}">
@@ -98,7 +96,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <td><h:message for="regCity" style="font-weight: bold; color: #FF0000;" /></td>
             </tr>
 
-            <!--  #############  -->
             <tr>
                 <td align="right" colspan="2">
                     <h:commandButton id="submit" action="#{RegisterBean.register}" value="#{bundle.register_button_label}" />
