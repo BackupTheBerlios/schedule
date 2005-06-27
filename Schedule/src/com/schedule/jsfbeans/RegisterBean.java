@@ -9,6 +9,7 @@ package com.schedule.jsfbeans;
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Session;
 
+import com.schedule.CryptoManager;
 import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.Login;
 import com.schedule.hibernate.User;
@@ -65,7 +66,7 @@ public class RegisterBean {
 		HibernateManager.beginTransaction();
 	
 		Login hbmlogin = new Login();
-		hbmlogin.setPasswort(this.password);
+		hbmlogin.setPasswort(CryptoManager.getDigest(this.password, "SHA-1"));
 		hbmlogin.setScreenname(this.screenname);
 		hbmlogin.setActive(new Byte("1"));
 		

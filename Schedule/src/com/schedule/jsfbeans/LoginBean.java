@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Session;
 
+import com.schedule.CryptoManager;
 import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.Login;
 
@@ -64,7 +65,7 @@ public class LoginBean {
 		for(int i=0; i<logins.size(); i++)
 		{
 			Login temp = (Login)logins.get(i);
-			if( temp.getScreenname().equals(this.getScreenname()) && temp.getPasswort().equals(this.getPassword()))
+			if( temp.getScreenname().equals(this.getScreenname()) && temp.getPasswort().equals(CryptoManager.getDigest(this.getPassword(), "SHA-1")))
 			{
 				return "usersuccess";
 			}
@@ -73,41 +74,6 @@ public class LoginBean {
     		FacesContext facesContext = FacesContext.getCurrentInstance(); 
     		FacesMessage facesMessage = new FacesMessage("Unkorrekte Logindaten!");
     		facesContext.addMessage("loginForm", facesMessage);        
-    		return "failure";
-    }
-    
-    /**
-     * Method for registering a new login for a user
-     * @return
-     */
-    public String registerLogin()
-    {
-    		if(this.getScreenname()!=null && this.getPassword()!=null)
-    		{		
-    			Session hbmsession = HibernateManager.getSession();
-    			HibernateManager.beginTransaction();
-	    	
-			Login hbmlogin = new Login();
-			hbmlogin.setPasswort(this.password);
-			hbmlogin.setScreenname(this.screenname);
-			try {
-				hbmsession.saveOrUpdate(hbmlogin);
-			} catch (HibernateException e) {
-				e.printStackTrace();
-			}
-			HibernateManager.commitTransaction();
-			try {
-				hbmsession.flush();
-			} catch (HibernateException e1) {
-				e1.printStackTrace();
-			}
-    			
-    			
-    			return "success";
-    		}
-    		
-    		// If something went wrong (screenname already exists, password insecure,
-    		// user already registered...) registration will fail
     		return "failure";
     }
     
