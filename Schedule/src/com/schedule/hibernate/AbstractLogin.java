@@ -31,6 +31,9 @@ public abstract class AbstractLogin
     /** The value of the simple active property. */
     private java.lang.Byte active;
 
+    /** User zu dem das Login gehört */
+    private User user;
+    
     /**
      * Simple constructor of AbstractLogin instances.
      */
@@ -120,6 +123,24 @@ public abstract class AbstractLogin
         this.active = active;
     }
 
+    /**
+     * liefert den User dieses Logins zurück
+     * @return User user
+     */
+    public User getUser()
+    {
+    	return user;
+    }
+    
+    /**
+     * setzt den User dieses Logins
+     * @param user
+     */
+    public void setUser(User user)
+    {
+    	this.user = user;
+    }
+    
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs

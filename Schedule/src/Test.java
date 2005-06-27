@@ -34,39 +34,53 @@ public class Test {
 			Transaction tx = session.beginTransaction();
 			
 //			Objekt erzeugen
-			Roles neueRolle = new Roles();
-			neueRolle.setName("Admin");
-			neueRolle.setDescription("Systemadministrator");
-			User us = new User();
-			us.setFirstname("Helmut");
-			us.setCity("Berlin");
-			us.setStreet("hallostreet");
-			us.setLastname("Schmidt");
-			us.setEmail("mail@hallo.de");
-			us.setPhone("1321321");
-			us.setTitle("Dr.");
-			us.setZip(new Integer(23232));
+			Projects neuesProjekt = new Projects();
+			neuesProjekt.setName("Test-Projekt");
+			neuesProjekt.setDescription("Dies ist ein Testprojekt");
 			
-			Login lg =  new Login();
-			lg.setPasswort("test");
-			lg.setScreenname("fosion");
-
-			Preferences p = new Preferences();
+			User neuerUser = new User();
+			neuerUser.setFirstname("Christian");
+			neuerUser.setLastname("Sukale");
+			neuerUser.setStreet("Karower Chaussee 185");
+			neuerUser.setZip(new Integer(13125));
+			neuerUser.setCity("Berlin");
 			
+			Login neuerLogin = new Login();
+			neuerLogin.setScreenname("rapid");
+			neuerLogin.setPasswort("hotsauce");
+			neuerLogin.setActive(new Byte("1"));
+			
+			neuerLogin.setUser(neuerUser);
+			neuerUser.getLogins().add(neuerLogin);
+			
+			User neuerUser2 = new User();
+			neuerUser2.setFirstname("Frank");
+			neuerUser2.setLastname("Otto");
+			neuerUser2.setStreet("Binzstraﬂe 52");
+			neuerUser2.setZip(new Integer(13125));
+			neuerUser2.setCity("Berlin");
+			
+			Login neuerLogin2 = new Login();
+			neuerLogin2.setScreenname("fosion");
+			neuerLogin2.setPasswort("franky");
+			neuerLogin2.setActive(new Byte("1"));
+			
+			neuerLogin2.setUser(neuerUser2);
+			neuerUser2.getLogins().add(neuerLogin2);
+			
+			neuesProjekt.getUsers().add(neuerUser);
+			neuesProjekt.getUsers().add(neuerUser2);
+			neuerUser.getProjects().add(neuesProjekt);
+			neuerUser2.getProjects().add(neuesProjekt);
 			
 			//neues Objekt speichern
-			session.save(neueRolle);
-			session.save(lg);
-			session.save(p);
-			//Rollen ID zuweisen , diese gibt es nach dem gespeichert wurde...
-			
-			us.setIdRole(neueRolle.getIdRole());
-			us.setIdLogin(lg.getIdLogin());
-			us.setIdPreferences(p.getIdPreferences());
-			
-			//User speichern
-			session.save(us);
-			session.flush();
+			session.save(neuesProjekt);
+			session.save(neuerUser);
+			session.save(neuerLogin);
+			session.save(neuerUser2);
+			session.save(neuerLogin2);
+		
+			//session.flush();
 			//Transaktion an DB schicken
 			tx.commit();
 			//Debug-Ausgabe

@@ -12,10 +12,10 @@
         <id name="idProjects" column="idProjects">
             <generator class="native"/>
         </id>
-        <!-- ein Projekt enthält ein oder mehrere Tasks -->
- 		<many-to-one name="idTasks" column="idTasks" class="Tasks" not-null="true" />
- 		<!-- ein Projekt enthält ein oder mehrere Blackboard-Einträge -->
- 		<many-to-one name="idBlackboard" column="idBlackboard" class="Blackboard" not-null="true" />
+        <!-- ein Projekt enthält ein oder mehrere Tasks 
+ 		<many-to-one name="idTasks" column="idTasks" class="Tasks" not-null="true" /> -->
+ 		<!-- ein Projekt enthält ein oder mehrere Blackboard-Einträge 
+ 		<many-to-one name="idBlackboard" column="idBlackboard" class="Blackboard" not-null="true" /> -->
  		<!-- Mehrere Projekte können von mehreren Usern bearbeitet werden - bidirektionale Assoziation zur Tabelle User --> 
  		<set name="users" table="UserProjects" inverse="true">
  			<key column="idProjects" />

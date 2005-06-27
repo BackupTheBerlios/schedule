@@ -8,6 +8,7 @@ package com.schedule.hibernate;
 
 import java.io.Serializable;
 
+
 /**
  * A class that represents a row in the User table. 
  * You can customize the behavior of this class by editing the class, {@link User()}.
@@ -55,6 +56,9 @@ public abstract class AbstractUser
     /** The value of the simple zip property. */
     private java.lang.Integer zip;
 
+    /** Aktuelle Logins des Users */
+    private java.util.Set logins;
+    
     /** Aktuelle Projekte des Nutzers */
     private java.util.Set projects;
     
@@ -66,6 +70,9 @@ public abstract class AbstractUser
      */
     public AbstractUser()
     {
+    	logins = new java.util.HashSet();
+    	projects = new java.util.HashSet();
+    	groups = new java.util.HashSet();
     }
 
     /**
@@ -295,6 +302,24 @@ public abstract class AbstractUser
         this.zip = zip;
     }
 
+    /**
+     * Liefert die aktuellen Projekte des Nutzers zurück
+     * @return projects 
+     */
+    public java.util.Set getLogins()
+    {
+    	return logins;
+    }
+
+    /**
+     * Setzt die Projekte des Nutzers
+     * @param projects
+     */
+    public void setLogins(java.util.Set logins)
+    {
+    	this.logins = logins;
+    }
+    
     /**
      * Liefert die aktuellen Projekte des Nutzers zurück
      * @return projects 

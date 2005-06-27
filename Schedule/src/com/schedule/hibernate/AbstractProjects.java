@@ -43,6 +43,7 @@ public abstract class AbstractProjects
      */
     public AbstractProjects()
     {
+    	users = new java.util.HashSet();
     }
 
     /**
