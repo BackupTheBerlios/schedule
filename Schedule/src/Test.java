@@ -35,7 +35,7 @@ public class Test {
 			//Transaktion erzeugen
 			Transaction tx = session.beginTransaction();
 			
-//			Objekt erzeugen
+			//Objekt erzeugen
 			Projects neuesProjekt = new Projects();
 			neuesProjekt.setName("Test-Projekt");
 			neuesProjekt.setDescription("Dies ist ein Testprojekt");
@@ -101,7 +101,7 @@ public class Test {
 			//session.flush();
 			//Transaktion an DB schicken
 						
-//			named parameter (preferred)
+			//named parameter (preferred)
 			Query q = session.createQuery("select usert.idUser from User usert where usert.firstname= :name");
 			q.setString("name", "Christian");
 			List ll = q.list();
@@ -118,14 +118,12 @@ public class Test {
 			
 			System.out.println("Speichervorgang erfolgreich!");
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
 			System.err.println("Speichervorgang fehlgeschlagen");
 			e.printStackTrace();
 		} finally {
 			try {
 				HibernateSessionFactory.closeSession();
 			} catch (HibernateException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}

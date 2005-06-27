@@ -40,6 +40,10 @@ public class LoginBean {
     {
     }
 
+    /**
+     * Method for identifying a user
+     * @return
+     */
     public String loginUser()
     {
     	
@@ -59,28 +63,29 @@ public class LoginBean {
     		return "failure";
     }
     
+    /**
+     * Method for registering a new login for a user
+     * @return
+     */
     public String registerLogin()
     {
     		if(this.getScreenname()!=null && this.getPassword()!=null)
-    		{		Session hbmsession = HibernateManager.getSession();
-	    	HibernateManager.beginTransaction();
+    		{		
+    			Session hbmsession = HibernateManager.getSession();
+    			HibernateManager.beginTransaction();
 	    	
-	    	
-			
 			Login hbmlogin = new Login();
 			hbmlogin.setPasswort(this.password);
 			hbmlogin.setScreenname(this.screenname);
 			try {
 				hbmsession.saveOrUpdate(hbmlogin);
 			} catch (HibernateException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			HibernateManager.commitTransaction();
 			try {
 				hbmsession.flush();
 			} catch (HibernateException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
     			
@@ -88,8 +93,8 @@ public class LoginBean {
     			return "success";
     		}
     		
-    		// If something went wrong (screenname already exists, password insecure, user already registered...)
-    		// registration will fail
+    		// If something went wrong (screenname already exists, password insecure,
+    		// user already registered...) registration will fail
     		return "failure";
     }
     

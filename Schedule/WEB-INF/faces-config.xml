@@ -20,6 +20,18 @@
     </navigation-rule>
     
     <navigation-rule>
+        <from-view-id>/pages/register.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/login.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/pages/register.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
         <from-view-id>/pages/userregistration.jsp</from-view-id>
         <navigation-case>
             <from-outcome>success</from-outcome>
@@ -42,6 +54,13 @@
             <to-view-id>/pages/loginregister.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <managed-bean>
+    		<description>This bean is used for the registration process</description>
+    		<managed-bean-name>RegisterBean</managed-bean-name>
+    		<managed-bean-class>com.schedule.jsfbeans.RegisterBean</managed-bean-class>
+    		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
     <managed-bean>
         <description>Bean which represents a user.</description>
