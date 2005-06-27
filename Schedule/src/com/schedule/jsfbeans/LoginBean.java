@@ -11,11 +11,11 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import net.sf.hibernate.*;
+import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Session;
 
 import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.Login;
-import com.schedule.hibernate.User;
 
 
 /**
@@ -66,7 +66,7 @@ public class LoginBean {
 			Login temp = (Login)logins.get(i);
 			if( temp.getScreenname().equals(this.getScreenname()) && temp.getPasswort().equals(this.getPassword()))
 			{
-				return "success";
+				return "usersuccess";
 			}
 		}
     		
