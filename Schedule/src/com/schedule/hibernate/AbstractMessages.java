@@ -37,6 +37,9 @@ public abstract class AbstractMessages
     /** The value of the simple date property. */
     private java.util.Date date;
 
+    /** gibt an ob die Nachricht bereits gelesen wurde */
+    private java.lang.Boolean messageRead;
+    
     /** Der User der die Nachricht verfaßt hat */
     private User user;
     
@@ -165,6 +168,24 @@ public abstract class AbstractMessages
         this.date = date;
     }
 
+    /** 
+     * liefert den Status (gelesen oder ungelesen) dieser Nachricht zurück 
+     * @return java.lang.Boolean messageRead
+     * */
+    public java.lang.Boolean getMessageRead()
+    {
+    	return messageRead;
+    }
+    
+    /** 
+     * setzt den Status der Nachricht auf gelesen or ungelesen
+     * @param
+     * */
+    public void setMessageRead(java.lang.Boolean messageRead)
+    {
+    	this.messageRead = messageRead;
+    }
+    
     /**
      * liefert den User zurück, der diese Nachricht verfaßt hat
      * @return User user

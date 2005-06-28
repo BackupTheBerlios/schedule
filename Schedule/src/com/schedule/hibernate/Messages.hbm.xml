@@ -19,6 +19,7 @@
         <property name="body" column="Body" type="java.lang.String" />
         <property name="attachment" column="Attachment" type="java.lang.String" />
         <property name="date" column="Date" type="java.util.Date" />
+        <property name="messageRead" column="MessageRead" type="java.lang.Boolean" />
     </class>
     
 </hibernate-mapping>

@@ -108,6 +108,7 @@ public class Test {
 			neueMsg.setRecipient("rapid");
 			neueMsg.setSubject("Test");
 			neueMsg.setBody("Hi rapid, wollte nur mal testen ob es funktioniert");
+			neueMsg.setMessageRead(new Boolean(false));
 			//Nachricht an User binden und umgekehrt
 			neueMsg.setUser(neuerUser2); //Frank schickt mit eine Nachricht ;-)
 			neuerUser2.getMessages().add(neueMsg);
