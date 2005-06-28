@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h:outputText value="#{bundle.register_comment}" />
         </p>
         
-        <h:form id="loginRegisterForm">
+        <h:form id="registerForm">
         <table>
             <tr>
                 <td><h:outputText value="#{bundle.user_name_label}" /></td>
@@ -106,6 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </td>
             </tr>
         </table>
+        <h:messages style="font-weight: bold; color: #FF0000;" />
         </h:form>
 	</f:view>
 </body>

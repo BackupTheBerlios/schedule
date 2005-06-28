@@ -23,14 +23,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<f:view>
 		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
-        
+        <h:form id="mainForm">
         <table border="0" cellspacing="0">
         <tr bgcolor="#FF6633">
             <td width="10">&nbsp;</td>
             <td width="100">Datum</td>
             <td width="490">&nbsp;</td>
             <!-- TODO: Show users real name, not screenname, maybe...-->
-            <td width="190" align="right"><h:outputText value="#{LoginBean.screenname}" /> <a href="logout.jsp"><h:outputText value="#{bundle.str_logout}" /></a></td>
+            <td width="190" align="right"><h:outputText value="#{LoginBean.screenname}" /> <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_logout}"><f:param name="link" value="logout" /> </h:commandLink></td>
             <td width="10">&nbsp;</td>
         </tr>
         </table>
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <table border="0" cellspacing="0">
         <tr bgcolor="#AAAAAA">
             <td width="10">&nbsp;</td>
-            <td width="260"><a href="messages.jsp"><h:outputText value="#{bundle.str_messages}" /></a></td>
+            <td width="260"><h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_messages}"><f:param name="link" value="messages" /></h:commandLink></td>
             <td width="260"><h:outputText value="#{bundle.str_projects}" /></td>
             <td width="260"><h:outputText value="#{bundle.str_blackboard}" /></td>
             <td width="10">&nbsp;</td>
@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <td valign="top" width="10">&nbsp;</td>
         </tr>
         </table>
-
+        </h:form>
 	</f:view>
 </body>
 </html>

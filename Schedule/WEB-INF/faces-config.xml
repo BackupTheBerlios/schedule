@@ -31,6 +31,33 @@
         </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+        <from-view-id>/pages/main.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>messagepage</from-outcome>
+            <to-view-id>/pages/messages.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>mainpage</from-outcome>
+            <to-view-id>/pages/main.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        		<from-outcome>logoutpage</from-outcome>
+        		<to-view-id>/pages/logout.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <managed-bean>
+    		<description>This bean is used for the navigation</description>
+    		<managed-bean-name>NavigationBean</managed-bean-name>
+    		<managed-bean-class>com.schedule.jsfbeans.NavigationBean</managed-bean-class>
+    		<managed-bean-scope>request</managed-bean-scope>
+    		<managed-property>
+            <property-name>link</property-name>
+            <value>#{param.link}</value>
+        </managed-property>
+    </managed-bean>
+    
     <managed-bean>
     		<description>This bean is used for the registration process</description>
     		<managed-bean-name>RegisterBean</managed-bean-name>
