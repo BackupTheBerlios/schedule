@@ -73,17 +73,20 @@ public class RegisterBean {
 		HibernateManager.beginTransaction();
 		
 		Query q;
-		List roles;
+		List roles=null;
 		
 		try {
 			q = hbmsession.createQuery("from Roles where name= :name");
-			q.setString("name", "standard");
+			q.setString("name", "Systemuser");
 			roles = (List) q.list();			
 		} catch (HibernateException e) {
 			e.printStackTrace();
-			
+		}
+		
+		if(roles == null || roles.size()==0)
+		{
 			FacesContext facesContext = FacesContext.getCurrentInstance(); 
-			FacesMessage facesMessage = new FacesMessage("Standard Rolle konnte nicht zugeordnet werden");
+			FacesMessage facesMessage = new FacesMessage("Systemuser Rolle konnte nicht zugeordnet werden");
 			facesContext.addMessage("registerForm", facesMessage);  
 			
 			return "failure";
