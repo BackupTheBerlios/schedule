@@ -15,13 +15,116 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<title>Schedule user registration</title>
 
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<link href="../data/clixstylesv2.css" rel="stylesheet" type="text/css" media="all">
 </head>
   
 <body>
-	<f:view>
+<table border="0" cellspacing="0" cellpadding="0">
+			<tr height="100">
+				<td colspan="2" width="151" height="100" background="../data/schedule.gif">
+					<div align="center">
+						&nbsp;<br>
+						<br>
+						<br>
+						(pre-alpha)</div>
+				</td>
+				<td width="10" height="100" background="../data/navitoppic.gif">
+					<table border="0" cellspacing="0" cellpadding="0" height="100">
+						<tr height="70">
+							<td width="10" height="70" background="../data/back_tab_70.gif"></td>
+						</tr>
+						<tr bgcolor="#103052" height="30">
+							<td width="10" height="30"></td>
+						</tr>
+					</table>
+				</td>
+				<td nowrap width="549" height="100">
+					<table width="549" border="0" cellspacing="0" cellpadding="0" height="100">
+						<tr height="70">
+							<td width="549" height="70" background="../data/back_tab_70.gif">
+								<div align="left">
+									<font size="5">ProjectPlaner</font></div>
+							</td>
+						</tr>
+						<tr bgcolor="#103052" height="30">
+							<td width="549" height="30"></td>
+						</tr>
+					</table>
+				</td>
+				<td width="212" height="100">
+					<table width="212" border="0" cellspacing="0" cellpadding="0" height="100">
+						<tr bgcolor="#8393A3" height="65">
+							<td height="65">
+								<div align="center">&nbsp;(c)2005<br>
+									 <a href="../team.html">Projektteam Schedule</a></div>
+							</td>
+						</tr>
+						<tr bgcolor="#103052" height="35">
+							<td height="35" background="../data/back_tab.gif"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height="379">
+				<td  width="150" height="379" >
+					<div align="center">
+						<table width="150" border="0" cellspacing="0" cellpadding="0" height="382">
+							<tr bgcolor="#A8B6C6" height="30">
+								<td width="150" height="30">
+									<div align="center">
+										<a href="http://localhost:8080/Schedule/pages/register.faces">registrieren</a></div>
+								</td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="7">
+								<td width="150" height="7" background="../data/naviseparator.gif"></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="30">
+								<td width="150" height="30">
+									<div align="center">
+										<a href="http://localhost:8080/Schedule/pages/login.faces">einloggen</a></div>
+								</td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="7">
+								<td width="150" height="7" background="../data/naviseparator.gif"></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="30">
+								<td width="150" height="30"></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="30">
+								<td width="150" height="30"></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="30">
+								<td width="150" height="30"></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="30">
+								<td width="150" height="30"></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="188">
+								<td width="150" height="188"></td>
+							</tr>
+						</table>
+					</div>
+				</td>
+				<td width="1" height="379"></td>
+				<td width="10" height="379">
+					
+				</td>
+				<td rowspan="3" width="549">
+					<table width="549" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>
+								<p>Herzlich willkommen bei Schedule!<br>
+									<br>
+									<br>
+									
+									Bitte f&uuml;llen sie die Felder vollst&auml;ndig aus.</p>
+							</td>
+						</tr>
+						<tr height="35">
+							<td rowspan="2" height="359">
+							
+							
+							<f:view>
 		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
         <h2><h:outputText value="#{bundle.registration_header}" /></h2>
 
@@ -109,5 +212,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h:messages style="font-weight: bold; color: #FF0000;" />
         </h:form>
 	</f:view>
+							
+							
+							</td>
+						</tr>
+						<tr height="324">
+							
+						</tr>
+					</table>
+					
+				</td>
+				<td width="212" height="379"></td>
+			
+							
+<tr height="15">
+				<td rowspan="3" width="150">
+					<div align="center">
+						</div>
+				</td>
+				<td width="1"></td>
+				<td rowspan="2" width="10"></td>
+				<td width="212" height="15"></td>
+			</tr>
+<tr>
+				<td width="1"></td>
+				<td width="212">&nbsp;</td>
+			</tr>
+<tr height="15">
+				<td width="1" height="15"></td>
+				<td width="10" height="15"></td>
+				<td width="549" height="15">&nbsp;</td>
+				<td width="212" height="15">&nbsp;</td>
+			</tr>
+<tr>
+				<td width="150"></td>
+				<td width="1"></td>
+				<td width="10"></td>
+				<td width="549">&nbsp;</td>
+				<td width="212">&nbsp;</td>
+			</tr>
+</table>
 </body>
 </html>

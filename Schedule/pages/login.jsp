@@ -13,25 +13,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<base href="<%=basePath%>">
 
 	<title>Schedule Login</title>
-
-	
-	<link href="data/clixstylesv2.css" rel="stylesheet" type="text/css" media="all">
+	<link href="../data/clixstylesv2.css" rel="stylesheet" type="text/css" media="all">
 	
 </head>
 <body>
 <table border="0" cellspacing="0" cellpadding="0">
 			<tr height="100">
-				<td colspan="2" width="151" height="100" background="data/schedule.gif">
+				<td colspan="2" width="151" height="100" background="../data/schedule.gif">
 					<div align="center">
 						&nbsp;<br>
 						<br>
 						<br>
 						(pre-alpha)</div>
 				</td>
-				<td width="10" height="100" background="data/navitoppic.gif">
+				<td width="10" height="100" background="../data/navitoppic.gif">
 					<table border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr height="70">
-							<td width="10" height="70" background="data/back_tab_70.gif"></td>
+							<td width="10" height="70" background="../data/back_tab_70.gif"></td>
 						</tr>
 						<tr bgcolor="#103052" height="30">
 							<td width="10" height="30"></td>
@@ -41,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td nowrap width="549" height="100">
 					<table width="549" border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr height="70">
-							<td width="549" height="70" background="data/back_tab_70.gif">
+							<td width="549" height="70" background="../data/back_tab_70.gif">
 								<div align="left">
 									<font size="5">ProjectPlaner</font></div>
 							</td>
@@ -60,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</td>
 						</tr>
 						<tr bgcolor="#103052" height="35">
-							<td height="35" background="data/back_tab.gif"></td>
+							<td height="35" background="../data/back_tab.gif"></td>
 						</tr>
 					</table>
 				</td>
@@ -76,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
-								<td width="150" height="7" background="data/naviseparator.gif"></td>
+								<td width="150" height="7" background="../data/naviseparator.gif"></td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
@@ -85,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
-								<td width="150" height="7" background="data/naviseparator.gif"></td>
+								<td width="150" height="7" background="../data/naviseparator.gif"></td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30"></td>
@@ -125,48 +123,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td height="130">
 							
 							<f:view>
-		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
-        
-        <h2><h:outputText value="#{bundle.login_header}"/></h2>
-        <p>
-        <h:outputText value="#{bundle.login_comment}" />
-        </p>
-        
-        <h:form id="loginForm">
-            <table>
-                <tbody>
-                    <tr>
-                        <td><h:outputText value="#{bundle.user_name_label}" /></td>
-                        <td>
-                            <h:inputText id="userName" value="#{LoginBean.screenname}" required="true">
-                                <f:validateLength minimum="5" />
-                            </h:inputText>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><h:outputText value="#{bundle.user_password_label}" /></td>
-                        <td>
-                            <h:inputSecret id="password" value="#{LoginBean.password}" required="true">
-                                <f:validateLength minimum="5" />
-                            </h:inputSecret>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <h:messages style="font-weight: bold; color: #FF0000;" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" colspan="2">
-                            <h:commandButton id="submit" action="#{LoginBean.loginUser}" value="#{bundle.login_button_label}" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </h:form>
-        
-		
-	</f:view>
+							<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
+					        
+					        <h2><h:outputText value="#{bundle.login_header}"/></h2>
+					        <p>
+					        <h:outputText value="#{bundle.login_comment}" />
+					        </p>
+					            <h:form id="loginForm">
+						            <table>
+						                <tbody>
+						                    <tr>
+						                        <td><h:outputText value="#{bundle.user_name_label}" /></td>
+						                        <td>
+						                            <h:inputText id="userName" value="#{LoginBean.screenname}" required="true">
+						                                <f:validateLength minimum="5" />
+						                            </h:inputText>
+						                        </td>
+						                    </tr>
+						                    <tr>
+						                        <td><h:outputText value="#{bundle.user_password_label}" /></td>
+						                        <td>
+						                            <h:inputSecret id="password" value="#{LoginBean.password}" required="true">
+						                                <f:validateLength minimum="5" />
+						                            </h:inputSecret>
+						                        </td>
+						                    </tr>
+						                    <tr>
+						                        <td colspan="2">
+						                            <h:messages style="font-weight: bold; color: #FF0000;" />
+						                        </td>
+						                    </tr>
+						                    <tr>
+						                        <td align="right" colspan="2">
+						                            <h:commandButton id="submit" action="#{LoginBean.loginUser}" value="#{bundle.login_button_label}" />
+						                        </td>
+						                    </tr>
+						                </tbody>
+						            </table>
+						       	 </h:form>
+        					</f:view>
 							
 							</td>
 						</tr>
