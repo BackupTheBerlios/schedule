@@ -1,0 +1,1680 @@
+.radiogrouptitles {font-family : Arial, Helvetica, sans-serif; font-size : 10px;background-color:#E4E4E4;padding-left:3px}
+.radioboxgroups {font-family : Arial, Helvetica, sans-serif; font-size : 11px;background-color:#E4E4E4;padding-bottom:5px;}
+.checkboxes {font-family : Arial, Helvetica, sans-serif; font-size : 11px;padding-left:7px;}
+.radioboxes {font-family : Arial, Helvetica, sans-serif; font-size : 11px;padding-bottom:5px;padding-left:7px}
+
+.bodypaddingright {
+	background-color:#f9f9f9;padding-right:11px;
+}
+
+/*roter Verlinkung bei Fehlermeldungen **/
+A.errorlink:active { color : #A0172B; text-decoration : underline; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.errorlink:hover { color : #A0172B; text-decoration : underline; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.errorlink:link { color : #A0172B; text-decoration : underline; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.errorlink:visited { color : #A0172B; text-decoration : underline;font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+/**   Topnavigation eingeloggt    upperwork **/
+A.topnavigationlink:active { color : #000000; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.topnavigationlink:hover { color : #000000; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.topnavigationlink:link { color : #000000; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.topnavigationlink:visited { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+/* TOPNAVIGATION   UPPERWORK */
+/* für trennlinien in der topnavigation */
+.topnavigationlinkseparator { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;padding-left:20px; }
+/* für bilder in der topnavigation */
+.logorechts {position:absolute; z-index:3; right: 0px; top: 2px;}
+.logolinks {position:absolute; width:100px; height:115px; z-index:3; left: 0px; top: 0px;}
+.topnaviadditionalpic {position:absolute;width:150px;visibility:hidden;left:300px;top:6px;}
+/* für position der topnavigation */
+.topnaviposition {position:absolute; z-index:1; left: 160px; top:0px;z-index:2;}
+.topnavimyhome {padding-left:10px;padding-right:10px;padding-top:25px;}
+.topnavisitemap {padding-left:10px;padding-right:10px;padding-top:25px;}
+.topnavifeedback {padding-left:10px;padding-right:10px;padding-top:25px;}
+.topnavilogout {padding-left:10px;padding-right:10px;padding-top:25px;}
+
+
+/* TOPNAVIGATION   UPPERWORK-PORTAL */
+/* für trennlinien in der topnavigation */
+.portallogorechts {position:absolute; z-index:3; right: 0px; top: 2px;}
+.portallogolinks {position:absolute; width:100px; height:115px; z-index:3; left: 0px; top: 0px;}
+.portaltopnaviadditionalpic {position:absolute;width:150px;visibility:hidden;left:300px;top:6px;}
+/* für position der topnavigation */
+.portaltopnaviposition {position:absolute; z-index:1; left: 160px; top:0px;z-index:2;}
+.portaltopnavitd {padding-left:10px;padding-right:10px;padding-top:25px;}
+
+
+
+
+
+/** QTI Fragenmanager **/
+.qtiTableLine {background-color:#999999;}
+.qtiTableDummy {background-color:#BDBDBD;}
+.qtiTableColumnTitle {font-size:11px; font-weight:bold; color:#303030; background-color:#D2D2D2; font-family:Arial,Helvetica,sans-serif;}
+.qtiTableRowTitle {font-size:11px; color:#303030; background-color:#D2D2D2; font-family:Arial,Helvetica,sans-serif;line-height : 24px;}
+.qtiTableContent {font-size:11px; color:#303030; background-color:#EFEFEF; font-family:Arial,Helvetica,sans-serif;}
+.qti-field-large-freetext {color:#000000; background-color:#F4F4F4;font-size:12px;font-family:Arial,Helvetica,sans-serif;width:755px }
+.deletelayerqti {position:absolute;visibility:hidden;width:250;height:200;left:350;top:155;}
+.privilegedbarqti {position:absolute;z-index:5;background-color:#BFBFBF; left:11px}
+.privilegedbarqtiacl {position:absolute;z-index:5;background-color:#DADADA;left:11px;width:100%;}
+.privilegedbarqtiaclpadd0 {position:absolute;z-index:5;background-color:#DADADA;left:0px;width:100%;}
+/** Beginn C.L. 16.04.2003 (nötig nach neuem Design-Cookbook)**/
+.tabstyle-newsredaktion {position:absolute;visibility:visible;width:100%;left:11;top:40;z-index:10;}
+.tabstyleNoTitle-addressbook {position:absolute;visibility:visible;width:100%;left:0;top:7;z-index:10;}
+.backcolor15_neu { background-color : #CED7DE; }
+.permtext-selectbox{ color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;    } /* ersetzt textbrowsebar in searchbar */
+.tableheadpadd5 {padding-left:5px;font-size:10px;color:#303030;background-color:#8492A5;font-family:Arial,Helvetica,sans-serif;}
+.tableheadpadd45 {padding-left:45px;font-size:10px;color:#303030;background-color:#8492A5;font-family:Arial,Helvetica,sans-serif;}
+.tableheadcoursepadd5 {padding-left:5px;font-size:10px;color:#5A4C40;background-color:#B8B4AE;font-family:Arial,Helvetica,sans-serif;}
+.tableheadtutorpadd5 {padding-left:5px;font-size:10px;color:#303030;background-color:#B3B3B3;font-family:Arial,Helvetica,sans-serif;}
+.tablerowdarkcourse {  font-family : Arial, Helvetica, sans-serif; background-color : #E4E5DE; padding-left : 5px;line-height : 24px; }
+.tablerowlightcourse {  font-family : Arial, Helvetica, sans-serif; background-color : #F8F8F5;  padding-left : 5px; line-height : 24px;}
+.tablerowdarktutor {  font-family : Arial, Helvetica, sans-serif; background-color : #E4E4E4; padding-left : 5px; line-height : 24px;}
+.tablerowlighttutor {  font-family : Arial, Helvetica, sans-serif; background-color : #FFFFFF;  padding-left : 5px; line-height : 24px;}
+.tablerowpopup{ font-family : Arial, Helvetica, sans-serif; background-color :#F9F9F9;padding-left:5px;line-height : 24px; }            /**gleiche Hintergrundfarbe wie commonbackground wird gebraucht wegen padding*/
+.tablerowpopup-course{ font-family : Arial, Helvetica, sans-serif; background-color : #F8F8F5;  padding-left : 5px;line-height : 24px; }/**gleiche Hintergrundfarbe wie coursebackground wird gebraucht wegen padding*/
+.tablerowpopup-tutor{ font-family : Arial, Helvetica, sans-serif; background-color : #F9F9F9;  padding-left : 5px;line-height : 24px; }/**gleiche Hintergrundfarbe wie tutorbackground wird gebraucht wegen padding **/
+/** Ende C.L. 16.04.2003 **/
+
+.labelledboxmyhomecontent {color:#000000; font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+
+/** mailto **/
+.mailto-field {  color : #000000; background-color : #F4F4F4; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:520px }
+
+/** Verwendung Testtool-FileUpload **/
+.upload-field-large {  color : #000000; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:420px }
+.upload-field-medium {  color : #000000; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:285px }
+.upload-field-small {  color : #000000; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:60px }
+.outputboxcontent {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:3px;}/*Verwendung OutputBox*/
+.permtextboldpadd8 { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold; padding-left:8px}/** Verwendung Testtool Speichern Layer **/
+
+/** Verwendung in den Clix-Statistiken (Reports) **/
+.label { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px; }
+.tablerowdarknopadd {  font-family : Arial, Helvetica, sans-serif; background-color : #DADADA;  font-size:12px;line-height : 24px; }
+.tablerowlightnopadd {  font-family : Arial, Helvetica, sans-serif; background-color : #E2E2E2;  font-size:12px;line-height : 24px; }
+.linecolorrearrange {background-color:#B3B3B3;} /*Trennungslinien verwendet in : Umordnungtest zur Abtrennung von Frage und Antwort  */
+.loginportaltitletext { color : #FFFFFF; font-family : Arial, Helvetica, sans-serif; font-size : 10px; padding-left :3px;}/* text portal login*/
+.loginportaltext { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}/* text portal login über Eingabefelder*/
+.loginportaltextpadding5top18 { font-family : Arial, Helvetica, sans-serif; font-size : 10px; padding-top : 4px;padding-left : 2px;}
+.loginportaltextpadding5 { font-family : Arial, Helvetica, sans-serif; font-size : 10px; padding-left : 3px; }
+.loginportallanguageselect { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  color : #000000; font-family :  Arial, Helvetica, sans-serif; font-size : 12px; width:130px;}
+.loginbackground {background-color: #8492A5;padding-left:3px;font-family : Arial, Helvetica, sans-serif; font-size : 10px;color : #FFFFFF; padding-left:5px}
+
+/*Styles für TableTag mit context 'testtool' C.L. 07.01.2003*/
+.testtooltime {font-size:12px;font-weight :bold;color:#A11625;background-color:#B8B4AE;font-family:Arial,Helvetica,sans-serif;}
+.linecolortesttool {background-color:#5A4C40;}
+.testtoolbackground {background-color:#F8F8F5;}
+.tableheadbackcolortesttool {background-color:#B8B4AE;}
+.testtoolstartbackcolor {background-color:#FFFFFF;}
+.tableheadtesttool {padding-left:11px;font-size:12px;font-weight :bold;color:#5A4C40;background-color:#B8B4AE;font-family:Arial,Helvetica,sans-serif;}
+.tableheadtesttoolpadd5 {padding-left:5px;font-size:12px;font-weight :bold;color:#5A4C40;background-color:#B8B4AE;font-family:Arial,Helvetica,sans-serif;}
+.texttask {padding-left:11px;font-size:12px;font-weight :bold;color:#5A4C40;font-family:Arial,Helvetica,sans-serif;}
+.texttesttool {padding-left:11px;font-size:12px;color:#5A4C40;font-family:Arial,Helvetica,sans-serif;}
+.testtoolsubheadline{padding-left:11px;font-size:14px;color:#5A4C40;font-family:Arial,Helvetica,sans-serif;}
+.texttesttoolNoPadding {font-size:12px;color:#5A4C40;font-family:Arial,Helvetica,sans-serif;}
+.texttaskNoPadding {font-size:12px;font-weight :bold;color:#5A4C40;font-family:Arial,Helvetica,sans-serif;}
+.testtool-field { color : #000000; background-color : #F4F4F4;  font-size:12px;font-family:Arial,Helvetica,sans-serif;}
+.testtool-field-large {  color : #000000; background-color : #F4F4F4; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:380px }
+.testtool-field-medium {  color : #000000; background-color : #F4F4F4; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:160px }
+.testtool-field-small {  color : #000000; background-color : #F4F4F4; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:90px }
+.testtool-field-mediumlarge {  color : #000000; background-color : #F4F4F4; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:220px }
+
+.testtool-field-view { color : #000000; background-color : #DEDEDE;  font-size:12px;font-family:Arial,Helvetica,sans-serif;}
+.testtool-field-large-view {  color : #000000; background-color : #DEDEDE; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:380px }
+.testtool-field-medium-view {  color : #000000; background-color : #DEDEDE; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:160px }
+.testtool-field-small-view {  color : #000000; background-color : #DEDEDE; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:90px }
+.testtool-field-mediumlarge-view {  color : #000000; background-color : #DEDEDE; font-size:12px;font-family:Arial,Helvetica,sans-serif;width:220px }
+
+.linecolortesttoolresult {background-color:#303030;}
+.testtoolresultbackground {background-color:#E4E4E4;}
+.tableheadbackcolortesttoolresult {background-color:#B3B3B3;}
+.tableheadtesttoolresult {padding-left:11px;font-size:12px;font-weight:bold;color:#303030;background-color:#B3B3B3;font-family:Arial,Helvetica,sans-serif;}
+.tableheadtesttoolresultpadd5 {padding-left:5px;font-size:12px;font-weight:bold;color:#303030;background-color:#B3B3B3;font-family:Arial,Helvetica,sans-serif;}
+.testtoolresultcontentbold {padding-left:11px;font-size:12px;font-weight:bold;color:#303030;font-family:Arial,Helvetica,sans-serif;}
+.testtoolresultcontentboldnopadd {font-size:12px;font-weight:bold;color:#303030;font-family:Arial,Helvetica,sans-serif;}
+.testtoolresultcontent {padding-left:11px;font-size:12px;color:#303030;font-family:Arial,Helvetica,sans-serif;}
+.testtoolresultcontentnopadd {font-size:12px;color:#303030;font-family:Arial,Helvetica,sans-serif;}
+.testtoolresultoutputboxpadd5 {padding-left:5px;font-size:12px;color:#303030;font-family:Arial,Helvetica,sans-serif;}
+
+/*Ende C.L. 07.01.2003*/
+
+/*backcolor11 durch enterback ersetzt CL 06.12*/
+
+.enterback { height:1px; background-color : #A7B3C0; }/* ??? */
+
+/*Ende CL 06.12*/
+
+/* SSC 5.12.02 Styles für Navigationseditor und Zugriffsrechte */
+
+.navieditbackgroundlevel1 {background-color: #C4C4C4;}
+.navieditbackgroundlevel2 {background-color:#D1D1D1;}
+.navieditbackgroundlevel3 {background-color:#DCDCDC;}
+.navieditbackgroundlevel4 {background-color:#E5E5E5;}
+.navieditbackgroundlevel5 {background-color:#F3F3F3;}
+.navieditfontlevel1 { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.navieditfontlevel2 { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.navieditfontlevel3 { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.navieditfontlevel4 { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.navieditfontlevel5 { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+/* SSC ende */
+
+
+
+/*Styles fuer REDESIGN.
+ Dies sind die Styles die in Zukunft ausschließlich verwendet werden sollen!!!!  */
+
+/* Standard Textdefinition in IE mit Padding-left 10px,
+für netscape an der Stelle span tag mit class paddingleftNN einsetzen */
+
+/* HEADLINES */
+
+.headline {font-family:Arial,Helvetica,sans-serif;color:#CECFCE;font-size:18px;letter-spacing:2px;padding-left:11px;}
+
+.headlinesubtitle {font-family:Arial,Helvetica,sans-serif;color:#CECFCE;font-size:14px;letter-spacing:2px;padding-left:11px;}
+
+.headlinepretitle {font-family:Arial,Helvetica,sans-serif;color:#CECFCE;font-size:10px;letter-spacing:2px;padding-left:11px;}
+
+.subheadline {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;text-decoration:none;padding-left:11px;}
+
+/* Seitenunterüberschrift im COURSEbereich , die angibt wo man sich befindet im !!!!!!!!!!!1*/
+.subheadlinecourse {padding-left:11px;font-size : 12px;color : #5A4C40;background-color :#EAE5DE;font-weight:bold; font-family : Arial, Helvetica, sans-serif;}
+
+/* Seitenunterüberschrift im TUTORbereich , die angibt wo man sich befindet im !!!!!!!!!!!1*/
+.subheadlinetutor {padding-left:11px;font-size : 12px;color : #303030;background-color :#E4E4E4;font-weight:bold; font-family : Arial, Helvetica, sans-serif;}
+
+/* Seitenunterüberschrift, die angibt wo man sich befindet !!!!!!!!!!!!*/
+.subheadlinesubtitle {padding-left:11px;font-size : 12px;color : #303030;background-color :#ced7de; font-family : Arial, Helvetica, sans-serif;}
+
+/* Seitenunterüberschrift, die angibt wo man sich befindet !!!!!!!!!!!!*/
+.subheadlinesubtitlecourse {padding-left:11px;font-size : 12px;color : #5A4C40;background-color :#EAE5DE; font-family : Arial, Helvetica, sans-serif;}
+
+/* Seitenunterüberschrift, die angibt wo man sich befindet !!!!!!!!!!!!*/
+.subheadlinesubtitletutor {padding-left:11px;font-size : 12px;color : #303030;background-color :#E4E4E4; font-family : Arial, Helvetica, sans-serif;}
+
+/* Seitenunterüberschrift, die angibt wo man sich befindet !!!!!!!!!!!!*/
+.subheadlinepretitle {padding-left:11px;font-size : 12px;color : #303030;background-color :#ced7de;font-family : Arial, Helvetica, sans-serif;}
+
+/* Seitenunterüberschrift im COURSEbereich , die angibt wo man sich befindet im !!!!!!!!!!!1*/
+.subheadlinepretitlecourse {padding-left:11px;font-size : 12px;color : #5A4C40;background-color :#EAE5DE;font-family : Arial, Helvetica, sans-serif;}
+
+/* Seitenunterüberschrift im TUTORbereich , die angibt wo man sich befindet im !!!!!!!!!!!1*/
+.subheadlinepretitletutor {padding-left:11px;font-size : 12px;color : #303030;background-color :#E4E4E4;font-family : Arial, Helvetica, sans-serif;}
+
+
+/* Informationsleiste unter Iconbar im Backend -> Zuordnung Zugriffsberechtigung !!!!!!!!!1*/
+.infobarbackend {padding-left:11px;font-size : 10px;line-height:20px;color : #000000;background-color :#DADADA;font-family : Arial, Helvetica, sans-serif;}
+.inputboxpadding{padding-left:6px}
+
+/* Informationsleiste unter Iconbar im Backend -> Zuordnung Zugriffsberechtigung !!!!!!!!!1*/
+.supertablebackend {padding-left:11px;font-size : 12px;line-height:20px;color : #000000;background-color :#BFBFBF;font-family : Arial, Helvetica, sans-serif;}
+
+
+.content {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:11px;} /*statt bodylike und permtext*/
+
+.contentnopadd {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+
+.contentbold {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;padding-left:12px;} /*statt permtextbold*/
+
+.contentboldnopadd {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;} /*statt permtextbold*/
+
+.contentsmall {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:10px;padding-left:11px;} /*verwendet in : Forum*/
+
+.contentsmallnopadd {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:10px;} /*verwendet in : Forum*/
+
+.bartext {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:10px;padding-left:10px;}
+
+.bartextnopadd {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:10px;}
+
+.bartextcourse {color:#5A4C40;font-family:Arial,Helvetica,sans-serif;font-size:10px;padding-left:11px;}
+
+.bartextnopaddcourse {color:#5A4C40;font-family:Arial,Helvetica,sans-serif;font-size:10px;}/*verwendet in : TableheadTag : verwendet in Forum*/
+
+.bigbartext {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:11px;} /*statt bodylike und permtext*/
+
+.bigbartextbold {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;padding-left:11px;} /*statt permtextbold*/
+
+.bigbartextcourse {color:#5A4C40;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:11px;} /*statt bodylike und permtext*/
+
+.bigbartextboldcourse {color:#5A4c40;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;padding-left:11px;} /*statt permtextbold*/
+        /* ------------- paddings ---------------- */
+
+.padding1  {padding-bottom:5px;padding-left:10px;padding-top:5px;padding-right:5px;}
+
+.padding2  {padding-bottom:5px;padding-left:5px;padding-top:5px;padding-right:5px;}
+
+.paddingleft1 {padding-left:10px;}
+
+.paddingleft11 {padding-left:11px;}
+
+/* paddyleft5 wird verwendet, ist noch im oberen Teil definiert */
+
+
+        /* ------------- ENDE paddings ---------------- */
+
+        /* -------------------- color definitions ------------------------------ */
+
+.contentbackcolor {background-color:#F9F9F9;} /*standard Hintergrundfarbe*/
+
+.contentbackcolorcourse {background-color:#F8F8F5;}
+
+.headlinebackcolor {background-color:#103052;}
+
+.compnewslistheaderbackcolor { background-color : #EAE5DE;  }
+
+.compnewslistcontentbackcolor { background-color : #F8F8F5;  }
+
+.compnewslistcontenttableheader { background-color : #B8B4AE;  }
+
+compnewslistcontenttableheader { background-color : #B8B4AE;  }
+
+.subheadlinebackcolor {background-color:#CED7DE} /* auch bei Buttonleiste verwendet*/
+
+.subheadlinebackcolorcourse { background-color : #EAE5DE;  }
+
+.subheadlinebackcolortutor { background-color : #E4E4E4;  }
+
+.tableheadbackcolor {background-color:#8492a5;}
+
+.tableheadbackcolorstandard {background-color:#8492a5;}
+
+.tableheadbackcolorcourse {background-color:#b8b4ae;}
+
+.tableheadbackcolortutor {background-color:#b3b3b3;}
+
+.linecolor {background-color:#303030;} /*Trennungslinien verwendet in : Forum , tableheadTag  */
+
+.linecolorlogin{background-color:#303030;}
+
+.linecolortutor {background-color:#4D4D4D;}
+
+.linecolorcourse {background-color:#5a4c40;} /*trennungslinien verwendet in :  */
+
+.linecolormyhome {background-color:#000000;} /*trennungslinien und rahmen verwendet in : labelledBoxTag  */
+
+.navbackcolor {background-color:#A8B6C6;}
+
+/* neu N.H.*/
+
+.tablerowdarkpadd11 {  font-family : Arial, Helvetica, sans-serif; background-color : #DADADA; padding-left : 11px; font-size:12px;line-height : 24px; }
+
+.tablerowlightpadd11 {  font-family : Arial, Helvetica, sans-serif; background-color : #E2E2E2;  padding-left : 11px;font-size:12px;line-height : 24px; }
+
+.contentlabelledbox {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:5px;padding-right:5px;} /* gesetzt bei labelledbox in kombination mit paddingNN5 */
+
+.labelledboxhead {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;padding-left:5px;padding-right:5px;} /* gesetzt bei labelledbox in kombination mit paddingleftNN2 */
+
+.labelledboxheadmyhome {color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:10px;padding-left:4px;} /* gesetzt bei labelledbox in kombination mit paddingleftNN2 */
+
+
+.profilepicturecutter {position:absolute; width:150px; height:150px; z-index:1; left: 25px; overflow: hidden; clip: rect(0 150 150 0);}
+
+.profilelistpicturecutter {position:absolute; width:150px; height:150px; z-index:1; left: 15px; top:45; overflow: hidden; clip: rect(0 150 150 0);}
+
+.noprofilpicture { background-color : #F4F4F4;}
+
+.noprofilpictureborder { background-color : #FFFFFF;}
+
+/** verzweiflungstat C.L **/
+
+.tab1activepart { background-color : #DADADA;  background-position : left; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-bottom : 5px; padding-left : 0px; padding-top : 0px;}
+
+/* XXXXXXXXX    NEUE STYLES aus clixstylesv4.css    ------------------------- XXXXXXXXXXXXXXXXXX   */
+
+/* HINTERGRUNDFARBEN */
+
+.commonbackground {background-color:#f9f9f9;}
+
+.commonbackgroundpadd11 {background-color:#f9f9f9;padding-left:11px} /** in OneColumnTag **/
+
+.coursebackground {background-color:#f8f8f5;}
+
+.tutorbackground {background-color:#f9f9f9}
+
+.writebackgroundbackendnopadd {background-color:#DEDBDE;padding-left:0px;}
+.writebackgroundbackendpadd11 {background-color:#DEDBDE;padding-left:11px;}/** in OneColumnTag **/
+.writebackgroundbackendpadd6 {background-color:#DEDBDE;padding-left:6px;} /** in ReadOnlyAreaTag**/
+.writebackground{background-color:#E4E4E4;padding-left:11px;padding-right:11px}
+.writebackgroundpadd5{background-color:#E4E4E4;padding-left:5px;padding-right:11px;}
+.writebackgroundnopadd{background-color:#E4E4E4;padding-right:11px} /** Gästebuch neuer Eintrag **/
+.writebackgroundtabactive { background-color : #E4E4E4;  font-family : Arial, Helvetica, sans-serif;  font-size : 11px;padding-left:8px}/** font-size : 11px;padding-left:8px laut Design-Cookbook **/
+.writebackgroundtabpassive { background-color :#BEBEBE;  font-family : Arial, Helvetica, sans-serif;  font-size : 11px;padding-left:8px}/** font-size : 11px;padding-left:8px laut Design-Cookbook **/
+.writebackground-backend{background-color:#DEDBDE;}
+.writebackgroundtabactive-backend { background-color : #DEDBDE;  font-family : Arial, Helvetica, sans-serif;  font-size : 10px;padding-left:8px}/** font-size : 11px;padding-left:8px laut Design-Cookbook **/
+.writebackgroundtabpassive-backend { background-color :#BEBEBE;  font-family : Arial, Helvetica, sans-serif;  font-size : 10px;padding-left:8px}/** font-size : 11px;padding-left:8px laut Design-Cookbook **/
+
+.readbackground	{background-color:#F9F9F9;padding-left:11px;}
+
+.headlinebackground {background-color:#103052;}
+
+.subheadlinebackground {background-color :#CED7DE;}
+
+.subheadlinebackgroundcourse {background-color :#EAE5DE;}
+
+.subheadlinebackgroundtutor {background-color :#E4E4E4;}
+
+.subheadlinebackgroundbackend{background-color :#E7E7E7;}
+
+.tableheadbackground {background-color:#8492a5;}
+
+.tableheadbackgroundstandard {background-color:#8492a5;}
+
+.tableheadbackgroundcourse {background-color:#b8b4ae;}
+
+.tableheadbackgroundtutor {background-color:#b3b3b3;}
+
+
+/* TABELLEN */
+
+/* Tabellenkopf */
+.tablehead {padding-left:11px;font-size:10px;color:#303030;background-color:#8492A5;font-family:Arial,Helvetica,sans-serif;}
+/* Tabellenkopf im COURSEbereich*/
+.tableheadcourse {padding-left:11px;font-size:10px;color:#5A4C40;background-color:#B8B4AE;font-family:Arial,Helvetica,sans-serif;}
+
+/* Tabellenkopf TUTORbereich*/
+.tableheadtutor {padding-left:11px;font-size:10px;color:#303030;background-color:#B3B3B3;font-family:Arial,Helvetica,sans-serif;}
+
+.chattableheadbold {font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;}
+
+.tablelightrow {padding-left:11px;font-size:12px;color:#000000;background-color:#F9F9F9;font-family:Arial,Helvetica,sans-serif;}
+
+.tabledarkrow {padding-left:11px;font-size:12px;color:#000000;background-color:#EEEEEE;font-family:Arial,Helvetica,sans-serif;}
+
+/* Tabellenzeilen für offene Tabellen, die den Hintergrund nicht alternieren */
+/** Änderung C.L. 16.04.2003 tablerow soll denselben padding-Wert haben, wie tablerowlight und tablerowdark */
+.tablerow {padding-left:5px;font-size:12px;color:#000000;background-color:#F9F9F9;font-family:Arial,Helvetica,sans-serif;line-height : 24px;}
+
+
+/* Boxen */
+/* gesetzt bei labelledboxTag  in kombination mit paddingNN5  */
+.outputboxcontent {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-top : 2px;padding-bottom : 2px}
+
+.labelledboxcontent {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:5px;padding-right:5px;}
+
+.labelledboxcontentcourse {color:#5A4C40;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:5px;padding-right:5px;}
+
+.labelledboxcontenttutor {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:5px;padding-right:5px;}
+
+.labelledboxheadcourse {color:#5a4c40;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;padding-left:5px;padding-right:5px;}
+
+.labelledboxheadtutor {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;padding-left:5px;padding-right:5px;}
+
+/* gesetzt bei labelledbox in myhome in kombination mit paddingleftNN2 */
+.labelledboxmyhomehead {background-color: #8492A5;font-family : Arial, Helvetica, sans-serif; font-size : 10px;color : #FFFFFF;padding-left:4px;}
+
+
+
+/* Hintergrund - und Schrift Definition fuer schreibende Seiten */
+.write {color:#000000;background-color:#DDDDDD;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:11px;}
+
+/* Hintergrund - und Schrift Definition fuer lesende Seiten */
+.read {color:#000000;background-color:#F9F9F9;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:11px;}
+
+navbackcolor {background-color : #A8B6C6; }
+.trlevel0{  background-color : #A8B6C6;}
+.trlevel1{ background-color : #B8C6D4;}
+.trlevel2 { background-color : #CBD5E1;}
+.trlevel3 { background-color : #D8E0ED;}
+.trlevel4 { background-color : #DEE8F8;}
+.tdlevel0 { color : #000000;  font-size : 12px; padding-top:4px; padding-bottom:4px;}
+.tdlevel1 { color : #000000;  font-size : 12px; padding-left : 5px;}
+.tdlevel2{ color : #000000;  font-size : 12px; padding-left : 10px;}
+.tdlevel3{ color : #000000;  font-size : 12px; padding-left : 15px;}
+.tdlevel4{ color : #000000;  font-size : 12px; }
+
+A.navlink:link { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink:hover { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink:visited { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.navlink0:link { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink0:hover { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink0:visited { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.navlink1:link { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink1:hover { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink1:visited { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.navlink2:link { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink2:hover { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink2:visited { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.navlink3:link { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink3:hover { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink3:visited { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.navlink4:visited { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink4:link { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+A.navlink4:hover { color : #000000; text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.smalltext:link { color : #2D4193;  font-family : Arial, Helvetica, sans-serif; font-size : 10px; }
+A.smalltext:hover { color : #2D4193;  font-family : Arial, Helvetica, sans-serif; font-size : 10px; }
+A.smalltext:visited { color : #2D4193;  font-family : Arial, Helvetica, sans-serif; font-size : 10px; }
+
+
+
+
+
+
+/*   changes 25.8.2000 hoehing body, table , text1, text2, tablerowlight, -dark fontsize von 10px auf 12px geändert*/
+/* Positionierung und BG-Farbe der PrivilegedBar*/
+.privilegedbar {position:absolute;z-index:5;background-color:#BFBFBF; }
+.privilegedbarHeadlineSubheadline {position:absolute;z-index:5;background-color:#BFBFBF; }
+.privilegedbartop35 {position:absolute;z-index:5;background-color:#BFBFBF;top:35;}
+.privilegedbartop119 {position:absolute;z-index:5;background-color:#BFBFBF;top:119;}
+.privilegedbar2 {position:absolute;z-index:5;background-color:#BFBFBF; }
+.tabstyle {position:absolute;visibility:visible;width:100%;left:11;top:102;z-index:10;}
+.tabstylepadd10 {position:absolute;visibility:visible;width:100%;left:10;top:102;z-index:10;}
+.tabstyleSubheadline {position:absolute;visibility:visible;width:100%;left:11;top:122;z-index:10;}
+.tabstyleSubheadlineSpace {position:absolute;visibility:visible;width:100%;left:11;top:133;z-index:10;}
+.tabstyleNoTitle {position:absolute;visibility:visible;width:100%;left:0;top:2;z-index:10;}
+.tabstyletop2padd10 {position:absolute;visibility:visible;width:100%;left:11;top:2;z-index:10;}
+.tabstylebarNoTitle {position:absolute;width:200;left:12;top:24px;z-index:4;}
+.tabstylebartop24padd10 {position:absolute;width:300;left:30;top:24px;z-index:4;}
+.tabstylebarbgNoTitle {position:absolute;visibility:visible;height:120;left:0;top:24;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgNoTitlepadd11 {position:absolute;visibility:visible;height:120;left:11;top:24;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgNoTitlepadd1 {position:absolute;visibility:visible;height:120;left:1;top:24;z-index:1;border-right:0;margin-right:0;}
+.tabstylesearchNoTitle {position:absolute;visibility:visible;width:97%;height:140;left:10;top:24;z-index:3;}
+.tabstylesearchNoTitlepadd1 {position:absolute;visibility:visible;width:97%;height:140;left:11;top:24;z-index:3;}
+.tabstyleProfil  {position:absolute;visibility:visible;width:100%;left:15;top:165;z-index:10;}
+.tabstyle-frontend  {position:absolute;visibility:visible;width:100%;left:11;top:165;z-index:10;}
+.tabstyleProfilImageHead  {position:absolute;visibility:visible;width:100%;left:11;top:185;z-index:10;     }
+.tabstyleProfilChooseSkillsHead  {position:absolute;visibility:visible;width:100%;left:11;top:44;z-index:10;     }
+.tabstylebuddies {position:absolute;visibility:visible;width:100%;left:11;top:76;z-index:10;}
+.tabbar {position:absolute;z-index:15;}
+.tabstylebar {position:absolute;width:200;left:12;top:124px;z-index:4;}
+.tabstylebarSubheadline {position:absolute;width:200;left:12;top:144px;z-index:4;}
+.tabstylebarSubheadlineSpace {position:absolute;width:200;left:12;top:155px;z-index:4;}
+.tabstylebarbg {position:absolute;visibility:visible;height:120;left:0;top:124;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgSubheadline {position:absolute;visibility:visible;height:120;left:0;top:144;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgSubheadlineSpace {position:absolute;visibility:visible;height:120;left:0;top:155;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgpadd1 {position:absolute;visibility:visible;height:120;left:1;top:124;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgpadd1Subheadline {position:absolute;visibility:visible;height:120;left:1;top:144;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgpadd1SubheadlineSpace {position:absolute;visibility:visible;height:120;left:1;top:155;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgbuddies {position:absolute;visibility:visible;height:10px;left:1;top:100px;z-index:-11;border-right:0;margin-right:0;}
+.tabstylebgNoTitle {position:absolute;visibility:hidden;height:00;left:0;top:24;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgProfil {position:absolute;visibility:visible;height:120;left:0;top:187;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbg-frontend {position:absolute;visibility:visible;height:120;left:1;top:187;z-index:1;border-right:0;margin-right:0;}
+.tabstylebarbgProfilImageHead {position:absolute;visibility:visible;height:120;left:0;top:207;z-index:1;border-right:0;margin-right:0;   }
+.tabstylebarbgProfilChooseSkillsHead {position:absolute;visibility:visible;height:120;left:0;top:66;z-index:1;border-right:0;margin-right:0;   }
+.tabstylebarbgComposing {position:absolute;visibility:visible;height:120;left:0;top:124;z-index:1;}
+.tabstyledescr {position:absolute;visibility:visible;width:100%;left:10;top:102;z-index:10;}
+.tabstylebarbgdescr {position:absolute;visibility:visible;height:120;left:0;top:124;z-index:1;}
+.tabstylesearch {position:absolute;visibility:visible;width:97%;height:140;left:10;top:124;z-index:3;}
+.tabstyleQTI {position:absolute;visibility:visible;width:100%;left:11;top:9;z-index:10;}
+.tabstylebarbgQTI {position:absolute;visibility:visible;height:10;left:11;top:9;z-index:1;border-right:0;margin-right:0;width:65%;}
+.tabstyleQTItopic {position:absolute;visibility:visible;width:100%;left:11;top:94;z-index:10;}
+.tabstylebarbgQTI40 {position:absolute;visibility:visible;height:120;left:11;top:9;z-index:1;border-right:0;margin-right:0;width:40%;}
+.tabstylebarbgQTItopic {position:absolute;visibility:visible;height:120;left:11;top:94;z-index:1;border-right:0;margin-right:0;width:65%;}
+/* hilft das 3px padding von netscape bei einer form auf den Reiterseiten auszugleichen*/
+.formtotheleft{padding-left:3px;}
+.IEscrollwidth {width:31px;font-size : 38px;}
+/* temp LearnTec */
+.faqbartop {position:absolute;width:100%;left:0;top:35px;z-index:4;}
+.faqbar1 {position:absolute;width:200;left:300;top:124px;z-index:6;}
+.faqbar2 {position:absolute;width:200;left:456;top:124px;z-index:8;}
+/*.savesuccess {position:absolute;visibility:hidden;width:900;height:200;left:300;top:0;z-index:101;}*/
+
+
+ .savesuccess { position:absolute;left:250px;top:115px;width:250px;height:200px;z-index:104;visibility:hidden;}
+
+
+.alerterror {position:absolute;visibility:hidden;width:250;height:200;left:70;top:40px;z-index:101;}
+.replacestyle {position:absolute;visibility: hidden;top:191px; left:275px; width:339px; height:263px; z-index:10; }
+.reiterstyle {position:absolute; left:10px; top:101px; width:480px; z-index:2; visibility:visible;overflow:auto}
+.contentstyle {position:absolute; left:10px; top:0px; width:960px; z-index:2; visibility:visible;overflow:auto}
+
+.portalhead {color : #000000;  font-size : 16px;  font-weight : bold; font-family:Arial, Helvetica, sans-serif;}  /* überschrift auf der portalseite (welcome..) */
+
+
+
+
+/*html tag definitions*/
+
+body { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; margin-bottom : 0; margin-left : 0; margin-right : 0; margin-top : 0;  text-align : left; }
+
+.bodylike{color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight:normal;}
+
+table { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;   margin-bottom : 0; margin-left : 0; margin-right : 0; margin-top : 0;  text-align : left;  border-width : 0px 0px 0px;    }
+
+
+form {
+        border-bottom-width :  0px;
+        margin-bottom :  0px;
+        padding-bottom :  0px;
+        padding-top:0px;
+        margin-top :  0px;
+}
+
+
+/* ZUSAMMENFASSENDE KLASSEN */
+
+
+/* tabellenkopf flächen mit unterscheidung - sortiert nach*/
+.buttonsortbyactive {  font-family : Arial, Helvetica, sans-serif; background-color : #8B9EB5; color : #444444; font-size : 10px; padding-bottom : 5px; padding-left : 5px; padding-top : 5px; }
+
+.buttonsortby {   font-size : 10px; font-family : Arial, Helvetica, sans-serif; background-image : url("images/back_sortby_butt.gif");background-color : #8B9EB5; color : #444444; padding-bottom : 5px; padding-left : 5px; padding-top : 5px;}
+
+.buttonsortbygray {   font-size : 12px; font-family : Arial, Helvetica, sans-serif; background-color : #B8B4AE; color : #5A4C40;  padding-left : 5px;}
+
+.graynoleftpadd {   font-size : 12px; font-family : Arial, Helvetica, sans-serif; background-color : #B8B4AE; color : #5A4C40; padding-top : 1px;padding-bottom : 1px; }
+
+.grayleftpadd {   font-size : 12px; font-family : Arial, Helvetica, sans-serif; background-color : #B8B4AE; color : #5A4C40; padding-top : 1px;padding-bottom : 1px; padding-left : 3px; }
+
+.grayjustleft {   font-size : 12px; font-family : Arial, Helvetica, sans-serif; background-color : #B8B4AE; color : #5A4C40; padding-left : 5px; }
+
+.grayjustleftbold {   font-size : 12px; font-family : Arial, Helvetica, sans-serif; font-weight : bold; background-color : #B8B4AE; color : #5A4C40; padding-left : 5px; }
+
+.brownnopaddbold {   font-size : 12px; font-family : Arial, Helvetica, sans-serif; font-weight : bold; background-color : #B8B4AE; color : #5A4C40; }
+
+.brownnopadd {   font-size : 12px; font-family : Arial, Helvetica, sans-serif; background-color : #B8B4AE; color : #5A4C40; }
+
+.spaceright	{padding-right : 15px;}
+
+/* tabellenzeilen */
+
+  .tablerowdark {  font-family : Arial, Helvetica, sans-serif; background-color : #D8D8D8; padding-left : 5px;line-height : 24px; }
+
+ .tablerowlight {  font-family : Arial, Helvetica, sans-serif; background-color : #E4E4E4;  padding-left : 5px;line-height : 24px; }
+
+
+
+ .graydark {  font-family : Arial, Helvetica, sans-serif; background-color : #DADADA;  }
+
+ .graylight {  font-family : Arial, Helvetica, sans-serif; background-color : #E2E2E2;  }
+
+ .tablerowselected {  font-family : Arial, Helvetica, sans-serif; background-color : #A9A9A9; padding-left : 5px; line-height : 24px;}
+
+ .tablerowwhite {  font-family : Arial, Helvetica, sans-serif; background-color : #FFFFFF;  padding-left : 5px; line-height : 24px;}
+
+.tablebordercolor { background-color : #BCBCBC; padding : 0; margin : 1; }
+
+/* reiterdefinitionen für backend eingabescreens */
+.tab1active { background-color : #DADADA;  background-position : left; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+
+.tab1activekatalog { background-color : #DADADA;  font-family : Arial, Helvetica, sans-serif;  font-size : 10px;}
+.tab1activekatalogtransp { font-family : Arial, Helvetica, sans-serif;  font-size : 10px;}
+
+
+/* this causes a black line in description.jsp so don't use this please .tab1active { background-color : #CFC0AF; background-image : url("images/grey_dot_med.gif");background-position : left; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;} */
+.tab2active { background-color : #E8DCD2; background-image : url("images/grey_dot_med.gif");background-position : left; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 12px;  padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+
+.tab1 { background-color : #C1C1C1; background-image : url("images/grey_dot_med.gif"); background-position : left; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+
+.tab1katalog { background-color : #BFBFBF;  font-family : Arial, Helvetica, sans-serif; font-size  : 10px;}
+
+.tab1katalogwidth100 { background-color : #BFBFBF;  font-family : Arial, Helvetica, sans-serif; font-size  : 10px;width:100px}
+
+.tab2 { background-color : #D8CCBE; background-image : url("images/grey_dot_med.gif"); background-position : left; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+
+.texttab2 { background-color : #E8DCD2; font-family : Arial, Helvetica, sans-serif; font-size : 10px; padding-bottom : 2px; padding-left : 10px; padding-top : 2px;}
+
+.texttab1 { background-color : #DADADA; font-family : Arial, Helvetica, sans-serif; font-size : 10px; }
+
+
+/* ADRESSBUCHTABS*/
+.tabaddressactive { background-color : #8B9EB5; font-family : Arial, Helvetica, sans-serif; font-size : 12px;   text-align :  center;  background-image :  url("images/grey_dot_light.gif");  background-position :  right;  background-repeat :  repeat-y;  padding-bottom : 5px; padding-top : 5px;   }
+
+.tabaddress { background-color : #8393A3; background-image : url("images/grey_dot_light.gif"); background-position : right; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 12px;  text-align :  center;  color : #303030;   padding-bottom : 5px; padding-top : 5px;  }
+
+
+.explain { background-color :#CFC0AF; background-image : url("images/grey_dot_dark.gif"); background-position : left; background-repeat : repeat-y; font-family : Arial, Helvetica, sans-serif; font-size : 9px;  color : #303030;   padding-bottom : 5px; padding-top : 5px; padding-left:5px }
+/* vert. trennlinie und text für erläuterungstexte rechts im backend*/
+
+
+
+
+
+/* tabellendefinitions */
+
+/* funktionalität kritisch erstmal weglassen
+.listtable {
+        border-width : 1px 1px 1px 1px;
+        border-color : #BCBCBC #BCBCBC #BCBCBC #BCBCBC;
+        background-color :  #BCBCBC;
+ }
+
+
+.listtableheader { 	border-width : 1px 1px 1px 1px;
+        border-color : #BCBCBC #BCBCBC #BCBCBC #BCBCBC;
+        background-color :  #BCBCBC;}*/
+
+
+.picbordertable {padding : 5px 5px 5px 5px; background : #CCCCCC; border : 12px solid #666666; border-width : 1px; margin :  10px;font-family : Arial, Helvetica, sans-serif;}
+         /* NEU EINZUARBEITEN - rahmenerzeugungstabellen für bilder zb produktkatalog*/
+.picbordertableA {padding : 1px; background-color : #CCCCCC; border : 1px solid #666666;}/*N.H.*/
+
+.outputfieldtable {border : 1px solid White; color : #252525;  font-size : 14px; background-color : #E8DCD2;  font-family :  Arial, Helvetica, sans-serif;   width=95%;}
+/* NEU EINZUARBEITEN - textausgabe im form umfeld wie eingabefeld formatiert*/
+
+
+
+
+/* bordercolor definitions*/
+
+.bordercolor3 {  border : 1px solid White; }
+/* ALT : UMRANDUNG DER OUTPUTFIELDS - alle formatierungen des outputfelids werden gesetzt durch outputfieldtable*/
+
+
+/*background  definitions*/
+
+.backpopupwindows{background-color : #F9F9F7;}
+
+.backheadbar{ background-color : #133255;  }/* NEU EINZUARBEITEN - ersatz für  backcolor17*/
+
+.backsubheadbar{ background-color : #3D526B;  }/*NEU EINZUARBEITEN - ersatz für backcolor22*/
+
+.backsubheadbargray{ background-color : #949494;  }
+
+.backiconbar{background-color : #BFBFBF;  }/* NEU EINZUARBEITEN - ersatz für backcolor 10*/
+
+.backsearchbar{ background-color : #CDD5DC;  }/* NEU EINZUARBEITEN - ersatz für backcolor15*/
+
+.backshufflebar{  background-color : #ECECE6; }/* DONE- hintergrund shufflescreen shufflebar*/
+
+.backcop{ background-color : #EAE5DE;  }/* DONE - hintergrund COP screens - ersatz für backcolor 31*/
+
+.backstandalonelisthead { background-color : #CDD5DC;  }
+
+.backcourseheadbar{  background-color : #EE7700; }/* DONE - ersatz für backcolor32 */
+
+.readtextback { background-color : #EFEDE9; }/* NEU EINZUARBEITEN - lesetextback - portal, myhome, newsback*/
+
+.tabstripback { background-color : #EFEDE9;  }
+
+
+/*vertical lines for description in tabcard fields*/
+.backlinev{  }
+
+.backlinevdark{ background-image : url("images/grey_dot_dark.gif"); background-repeat : repeat-y; }
+
+/* backs für trennlinien (durch tabellen erzeugt)*/
+.backcolor9 { background-color : #707E8B; }/* für tabellenmässige linien erstellung benutzt*/
+
+.backcolor5 { background-color : #999999;}/* zur linien erzeugung genutzt bsp: profiles strukturierung & produkt catalog*/
+
+.backcolor30  { background-color : Black; }/* zur linienerstellung benutzt*/
+
+
+/* allgemeine backs*/
+
+.backcolor4 { background-color : #F9F9F7; }/* standard body back*/
+
+.backcolor2 { background-color : #8B9EB5; }/* hellblau*/
+
+.backcolor3 { background-color : #d7d7d7; }/* ??? */
+
+.backcolor6 { background-color : #CECDCD;}/* in alertwindowlayers benutzt*/
+
+.backcolor8 { background-color : #DFDFDF; }/* ??? */
+
+.backcolor10 { background-color : #BFBFBF;}
+/* alter hintergrund iconbar - WIRD ERSETZT DURCH BACKICONBAR*/
+
+.backcolor11 { height:1px; background-color : #A7B3C0; }/* ??? */
+
+.backcolor110 { background-color : #A7B3C0; }
+
+.backcolor14{  background-color : #A8B6C6;   }/* alert layers oberster balken & nav 1. ebene*/
+
+.backcolor15 { background-color : #CDD5DC; }
+/*(searchbar back) &  alert mitte & standalone-lists headbar - WIRD ERSETZT DURCH BACKSEARCHBAR*/
+
+.backcolor17 { background-color : #133255; }/*content titlebar - WIRD ERSETZT DURCH BACKHEADBAR*/
+
+.backcolor18 { background-color : #E8DCD2; } /*tab2 flat back & backcolor outputfields*/
+
+.backcolor19 { background-color : #DADADA; }/*tab1 flat back*/
+
+.backcolor19layer { background-color : #DADADA; }/* Hintergrundfarbe für Layer */
+
+.backcolor20 { background-color : #C4B39D; }/* nur im testtool benutzt*/
+
+.backcolor22  { background-color : #3D526B; }/*content subtitlebar - WIRD ERSETZT DURCH BACKSUBHEADBAR*/
+
+.backcolor31  { background-color : #EAE5DE; } /* COP hintergrund - WIRD ERSETZT DURCH BACKCOP*/
+
+.backcolor32  { background-color : #EE7700; }/* course header back color  - WIRD ERSETZT DURCH BACKCOURSEHEADBAR*/
+
+.backcolor10proz { background-color : #D0D0D0;}/* backgroundcolor für die rechte Seite unter TOP 10 im Portal*/
+
+.brownlight{background-color:#F8F8F5;}
+
+.browndark{background-color:#E7E7E4;}
+
+.backbrown	{background-color:#F8F8F5;} /* backolor for courses and profile*/
+
+.backbrownheader {background-color:#B8B4AE;}
+
+.backbrowntextdark	{background-color:#F8F8F5;color:#5A4C40;} /* backolor and text color for courses and profile*/
+
+.backbrowndark	{background-color:#5A4C40;} /* backolor for courses and profile*/
+
+.backwhite  { background-color : #F9F9F7; }
+
+.backcolorgrey  { background-color : #F0F0F0; }  /* Standardhintergrundfarbe */
+
+.backcolorgreypaddleft  { background-color : #F0F0F0;padding-left:10px; }  /* Standardhintergrundfarbe mit padding */
+
+.backcolorlight  {background-color : #E2E2E2; } /* e.g.  im Kalender wie tablerowlight*/
+
+.backcolordark  {background-color : #DADADA; } /* e.g. im Kalender wie tablerowdark*/
+
+.backtesttool { background-color : #E5E1DA; }/* nur im testtool benutzt*/
+
+.backcolorheaderlight { background-color : #CED7DE;}
+
+.darkcolorlineheader { background-color : #303030;}
+
+.backcolorbrownlight { background-color : #FFFBF7;}
+
+
+
+
+/*field types*/
+
+.field {  font-family : Arial, Helvetica, sans-serif; font-size :  12px;   }/* */
+
+.field-small99 {font-family : Arial, Helvetica, sans-serif; font-size :  10px; width:99%;  }/* kleine eingabefelder - z.B. searchbar*/
+
+.field-small-sitemap {font-family : Arial, Helvetica, sans-serif; font-size :  10px;width:60%;}
+
+.fieldsmallsearchbar {font-family:Arial,Helvetica,sans-serif;font-size:10px;width:90%;}
+
+.field-borderless { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  color : #000000; font-family :  Arial, Helvetica, sans-serif; font-size : 12px; }
+
+.field-borderless-catalog { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  color : #000000; font-family :  Arial, Helvetica, sans-serif; font-size : 12px; width: 100%;}
+
+.fieldborderless100 { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  font-family :  Arial, Helvetica, sans-serif; font-size : 12px;  width:90%;   }
+/* input felder 90% breite*/
+
+.fieldborderless450 { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  font-family :  Arial, Helvetica, sans-serif; font-size : 12px;  width:450;   }
+/* input felder 450 breite*/
+
+.fieldforum {width:90%;max-width:600px;font-family :Arial, Helvetica, sans-serif; font-size : 12px;}
+/* input felder 90% breite*/
+
+
+.fieldborderless { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  font-family :  Arial, Helvetica, sans-serif; font-size : 12px;width:50%;  }
+
+
+.field-outline { background-color : #F4F4F4;   font-family : Arial, Helvetica, sans-serif;  font-size :  12px;  border : medium double Gray;     }/* nur auf portal suche */
+
+
+.fieldobligborder {} /* für netscape nötig*/
+
+.fieldoblig { background-color : #E8DCD2; border-style : none;  border : 1px solid White;  font-family : Arial, Helvetica, sans-serif; font-size :  14px;   }
+/* obligatorische eingabefelder */
+
+.fieldoblig100 { background-color : #E8DCD2; border-style : none;  border : 1px solid White;  font-family : Arial, Helvetica, sans-serif; font-size : 14px; width:200; }
+
+.fieldoblig450 { background-color : #E8DCD2; border-style : none;  border : 1px solid White;  font-family : Arial, Helvetica, sans-serif; font-size : 14px; width:480; }
+
+
+.field-borderless1 { font-family : Arial, Helvetica, sans-serif; font-size :  12px;  width:115px;   border-style : none;  border :  none;}/* auf portal seite benutzt*/
+
+.field-output-smallborder { border-style : none; border : 1px solid White; font-family :  Arial, Helvetica, sans-serif; font-size : 14px; }
+/* Readonly-Ausgabefelder z.B. clix/jsp/edu/type/form.jsp Autor:Sascha Markus*/
+
+.field-input-smallborder { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  font-family :  Arial, Helvetica, sans-serif; font-size : 14px;  }
+/* Eingabefelder z.B. clix/jsp/edu/type/form.jsp Autor:Sascha Markus*/
+
+.field-input2 { font-family : Arial, Helvetica, sans-serif; font-size :  12px;  width:115px; }/* auf portal seite benutzt*/
+
+/* TEXTDEFINITIONS */
+
+.textuserlimit {color : #133255;font-size : 12px; font-family : Arial, Helvetica, sans-serif;font-weight:bold;}
+
+/* die searchclass_klassen dienen der Einstellung aller seiten die ihre tabelle aus dem gui bauen*/
+.searchclassheader{  font-size : 10px; font-family : Arial, Helvetica, sans-serif; background-image : url("images/back_sortby_butt.gif");background-color : #8B9EB5; color : #444444; padding-bottom : 5px; padding-left : 5px; padding-top : 5px;}
+.searchclassheadergray{  font-size : 10px; font-family : Arial, Helvetica, sans-serif; background-color : #B3B3B3; color : #5A4C40; padding-bottom : 5px; padding-left : 5px; padding-top : 5px;}
+/* Wie buttonsortby */
+
+.searchclassheaderspan{}
+
+.textsearchclassspan {padding-bottom : 5px;  padding-top : 5px;}
+
+.textsearchclass {font-size : 12px; font-family : Arial, Helvetica, sans-serif;}
+
+.permtext { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;    }/* text permanent nav elements in upperframe*/
+
+.texticonbar { color : #3D3B3D; font-family : Arial, Helvetica, sans-serif; font-size : 10px;    }
+
+.texticonbargreyed { color : #5B5A5A; font-family : Arial, Helvetica, sans-serif; font-size : 10px;    }
+
+.textsearchbar { color : #464646;  padding-bottom : 7px; padding-left : 10px; padding-top : 7px; font-size : 10px; font-family : Arial, Helvetica, sans-serif;}
+
+.textbrowsebar { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px;    }
+
+.smalltext { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px; font-weight:normal;}/* kleiner text - zB produktkatalog - NEU EINZUARBEITEN - */
+
+.smalltextcondensed { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px; font-weight:normal;line-height:14px;} /* kleiner text mit einem kleinen Abstand*/
+
+.textImageHeader { color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 10px; line-height : 18px}/* kleiner text - für Hintergrundbild im Header - */
+
+.headerImageHeader{ color : #97948f; font-family : Arial, Helvetica, sans-serif; font-size : 14px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header */
+.headerImageHeaderTestEvaluated{ color : #33333; font-family : Arial, Helvetica, sans-serif; font-size : 14px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header der Testauswertungsseite */
+.headerImageHeaderSmallTestEvaluated{ color : #D4D4D4f; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header der Testauswertungsseite */
+.headerImageHeaderSmall{ color : #97948f; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header */
+.headertext{ color : #97948f; font-family : Arial, Helvetica, sans-serif; font-size : 14px; }/* Überschrift - für Hintergrundbild im Header  ohne padding*/
+.headerImageHeaderlongtext { color : #97948f; font-family : Arial, Helvetica, sans-serif; font-size : 14px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header bei 3 zeiligem text */
+
+.headerImageHeaderTestPassed{ color : #009A00; font-family : Arial, Helvetica, sans-serif; font-size : 14px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header */
+.headerImageHeaderTestFailed{ color : #DE0000; font-family : Arial, Helvetica, sans-serif; font-size : 14px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header */
+.headerImageHeaderTestEvaluatedMessage{ color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; padding-left : 10px; padding-top : 1px;}/* Überschrift - für Hintergrundbild im Header der Testauswertungsseite */
+
+.textheadbar {  color : #CCCCCC;  font-size : 18px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif;  padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+/* NEU EINZUARBEITEN - ersatz für text16 */
+
+.textheadbarsub { color : #CCCCCC;  font-size : 14px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;font-family : Arial, Helvetica, sans-serif; }
+
+.textheadbarsubgray { color : #C8C8C8;  font-size : 14px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px; font-family : Arial, Helvetica, sans-serif;}
+/* NEU EINZUARBEITEN - ersatz für text17*/
+
+.textcourseheadbar { color : #133255;  font-size : 18px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif;  padding-bottom : 5px; padding-left : 10px; padding-top : 5px; }
+/* NEU EINZUARBEITEN - ersatz für text32 */
+
+.textcourseheadbarsub { color : #133255;  font-size : 14px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px; font-family : Arial, Helvetica, sans-serif;}
+/* NEU EINZUARBEITEN - ersatz für text33*/
+
+.textlistcategory {  color : #252525;  font-size : 14px;  padding-top :  3px;  padding-bottom :  3px; font-family : Arial, Helvetica, sans-serif;  }
+/* DONE- teilersatz für text15 (noch in outputfield benutzt)*/
+
+.textalertwindow { font-size : 12px; padding-left : 10px;font-family : Arial, Helvetica, sans-serif;}
+/* ersetzt teilweise text5 */
+
+/* allgeimeine text definitions */
+
+.text1 { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;  padding-left :  5px;     }/* standard text - besonders in tabellen !!!*/
+
+.text2 { color : #5B5A5A; font-family : Arial, Helvetica, sans-serif; font-size : 12px;    }/* educats of this catalog*/
+
+.text13 { color : #333333;  font-size : 8pt; letter-spacing : 0px; line-height : 14pt;font-family : Arial, Helvetica, sans-serif; }  /*catalog list subcats*/
+
+.text10 { color : #333333; font-size : 9pt;  letter-spacing : 1px; line-height : 14pt; font-family : Arial, Helvetica, sans-serif;}
+/* lesetext COP home & myhome & catalog description*/
+
+.text11 { color : #123A68;  font-size : 12pt; line-height : 22px;font-family : Arial, Helvetica, sans-serif;    }  /*portal headlines - level 2*/
+
+.text30 { color : #123A68;  font-size : 10pt; font-family : Arial, Helvetica, sans-serif;   } /*portal small headlines - level 3*/
+
+.text31 { color : #123A68;  font-size : 12pt;  font-weight :  bolder; font-family : Arial, Helvetica, sans-serif;    } /*portal  headlines fat - level 1*/
+
+.text5 {  font-size : 12px; padding-left : 10px;font-family : Arial, Helvetica, sans-serif;}/* sehr gemischt verwendet - zB alertwindow text, COPhometext ...*/
+
+.text7 {  font-size : 12px; font-family : Arial, Helvetica, sans-serif;}/* portal copytext & !!!! COP icon beschriftungs text */
+
+.text12 { font-size : 12px; letter-spacing : 0.2em; text-transform : uppercase;font-family : Arial, Helvetica, sans-serif; }/* glossary ABCDEFGH text*/
+
+.text15 { color : #252525;  font-size : 14px; font-family : Arial, Helvetica, sans-serif;}/* listenkategorientext& text in output fields - outputfields werden durch outputfieldtable zusammengesfasst */
+
+.text15nopadd { color : #252525;  font-size : 14px; font-family : Arial, Helvetica, sans-serif;}/*pendant zu netscape style*/
+
+.textNews { color : #103052;  font-size : 12pt; line-height : 22px; font-family : Arial, Helvetica, sans-serif;    }  /*portal headlines - level 2*/
+
+.text14 { color : #464646;  padding-bottom : 7px; padding-left : 10px; padding-top : 7px;font-family : Arial, Helvetica, sans-serif;  }
+/* wird als searchbar & browsebar text verwendet - WIRD ERSETZT DURCH TEXTSEARCHBAR bzw TEXTBROWSEBAR*/
+
+.text16 {  color : #CCCCCC;  font-size : 18px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif;  padding-bottom : 5px; padding-left : 5px; padding-top : 5px;}
+/* text for titles in header - WIRD ERSETZT DURCH TEXTHEADBAR*/
+
+.text161 { font-family:Arial,Helvetica,sans-serif;color:#CCCCCC;font-weight: normal;font-size : 18px;} /* text for titles ohne padding*/
+
+.text17 { color : #CCCCCC;  font-size : 14px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;font-family : Arial, Helvetica, sans-serif;}
+/* text subtitles - WIRD ERSETZT DURCH TEXTHEADBARSUB*/
+
+
+.text18 { color : #123A68;  font-size : 14px;font-family : Arial, Helvetica, sans-serif; }/* testtools headline text*/
+
+.text19 { color : #252525;  font-size : 14px;  font-weight: bold; font-family : Arial, Helvetica, sans-serif;   }/* testtools text*/
+
+.text20 { color : #252525;  font-size : 16px; font-weight: bold; font-family : Arial, Helvetica, sans-serif;   }/*glossary active letter*/
+
+.text25 {  font-size : 12px;padding-bottom : 5px; padding-left : 10px; padding-top : 5px; background-color : #CFC0AF;font-family : Arial, Helvetica, sans-serif; }
+/*AICC upload text - kann gegen standard text ersetzt werden*/
+
+.text32 {  color : #133255;  font-size : 18px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif;  padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+/* text for course header titles - WIRD ERSETZT DURCH  TEXTCOURSEHEADBAR*/
+
+.text33{ color : #133255;  font-size : 14px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;font-family : Arial, Helvetica, sans-serif;}
+/* text course header subtitles - WIRD ERESETZT DURCH TEXTCOURSEHEADBARSUB*/
+
+
+
+
+.text40 { font-size : 14px; font-family : Arial, Helvetica, sans-serif; }/*  non-editable text in inputfields- ZUSAMMENGEFASST IN OUTPUTFIELDTABLE*/
+
+.text41 {  color : #233278;  font-size : 24px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif; }/* productkatalog titles*/
+
+
+.textmarker {
+        background-color: #F5B3FB;font-family : Arial, Helvetica, sans-serif;
+}
+
+
+.permtextbold { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold   }
+
+.permtextgrey { color : #525252; font-family : Arial, Helvetica, sans-serif; font-size : 12px;   }
+
+.permtextboldbrown { color : #5A4C40; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold   }
+
+.permtextboldsmall { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 11px; font-weight : bold   }
+
+.texttab5 { background-color : #A7B3C0; font-family : Arial, Helvetica, sans-serif; font-size : 10px; padding-bottom : 2px; padding-left : 10px; padding-top : 2px;}
+/* login & Passtexte auf portal*/
+
+.texttab6 { background-color : #A7B3C0; font-family : Arial, Helvetica, sans-serif; font-size : 10px; padding-bottom : 2px; padding-left : 1px; padding-top : 2px;}
+
+
+/* fuer Meldungen/Warnungen/Fehler */
+
+.textalert {color:#A0172B;font-size:12px;font-family:Arial,Helvetica,sans-serif;}
+.smalltextred {color:#A0172B;font-size:10px;font-family:Arial,Helvetica,sans-serif;}
+
+
+
+/* textpadding - extra for netscape*/
+/*.paddyleft {padding-left : 3px;}
+
+.paddyleft1 { padding-left : 5px; }
+
+.paddyleft2 {  padding-left : 10px; }
+
+.paddy5 { padding-left : 5px; padding-right : 5px;}
+
+.paddy2 {padding-bottom : 5px; padding-top : 5px;  }
+
+.paddy  {padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+
+.paddy6{  padding-bottom : 7px; padding-left : 10px; padding-top : 7px; }
+
+.paddy4 { padding-bottom : 5px; padding-left : 5px; padding-right : 5px; padding-top : 5px; }
+
+.paddy3  {  vertical-align : middle; word-spacing : 20px;}*/
+
+.paddytop {padding-top:20px;}
+
+.paddyleft5 { padding-left : 5px; }
+
+.paddyleft4 { padding-left : 4px; }
+
+.paddyleft3 { padding-left : 3px; }
+
+.paddingpersoncontroller {padding-left:10px; padding-top:0px; border:0; }
+
+/* NAVIGATIONBAR ELEMENTS*/
+.backcolorwhite{background-color : #FFFFFF;}
+
+
+
+.backcolor1 { background-color : #8393A3;  background-image :  none;   }/* fläche über nav tabs*/
+
+
+
+.backcolor12{ background-image : url("images/back_tab1_deact.gif");  background-repeat : repeat-x;  background-color : #818B96;   }
+/* in sidenav benötogt*/
+
+.backcolor13{ height:7px; background-image : url("images/back_tab1_over2.gif"); font-size : 7px; }
+/* in sidenav benötogt*/
+
+.backcolor16 { height:1px; background-color : #B8C1CC; } /* trennlinie in nav */
+
+.backcolorTutor1{background-color : #303030; background-image :  none; }
+
+.backcolorTutor2{background-color : #f9f9f9; background-image :  none; }
+
+
+.backimage2{ background-image : url("images/back_tab1_back.gif");background-repeat : repeat-x; }/* In sidenav benutzt*/
+
+.backimage3{ background-color : #B8C6D4; }/*background  for navigationbar 2 level*/
+
+.backimage4 { background-color : #B8C1CC; }/*background  for navigationbar 3 level*/
+
+.backimage5 { background-color : #CBD5E1; }/*background  for navigationbar 3 level*/
+
+.backimage6 { background-color : #CBD5E1; }/*background  for navigationbar 3 level*/
+
+.backimage7 { background-color : #B8C1CC; }/*background  for navigationbar 3 level*/
+
+.backimage8 { background-color : #B8C1CC; }/*background  for navigationbar 3 level*/
+
+/* texts for navigationbar tab*/
+
+
+
+
+
+
+
+
+
+
+/* LINK DEFINITIONS */
+/*default link definitions*/
+
+A:active { color : #2D4193; text-decoration : none; font-weight : normal;}
+
+A:hover { color : #2D4193; text-decoration : underline;font-weight : normal; }
+
+A:link { color : #2D4193; text-decoration : none;font-weight : normal; }
+
+A:visited { color : #2D4193; text-decoration : none; font-weight : normal;}
+
+
+/*link definitions for linkliste*/
+A.linktitle {font-family : Arial, Helvetica, sans-serif; font-size : 12px;line-height:18px}
+
+A.linktitle:hover {text-decoration : underline;font-family : Arial, Helvetica, sans-serif;font-size : 12px;line-height:18px;  }
+
+
+
+/*button link definitions*/
+A.button1link:active { color : #444444; text-decoration : none; left :  1px; }
+
+A.button1link:hover { color : #444444; text-decoration : none; top : 1px;    }
+
+A.button1link:link { color : #444444; text-decoration : none; }
+
+A.button1link:visited { color : #444444; text-decoration : none; }
+
+
+A.button2link:active { color :#FFFFFF; text-decoration : none; left :  1px;}
+
+A.button2link:hover { color : #FFFFFF; text-decoration : none; top : 1px; left :  1px;  }
+
+A.button2link:link { color : #FFFFFF; text-decoration : none; }
+
+A.button2link:visited { color : #FFFFFF; text-decoration : none; }
+
+
+A.button3link:active { color : #444444; text-decoration : none; left :  1px; }
+
+A.button3link:hover { color : #444444; text-decoration : none; }
+
+A.button3link:link { color : #444444; text-decoration : none; }
+
+A.button3link:visited { color : #444444; text-decoration : none; }
+
+
+/*link definitions for the navigation bar*/
+
+
+
+.textnav1{ color : #000000;  font-size : 14px; padding-bottom : 5px; padding-left : 10px; padding-top : 5px;}
+
+.textnav2 { color : #000000;  font-size : 12px; padding-top:4px; padding-bottom:4px; }
+
+.textnav3{ color : #000000;  font-size : 12px;padding-left : 5px; }
+
+/*
+added 04.04.2001 B.M. (IE2NN)
+(needed in de.imc.clix.comp.navigation.NavigationHtmlView.java)
+*/
+.textnav4{ color : #000000;  font-size : 12px;padding-left : 10px; }
+.textnav5{ color : #000000;  font-size : 12px;padding-left : 15px; }
+
+A.callink:active { color : #000000; text-decoration :  underline; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+A.callink:hover { color : #000000; text-decoration :  underline;font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.callink:link { color : #000000; text-decoration :  underline;font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.callink:visited { color : #000000; text-decoration : underline; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+
+
+
+
+
+/*link definitions for sortby tables*/
+
+A.sortbylink:active { color : #000000; text-decoration : none; }
+
+A.sortbylink:hover { color : #000000; text-decoration : none; }
+
+A.sortbylink:link { color : #000000; text-decoration : none; }
+
+A.sortbylink:visited { color : #000000; text-decoration : none; }
+
+
+/*link definitions for tab elements (reiter)*/
+
+A.tablink:hover { color : #000094; }
+
+A.tablink:link { color : Black; text-decoration : none; }
+
+
+A.calendar { color : #000000; text-decoration : underline; }
+
+A.reportslink {  text-decoration : underline; font-family : Arial, Helvetica, sans-serif;font-size:14px; }
+
+
+/*For Links in a Headbar*/
+
+A.brownsmall { color : #000000; text-decoration : none; }
+
+A.brownsmall:hover { color : #000000; text-decoration : none; }
+
+A.brownsmall:link { color : #000000; text-decoration : none; }
+
+A.brownsmall:visited { color : #000000; text-decoration : none; }
+
+
+A.brownsmall1 { color : #000000; text-decoration : none;}
+
+A.brownsmall1:hover { color : #000000; text-decoration : none; }
+
+A.brownsmall1:link { color : #000000; text-decoration : none; }
+
+A.brownsmall1:visited { color : #000000; text-decoration : none;}
+
+
+/* WURDE ZUR JAVASCRIPT BUTTONEREZUGUNG BENUTZT */
+/*button classes*/
+
+/*button small with gradient background*/
+.button1 { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px;  text-align : center;  background-image :  url("images/back_button1_mid.gif");  background-color :  transparent;   }
+
+/*button small with flatbackground*/
+.button2 { color : #FFFFFF; font-family : Arial, Helvetica, sans-serif; font-size : 10px;  text-align : center;  background-image :  url("images/back_button2_mid.gif");  background-color :  #133255;      }
+
+/*button big with gradient background*/
+.button3 { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;  text-align : center;  background-image :  url("images/back_button3_mid.gif");  background-color :  transparent;   }
+
+/*button big default with gradient background*/
+.button4 { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;  text-align : center;  background-image :  url("images/back_button4_mid.gif");  background-color :  transparent;   }
+
+
+
+.contenttable {}
+
+.searchtable {background-color : #B4BEC9;}
+
+.privilegetable {background-color : #BFBFBF;}
+
+
+/* standard body back */
+/* (in Clix: backcolor4) */
+.backcolorbody { background-color:#F9F9F7; }
+.backcolortable { background-color:#BCBCBC; }
+
+/**********/
+/* TABLES */
+/**********/
+
+/* (in Clix: buttonsortby) */
+
+/* clix-standard-table head */
+.tablecellhead { background-color:#8B9EB5; background-image:url("images/back_sortby_butt.gif"); color:#444444; font-size:10px; font-family:Arial,Helvetica,sans-serif; }
+
+/* clix-standard-table body */
+/* rows with two alternating colors */
+/* for non-alternating rows, tablecellbodylight is used */
+/* for alternating rows, start with tablecellbodydark */
+.tablecellbodydark { background-color:#DADADA; color:#444444; font-size:10px; font-family:Arial,Helvetica,sans-serif; }
+.tablecellbodylight { background-color:#E2E2E2; color:#444444; font-size:10px; font-family:Arial,Helvetica,sans-serif; }
+.tablecellspace { margin-left:5px; margin-top:5px; margin-bottom:5px; }
+
+/* tables with intermediate lines */
+.tableintermediateline { background-color:#DADADA; color:#252525; font-size:14px; font-family:Arial,Helvetica,sans-serif; }
+.tablecellspaceintermediateline { margin-left:25px; margin-top:3px; margin-bottom:3px; }
+
+/*****************/
+/* FORM-elements */
+/*****************/
+
+/* background of FORM-element-labels */
+.formelementlabel { background-image:url("images/grey_dot_white.gif"); background-repeat:repeat-y; font-family:Arial,Helvetica,sans-serif; font-size:10px; }
+/* margin of FORM-element-labels */
+.formelementmargin { margin-left:10px;font-family : Arial, Helvetica, sans-serif; }
+
+/* background of static text */
+.formlabel { font-family:Arial,Helvetica,sans-serif; font-size:12px; }
+
+.formtextfield { background-color:#F4F4F4; border-style:none; border:1px solid White; font-family : Arial, Helvetica, sans-serif; font-size:14px; }
+/*
+.formtextfield25 { background-color:#F4F4F4; border-style:none; border:1px solid White; font-family:Courier,monospace; font-size:14px; }
+*/
+.formtextfield25 { background-color:#F4F4F4; border-style:none; border:1px solid White; font-family : Arial, Helvetica, sans-serif; font-size:14px; width:212px; }
+
+.formtextfieldmandatory { background-color:#E8DCD2; border-style:none; border:1px solid White; font-family : Arial, Helvetica, sans-serif; font-size:14px; }
+.formtextfieldmandatory25 { background-color:#E8DCD2; border-style:none; border:1px solid White; font-family : Arial, Helvetica, sans-serif; font-size:14px; width:212px; }
+
+.formtextarea {}
+.formselect {}
+.formcheckbox {}
+
+/*Layer die ueber das Stylesheet positioniert werden */
+
+.addressbookreiter {position:absolute;z-index:5;visibility:visible;left:0px;top:67px;}
+
+.formPos {position:absolute; z-index:5;top:15px;}
+.formPosProfile {position:absolute; z-index:5;top:0px;}
+.formPosFrontend {position:absolute; z-index:5;top:175px;}
+
+.imagelayer {position:absolute; left:0px; top:40px; width:100%; height:84px; z-index:1}
+
+.imagelayertop {position:absolute; left:0px; top:10px; width:100%; height:84px; z-index:1}
+
+.imagelayermiddle {position:absolute; left:0px; top:15px; width:100%; height:84px; z-index:1}
+
+.popuplayervisible {position:absolute;left:130px;z-index:5;visibility:visible;width:450px;top:25px;}
+
+.popuplayerhidden {position:absolute;left:130px;z-index:5;visibility:hidden;width:450px;top:25px;}
+
+.treelayer{position:absolute; left:0; top:0; z-index:6; width: 100%; height: 100%; border:1px solid #a6a6a6; border-right: none;background-color : #F9F9F7;}
+
+.tutorcoursebordercolor{background-color : #5A4C40;}
+
+.tutorcoursetopbarbackcolor{ background-color : #E4E4E4;}
+
+.tutorcoursetableheadbackcolor{ background-color : #B3B3B3;}
+
+.tutorcoursecontentbackcolor{ background-color : #F9F9F9;}
+
+.tutorcoursecontenttextcolor{color : #303030;}
+
+.tutorcoursepermtextbold { color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold; }
+
+.tutorcoursetext14 { color : #303030;  padding-bottom : 7px; padding-left : 10px; padding-top : 7px;font-family : Arial, Helvetica, sans-serif;  }
+
+.tutorcoursetext14noleftpadd { color : #303030;  padding-bottom : 7px; padding-top : 7px;font-family : Arial, Helvetica, sans-serif;  }
+
+.tutorcoursetextgray {color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+.tutorcoursetexttask {  font-family : Arial, Helvetica, sans-serif;  color : #303030;  font-size : 14px;line-height:18px; font-weight:bold;}/*+paddy */
+
+.tutorcoursetext13 { color : #303030;  font-size : 8pt; letter-spacing : 0px; line-height : 14pt;font-family : Arial, Helvetica, sans-serif; }  /*catalog list subcats*/
+
+.tutorcoursetext40 { color : #303030; font-size : 14px;  font-family : Arial, Helvetica, sans-serif; }
+
+.tutorcoursetextdates {color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+
+A.tutorcourselink:active { color : #303030; text-decoration : none; }
+
+A.tutorcourselink:hover { color : #303030; text-decoration : underline; }
+
+A.tutorcourselink:link { color : #303030; text-decoration : none; }
+
+A.tutorcourselink:visited { color : #303030; text-decoration : none; }
+
+
+.uploadlayer{position: absolute; left: 37px;  z-index: 2; overflow:no;visibility: hidden; width:170;top:76px;}
+
+.searchlayer{position:absolute; left:0; top:35; z-index:2;}
+
+.datelayercourse{position:absolute;left:5;top:5;width:250;visibility:hidden;background-color:#EAE5DE;z-index:55;}
+
+.border1{border-right:0; padding-right:0;}
+
+.border2{border-left:0;}
+
+.border3{border-right:0;}
+
+.ieonlynsformpaddingcompensation {padding-top:20px;}
+
+/*A.tablinkkatalog:hover { color : #000094; font-size : 10px;  font-family :  sans-serif;  }
+
+A.tablinkkatalog:link { color : Black; text-decoration : none; font-size : 10px;  font-family :   sans-serif; }*/
+
+/*link definitions for courses frontend*/
+
+A.componentlinkfinished:active { color : #2D4193; text-decoration : none;font-weight:normal; }
+
+A.componentlinkfinished:hover { color : #2D4193; text-decoration : none;font-weight:normal; }
+
+A.componentlinkfinished:link { color : #2D4193; text-decoration : none;font-weight:normal; }
+
+A.componentlinkfinished:visited { color : #2D4193; text-decoration : none;font-weight:normal; }
+
+A.componentlinkprogress:active { color : #2D4193; text-decoration : underline;font-weight:bold; }
+
+A.componentlinkprogress:hover { color : #2D4193; text-decoration : underline;font-weight:bold; }
+
+A.componentlinkprogress:link { color : #2D4193; text-decoration : underline;font-weight:bold; }
+
+A.componentlinkprogress:visited { color : #2D4193; text-decoration : underline;font-weight:bold; }
+
+A.courselink:active { color : #5A4C40; text-decoration : none; }
+
+A.courselink:hover { color : #5A4C40; text-decoration : underline; }
+
+A.courselink:link { color : #5A4C40; text-decoration : none; }
+
+A.courselink:visited { color : #5A4C40; text-decoration : none; }
+
+A.coursenavigation:active { color :  #97948f; text-decoration : none; font-size:10px; }
+
+A.coursenavigation:hover { color : #97948f; text-decoration : none; font-size:10px; }
+
+A.coursenavigation:link { color : #97948f; text-decoration : none; font-size:10px; }
+
+A.coursenavigation:visited { color :  #97948f; text-decoration : none; font-size:10px; }
+
+A.coursenavigationactive:active { color :  #000000; text-decoration : none; font-size:10px; font-weight : 900; }
+
+A.coursenavigationactive:hover { color : #000000; text-decoration : none; font-size:10px;  font-weight : 900; }
+
+A.coursenavigationactive:link { color : #000000; text-decoration : none; font-size:10px;  font-weight : 900; }
+
+A.coursenavigationactive:visited { color :  #000000; text-decoration : none; font-size:10px;  font-weight : 900; }
+
+A.courseheader:link { color : #5A4C40; font-size : 10px; text-decoration : none; font-weight : normal;}
+
+A.courseheader:visited { color : #5A4C40; font-size : 10px; text-decoration : none; font-weight : normal;}
+
+A.courseheader:active { color : #41372E; font-size : 11px; text-decoration : none; font-weight : bold;}
+
+
+/*text definitions for courses frontend*/
+
+.componentlinkterminated { color : #5A4C40; text-decoration : none;font-weight:bold; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+.textgray {color : #5A4C40; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+.textgrayTutor {color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+.textgraysmall {color : #5A4C40; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+
+.textbrownbold {color : #5A4C40; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+.textboldTutor {color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+.bordermaker	{border-top-width:1; border-right-width:1;border-bottom-width:1; border-style:solid; border-color:#5A4C40}
+
+.bordermakerallborder{border:1px solid #5A4C40;}
+
+.textbrownlineheight { color : #5A4C40; font-size : 12pt; line-height : 22px;font-family : Arial, Helvetica, sans-serif;    }  /*portal headlines - level 2*/
+
+.texttabbrown { background-color : #F8F8F5; font-family : Arial, Helvetica, sans-serif; font-size : 10px; }
+
+.picturespacer {margin-right:8;}
+
+.spacerrightbottom {margin-right:30;margin-bottom:20;}
+
+.spacerrightbottomtop {margin-right:30;margin-bottom:20;margin-top:60;}
+
+.outputfieldtablebrown {border : 1px solid #5A4C40; color : #252525;  font-size : 14px; background-color : #F8F8F5;  font-family :  Arial, Helvetica, sans-serif; width:95%;}
+
+/*neue styles für navigation Editor*/
+.navtextbgcolor {background-color : #d0d0d0;  color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;    }/* text permanent nav elements in upperframe*/
+
+.navtextboldbgcolor {background-color : #d0d0d0;  color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold   }
+
+.bgcolornavedit{background-color : #d0d0d0;}
+
+/* Neu N.H. */
+
+.choosenewgrouplayer {position:absolute;left:250px;top:50px;width:250px;height:200px;visibility:hidden;}
+
+.alertlayerinpopup {position:absolute;left:175px;top:190px;width:250px;height:200px;z-index:101;visibility:hidden; }
+
+.layerimageheader {position:absolute;left:0px;top:105px;width:100%;height:84px;z-index:1;}
+
+.errortext {font-family:Arial,Helvetica,sans-serif; color:red;}
+
+.paddyleftIE1 {padding-left:1px;}
+
+.paddyleftIE3 {padding-left:3px;}
+
+.paddyleftIE {padding-left:4px;}
+
+.paddyleftIE8 {padding-left:8px;}
+
+.fieldfaq {  font-family : Arial, Helvetica, sans-serif; font-size :  12px; width:50%; }
+
+.fieldfaqlong {  font-family : Arial, Helvetica, sans-serif; font-size : 12px; width:400; }
+
+
+.tdwidth {width:4;}
+
+.permtextredbold { color : #ff0000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold;}
+
+.searchtableback {background-image : url("images/back_sortby_butt.gif");background-color : #8B9EB5;}
+
+.replacestyle2 {position:absolute;left:250px;top:95px;width:250px;height:200px;z-index:101;visibility:hidden; }
+
+.replacestyle3 {position:absolute;left:250px;top:95px;width:250px;height:200px;z-index:101;visibility:visible; }
+
+.replacestyle4 {position:absolute;left:250px;top:40px;width:250px;height:200px;z-index:101;visibility:hidden; }
+
+.webfileupload {position:absolute;top:350px;left:40px;z-index:1;visibility:visible;background-color:#CBCFD2;}
+
+.webfileuploadinvisi {position:absolute;top:350px;left:40px;z-index:2;visibility:hidden;}
+
+.webwizzarderorrlayer {position:absolute;left:210px;top:75px;width:250px;height:200px;z-index:1;visibility:hidden;}
+
+.webwizzardsavelayer {position:absolute;left:30px;top:20px;width:460px;height:200px;z-index:1;visibility:visible;}
+
+.fieldborderless400 { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  color : #000000; font-family :  Arial, Helvetica, sans-serif; font-size : 12px; width:400;}
+.fieldborderless-calendarTagBackend{ background-color : #F4F4F4; border-style : none;  border : 1px solid White;  color : #000000; font-family :  Arial, Helvetica, sans-serif; font-size : 12px; width:80%;}
+/*textarea with fix size in not resizable window N.H.*/
+
+.fieldborderless62 { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  color : #000000; font-family :  Arial, Helvetica, sans-serif; font-size : 12px; width:340;}
+
+.fieldborderless150 { background-color : #F4F4F4; border-style : none;  border : 1px solid White;  color : #000000; font-family :  Arial, Helvetica, sans-serif; font-size : 12px; width:150;}
+
+.formpaddyforIE	{padding-top:40;} /*um abstände die in Netscape wegen Form Tag entstehen in blinden Tabellebn/ TDs auszugleichen N.H.*/
+
+.formpaddyforIE20	{padding-top:20;}
+
+.formpaddyforIE60	{padding-top:60;}
+
+.formpaddyforIE40	{padding-top:40;}
+
+.textsearchbarspan {padding-left:5px;}
+
+.statisticqueryLayer{position:absolute;top:20px;left:150px;width:330px;height:250px;z-index:10;visibility:hidden;}
+
+.backcolor14text{ background-color :  #A8B6C6; font-family:Arial,Helvetica,sans-serif;color:#252525;font-size:14px;}
+
+.shufflelayer {position:absolute;left:250px;top:115px;width:250px;height:200px;z-index:104;visibility:hidden;}
+
+/*layer für Meldungen in Testool fileupload*/
+/* for calendar */
+.calendarWeekday             {color : #121212; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+A.calendarWeekday:active     {color : #121212; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarWeekday:hover      {color : #121212; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarWeekday:link       {color : #121212; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarWeekday:visited    {color : #121212; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+
+.calendarWeekdaySunday          {color : #676767; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+A.calendarWeekdaySunday:active  {color : #676767; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarWeekdaySunday:hover   {color : #676767; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarWeekdaySunday:link    {color : #676767; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarWeekdaySunday:visited {color : #676767; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+
+.calendarWeekOfYear      {color : #121212; font-family : Arial, Helvetica, sans-serif; font-size : 11px; font-weight : bold;}
+
+.calendarDay             {color : #232323; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+A.calendarDay:active     {color : #232323; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarDay:hover      {color : #232323; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarDay:link       {color : #232323; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarDay:visited    {color : #232323; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+
+.calendarSunday          {color : #898989; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+A.calendarSunday:active  {color : #898989; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarSunday:hover   {color : #898989; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarSunday:link    {color : #898989; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarSunday:visited {color : #898989; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+
+.calendarOtherMonth          {color : #DEDEDE; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+A.calendarOtherMonth:active  {color : #DEDEDE; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarOtherMonth:hover   {color : #DEDEDE; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarOtherMonth:link    {color : #DEDEDE; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+A.calendarOtherMonth:visited {color : #DEDEDE; font-family : Arial, Helvetica, sans-serif; font-size : 10px; text-decoration : none;}
+
+.calendarField           {color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.calendarTimeField       {color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 11px;}
+
+.centerpack {text-align:center}
+
+.testTimerNormal {color : #0ED40E; font-size : 21px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif;  padding-bottom : 5px; padding-left : 5px; padding-top : 5px;}
+.testTimerWarning {color : #FF0000;  font-size : 21px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif;  padding-bottom : 5px; padding-left : 5px; padding-top : 5px;}
+
+
+
+
+
+.beispiellayertagshow {position:absolute;visibility:visible;width:250;height:200;left:350;top:800;}
+
+.alertlayerbackground {background-color:#A8B6C6;}
+
+.contentfaqanswer {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;padding-left:20px;} /*in FAQ Answers wegen paddingleft und korrekter einrückung*/
+
+/*Portal*/
+
+.headlineContact {font-family:Arial,Helvetica,sans-serif;color:#CECFCE;font-weight:bold;font-size:18px;letter-spacing:2px;}
+
+
+/* zugefügt Farben SSC 25.10.02*/
+.backcolor100a {background-color: #8C96A5;} /* upperwork */
+.backcolor101a {background-color: #666666;} /* myhome */
+.backcolor102a {background-color: #7B95B2;} /* myhome */
+.backcolor103a {background-color: #EEF2FC;} /* category/info */
+.backcolor104a {background-color: #B2BAC0;} /* category*/
+.backcolor105a {background-color: #E4EFF8;} /* category */
+.backcolor106a {background-color: #EEEEEE;} /* community */
+.backcolor107a {background-color: #fdfdfd;} /*mycalendar */
+.backcolor108a {background-color: #9C9A9C;} /*mediathek */
+.backcolor109a {background-color: #E6E6E6;} /*portal */
+.backcolor110a {background-color: #EFEFEF;} /*navigation */
+.backcolor111a {background-color: #D7DFEB;} /*navigation */
+.backcolor112a {background-color: #787878;} /*util */
+.backcolor113a {background-color: #CCCCCC;} /*util */
+.backcolor114a {background-color: #162F72;} /*sidebars */
+.backcolor115a {background-color: #a7b3c1;} /*errormeldungen */
+.backcolor116a {background-color: #dddddd;} /*RecordSet */
+.backcolor117a {background-color: #FF0000;} /*WebCalendar */
+
+/* Fehlermitteilungen des Systems*/
+.SmallHead {font-family:Arial,Helvetica,sans-serif;color:#CECFCE;font-weight:bold;font-size:18px;letter-spacing:2px;padding-left:11px;}
+
+
+.aclinfobox {position:absolute;visibility:visible;width:250;height:200;left:200;top:70;}
+
+
+.calenderbackground {background-color: #FF0000;}
+.calenderflagareacolor {background-color: #8393A3; }
+.userscalenderflagareacolor {background-color: #133255; }
+.backcalendarcolor1 { background-color : #8393A3;}
+.coursecalendarflagareacolor {background-color:#5A4C40;}
+.userscoursecalendarflagareacolor {background-color:#133255;}
+
+/* new forum */
+.forumcollectionrowlight {  font-family : Arial, Helvetica, sans-serif; background-color:#f9f9f9;  padding-left : 5px; }
+
+.forumcollectionrowdark {  font-family : Arial, Helvetica, sans-serif; background-color : #E2E2E2;  padding-left : 5px; }
+
+.forumsenderbackground {background-color:#F0F0F0;}
+
+.forumcontentinactive { color : #909090; text-decoration : none; font-family : Arial, Helvetica, sans-serif;  font-size : 12px;}
+
+.forumcontentinactivesmall { color : #909090; text-decoration : none; font-family : Arial, Helvetica, sans-serif;  font-size : 10px;}
+
+A.foruminactive { color : #909090; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.foruminactive:hover { color : #909090; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.foruminactive:link { color : #909090; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.foruminactive:visited { color : #909090; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+A.forumcommand       {color : #303030;  text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+
+A.forumcommand:hover       {color : #303030;  text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+
+A.forumcommand:link       {color : #303030;  text-decoration : none;font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+
+A.forumcommand:visited { color : #303030; text-decoration : none; font-family : Arial, Helvetica, sans-serif; font-size : 10px; }
+
+/* deprecated: verwendet nur \courses\coursehomepage_start.jsp, \courses\tutor\coursehomepage_start.jsp */
+/*.alt_texttask {  font-family : Arial, Helvetica, sans-serif;  color : #252525;  font-size : 14px;line-height:18px; font-weight:bold;}  FUNKTIONIERT SOWIESO NICHT*/
+
+.inputfield {color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+
+/* Styles für input und selectBoxen im searchlayer  .... und nur da */
+.searchbar-input  { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px;    } /* ersetzt textbrowsebar in searchbar */
+.searchbar-input-small {color : #000000; font-family:Arial,Helvetica,sans-serif;font-size:11px; }      /* ersetzt field-small */
+
+
+
+/* portal */
+
+.portaltitle	  {font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+.portalsubtitle	{ font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+.portallinktext	{ }
+.portalheading    { color : #123A68; font-size : 12pt; font-weight : bolder; font-family : Arial, Helvetica, sans-serif; }
+.portalcontent    { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+.portalfootertext { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 12px; }
+
+.coursegetabstract { color:#243897; font-family : Arial, Helvetica, sans-serif;font-size:14px; }
+
+/* resource calendar */
+
+.calendarbacklight {background-color :#E2E2E2;}
+.calendarbackdark  {background-color :#DADADA;}
+.calendarbackbookable {background-color :#B7C0C9;}
+.calendarbackweekend {background-color :#B0B0B0;}
+.calendardays { color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold; }
+.calendarresource { color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.calendarresourceaddress { color : #303030; font-family : Arial, Helvetica, sans-serif; font-size : 10px;}
+.calendarcoursename { color : #767676; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.calendarcourseheader { color : #ffffff; font-family : Arial, Helvetica, sans-serif; font-size : 12px; font-weight : bold; }
+.calendarcourseheadertime { color : #ffffff; font-family : Arial, Helvetica, sans-serif; font-size : 12px;}
+.calendarbarbooked     {background-color :#8393A3;}
+.calendarbarill        {background-color :#A67F81;}
+.calendarbarholiday    {background-color :#7DB274;}
+.calendarbarconflict   {background-color :#9E1323;}
+
+.calendarcoursecolor1  {background-color :#B37A01;}
+.calendarcoursecolor2  {background-color :#CC992A;}
+.calendarcoursecolor3  {background-color :#CAA963;}
+.calendarcoursecolor4  {background-color :#C9B68F;}
+.calendarcoursecolor5  {background-color :#03B0A2;}
+.calendarcoursecolor6  {background-color :#40C8BD;}
+.calendarcoursecolor7  {background-color :#7BCFC8;}
+.calendarcoursecolor8  {background-color :#AEDBD7;}
+.calendarcoursecolor9  {background-color :#8F00A0;}
+.calendarcoursecolor10 {background-color :#AA34B8;}
+.calendarcoursecolor11 {background-color :#B365BC;}
+.calendarcoursecolor12 {background-color :#C59CCA;}
+.calendarcoursecolor13 {background-color :#ADB701;}
+.calendarcoursecolor14 {background-color :#C5CC50;}
+.calendarcoursecolor15 {background-color :#CED37B;}
+.calendarcoursecolor16 {background-color :#E2E5B0;}
+
+.calendarlinecolor     {background-color :#888888;}
+.calendarbuttonrow     {background-color :#CDD5DC;}
+
+/*LINKS  FUER REITER*/
+A.tablinkkatalog:active  {color:#294194;font-size:10px;font-family:Arial,Helvetica,sans-serif;text-decoration : none;}/** 11px laut Design-Cookbook**/
+A.tablinkkatalog:hover  {color:#294194;font-size:10px;font-family:Arial,Helvetica,sans-serif;text-decoration : none;}/** 11px laut Design-Cookbook**/
+A.tablinkkatalog:link  {color:#294194;font-size:10px;font-family:Arial,Helvetica,sans-serif;text-decoration : none;}/** 11px laut Design-Cookbook**/
+A.tablinkkatalog:visited  {color:#294194;font-size:10px;font-family:Arial,Helvetica,sans-serif;text-decoration : none;}/** 11px laut Design-Cookbook**/
+
+
+
+/* Style für Rubrik */
+.rubrikLineFontCommon {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+.rubrikLineCommon {background-color: #666666;}
+.rubrikLineFontCourse {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+.rubrikLineCourse {background-color: #666666;}
+.rubrikLineFontBackend {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+.rubrikLineBackend {background-color: #666666;}
+.rubrikLineFontTutor {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;}
+.rubrikLineTutor {background-color: #666666;}
+
+/* QTI */
+
+.tabstylebarqti {position:absolute;width:200;left:12;top:234px;z-index:4;}
+.tabstyleqticontent {position:absolute;left:0;top:284px;z-index:5;}
+.qtideleteAlertLayer{position:absolute;visibility:visible;width:250;height:200;left:200;top:150;}
+.qtiprivbartaskLearningRef  {position:absolute;z-index:5;left:11;background-color:#BFBFBF; }
+
+.feedbackprintpreviewsmalltext {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:10px;}
