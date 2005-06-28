@@ -6,12 +6,19 @@
  */
 package com.schedule.jsfbeans;
 
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
 import com.schedule.CryptoManager;
 import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.Login;
+import com.schedule.hibernate.Roles;
 import com.schedule.hibernate.User;
 
 /**
@@ -64,6 +71,25 @@ public class RegisterBean {
     {
 		Session hbmsession = HibernateManager.getSession();
 		HibernateManager.beginTransaction();
+		
+		Query q;
+		List roles;
+		
+		try {
+			q = hbmsession.createQuery("from Roles where name= :name");
+			q.setString("name", "standard");
+			roles = (List) q.list();			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Standard Rolle konnte nicht zugeordnet werden");
+			facesContext.addMessage("registerForm", facesMessage);  
+			
+			return "failure";
+		}
+		
+		Roles hbmrole = (Roles) roles.get(0);
 	
 		Login hbmlogin = new Login();
 		hbmlogin.setPasswort(CryptoManager.getDigest(this.password, "SHA-1"));
@@ -80,12 +106,19 @@ public class RegisterBean {
 		hbmuser.setStreet(this.street);
 		hbmuser.setZip(this.zip);
 		hbmuser.setLogin(hbmlogin);
+		hbmuser.setRole(hbmrole);
+		
 	
 		try {
-			hbmsession.saveOrUpdate(hbmuser);
 			hbmsession.saveOrUpdate(hbmlogin);
+			hbmsession.saveOrUpdate(hbmuser);	
 		} catch (HibernateException e) {
 			e.printStackTrace();
+			
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Sichern der Daten fehlgeschlagen");
+			facesContext.addMessage("registerForm", facesMessage); 
+			
 			return "failure";
 		}
 		HibernateManager.commitTransaction();
@@ -93,6 +126,11 @@ public class RegisterBean {
 			hbmsession.flush();
 		} catch (HibernateException e1) {
 			e1.printStackTrace();
+			
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Datenbankzugriff fehlgeschlagen");
+			facesContext.addMessage("registerForm", facesMessage);  
+			
 			return "failure";
 		}
 		

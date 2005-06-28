@@ -52,10 +52,8 @@ public class LoginBean {
     		Session sess = HibernateManager.getSession();
     		Query q;
     		List logins;
+    		
 		try {
-			// Hier mit where klausel, damit das performanter wird, dann
-			// kšnnen wir im Anschluss einfach gucken, ob es ein Resultat gibt
-			// wenn nicht, dann ist login/password falsch
 			q = sess.createQuery("from Login where screenname= :screenname and passwort= :password");
 			q.setString("screenname", this.screenname);
 			q.setString("password", CryptoManager.getDigest(this.getPassword(), "SHA-1"));
