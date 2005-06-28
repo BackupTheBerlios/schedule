@@ -14,6 +14,8 @@
 		</id>        
  		<many-to-one name="user" column="idUser" />
  
+ 		<many-to-one name="project" column="idProjects" class="Projects" not-null="true" />
+ 
         <property name="subject" column="Subject" type="java.lang.String" />
         <property name="date" column="Date" type="java.util.Date" />
         <property name="description" column="Description" type="java.lang.String" />

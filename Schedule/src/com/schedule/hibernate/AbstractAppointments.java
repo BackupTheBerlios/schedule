@@ -34,6 +34,9 @@ public abstract class AbstractAppointments
     /** Der User zu dem dieser Termin gehört */
     private User user;
     
+    /** Das Projekt zu dem dieser Termin gehört */
+    private Projects project;
+    
     /**
      * Simple constructor of AbstractAppointments instances.
      */
@@ -139,6 +142,24 @@ public abstract class AbstractAppointments
     public void setUser(User user)
     {
     	this.user = user;
+    }
+    
+    /** 
+     * liefert das Projekt zurück, zu dem dieser Termin gehört 
+     * @return Projects project 
+     * */
+    public Projects getProject()
+    {
+    	return project;
+    }
+    
+    /** 
+     * setzt das Projekt, zu dem dieser Termin gehört
+     * @param project
+     *  */
+    public void setProject(Projects project)
+    {
+    	this.project = project;
     }
     
     /**

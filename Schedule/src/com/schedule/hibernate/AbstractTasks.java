@@ -31,6 +31,9 @@ public abstract class AbstractTasks
     /** The value of the simple solved property. */
     private java.lang.Float solved;
 
+    /** Das Projekt zu dem diese Aufgabe gehört */ 
+    private Projects project;
+    
     /** User dem diese Aufgabe zugeteilt ist */
     private User user;
    
@@ -139,6 +142,24 @@ public abstract class AbstractTasks
     public void setUser(User user)
     {
     	this.user = user;
+    }
+    
+    /**
+     * liefert das Projekt zurück, zu dem diese Aufgabe gehört
+     * @return Projects project
+     */
+    public Projects getProject()
+    {
+    	return project;
+    }
+    
+    /**
+     * setzt das Projekt, zu dem diese Aufgabe gehört
+     * @param project
+     */ 
+    public void setProject(Projects project)
+    {
+    	this.project = project;
     }
     
     /**

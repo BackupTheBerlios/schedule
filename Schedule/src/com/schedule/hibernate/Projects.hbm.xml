@@ -9,7 +9,7 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Projects" table="Projects">
-        <id name="idProjects" column="idProjects">
+        <id name="idProjects" column="idProjects" type="java.lang.Integer">
             <generator class="native"/>
         </id>
         <!-- Mehrere Projekte können von mehreren Usern bearbeitet werden - bidirektionale Assoziation zur Tabelle User --> 

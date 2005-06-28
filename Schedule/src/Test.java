@@ -119,6 +119,8 @@ public class Test {
 			//Termin an User binden und umgekehrt
 			neuerTermin.setUser(neuerUser);
 			neuerUser.getAppointments().add(neuerTermin);
+			//Termin an Projekt binden
+			neuerTermin.setProject(neuesProjekt);
 			
 			//neue Aufgabe erzeugen
 			Tasks neuerTask = new Tasks();
@@ -127,6 +129,8 @@ public class Test {
 			//Aufgabe an User binden und umgekehrt
 			neuerTask.setUser(neuerUser);
 			neuerUser.getTasks().add(neuerTask);
+			//Aufgabe an Projekt binden
+			neuerTask.setProject(neuesProjekt);
 			
 			//neue Preference erzeugen
 			Preferences neuePref = new Preferences();
