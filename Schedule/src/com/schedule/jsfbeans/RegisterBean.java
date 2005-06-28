@@ -77,6 +77,7 @@ public class RegisterBean {
 		hbmuser.setPhone(this.phone);
 		hbmuser.setEmail(this.email);
 		hbmuser.setCity(this.city);
+		hbmuser.setStreet(this.street);
 		hbmuser.setZip(this.zip);
 		hbmuser.setLogin(hbmlogin);
 	

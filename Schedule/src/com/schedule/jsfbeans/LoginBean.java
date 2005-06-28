@@ -12,11 +12,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
 import com.schedule.CryptoManager;
 import com.schedule.hibernate.HibernateManager;
-import com.schedule.hibernate.Login;
 
 
 /**
@@ -50,25 +50,24 @@ public class LoginBean {
     public String loginUser()
     {
     		Session sess = HibernateManager.getSession();
+    		Query q;
     		List logins;
 		try {
 			// Hier mit where klausel, damit das performanter wird, dann
 			// kšnnen wir im Anschluss einfach gucken, ob es ein Resultat gibt
 			// wenn nicht, dann ist login/password falsch
-			logins = (List) sess.createQuery("from Login").list();
+			q = sess.createQuery("from Login where screenname= :screenname and passwort= :password");
+			q.setString("screenname", this.screenname);
+			q.setString("password", CryptoManager.getDigest(this.getPassword(), "SHA-1"));
+			logins = (List) q.list();			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return "failure";
 		}
 		
-		// Performance killer! 
-		for(int i=0; i<logins.size(); i++)
+		if(logins.size()==1)
 		{
-			Login temp = (Login)logins.get(i);
-			if( temp.getScreenname().equals(this.getScreenname()) && temp.getPasswort().equals(CryptoManager.getDigest(this.getPassword(), "SHA-1")))
-			{
-				return "usersuccess";
-			}
+			return "usersuccess";
 		}
     		
     		FacesContext facesContext = FacesContext.getCurrentInstance(); 
