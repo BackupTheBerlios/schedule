@@ -24,16 +24,16 @@ public abstract class AbstractTasks
 
     /** The value of the simple subject property. */
     private java.lang.String subject;
-
-    /** The value of the simple pid property. */
-    private java.lang.Integer pid;
+    
+    /** Zur genauen Beschreibung der Aufgabe */
+    private java.lang.String description;
 
     /** The value of the simple solved property. */
     private java.lang.Float solved;
 
-    /** The value of the simple tid1 property. */
-    private java.lang.Integer tid1;
-
+    /** User dem diese Aufgabe zugeteilt ist */
+    private User user;
+   
     /**
      * Simple constructor of AbstractTasks instances.
      */
@@ -88,23 +88,23 @@ public abstract class AbstractTasks
     }
 
     /**
-     * Return the value of the PID column.
-     * @return java.lang.Integer
+     * liefert die Beschreibung zu dieser Aufgabe zurück
+     * @return java.lang.String description
      */
-    public java.lang.Integer getPid()
+    public java.lang.String getDescription()
     {
-        return this.pid;
+    	return description;
     }
-
+    
     /**
-     * Set the value of the PID column.
-     * @param pid
+     * setzt die Beschreibung dieser Aufgabe
+     * @param description
      */
-    public void setPid(java.lang.Integer pid)
+    public void setDescription(java.lang.String description)
     {
-        this.pid = pid;
+    	this.description = description;
     }
-
+    
     /**
      * Return the value of the Solved column.
      * @return java.lang.Float
@@ -122,25 +122,25 @@ public abstract class AbstractTasks
     {
         this.solved = solved;
     }
-
+    
     /**
-     * Return the value of the TID1 column.
-     * @return java.lang.Integer
+     * liefert denjenigen User zurück, dem diese Aufgabe zugeteilt ist
+     * @return User user
      */
-    public java.lang.Integer getTid1()
+    public User getUser()
     {
-        return this.tid1;
+    	return user;
     }
 
     /**
-     * Set the value of the TID1 column.
-     * @param tid1
+     * setzt den User, dem diese Aufgabe zugeteilt werden soll
+     * @param user
      */
-    public void setTid1(java.lang.Integer tid1)
+    public void setUser(User user)
     {
-        this.tid1 = tid1;
+    	this.user = user;
     }
-
+    
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs

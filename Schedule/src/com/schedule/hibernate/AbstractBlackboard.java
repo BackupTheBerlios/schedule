@@ -31,6 +31,9 @@ public abstract class AbstractBlackboard
     /** The value of the simple date property. */
     private java.util.Date date;
 
+    /** Das Projekt zu dem dieser Blackboard-Eintrag gehört */
+    private Projects project;
+    
     /**
      * Simple constructor of AbstractBlackboard instances.
      */
@@ -118,6 +121,24 @@ public abstract class AbstractBlackboard
     public void setDate(java.util.Date date)
     {
         this.date = date;
+    }
+    
+    /**
+     * liefert das Projekt zurück, zu dem dieser Blackboard-Eintrag gehört
+     * @return Projects project
+     */
+    public Projects getProject()
+    {
+    	return project;
+    }
+    
+    /**
+     * setzt das Projekt, zu dem dieser Blackboard-Eintrag gehört
+     * @param project
+     */
+    public void setProject(Projects project)
+    {
+    	this.project = project;
     }
 
     /**

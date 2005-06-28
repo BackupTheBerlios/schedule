@@ -9,9 +9,10 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Blackboard" table="Blackboard">
-        <id name="idBlackboard" column="idBlackboard">
+        <id name="idBlackboard" column="idBlackboard" type="java.lang.Integer">
             <generator class="native"/>
         </id>
+ 		<many-to-one name="project" column="idProjects" />
  
         <property name="subject" column="Subject" type="java.lang.String" />
         <property name="body" column="Body" type="java.lang.String" />

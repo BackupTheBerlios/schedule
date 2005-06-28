@@ -12,11 +12,11 @@
         <id name="idTasks" column="idTasks" type="java.lang.Integer">
             <generator class="native"/>
         </id>
+ 		<many-to-one name="user" column="idUser" />
  
         <property name="subject" column="Subject" type="java.lang.String" />
-        <property name="pid" column="PID" type="java.lang.Integer" />
+        <property name="description" column="Description" type="java.lang.String" />
         <property name="solved" column="Solved" type="java.lang.Float" />
-        <property name="tid1" column="TID1" type="java.lang.Integer" />
     </class>
     
 </hibernate-mapping>

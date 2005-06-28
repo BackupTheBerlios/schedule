@@ -12,11 +12,7 @@
         <id name="idUser" column="idUser" type="java.lang.Integer">
             <generator class="native"/>
         </id>
-      
-        <set name="logins" inverse="true">
- 			<key column="idUser"  />
- 			<one-to-many class="Login"/>
- 		</set>
+           	
  		<set name="projects" table="UserProjects">
  			<key column="idUser" />
  			<many-to-many column="idProjects" class="Projects" />
@@ -29,6 +25,21 @@
  			<key column="idUser" />
  			<one-to-many class="Messages" />
  		</set>
+ 		<set name="appointments" inverse="true">
+ 			<key column="idUser" />
+ 			<one-to-many class="Appointments" />
+ 		</set>
+ 		<set name="tasks" inverse="true">
+ 			<key column="idUser" />
+ 			<one-to-many class="Tasks" />
+ 		</set>
+ 		<set name="preferences" inverse="true">
+ 			<key column="idUser" />
+ 			<one-to-many class="Preferences" />
+ 		</set>
+ 		
+ 		<many-to-one name="role" column="idRole" class="Roles" not-null="true" />
+ 		<many-to-one name="login" column="idLogin" class="Login" not-null="true" unique="true" />
  		
         <property name="lastname" column="Lastname" type="java.lang.String" />
         <property name="firstname" column="Firstname" type="java.lang.String" />

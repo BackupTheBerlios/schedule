@@ -20,19 +20,20 @@ public abstract class AbstractRoles
     private int hashValue = 0;
 
     /** The composite primary key value. */
-    private java.lang.Integer idRole;
+    private java.lang.Integer idRoles;
 
     /** The value of the simple name property. */
     private java.lang.String name;
 
     /** The value of the simple description property. */
     private java.lang.String description;
-
+    
     /**
      * Simple constructor of AbstractRoles instances.
      */
     public AbstractRoles()
     {
+    	
     }
 
     /**
@@ -41,26 +42,26 @@ public abstract class AbstractRoles
      */
     public AbstractRoles(java.lang.Integer idRole)
     {
-        this.setIdRole(idRole);
+        this.setIdRoles(idRole);
     }
 
     /**
      * Return the simple primary key value that identifies this object.
      * @return java.lang.Integer
      */
-    public java.lang.Integer getIdRole()
+    public java.lang.Integer getIdRoles()
     {
-        return idRole;
+        return idRoles;
     }
 
     /**
      * Set the simple primary key value that identifies this object.
      * @param uid
      */
-    public void setIdRole(java.lang.Integer idRole)
+    public void setIdRoles(java.lang.Integer idRole)
     {
         this.hashValue = 0;
-        this.idRole = idRole;
+        this.idRoles = idRole;
     }
 
     /**
@@ -98,7 +99,7 @@ public abstract class AbstractRoles
     {
         this.description = description;
     }
-
+    
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs
@@ -111,9 +112,9 @@ public abstract class AbstractRoles
         if (! (rhs instanceof Roles))
             return false;
         Roles that = (Roles) rhs;
-        if (this.getIdRole() != null && that.getIdRole() != null)
+        if (this.getIdRoles() != null && that.getIdRoles() != null)
         {
-            if (! this.getIdRole().equals(that.getIdRole()))
+            if (! this.getIdRoles().equals(that.getIdRoles()))
             {
                 return false;
             }
@@ -131,7 +132,7 @@ public abstract class AbstractRoles
         if (this.hashValue == 0)
         {
             int result = 17;
-            int uidValue = this.getIdRole() == null ? 0 : this.getIdRole().hashCode();
+            int uidValue = this.getIdRoles() == null ? 0 : this.getIdRoles().hashCode();
             result = result * 37 + uidValue;
             this.hashValue = result;
         }

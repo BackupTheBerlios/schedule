@@ -78,9 +78,7 @@ public class RegisterBean {
 		hbmuser.setEmail(this.email);
 		hbmuser.setCity(this.city);
 		hbmuser.setZip(this.zip);
-		hbmuser.getLogins().add(hbmlogin);
-		
-		hbmlogin.setUser(hbmuser);
+		hbmuser.setLogin(hbmlogin);
 	
 		try {
 			hbmsession.saveOrUpdate(hbmuser);

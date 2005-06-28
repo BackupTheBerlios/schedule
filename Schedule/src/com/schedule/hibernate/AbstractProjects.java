@@ -7,7 +7,6 @@
 package com.schedule.hibernate;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * A class that represents a row in the Projects table. 
@@ -22,12 +21,6 @@ public abstract class AbstractProjects
 
     /** The composite primary key value. */
     private java.lang.Integer idProjects;
-
-    /** Wert des Foreign Keys "Tasks" */
-    private java.lang.Integer idTasks;
-    
-    /** Wert des Foreign Keys "Blackboard */
-    private java.lang.Integer idBlackboard;
     
     /** The value of the simple name property. */
     private java.lang.String name;
@@ -36,7 +29,10 @@ public abstract class AbstractProjects
     private java.lang.String description;
 
     /** Die aktuellen User, die dieses Projekt bearbeiten */
-    private Set users;
+    private java.util.Set users;
+    
+    /** Alle Blackboard-Entries zu diesem Projekt */
+    private java.util.Set blackboardEntries; 
     
     /**
      * Simple constructor of AbstractProjects instances.
@@ -44,6 +40,7 @@ public abstract class AbstractProjects
     public AbstractProjects()
     {
     	users = new java.util.HashSet();
+    	blackboardEntries = new java.util.HashSet();
     }
 
     /**
@@ -73,43 +70,7 @@ public abstract class AbstractProjects
         this.hashValue = 0;
         this.idProjects = idProjects;
     }
-    
-    /**
-     * Liefert den Wert für den Foreign Key "Tasks" zurück
-     * @return java.lang.Integer
-     */
-    public java.lang.Integer getIdTasks()
-    {
-        return idTasks;
-    }
-
-    /**
-     * Setzt den Wert für den Foreign Key "Tasks"
-     * @param idTasks
-     */
-    public void setIdTasks(java.lang.Integer idTasks)
-    {
-        this.idTasks = idTasks;
-    }
-
-    /**
-     * Liefert den Wert für den Foreign Key "Blackboard" zurück
-     * @return java.lang.Integer
-     */
-    public java.lang.Integer getIdBlackboard()
-    {
-        return idBlackboard;
-    }
-
-    /**
-     * Setzt den Wert für den Foreign Key "Blackboard"
-     * @param idBlackboard
-     */
-    public void setIdBlackboard(java.lang.Integer idBlackboard)
-    {
-        this.idBlackboard = idBlackboard;
-    }
-    
+        
     /**
      * Return the value of the Name column.
      * @return java.lang.String
@@ -150,7 +111,7 @@ public abstract class AbstractProjects
      * liefert die User zurück, die dieses Projekt bearbeiten
      * @return java.util.Set users
      */
-    public Set getUsers()
+    public java.util.Set getUsers()
     {
     	return users;
     }
@@ -159,9 +120,27 @@ public abstract class AbstractProjects
      * setzt die User, die dieses Projekt bearbeiten
      * @param users
      */
-    public void setUsers(Set users)
+    public void setUsers(java.util.Set users)
     {
     	this.users = users;
+    }
+    
+    /**
+     * liefert die User zurück, die dieses Projekt bearbeiten
+     * @return java.util.Set users
+     */
+    public java.util.Set getBlackboardEntries()
+    {
+    	return blackboardEntries;
+    }
+    
+    /**
+     * setzt die User, die dieses Projekt bearbeiten
+     * @param users
+     */
+    public void setBlackboardEntries(java.util.Set blackboardEntries)
+    {
+    	this.blackboardEntries = blackboardEntries;
     }
     
     /**

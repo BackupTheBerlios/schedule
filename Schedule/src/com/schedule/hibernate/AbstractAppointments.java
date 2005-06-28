@@ -20,7 +20,7 @@ public abstract class AbstractAppointments
     private int hashValue = 0;
 
     /** The simple primary key value. */
-    private AppointmentsKey id;
+    private java.lang.Integer idAppointments;
 
     /** The value of the simple subject property. */
     private java.lang.String subject;
@@ -31,6 +31,9 @@ public abstract class AbstractAppointments
     /** The value of the simple description property. */
     private java.lang.String description;
 
+    /** Der User zu dem dieser Termin gehört */
+    private User user;
+    
     /**
      * Simple constructor of AbstractAppointments instances.
      */
@@ -42,28 +45,28 @@ public abstract class AbstractAppointments
      * Constructor of AbstractAppointments instances given a composite primary key.
      * @param id
      */
-    public AbstractAppointments(AppointmentsKey id)
+    public AbstractAppointments(java.lang.Integer idAppointments)
     {
-        this.setId(id);
+        this.setIdAppointments(idAppointments);
     }
 
     /**
      * Return the composite id instance that identifies this object.
      * @return AppointmentsKey
      */
-    public AppointmentsKey getId()
+    public java.lang.Integer getIdAppointments()
     {
-        return this.id;
+        return this.idAppointments;
     }
 
     /**
      * Set the composite id instance that identifies this object.
      * @param id
      */
-    public void setId(AppointmentsKey id)
+    public void setIdAppointments(java.lang.Integer idAppointments)
     {
         this.hashValue = 0;
-        this.id = id;
+        this.idAppointments = idAppointments;
     }
 
     /**
@@ -119,7 +122,25 @@ public abstract class AbstractAppointments
     {
         this.description = description;
     }
+    
+    /**
+     * liefert den User zurück, zu dem dieser Termin gehört
+     * @return User user
+     */
+    public User getUser()
+    {
+    	return user;
+    }
 
+    /**
+     * setzt den User, zu dem dieser Termin gehört
+     * @param user
+     */
+    public void setUser(User user)
+    {
+    	this.user = user;
+    }
+    
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs
@@ -132,9 +153,9 @@ public abstract class AbstractAppointments
         if (! (rhs instanceof Appointments))
             return false;
         Appointments that = (Appointments) rhs;
-        if (this.getId() != null && that.getId() != null)
+        if (this.getIdAppointments() != null && that.getIdAppointments() != null)
         {
-            return (this.getId().equals(that.getId()));
+            return (this.getIdAppointments().equals(that.getIdAppointments()));
         }
         return true;
     }
@@ -149,13 +170,13 @@ public abstract class AbstractAppointments
         if (this.hashValue == 0)
         {
             int result = 17;
-            if (this.getId() == null)
+            if (this.getIdAppointments() == null)
             {
                 result = super.hashCode();
             }
             else
             {
-                result = this.getId().hashCode();
+                result = this.getIdAppointments().hashCode();
             }
             this.hashValue = result;
         }

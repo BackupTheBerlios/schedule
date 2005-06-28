@@ -25,9 +25,9 @@ public class Appointments
      * Constructor of Appointments instances given a composite primary key.
      * @param id
      */
-    public Appointments(AppointmentsKey id)
+    public Appointments(java.lang.Integer idAppointments)
     {
-        super(id);
+        super(idAppointments);
     }
 
     /* Add customized code below */

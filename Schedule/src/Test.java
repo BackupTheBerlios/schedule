@@ -40,6 +40,14 @@ public class Test {
 			Projects neuesProjekt = new Projects();
 			neuesProjekt.setName("Test-Projekt");
 			neuesProjekt.setDescription("Dies ist ein Testprojekt");
+			
+			//neuen Blackboard-Eintrag erzeugen
+			Blackboard neuerBbEntry = new Blackboard();
+			neuerBbEntry.setSubject("Test");
+			neuerBbEntry.setBody("Dies ist ein Testeintrag am Schwarzten Brett eines Testprojekts!");
+			neuerBbEntry.setProject(neuesProjekt);
+			neuesProjekt.getBlackboardEntries().add(neuerBbEntry);
+			
 			//neuen User erzeugen
 			User neuerUser = new User();
 			neuerUser.setFirstname("Christian");
@@ -47,14 +55,19 @@ public class Test {
 			neuerUser.setStreet("Karower Chaussee 185");
 			neuerUser.setZip(new Integer(13125));
 			neuerUser.setCity("Berlin");
+			//neue Rolle erzeugen und User zuweisen
+			Roles neueRolle = new Roles();
+			neueRolle.setName("Systemadministrator");
+			neueRolle.setDescription("Der Systemadministrator verwaltet das gesamte Schedule-System");
+			//neueRolle.getUsers().add(neuerUser);
+			neuerUser.setRole(neueRolle);
 			//neuen Login erzeugen
 			Login neuerLogin = new Login();
 			neuerLogin.setScreenname("rapid");
 			neuerLogin.setPasswort("hotsauce");
 			neuerLogin.setActive(new Byte("1"));
 			//Login an User binden und umgekehrt
-			neuerLogin.setUser(neuerUser);
-			neuerUser.getLogins().add(neuerLogin);
+			neuerUser.setLogin(neuerLogin);
 			//noch einen neuen User erzeugen
 			User neuerUser2 = new User();
 			neuerUser2.setFirstname("Frank");
@@ -62,14 +75,16 @@ public class Test {
 			neuerUser2.setStreet("Binzstraﬂe 52");
 			neuerUser2.setZip(new Integer(13125));
 			neuerUser2.setCity("Berlin");
+			//dem User eine Rolle zuweisen
+			neuerUser2.setRole(neueRolle);
+			//neueRolle.getUsers().add(neuerUser2);
 			//noch einen neuen Login erzeugen
 			Login neuerLogin2 = new Login();
 			neuerLogin2.setScreenname("fosion");
 			neuerLogin2.setPasswort("franky");
 			neuerLogin2.setActive(new Byte("1"));
 			//Login an User binden und umgekehrt
-			neuerLogin2.setUser(neuerUser2);
-			neuerUser2.getLogins().add(neuerLogin2);
+			neuerUser2.setLogin(neuerLogin2);
 			//die User an die Projekte binden und umgekehrt
 			neuesProjekt.getUsers().add(neuerUser);
 			neuesProjekt.getUsers().add(neuerUser2);
@@ -86,13 +101,39 @@ public class Test {
 			neueMsg.setUser(neuerUser2); //Frank schickt mit eine Nachricht ;-)
 			neuerUser2.getMessages().add(neueMsg);
 			
+			//neuen Termin erzeugen
+			Appointments neuerTermin = new Appointments();
+			neuerTermin.setSubject("Testtermin");
+			neuerTermin.setDescription("Dies ist ein Testtermin!");
+			//Termin an User binden und umgekehrt
+			neuerTermin.setUser(neuerUser);
+			neuerUser.getAppointments().add(neuerTermin);
+			
+			//neue Aufgabe erzeugen
+			Tasks neuerTask = new Tasks();
+			neuerTask.setSubject("Test");
+			neuerTask.setDescription("Dies ist eine Testaufgabe!");
+			//Aufgabe an User binden und umgekehrt
+			neuerTask.setUser(neuerUser);
+			neuerUser.getTasks().add(neuerTask);
+			
+			//neue Preference erzeugen
+			Preferences neuePref = new Preferences();
+			neuePref.setUser(neuerUser);
+			neuerUser.getPreferences().add(neuePref);
+			
 			//alle neuen Objekte speichern
 			session.save(neuesProjekt);
-			session.save(neuerUser);
+			session.save(neuerBbEntry);
+			session.save(neueRolle);
 			session.save(neuerLogin);
-			session.save(neuerUser2);
 			session.save(neuerLogin2);
+			session.save(neuerUser);
+			session.save(neuerUser2);
 			session.save(neueMsg);
+			session.save(neuerTermin);
+			session.save(neuerTask);
+			session.save(neuePref);
 		
 			session.flush();
 
@@ -121,6 +162,7 @@ public class Test {
 			List ll = q.list();
 			System.out.println((Integer)ll.get(0));
 			
+			/*
 			//subqueries
 			Query q1 = session.createQuery("from User as usert where usert.idUser = ("
 					+ "select lg.user.idUser from Login lg where lg.screenname= :screen)");
@@ -128,7 +170,7 @@ public class Test {
 			List lll = q1.list();
 			temp= (User)lll.get(0);
 			System.out.println(temp.getFirstname());
-		
+			*/
 			
 			System.out.println("Speichervorgang erfolgreich!");
 		} catch (HibernateException e) {

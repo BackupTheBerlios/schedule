@@ -22,6 +22,9 @@ public abstract class AbstractPreferences
     /** The composite primary key value. */
     private java.lang.Integer idPreferences;
 
+    /** Der User zu dem diese Preference gehört */
+    private User user;
+    
     /**
      * Simple constructor of AbstractPreferences instances.
      */
@@ -57,6 +60,24 @@ public abstract class AbstractPreferences
         this.idPreferences = idPreferences;
     }
 
+    /**
+     * liefert den User zurück zu dem diese Preference gehört
+     * @return User user
+     */
+    public User getUser()
+    {
+    	return user;
+    }
+    
+    /**
+     * setzt den User zu dem diese Preference gehört
+     * @param user
+     */
+    public void setUser(User user)
+    {
+    	this.user = user;
+    }
+    
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs

@@ -23,15 +23,6 @@ public abstract class AbstractUser
     /** The composite primary key value. */
     private java.lang.Integer idUser;
 
-    /** Wert für den Foreign Key "Role */
-    private java.lang.Integer idRole;
-    
-    /** Wert für den Foreign Key "Login" */
-    private java.lang.Integer idLogin;
-    
-    /** Wert für den Foreign Key "Preferences" */
-    private java.lang.Integer idPreferences;
-    
     /** The value of the simple lastname property. */
     private java.lang.String lastname;
 
@@ -56,8 +47,11 @@ public abstract class AbstractUser
     /** The value of the simple zip property. */
     private java.lang.Integer zip;
 
+    /** Aktuelle Rolle (User bzw. Admin) des Users */
+    private Roles role;
+    
     /** Aktuelle Logins des Users */
-    private java.util.Set logins;
+    private Login login;
     
     /** Aktuelle Projekte des Nutzers */
     private java.util.Set projects;
@@ -68,15 +62,26 @@ public abstract class AbstractUser
     /** Alle Nachrichten dieses Users */
     private java.util.Set messages;
     
+    /** Alle Termine dieses Users */
+    private java.util.Set appointments;
+    
+    /** Alle Aufgaben dieses Users */
+    private java.util.Set tasks;
+    
+    /** Alle Preferences dieses Users */
+    private java.util.Set preferences;
+    
     /**
      * Simple constructor of AbstractUser instances.
      */
     public AbstractUser()
     {
-    	logins = new java.util.HashSet();
     	projects = new java.util.HashSet();
     	groups = new java.util.HashSet();
     	messages = new java.util.HashSet();
+    	appointments = new java.util.HashSet();
+    	tasks = new java.util.HashSet();
+    	preferences = new java.util.HashSet();
     }
 
     /**
@@ -107,61 +112,6 @@ public abstract class AbstractUser
         this.idUser = idUser;
     }
 
-    /**
-     * Gibt den Wert für den Forgeign Key "Role" zurück
-     * @return idRole
-     */
-    public java.lang.Integer getIdRole()
-    {
-    	return idRole;
-    }
-    
-    /**
-     * Setzt den Wert für den Foreign Key "Role"
-     * @param idRole
-     */
-    public void setIdRole(java.lang.Integer idRole)
-    {
-    	this.idRole = idRole;
-    }
-    
-    /**
-     * Gibt den Wert für den Forgeign Key "Login" zurück
-     * @return idRole
-     */
-    public java.lang.Integer getIdLogin()
-    {
-    	return idLogin;
-    }
-    
-    /**
-     * Setzt den Wert für den Foreign Key "Role"
-     * @param idRole
-     */
-    public void setIdLogin(java.lang.Integer idLogin)
-    {
-    	this.idLogin = idLogin;
-    }
-    
-    /**
-     * Gibt den Wert für den Forgeign Key "Login" zurück
-     * @return idRole
-     */
-    public java.lang.Integer getIdPreferences()
-    {
-    	return idPreferences;
-    }
-    
-    /**
-     * Setzt den Wert für den Foreign Key "Role"
-     * @param idRole
-     */
-    
-    public void setIdPreferences(java.lang.Integer idPreferences)
-    {
-    	this.idPreferences = idPreferences;
-    }
-    
     /**
      * Return the value of the Lastname column.
      * @return java.lang.String
@@ -307,26 +257,44 @@ public abstract class AbstractUser
     }
 
     /**
+     * Liefert die aktuelle Rolle (User bzw. Admin) des Nutzers zurück
+     * @return java.util.Set roles 
+     */
+    public Roles getRole()
+    {
+    	return role;
+    }
+
+    /**
+     * Setzt die aktuelle Rolle (User. bzw. Admin) des Nutzers
+     * @param roles
+     */
+    public void setRole(Roles role)
+    {
+    	this.role = role;
+    }
+    
+    /**
      * Liefert die aktuellen Projekte des Nutzers zurück
      * @return java.util.Set logins 
      */
-    public java.util.Set getLogins()
+    public Login getLogin()
     {
-    	return logins;
+    	return login;
     }
 
     /**
      * Setzt die Projekte des Nutzers
      * @param logins
      */
-    public void setLogins(java.util.Set logins)
+    public void setLogin(Login login)
     {
-    	this.logins = logins;
+    	this.login = login;
     }
     
     /**
      * Liefert die aktuellen Projekte des Nutzers zurück
-     * @return projects 
+     * @return java.util.Set projects 
      */
     public java.util.Set getProjects()
     {
@@ -362,13 +330,67 @@ public abstract class AbstractUser
     
     /**
      * liefert alle Gruppen zurück denen dieser User angehört
+     * @return java.util.Set appointments
+     */
+    public java.util.Set getAppointments()
+    {
+    	return appointments;
+    }
+    
+    /**
+     * setzt die Gruppen denen der User angehört
+     * @param appointments
+     */
+    public void setAppointments(java.util.Set appointments)
+    {
+    	this.appointments = appointments;
+    }
+
+    /**
+     * liefert alle Aufgaben zurück, die von diesem User zu erledigen sind
+     * @return java.util.Set tasks
+     */
+    public java.util.Set getTasks()
+    {
+    	return tasks;
+    }
+    
+    /**
+     * setzt Aufgaben, die von diesem User zu erledigen sind
+     * @param tasks
+     */
+    public void setTasks(java.util.Set tasks)
+    {
+    	this.tasks = tasks;
+    }
+    
+    /**
+     * setzt die Preferences die zu diesem User gehören
+     * @param preferences
+     */
+    public void setPreferences(java.util.Set preferences)
+    {
+    	this.preferences = preferences;
+    }
+    
+    /**
+     * liefert alle Preferences dieses User zurück
+     * @return java.util.Set preferences
+     */
+    public java.util.Set getPreferences()
+    {
+    	return preferences;
+    }
+    
+    /**
+     * liefert alle Gruppen zurück denen dieser User angehört
      * @return java.util.Set groups
      */
     public java.util.Set getGroups()
     {
     	return groups;
     }
-    
+   
     /**
      * setzt die Gruppen denen der User angehört
      * @param groups

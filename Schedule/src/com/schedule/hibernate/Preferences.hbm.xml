@@ -12,6 +12,7 @@
         <id name="idPreferences" column="idPreferences" type="java.lang.Integer">
             <generator class="native"/>
         </id>
+ 		<many-to-one name="user" column="idUser" />
  
     </class>
     

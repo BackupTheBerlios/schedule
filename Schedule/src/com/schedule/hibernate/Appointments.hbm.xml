@@ -9,10 +9,10 @@
 <hibernate-mapping package="com.schedule.hibernate">
 
     <class name="Appointments" table="Appointments">
-        <composite-id name="id" class="AppointmentsKey">
-            <key-property name="gid" column="GID" type="java.lang.Integer"/>
-            <key-property name="pid" column="PID" type="java.lang.Integer"/>
-        </composite-id>
+		<id name="idAppointments" column="idAppointments" type="java.lang.Integer">
+			<generator class="native" />
+		</id>        
+ 		<many-to-one name="user" column="idUser" />
  
         <property name="subject" column="Subject" type="java.lang.String" />
         <property name="date" column="Date" type="java.util.Date" />

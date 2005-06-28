@@ -12,8 +12,7 @@
         <id name="idLogin" column="idLogin" type="java.lang.Integer">
             <generator class="native"/>
         </id>
-		<many-to-one name="user" column="idUser" unique="true" not-null="true" /> 
-        
+		        
         <property name="screenname" column="Screenname" type="java.lang.String" unique="true"/>
         <property name="passwort" column="Passwort" type="java.lang.String" />
         <property name="active" column="Active" type="java.lang.Byte" />
