@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td nowrap width="549" height="100">
 					<table width="549" border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr height="70">
-							<td width="549" height="70" background="pages/data/back_tab_70.gif"></td>
+							<td width="549" height="70" background="pages/data/back_tab_70.gif"><font size="5">ProjectPlaner</font></td>
 						</tr>
 						<tr bgcolor="#103052" height="30">
 							<td width="549" height="30"></td>
@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr bgcolor="#8393A3" height="65">
 							<td height="65">
 								<div align="center">&nbsp;(c)2005<br>
-									 <a href="team.html">Projektteam Schedule</a></div>
+									 <a href="pages/team.html">Projektteam Schedule</a></div>
 							</td>
 						</tr>
 						<tr bgcolor="#103052" height="35">
@@ -63,10 +63,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</table>
 				</td>
 			</tr>
-			<tr height="292">
-				<td  width="150" height="292" >
+			<tr height="494">
+				<td  width="150" height="494" >
 					<div align="center">
-						<table width="150" border="0" cellspacing="0" cellpadding="0" height="294">
+						<table width="150" border="0" cellspacing="0" cellpadding="0" height="494">
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
 									<div align="center">
@@ -94,17 +94,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30"></td>
 							</tr>
-							<tr bgcolor="#A8B6C6" height="30">
-								<td width="150" height="30"></td>
+							<tr bgcolor="#A8B6C6" height="254">
+								<td width="150" height="254"></td>
 							</tr>
-							<tr bgcolor="#A8B6C6" height="100">
-								<td width="150" height="100"></td>
+									<tr bgcolor="#A8B6C6" height="70">
+								<td width="150" height="70"></td>
 							</tr>
-						</table>
+									<tr bgcolor="#A8B6C6" height="7">
+										<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
+									</tr>
+								</table>
 					</div>
 				</td>
-				<td width="1" height="292"></td>
-				<td width="10" height="292">
+				<td width="1" height="494"></td>
+				<td width="10" height="494">
 					
 				</td>
 				<td rowspan="3" width="549">
@@ -120,13 +123,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr height="35">
 							<td height="35"></td>
 						</tr>
-						<tr height="130">
-							<td height="130"></td>
+						<tr height="343">
+							<td height="343"></td>
 						</tr>
 					</table>
 					
 				</td>
-				<td width="212" height="292"></td>
+				<td width="212" height="494"></td>
 			
 							
 <tr height="15">
