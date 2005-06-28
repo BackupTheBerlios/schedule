@@ -48,6 +48,12 @@ public class Test {
 			neuerBbEntry.setProject(neuesProjekt);
 			neuesProjekt.getBlackboardEntries().add(neuerBbEntry);
 			
+			//neue Nutzergruppe erzeugen
+			Groups neueGruppe = new Groups();
+			neueGruppe.setName("Developer");
+			neueGruppe.setDescription("Diese Gruppe enthält Softwareentwickler und Programmierer!");
+			neueGruppe.setProject(neuesProjekt);
+			
 			//neuen User erzeugen
 			User neuerUser = new User();
 			neuerUser.setFirstname("Christian");
@@ -59,7 +65,6 @@ public class Test {
 			Roles neueRolle = new Roles();
 			neueRolle.setName("Systemadministrator");
 			neueRolle.setDescription("Der Systemadministrator verwaltet das gesamte Schedule-System");
-			//neueRolle.getUsers().add(neuerUser);
 			neuerUser.setRole(neueRolle);
 			//neuen Login erzeugen
 			Login neuerLogin = new Login();
@@ -77,7 +82,7 @@ public class Test {
 			neuerUser2.setCity("Berlin");
 			//dem User eine Rolle zuweisen
 			neuerUser2.setRole(neueRolle);
-			//neueRolle.getUsers().add(neuerUser2);
+			
 			//noch einen neuen Login erzeugen
 			Login neuerLogin2 = new Login();
 			neuerLogin2.setScreenname("fosion");
@@ -91,7 +96,13 @@ public class Test {
 			neuerUser.getProjects().add(neuesProjekt);
 			neuerUser2.getProjects().add(neuesProjekt);
 			
-
+			//die User der Nutzergruppe zuweisen
+			neueGruppe.getUser().add(neuerUser);
+			neueGruppe.getUser().add(neuerUser2);
+			neuerUser.getGroups().add(neueGruppe);
+			neuerUser2.getGroups().add(neueGruppe);
+			
+			
 			//neue Nachricht erzeugen
 			Messages neueMsg = new Messages();
 			neueMsg.setRecipient("rapid");
@@ -130,6 +141,7 @@ public class Test {
 			session.save(neuerLogin2);
 			session.save(neuerUser);
 			session.save(neuerUser2);
+			session.save(neueGruppe);
 			session.save(neueMsg);
 			session.save(neuerTermin);
 			session.save(neuerTask);

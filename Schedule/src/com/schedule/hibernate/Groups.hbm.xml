@@ -12,10 +12,12 @@
         <id name="idGroups" column="idGroups" type="java.lang.Integer">
         	<generator class="native" />
         </id>
-        <set name="user" table="UserGroups">
+        <set name="user" table="UserGroups" inverse="true">
         	<key column="idGroups" />
         	<many-to-many column="idUser" class="User" />
         </set>
+ 
+ 		<many-to-one name="project" column="idProjects" class="Projects" not-null="true" />
  
         <property name="name" column="Name" type="java.lang.String" />
         <property name="description" column="Description" type="java.lang.String" />

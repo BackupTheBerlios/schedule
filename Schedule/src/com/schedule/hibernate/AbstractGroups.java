@@ -8,6 +8,7 @@ package com.schedule.hibernate;
 
 import java.io.Serializable;
 
+
 /**
  * A class that represents a row in the Groups table. 
  * You can customize the behavior of this class by editing the class, {@link Groups()}.
@@ -31,11 +32,15 @@ public abstract class AbstractGroups
     /** Alle User die zu dieser Gruppe gehören */
     private java.util.Set user;
     
+    /** Das Projekt zu dem diese Gruppe gehört */
+    private Projects project;
+    
     /**
      * Simple constructor of AbstractGroups instances.
      */
     public AbstractGroups()
     {
+    	user = new java.util.HashSet();
     }
 
     /**
@@ -118,6 +123,24 @@ public abstract class AbstractGroups
     public void setUser(java.util.Set user)
     {
     	this.user = user;
+    }
+    
+    /**
+     * liefert das Projekt zurück, zu dem diese Gruppe gehört
+     * @return Projects project
+     */
+    public Projects getProject()
+    {
+    	return project;
+    }
+    
+    /**
+     * setzt das Projekt, zu dem diese Gruppe gehört
+     * @param project
+     */
+    public void setProject(Projects project)
+    {
+    	this.project = project;
     }
     
     /**

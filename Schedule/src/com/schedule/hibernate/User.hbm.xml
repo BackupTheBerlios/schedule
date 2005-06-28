@@ -17,7 +17,7 @@
  			<key column="idUser" />
  			<many-to-many column="idProjects" class="Projects" />
  		</set>
- 		<set name="groups" table="UserGroups" inverse="true">
+ 		<set name="groups" table="UserGroups">
  			<key column="idUser" />
  			<many-to-many column="idGroups" class="Groups" />
  		</set>
