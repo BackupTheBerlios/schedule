@@ -15,23 +15,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<title>Schedule user registration</title>
 
-	<link href="../data/clixstylesv2.css" rel="stylesheet" type="text/css" media="all">
+	<link href="pages/data/clixstylesv2.css" rel="stylesheet" type="text/css" media="all">
 </head>
   
 <body>
 <table border="0" cellspacing="0" cellpadding="0">
 			<tr height="100">
-				<td colspan="2" width="151" height="100" background="../data/schedule.gif">
+				<td colspan="2" width="151" height="100" background="pages/data/schedule.gif">
 					<div align="center">
 						&nbsp;<br>
 						<br>
 						<br>
 						(pre-alpha)</div>
 				</td>
-				<td width="10" height="100" background="../data/navitoppic.gif">
+				<td width="10" height="100" background="../pages/data/navitoppic.gif">
 					<table border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr height="70">
-							<td width="10" height="70" background="../data/back_tab_70.gif"></td>
+							<td width="10" height="70" background="pages/data/back_tab_70.gif"></td>
 						</tr>
 						<tr bgcolor="#103052" height="30">
 							<td width="10" height="30"></td>
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td nowrap width="549" height="100">
 					<table width="549" border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr height="70">
-							<td width="549" height="70" background="../data/back_tab_70.gif">
+							<td width="549" height="70" background="pages/data/back_tab_70.gif">
 								<div align="left">
 									<font size="5">ProjectPlaner</font></div>
 							</td>
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</td>
 						</tr>
 						<tr bgcolor="#103052" height="35">
-							<td height="35" background="../data/back_tab.gif"></td>
+							<td height="35" background="pages/data/back_tab.gif"></td>
 						</tr>
 					</table>
 				</td>
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
-								<td width="150" height="7" background="../data/naviseparator.gif"></td>
+								<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
-								<td width="150" height="7" background="../data/naviseparator.gif"></td>
+								<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30"></td>
@@ -111,20 +111,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<td rowspan="3" width="549">
 					<table width="549" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td>
-								<p>Herzlich willkommen bei Schedule!<br>
-									<br>
-									<br>
-									
-									Bitte f&uuml;llen sie die Felder vollst&auml;ndig aus.</p>
-							</td>
-						</tr>
 						<tr height="35">
 							<td rowspan="2" height="359">
 							
 							
-							<f:view>
+		<f:view>
 		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
         <h2><h:outputText value="#{bundle.registration_header}" /></h2>
 
