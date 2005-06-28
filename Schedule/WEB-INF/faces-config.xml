@@ -32,7 +32,11 @@
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/pages/main.jsp</from-view-id>
+        <from-view-id>/pages/*</from-view-id>
+        <navigation-case>
+            <from-outcome>startpage</from-outcome>
+            <to-view-id>/pages/index.jsp</to-view-id>
+        </navigation-case>
         <navigation-case>
             <from-outcome>messagepage</from-outcome>
             <to-view-id>/pages/messages.jsp</to-view-id>
@@ -45,6 +49,14 @@
         		<from-outcome>logoutpage</from-outcome>
         		<to-view-id>/pages/logout.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+        		<from-outcome>registerpage</from-outcome>
+        		<to-view-id>/pages/register.jsp</to-view-id>
+        	</navigation-case>
+        	<navigation-case>
+        		<from-outcome>loginpage</from-outcome>
+        		<to-view-id>/pages/login.jsp</to-view-id>
+        	</navigation-case>
     </navigation-rule>
     
     <managed-bean>

@@ -7,15 +7,19 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Schedule ProjectPlaner</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-		<link href="pages/data/clixstylesv2.css" rel="stylesheet" type="text/css" media="all">
-	</head>
+    <base href="<%=basePath%>">
+
+    <title>Schedule Startseite</title>
+    <link href="pages/data/clixstylesv2.css" rel="stylesheet" type="text/css" media="all">
+    
+</head>
 <body>
+<f:view>
+<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
+<h:form id="indexForm">
 <table border="0" cellspacing="0" cellpadding="0">
 			<tr height="100">
 				<td colspan="2" width="151" height="100" background="pages/data/schedule.gif">
@@ -66,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
 									<div align="center">
-										<a href="http://localhost:8080/Schedule/pages/register.faces">registrieren</a></div>
+                                            <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_register}"><f:param name="link" value="register" /></h:commandLink></div>
 								</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
@@ -75,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
 									<div align="center">
-										<a href="http://localhost:8080/Schedule/pages/login.faces">einloggen</a></div>
+                                            <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_login}"><f:param name="link" value="login" /></h:commandLink></div>
 								</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
@@ -109,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>
 								<p>Herzlich willkommen bei Schedule! <br>
 									<br>
-									Mit dieser Anwendung k&ouml;nnen Sie Projekte jeder Art verwalten. Um das System zu benutzen m&uuml;ssen Sie sich registrieren und anschliessend einloggen.</br>
+									Mit dieser Anwendung k&ouml;nnen Sie Projekte jeder Art verwalten. Um das System zu benutzen m&uuml;ssen Sie sich registrieren und anschliessend einloggen.<br>
 								Schedule befindet sich momentan noch in der Entwicklung, in den n&auml;chsten Wochen werden deshalb immer mehr Funktionen hinzukommen, die Sie benutzen k&ouml;nnen. Sollten Sie Fehler feststellen oder Verbesserungsvorschl&auml;ge haben, wenden Sie sich bitte vertrauensvoll an uns.</p>
 							</td>
 						</tr>
@@ -153,5 +157,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="212">&nbsp;</td>
 			</tr>
 </table>
+</h:form>
+</f:view>
 </body>
 </html>
+

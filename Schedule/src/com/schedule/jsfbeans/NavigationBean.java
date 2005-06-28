@@ -32,7 +32,17 @@ public class NavigationBean {
 			return "logoutpage";
 		}
 		
-		return "mainpage";
+		if(this.link.equals("register"))
+		{
+			return "registerpage";
+		}
+		
+		if(this.link.equals("login"))
+		{
+			return "loginpage";
+		}
+		
+		return "startpage";
 	}
 	
 	/**
