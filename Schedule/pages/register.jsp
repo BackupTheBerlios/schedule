@@ -72,8 +72,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr height="379">
 				<td  width="150" height="379" >
 					<div align="center">
-						<table width="150" border="0" cellspacing="0" cellpadding="0" height="382">
-							<tr bgcolor="#A8B6C6" height="30">
+						<table width="150" border="0" cellspacing="0" cellpadding="0" height="494">
+								<tr bgcolor="#A8B6C6" height="30">
+									<td width="150" height="30">
+										<div align="center">
+											<a title="Schedule Home" href="pages/index.jsp">Schedule Home</a></div>
+									</td>
+								</tr>
+								<tr bgcolor="#A8B6C6" height="7">
+									<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
+								</tr>
+								<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
 									<div align="center">
 									<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_register}"><f:param name="link" value="register" /></h:commandLink></div>
@@ -98,16 +107,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30"></td>
 							</tr>
-							<tr bgcolor="#A8B6C6" height="30">
-								<td width="150" height="30"></td>
+							<tr bgcolor="#A8B6C6" height="257">
+								<td width="150" height="257"></td>
 							</tr>
-							<tr bgcolor="#A8B6C6" height="30">
-								<td width="150" height="30"></td>
+							<tr bgcolor="#A8B6C6" height="34">
+								<td width="150" height="34"></td>
 							</tr>
-							<tr bgcolor="#A8B6C6" height="188">
-								<td width="150" height="188"></td>
+							<tr bgcolor="#A8B6C6" height="22">
+								<td width="150" height="22"></td>
 							</tr>
-					     </table>
+								<tr bgcolor="#A8B6C6" height="7">
+									<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
+								</tr>
+							</table>
 					</div>
                     </h:form>
 				</td>
@@ -210,7 +222,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr height="324">
 							
 						</tr>
-					</table>
+							<tr height="174">
+								<td height="174"></td>
+							</tr>
+						</table>
 					
 				</td>
 				<td width="212" height="379"></td>
