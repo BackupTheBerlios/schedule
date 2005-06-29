@@ -52,10 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="212" height="100">
 					<table width="212" border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr bgcolor="#8393A3" height="65">
-							<td height="65">
-								<div align="center">&nbsp;(c)2005<br>
-                                    <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_team}"><f:param name="link" value="team" /></h:commandLink>
-							</td>
+							<td height="65">&nbsp;</td>
 						</tr>
 						<tr bgcolor="#103052" height="35">
 							<td height="35" background="pages/data/back_tab.gif"></td>
@@ -86,7 +83,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
-								<td width="150" height="30"></td>
+								<td width="150" height="30">
+                                    <div align="center">&nbsp;(c)2005<br>
+                                    <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_team}"><f:param name="link" value="team" /></h:commandLink>
+                                </td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30"></td>

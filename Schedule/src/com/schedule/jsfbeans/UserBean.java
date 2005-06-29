@@ -38,13 +38,6 @@ public class UserBean {
     /** The value of the simple zip property. */
     private java.lang.Integer zip;
     
-    
-    public String registerUser()
-    {
-    		return "success";
-    }
-    
-    
 	/**
 	 * @return Returns the city.
 	 */

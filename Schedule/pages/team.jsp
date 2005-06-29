@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <f:view>
+<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>    
 <h:form id="teamForm">
 <table border="0" cellspacing="0" cellpadding="0">
 			<tr height="100">
@@ -67,10 +68,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div align="center">
 						<table width="150" border="0" cellspacing="0" cellpadding="0" height="494">
 									<tr bgcolor="#A8B6C6" height="30">
-										<td width="150" height="30">
+                                            <td width="150" height="30">
 											<div align="center">
-												<a title="Projekt Home" href="pages/index.jsp">Schedule Home</a></div>
-										</td>
+										          <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_home}"><f:param name="link" value="home" /></h:commandLink>
+                                               </div>
+                                            </td>
 									</tr>
 									<tr bgcolor="#A8B6C6" height="7">
 										<td width="150" height="7" background="pages/data/naviseparator.gif"></td>

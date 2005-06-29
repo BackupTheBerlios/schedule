@@ -43,6 +43,11 @@ public class NavigationBean {
 			return "loginpage";
 		}
 		
+		if(this.link.equals("home"))
+		{
+			return "startpage";
+		}
+		
 		return "startpage";
 	}
 	
