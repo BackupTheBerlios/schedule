@@ -19,7 +19,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
   
 <body>
+<f:view>
+<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>       
+
 <table border="0" cellspacing="0" cellpadding="0">
+<h:form id="navForm">   
 			<tr height="100">
 				<td colspan="2" width="151" height="100" background="pages/data/schedule.gif">
 					<div align="center">
@@ -54,10 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="212" height="100">
 					<table width="212" border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr bgcolor="#8393A3" height="65">
-							<td height="65">
-								<div align="center">&nbsp;(c)2005<br>
-									 <a href="../team.html">Projektteam Schedule</a></div>
-							</td>
+						  <td height="65">                         
+                			     <div align="center">&nbsp;(c)2005<br>
+						     <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_team}"><f:param name="link" value="team" /></h:commandLink></div>
+                            </td>
 						</tr>
 						<tr bgcolor="#103052" height="35">
 							<td height="35" background="pages/data/back_tab.gif"></td>
@@ -72,8 +76,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
 									<div align="center">
-										<a href="http://localhost:8080/Schedule/pages/register.faces">registrieren</a></div>
-								</td>
+									<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_register}"><f:param name="link" value="register" /></h:commandLink></div>
+                                </td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
 								<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
@@ -81,9 +85,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30">
 									<div align="center">
-										<a href="http://localhost:8080/Schedule/pages/login.faces">einloggen</a></div>
-								</td>
+									<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_login}"><f:param name="link" value="login" /></h:commandLink></div>
+                                </td>
 							</tr>
+                              
 							<tr bgcolor="#A8B6C6" height="7">
 								<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
@@ -102,8 +107,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr bgcolor="#A8B6C6" height="188">
 								<td width="150" height="188"></td>
 							</tr>
-						</table>
+					     </table>
 					</div>
+                    </h:form>
 				</td>
 				<td width="1" height="379"></td>
 				<td width="10" height="379">
@@ -113,18 +119,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<table width="549" border="0" cellspacing="0" cellpadding="0">
 						<tr height="35">
 							<td rowspan="2" height="359">
-							
-							
-		<f:view>
-		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
+
         <h2><h:outputText value="#{bundle.registration_header}" /></h2>
 
         <p>
         <h:outputText value="#{bundle.register_comment}" />
         </p>
-        
-        <h:form id="registerForm">
+
         <table>
+        <h:form id="registerForm">
             <tr>
                 <td><h:outputText value="#{bundle.user_name_label}" /></td>
                 <td><h:inputText id="regScreenname" value="#{RegisterBean.screenname}" required="true">
@@ -199,12 +202,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <h:commandButton id="submit" action="#{RegisterBean.register}" value="#{bundle.register_button_label}" />
                 </td>
             </tr>
+        </h:form>
         </table>
         <h:messages style="font-weight: bold; color: #FF0000;" />
-        </h:form>
-	</f:view>
-							
-							
 							</td>
 						</tr>
 						<tr height="324">
@@ -243,5 +243,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="212">&nbsp;</td>
 			</tr>
 </table>
+
+</f:view>
 </body>
 </html>

@@ -1,16 +1,12 @@
 /*
  * Created on 28.06.2005
  *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 package com.schedule.jsfbeans;
 
 /**
  * @author reinhard
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 public class NavigationBean {
 	
@@ -22,6 +18,11 @@ public class NavigationBean {
 	 */
 	public String gotoPage()
 	{
+		if(this.link.equals("team"))
+		{
+			return "teampage";
+		}
+		
 		if(this.link.equals("messages"))
 		{
 			return "messagepage";

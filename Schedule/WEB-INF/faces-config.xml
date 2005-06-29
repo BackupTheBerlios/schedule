@@ -57,6 +57,10 @@
         		<from-outcome>loginpage</from-outcome>
         		<to-view-id>/pages/login.jsp</to-view-id>
         	</navigation-case>
+        	<navigation-case>
+        		<from-outcome>teampage</from-outcome>
+        		<to-view-id>/pages/team.jsp</to-view-id>
+    		</navigation-case>
     </navigation-rule>
     
     <managed-bean>
