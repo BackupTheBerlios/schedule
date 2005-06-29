@@ -22,7 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
 
 <table border="0" cellspacing="0" cellpadding="0">
-<h:form id="navForm">
 			<tr height="100">
 				<td colspan="2" width="151" height="100" background="pages/data/schedule.gif">
 					<div align="center">
@@ -57,10 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="212" height="100">
 					<table width="212" border="0" cellspacing="0" cellpadding="0" height="100">
 						<tr bgcolor="#8393A3" height="65">
-							<td height="65">
-								<div align="center">&nbsp;(c)2005<br>
-									 <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_team}"><f:param name="link" value="team" /></h:commandLink></div>
-                            </td>
+							<td height="65">&nbsp;</td>
 						</tr>
 						<tr bgcolor="#103052" height="35">
 							<td height="35" background="pages/data/back_tab.gif"></td>
@@ -72,11 +68,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td  width="150" height="486" >
 					<div align="center">
 						<table width="150" border="0" cellspacing="0" cellpadding="0" height="494">
+                        <h:form id="navForm">
 									<tr bgcolor="#A8B6C6" height="30">
-										<td width="150" height="30">
-											<div align="center">
-												<a title="Home" href="pages/index.jsp" target="_self">Schedule Home</a></div>
-										</td>
+									   <td width="150" height="30">
+										  <div align="center">
+                                                <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_home}"><f:param name="link" value="home" /></h:commandLink>
+										  </div>
+                                        </td>
 									</tr>
 									<tr bgcolor="#A8B6C6" height="7">
 										<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
@@ -100,7 +98,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
-								<td width="150" height="30"></td>
+								<td height="30">
+                                <div align="center">&nbsp;(c)2005<br>
+                                     <h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_team}"><f:param name="link" value="team" /></h:commandLink></div>
+                            </td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="30">
 								<td width="150" height="30"></td>
@@ -117,7 +118,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<tr bgcolor="#A8B6C6" height="7">
 										<td width="150" height="7" background="pages/data/naviseparator.gif"></td>
 									</tr>
-								</table>
+                            </h:form>
+						</table>
 					</div>
 				</td>
 				<td width="1" height="486"></td>
@@ -126,11 +128,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<td rowspan="3" width="549">
 					<table width="549" border="0" cellspacing="0" cellpadding="0">
+                    <h:form id="loginForm">
 						<tr height="130">
 							<td height="130">
-							
-
-					        <h:form id="loginForm">
+				        
 					        <h2><h:outputText value="#{bundle.login_header}"/></h2>
 					        <p>
 					        <h:outputText value="#{bundle.login_comment}" />
@@ -164,8 +165,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						                        </td>
 						                    </tr>
 						                </tbody>
+                                        </h:form>
 						            </table>
-							</h:form>
                             </td>
 						</tr>
 								<tr height="392">
@@ -204,9 +205,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="549">&nbsp;</td>
 				<td width="212">&nbsp;</td>
 			</tr>
-</h:form>
-</table>
 
+</table>
 </f:view>
 </body>
 </html>
