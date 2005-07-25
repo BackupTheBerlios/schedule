@@ -21,6 +21,9 @@ import com.schedule.hibernate.Messages;
  */
 public class MessageHandlerBean {
 
+	
+	private String recipient;
+	
 	/**
 	 * List of messages
 	 */
@@ -37,7 +40,18 @@ public class MessageHandlerBean {
 	 */
 	public MessageHandlerBean()
 	{
+		recipient = "hotsauce";
 		this.getMessages();
+	}
+	
+	public String getRecipient()
+	{
+		return recipient;
+	}
+	
+	public void setRecipient(String aRecipient)
+	{
+		recipient = aRecipient;
 	}
 	
 	/**
@@ -49,20 +63,23 @@ public class MessageHandlerBean {
 		Session sess = HibernateManager.getSession();
 		Query q;
 		
-		List messages = null;
-		
 		try {
-			q = sess.createQuery("from Messages where uid= :uid");
-			q.setString("uid", "1");
-			messages = (List) q.list();			
+			q = sess.createQuery("from Messages where Recipient= :Recipient");
+			q.setString("Recipient", recipient);
+			messageList = (List) q.list();			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-		
-		for(int i=0; i<messages.size(); i++)
+		if(messageList.size() != 0)
 		{
-			Messages msg = (Messages) messages.get(i);
+			for(int i=0; i<messageList.size(); i++)
+			{
+				Messages msg = (Messages) messageList.get(i);
+			}	
+		} else {
+			System.out.println("Keine Nachrichten gefunden");
 		}
+		
 		
 		
 	}

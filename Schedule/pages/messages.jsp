@@ -27,20 +27,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h:form>
 
     <h:dataTable value="#{MessageBean.messageList}" var="msg">
-	
-	  <h:column>
-	    <f:facet name="header">
-	      <h:outputText value="#{bundle.str_sender}" />
-	    </f:facet>
-	    <h:outputText value="#{msg.uid}" />
-	
-	  </h:column>
-	
+	  
 	  <h:column>
         <f:facet name="header">
 	      <h:outputText value="#{bundle.str_subject}" />
 	    </f:facet>
-	    <h:outputText value="#{mgs.subject}" />
+	    <h:outputText value="#{msg.subject}" />
+	  </h:column>
+	  
+	  <h:column>
+	    <f:facet name="header">
+	      <h:outputText value="#{bundle.str_sender}" />
+	    </f:facet>
+	    <h:outputText value="#{msg.user.login.screenname}" />
 	  </h:column>
 	
 	  <h:column>

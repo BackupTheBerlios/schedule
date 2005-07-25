@@ -7,7 +7,7 @@
         <from-view-id>/pages/login.jsp</from-view-id>
         <navigation-case>
             <from-outcome>usersuccess</from-outcome>
-            <to-view-id>/pages/test.jsp</to-view-id>
+            <to-view-id>/pages/main_new.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>adminsuccess</from-outcome>
@@ -133,7 +133,7 @@
      <managed-bean>
         <description>Bean which represents a message.</description>
         <managed-bean-name>MessageBean</managed-bean-name>
-        <managed-bean-class>com.schedule.jsfbeans.MessageBean</managed-bean-class>
+        <managed-bean-class>com.schedule.jsfbeans.MessageHandlerBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
