@@ -7,7 +7,7 @@
         <from-view-id>/pages/login.jsp</from-view-id>
         <navigation-case>
             <from-outcome>usersuccess</from-outcome>
-            <to-view-id>/pages/main.jsp</to-view-id>
+            <to-view-id>/pages/test.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>adminsuccess</from-outcome>
@@ -41,9 +41,23 @@
             <from-outcome>messagepage</from-outcome>
             <to-view-id>/pages/messages.jsp</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/pages/test.jsp</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>messages</from-outcome>
+            <to-view-id>/pages/messages.jsp</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>calendar</from-outcome>
+            <to-view-id>/pages/calendar.jsp</to-view-id>
+        </navigation-case>
+        
         <navigation-case>
             <from-outcome>mainpage</from-outcome>
-            <to-view-id>/pages/main.jsp</to-view-id>
+            <to-view-id>/pages/main_new.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
         		<from-outcome>logoutpage</from-outcome>
