@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Query;
@@ -65,13 +66,15 @@ public class LoginBean {
 		
 		if(logins.size()==1)
 		{
+			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+			session.setAttribute("Login", logins.get(0));
 			return "usersuccess";
-		}
-    		
+		} else {
     		FacesContext facesContext = FacesContext.getCurrentInstance(); 
     		FacesMessage facesMessage = new FacesMessage("Unkorrekte Logindaten!");
     		facesContext.addMessage("loginForm", facesMessage);        
     		return "failure";
+		}
     }
     
 

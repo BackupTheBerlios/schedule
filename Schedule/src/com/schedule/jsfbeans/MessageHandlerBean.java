@@ -4,8 +4,12 @@
  */
 package com.schedule.jsfbeans;
 
+import com.schedule.hibernate.*;
+
 import java.sql.ResultSet;
 import java.util.List;
+import javax.servlet.http.*;
+import javax.faces.context.*;
 
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Query;
@@ -40,7 +44,9 @@ public class MessageHandlerBean {
 	 */
 	public MessageHandlerBean()
 	{
-		recipient = "hotsauce";
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Login login = (Login) session.getAttribute("Login");
+		recipient = login.getScreenname();
 		this.getMessages();
 	}
 	
