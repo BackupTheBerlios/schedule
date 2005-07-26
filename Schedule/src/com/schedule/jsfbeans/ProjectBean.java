@@ -6,7 +6,6 @@
  */
 package com.schedule.jsfbeans;
 
-import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
@@ -23,16 +22,20 @@ import com.schedule.hibernate.User;
  */
 public class ProjectBean {
 	
-	/** The value of the simple name property. */
+	/** 
+	 * The value of the simple name property. 
+	 */
     private java.lang.String name;
 
-    /** The value of the simple description property. */
+    /** 
+     * The value of the simple description property. 
+     */
     private java.lang.String description;
     
     /**
-     * Primary key of the associated user
+     * associated user
      */
-    private Integer myUID;
+    private User user;
     
     /**
      * List of all projects
@@ -45,26 +48,9 @@ public class ProjectBean {
      */
     public ProjectBean()
     {
-    		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    		User u = (User) session.getAttribute("User");
-		this.myUID = u.getIdUser();
-		this.getProjects(u);
-		
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	user = (User) session.getAttribute("User");
     }
-    
-    /**
-     * Gets all projects from the database
-     */
-    public void getProjects(User u)
-	{
-    		Set projects = u.getProjects();
-    		this.projectList = new Vector();
-    		
-    		for(int i=0; i<projects.size(); i++)
-    		{
-    			this.projectList.add(projects.toArray()[i]);
-    		}
-	}
 
 	/**
 	 * @return Returns the description.
@@ -72,18 +58,21 @@ public class ProjectBean {
 	public java.lang.String getDescription() {
 		return description;
 	}
+	
 	/**
 	 * @param description The description to set.
 	 */
 	public void setDescription(java.lang.String description) {
 		this.description = description;
 	}
+	
 	/**
 	 * @return Returns the name.
 	 */
 	public java.lang.String getName() {
 		return name;
 	}
+	
 	/**
 	 * @param name The name to set.
 	 */
@@ -92,26 +81,16 @@ public class ProjectBean {
 	}
 
 	/**
-	 * @return Returns the myUID.
-	 */
-	public Integer getMyUID() {
-		return myUID;
-	}
-
-	/**
-	 * @param myUID The myUID to set.
-	 */
-	public void setMyUID(Integer myUID) {
-		this.myUID = myUID;
-	}
-
-	/**
 	 * @return Returns the projectList.
 	 */
-	public List getProjectList() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		User u = (User) session.getAttribute("User");
-		this.getProjects(u);
+	public Vector getProjectList() {
+		Set projects = user.getProjects();
+		this.projectList = new Vector();
+		
+		for(int i=0; i<projects.size(); i++)
+		{
+			this.projectList.add(projects.toArray()[i]);
+		}
 		return projectList;
 	}
 

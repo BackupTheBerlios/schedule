@@ -40,7 +40,6 @@ public class MessageHandlerBean {
 	 */
 	private List messageList;
 	
-	private String recipient;
 	
 	/**
 	 * Constructor reads messages from database
@@ -49,9 +48,8 @@ public class MessageHandlerBean {
 	public MessageHandlerBean()
 	{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-
 		Login login = (Login) session.getAttribute("Login");
-		recipient = login.getScreenname();
+		screenname = login.getScreenname();
 
 	}
 	
@@ -59,7 +57,7 @@ public class MessageHandlerBean {
 	 * 
 	 * @return
 	 */
-	public String getRecipient()
+	public String getScreenname()
 	{
 		return screenname;
 	}
@@ -68,9 +66,9 @@ public class MessageHandlerBean {
 	 * 
 	 * @param aRecipient
 	 */
-	public void setRecipient(String aRecipient)
+	public void setScreenname(String aScreenname)
 	{
-		screenname = aRecipient;
+		screenname = aScreenname;
 	}
 	
 	/**

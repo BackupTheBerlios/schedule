@@ -176,10 +176,17 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-						<!-- Datatable für dynamische Inhalte --> <h:dataTable
-							bgcolor="#C6DADA" width="100%" value="" var="projects">
+						<!-- Datatable für dynamische Inhalte --> 
+						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{ProjectBean.projectList}" var="projects">
 								Sie nehmen derzeit an Projekt(en) teil
-							</h:dataTable></div>
+								<h:column>
+            						<f:facet name="header">
+              							<h:outputText value="#{bundle.str_projectname}" />
+            						</f:facet>
+            						<h:outputText value="#{projects.name}" />
+          						</h:column>
+						</h:dataTable>
+					</div>
 
 						<!-- Der Div-Bereich für die Nachrichten folgt hier -->
 						<div id="Messages">
@@ -189,14 +196,6 @@
 									value="#{bundle.str_messages}">
 									<f:param name="link" value="messages" />
 								</h:commandLink></td>
-								<td width="219"><h:commandLink
-                                    action="#{NavigationBean.gotoPage}"
-                                    value="#{bundle.str_projects}">
-                                    <f:param name="link" value="projects" />
-                                </h:commandLink>
-                                    </td>
-								<td width="260"><h:outputText value="#{bundle.str_blackboard}" /></td>
-								<td width="104">&nbsp;</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
 								<td height="7" background="pages/data/naviseparator.gif"></td>

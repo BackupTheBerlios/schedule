@@ -15,7 +15,6 @@
 import java.util.List;
 
 import com.schedule.hibernate.*;
-import com.schedule.jsfbeans.*;
 
 import net.sf.hibernate.*;
 
@@ -38,7 +37,7 @@ public class Test {
 		
 		try {
 			q = session.createQuery("from User where idUser= :idUser");
-			q.setString("idUser", "15");
+			q.setString("idUser", "14");
 			userList = (List) q.list();			
 		} catch (HibernateException e) {
 			e.printStackTrace();
