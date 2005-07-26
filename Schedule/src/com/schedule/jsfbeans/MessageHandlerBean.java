@@ -16,7 +16,6 @@ import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
 import com.schedule.hibernate.HibernateManager;
-import com.schedule.hibernate.Messages;
 
 /**
  * 
@@ -25,8 +24,10 @@ import com.schedule.hibernate.Messages;
  */
 public class MessageHandlerBean {
 
-	
-	private String recipient;
+	/**
+	 * Screenname of currently logged in User
+	 */
+	private String screenname;
 	
 	/**
 	 * List of unread Messages
@@ -50,11 +51,32 @@ public class MessageHandlerBean {
 	public MessageHandlerBean()
 	{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Login login = (Login) session.getAttribute("Login");
-		recipient = login.getScreenname();
-		this.getMessages();
+		Login login = (Login) session.getAttribute("Login");	//Login-Objekt wird aus Session geholt
+		screenname = login.getScreenname();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getRecipient()
+	{
+		return screenname;
+	}
+	
+	/**
+	 * 
+	 * @param aRecipient
+	 */
+	public void setRecipient(String aRecipient)
+	{
+		screenname = aRecipient;
+	}
+	
+	/**
+	 * queries all unread messages of currently logged in user
+	 * @return Returns a list of unread messages
+	 */
 	public List getUnreadMessages()
 	{
 		Session sess = HibernateManager.getSession();
@@ -62,7 +84,7 @@ public class MessageHandlerBean {
 		
 		try {
 			q = sess.createQuery("from Messages where Recipient= :Recipient and MessageRead= :MessageRead");
-			q.setString("Recipient", recipient);
+			q.setString("Recipient", screenname);
 			q.setString("MessageRead", "false");
 			unreadMessages = (List) q.list();			
 		} catch (HibernateException e) {
@@ -71,55 +93,33 @@ public class MessageHandlerBean {
 		return unreadMessages;
 	}
 	
+	/**
+	 * 
+	 * @param aMessageList
+	 */
 	public void setUnreadMessages(List aMessageList)
 	{
 		unreadMessages = aMessageList;
 	}
-	
-	public String getRecipient()
-	{
-		return recipient;
-	}
-	
-	public void setRecipient(String aRecipient)
-	{
-		recipient = aRecipient;
-	}
-	
+		
 	/**
-	 * Method for reading messages
-	 *
+	 * @return Returns the messageList.
 	 */
-	public void getMessages()
-	{
+	public List getMessageList() {
+		
 		Session sess = HibernateManager.getSession();
 		Query q;
 		
 		try {
 			q = sess.createQuery("from Messages where Recipient= :Recipient");
-			q.setString("Recipient", recipient);
+			q.setString("Recipient", screenname);
 			messageList = (List) q.list();			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-		if(messageList.size() != 0)
-		{
-			for(int i=0; i<messageList.size(); i++)
-			{
-				Messages msg = (Messages) messageList.get(i);
-			}	
-		} else {
-			System.out.println("Keine Nachrichten gefunden");
-		}
-		
-	}
-	
-	/**
-	 * @return Returns the messageList.
-	 */
-	public List getMessageList() {
 		return messageList;
 	}
+	
 	/**
 	 * @param messageList The messageList to set.
 	 */

@@ -136,13 +136,14 @@
 				<td width="1" height="494"></td>
 				<td width="10" height="494"></td>
 				<td rowspan="3" colspan="2" width="761">
-				<table width="757" border="0" cellspacing="0" cellpadding="0">
-					<tr height="297">
-						<td height="297">
+
+				<table width="760" border="0" cellspacing="0" cellpadding="0">
+					<tr height="50">
+						<td height="50"><!-- Statuszeile -->
+						<div id="Statuszeile">
 						<table border="0" cellspacing="0">
 							<tr bgcolor="#8393A3">
-								<td width="10">&nbsp;</td>
-								<td width="250">aktuelles Datum: <%
+								<td width="260">aktuelles Datum: <%
 		java.util.Date date;
 		date = new java.util.Date();
 		out.println(date.toLocaleString());
@@ -158,86 +159,102 @@
 								<td width="10">&nbsp;</td>
 							</tr>
 						</table>
-						<br>
-						
-						<!-- Hier folgt der Div-Bereich für die Projekte -->
-						<div id="Projects">
-							<table width="100%" border="0" cellspacing="0">
-								<tr bgcolor="#A8B6C6">
-									<td>
-										<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_projects}">
-											<f:param name="link" value="projects" />
-										</h:commandLink>
-									</td>
-								</tr>
-								<tr bgcolor="#A8B6C6" height="7">
-									<td height="7" background="pages/data/naviseparator.gif"></td>
-								</tr>
-							</table>
-							
-							<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="projects">
-								Sie nehmen derzeit an Projekt(en) teil
-							</h:dataTable>
 						</div>
+						</td>
+					</tr>
+					<tr height="240">
+						<td height="240"><!-- Hier folgt der Div-Bereich für die Projekte -->
+						<div id="Projects">
+						<table width="100%" border="0" cellspacing="0">
+							<tr bgcolor="#A8B6C6">
+								<td><h:commandLink action="#{NavigationBean.gotoPage}"
+									value="#{bundle.str_projects}">
+									<f:param name="link" value="projects" />
+								</h:commandLink></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="7">
+								<td height="7" background="pages/data/naviseparator.gif"></td>
+							</tr>
+						</table>
+						<!-- Datatable für dynamische Inhalte --> <h:dataTable
+							bgcolor="#C6DADA" width="100%" value="" var="projects">
+								Sie nehmen derzeit an Projekt(en) teil
+							</h:dataTable></div>
 
 						<!-- Der Div-Bereich für die Nachrichten folgt hier -->
 						<div id="Messages">
-							<table width="100%" border="0" cellspacing="0">
-								<tr bgcolor="#A8B6C6">
-									<td>
-										<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_messages}">
-											<f:param name="link" value="messages" />
-										</h:commandLink>
-									</td>
-								</tr>
-								<tr bgcolor="#A8B6C6" height="7">
-									<td height="7" background="pages/data/naviseparator.gif"></td>
-								</tr>
-							</table>
-							
-							<h:dataTable bgcolor="#C6DADA" width="100%" value="#{MessageBean.unreadMessages}" var="msg">
+						<table width="100%" border="0" cellspacing="0">
+							<tr bgcolor="#A8B6C6">
+								<td><h:commandLink action="#{NavigationBean.gotoPage}"
+									value="#{bundle.str_messages}">
+									<f:param name="link" value="messages" />
+								</h:commandLink></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="7">
+								<td height="7" background="pages/data/naviseparator.gif"></td>
+							</tr>
+						</table>
+
+						<h:dataTable bgcolor="#C6DADA" width="100%"
+							value="#{MessageBean.unreadMessages}" var="msg">
 								Sie haben  ungelesene Nachricht(en)
 								<h:column>
-									<f:facet name="header">
-										<h:outputText value="#{bundle.str_subject}" />
-									</f:facet>
-									<h:outputText value="#{msg.subject}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header">
-										<h:outputText value="#{bundle.str_sender}" />
-									</f:facet>
-									<h:outputText value="#{msg.user.login.screenname}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header">
-										<h:outputText value="#{bundle.str_date}" />
-									</f:facet>
-									<h:outputText value="#{msg.date}" />
-								</h:column>
-							</h:dataTable>
-						</div>
-			
-						<!-- Der Div-Bereich für das Blackboard folgt hier -->
-						<div id="Blackboard">
-							<table width="100%" border="0" cellspacing="0">
-								<tr bgcolor="#A8B6C6">
-									<td>
-										<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_blackboard}">
-											<f:param name="link" value="blackboard" />
-										</h:commandLink>
-									</td>
-								</tr>
-								<tr bgcolor="#A8B6C6" height="7">
-									<td height="7" background="pages/data/naviseparator.gif"></td>
-								</tr>
-							</table>
-							
-							<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="msg">
-								Es befinden sich neue Nachricht(en) am Schwarzen Brett
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_subject}" />
+								</f:facet>
+								<h:outputText value="#{msg.subject}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_sender}" />
+								</f:facet>
+								<h:outputText value="#{msg.user.login.screenname}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_date}" />
+								</f:facet>
+								<h:outputText value="#{msg.date}" />
+							</h:column>
+						</h:dataTable></div>
+
+						<!-- Hier folgt der Div-Bereich für die Tasks -->
+						<div id="Tasks">
+						<table width="100%" border="0" cellspacing="0">
+							<tr bgcolor="#A8B6C6">
+								<td><h:commandLink action="#{NavigationBean.gotoPage}"
+									value="#{bundle.str_tasks}">
+									<f:param name="link" value="tasks" />
+								</h:commandLink></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="7">
+								<td height="7" background="pages/data/naviseparator.gif"></td>
+							</tr>
+						</table>
+
+						<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="msg">
+								Sie haben Aufgaben(en)
 								
-							</h:dataTable>
-						</div>
+							</h:dataTable></div>
+
+						<!-- Der Div-Bereich für die Appointments folgt hier -->
+						<div id="Appointments">
+						<table width="100%" border="0" cellspacing="0">
+							<tr bgcolor="#A8B6C6">
+								<td><h:commandLink action="#{NavigationBean.gotoPage}"
+									value="#{bundle.str_appointments}">
+									<f:param name="link" value="appointments" />
+								</h:commandLink></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="7">
+								<td height="7" background="pages/data/naviseparator.gif"></td>
+							</tr>
+						</table>
+
+						<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="msg">
+								Sie haben Termin(e)
+								
+							</h:dataTable></div>
 
 
 						</td>
