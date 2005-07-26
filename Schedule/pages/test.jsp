@@ -284,8 +284,8 @@
 									des FB4</a>
 									<P>
 									</li>
-									<li><a href="http://www.rz.fhtw-berlin.de" target="_blank">Hochschulrechenzentrum
-									<P></li>
+									<li><a href="http://www.rz.fhtw-berlin.de" target="_blank">Hochschulrechenzentrum</a>
+									</li>
 								</ul>
 								</span></td>
 							</tr>
