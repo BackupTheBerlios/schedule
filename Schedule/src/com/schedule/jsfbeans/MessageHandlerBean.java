@@ -4,18 +4,19 @@
  */
 package com.schedule.jsfbeans;
 
-import com.schedule.hibernate.*;
-
-import java.sql.ResultSet;
 import java.util.List;
-import javax.servlet.http.*;
-import javax.faces.context.*;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
 import com.schedule.hibernate.HibernateManager;
+
+import com.schedule.hibernate.Login;
+
 
 /**
  * 
@@ -39,10 +40,7 @@ public class MessageHandlerBean {
 	 */
 	private List messageList;
 	
-	/**
-	 * A row representing a message
-	 */
-	private ResultSet entry;
+	private String recipient;
 	
 	/**
 	 * Constructor reads messages from database
@@ -51,8 +49,10 @@ public class MessageHandlerBean {
 	public MessageHandlerBean()
 	{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Login login = (Login) session.getAttribute("Login");	//Login-Objekt wird aus Session geholt
-		screenname = login.getScreenname();
+
+		Login login = (Login) session.getAttribute("Login");
+		recipient = login.getScreenname();
+
 	}
 	
 	/**
@@ -90,6 +90,7 @@ public class MessageHandlerBean {
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
+
 		return unreadMessages;
 	}
 	
@@ -101,7 +102,7 @@ public class MessageHandlerBean {
 	{
 		unreadMessages = aMessageList;
 	}
-		
+	
 	/**
 	 * @return Returns the messageList.
 	 */
@@ -117,6 +118,7 @@ public class MessageHandlerBean {
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
+
 		return messageList;
 	}
 	

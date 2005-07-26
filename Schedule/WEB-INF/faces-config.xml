@@ -75,6 +75,10 @@
         		<from-outcome>teampage</from-outcome>
         		<to-view-id>/pages/team.jsp</to-view-id>
     		</navigation-case>
+    		<navigation-case>
+    			<from-outcome>projectspage</from-outcome>
+    			<to-view-id>/pages/projects.jsp</to-view-id>
+    		</navigation-case>
     </navigation-rule>
     
     <managed-bean>

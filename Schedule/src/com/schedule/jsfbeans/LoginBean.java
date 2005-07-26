@@ -18,6 +18,7 @@ import net.sf.hibernate.Session;
 
 import com.schedule.CryptoManager;
 import com.schedule.hibernate.HibernateManager;
+import com.schedule.hibernate.Login;
 
 
 /**
@@ -64,10 +65,20 @@ public class LoginBean {
 			return "failure";
 		}
 		
+		List users = null;
+		try {
+			q = sess.createQuery("from User where idLogin= :idLogin");
+			q.setString("idLogin", ( (Login) logins.get(0) ).getIdLogin().toString());
+			users = (List) q.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
 		if(logins.size()==1)
 		{
 			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 			session.setAttribute("Login", logins.get(0));
+			session.setAttribute("User", users.get(0));
 			return "usersuccess";
 		} else {
     		FacesContext facesContext = FacesContext.getCurrentInstance(); 

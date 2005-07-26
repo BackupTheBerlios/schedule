@@ -189,6 +189,14 @@
 									value="#{bundle.str_messages}">
 									<f:param name="link" value="messages" />
 								</h:commandLink></td>
+								<td width="219"><h:commandLink
+                                    action="#{NavigationBean.gotoPage}"
+                                    value="#{bundle.str_projects}">
+                                    <f:param name="link" value="projects" />
+                                </h:commandLink>
+                                    </td>
+								<td width="260"><h:outputText value="#{bundle.str_blackboard}" /></td>
+								<td width="104">&nbsp;</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
 								<td height="7" background="pages/data/naviseparator.gif"></td>
