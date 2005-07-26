@@ -239,10 +239,27 @@
 							</tr>
 						</table>
 
-						<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="msg">
-								Sie haben Aufgaben(en)
-								
-							</h:dataTable></div>
+						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{TaskBean.tasksList}" var="tasks">
+							Sie haben Aufgaben(en)
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_subject}" />
+								</f:facet>
+								<h:outputText value="#{tasks.subject}" />
+							</h:column>	
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_projectname}" />
+								</f:facet>
+								<h:outputText value="#{tasks.project.name}" /> 
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_tasksolved}" />
+								</f:facet>
+								<h:outputText value="#{tasks.solved}" /> 
+							</h:column>
+						</h:dataTable></div>
 
 						<!-- Der Div-Bereich für die Appointments folgt hier -->
 						<div id="Appointments">
@@ -258,10 +275,27 @@
 							</tr>
 						</table>
 
-						<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="msg">
-								Sie haben Termin(e)
-								
-							</h:dataTable></div>
+						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{AppointmentBean.appointmentsList}" var="appointments">
+							Sie haben Termin(e)
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_subject}" />
+								</f:facet>
+								<h:outputText value="#{appointments.subject}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_projectname}" />
+								</f:facet>
+								<h:outputText value="#{appointments.project.name}" />
+							</h:column>	
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_date}" />
+								</f:facet>
+								<h:outputText value="#{appointments.date}" />
+							</h:column>	
+						</h:dataTable></div>
 
 
 						</td>

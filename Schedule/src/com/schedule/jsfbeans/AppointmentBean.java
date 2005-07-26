@@ -6,6 +6,13 @@
  */
 package com.schedule.jsfbeans;
 
+import java.util.*;
+
+import javax.faces.context.*;
+import javax.servlet.http.*;
+
+import com.schedule.hibernate.*;
+
 /**
  * @author reinhard
  *
@@ -23,6 +30,21 @@ public class AppointmentBean {
     /** The value of the simple description property. */
     private java.lang.String description;
 
+    /** The user associated with this appointment */
+    private User user;
+
+    private Vector appointmentsList;
+    
+    /**
+     * 
+     * Standardkonstruktur
+     */
+    public AppointmentBean()
+    {
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	user = (User) session.getAttribute("User");
+    }
+    
 	/**
 	 * @return Returns the date.
 	 */
@@ -58,5 +80,23 @@ public class AppointmentBean {
 	 */
 	public void setSubject(java.lang.String subject) {
 		this.subject = subject;
+	}
+	
+	public Vector getAppointmentsList()
+	{
+		Set appointments = user.getAppointments();
+		appointmentsList = new Vector();
+		
+		for(int i=0; i<appointments.size(); i++)
+		{
+			appointmentsList.add(appointments.toArray()[i]);
+		}
+		
+		return appointmentsList;
+	}
+	
+	public void setAppointmentsList(Vector aAppointmentsList)
+	{
+		appointmentsList = aAppointmentsList;
 	}
 }

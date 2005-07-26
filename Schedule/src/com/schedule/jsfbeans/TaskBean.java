@@ -6,6 +6,13 @@
  */
 package com.schedule.jsfbeans;
 
+import java.util.*;
+
+import javax.servlet.http.*;
+import javax.faces.context.*;
+
+import com.schedule.hibernate.*;
+
 /**
  * @author reinhard
  *
@@ -26,6 +33,17 @@ public class TaskBean {
     /** The value of the simple tid1 property. */
     private java.lang.Integer partOfTID;
 
+    /** The User associated with this Task */
+    private User user;
+    
+    /** List of all tasks assigned to the current user */
+    private Vector tasksList;
+    
+    public TaskBean() {
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	user = (User) session.getAttribute("User");
+    }
+    
 	/**
 	 * @return Returns the pid.
 	 */
@@ -73,5 +91,31 @@ public class TaskBean {
 	 */
 	public void setPartOfTID(java.lang.Integer partOfTID) {
 		this.partOfTID = partOfTID;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public Vector getTasksList()
+	{
+		Set tasks = user.getTasks();
+		tasksList = new Vector();
+		
+		for (int i=0; i<tasks.size(); i++)
+		{
+			tasksList.add(tasks.toArray()[i]);
+		}
+		
+		return tasksList;
+	}
+	
+	/**
+	 * 
+	 * @param aTasksList
+	 */
+	public void setTasksList(Vector aTasksList)
+	{
+		tasksList = aTasksList;
 	}
 }
