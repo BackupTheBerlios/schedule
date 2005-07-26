@@ -7,15 +7,12 @@
 package com.schedule.jsfbeans;
 
 import java.util.List;
+import java.util.Set;
+import java.util.Vector;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import net.sf.hibernate.HibernateException;
-import net.sf.hibernate.Query;
-import net.sf.hibernate.Session;
-
-import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.User;
 
 /**
@@ -40,59 +37,33 @@ public class ProjectBean {
     /**
      * List of all projects
      */
-    private List projectList;
-    
-    List up_association;
-    
-    
+    private Vector projectList;    
+
+    /**
+     * Constructor
+     *
+     */
     public ProjectBean()
     {
     		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     		User u = (User) session.getAttribute("User");
 		this.myUID = u.getIdUser();
+		this.getProjects(u);
+		
     }
     
     /**
      * Gets all projects from the database
      */
-    public void getProjects()
+    public void getProjects(User u)
 	{
-		Session sess = HibernateManager.getSession();
-		Query q;
-		
-		try {
-			q = sess.createQuery("from UserProjects where idUser= :Userid");
-			q.setString("Userid", this.myUID.toString());
-			up_association = (List) q.list();			
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		}
-		
-		q=null;
-		
-		if(up_association.size()==0)
-		{
-			return;
-		}
-		
-		List temp = null;
-		for(int i=0; i<up_association.size(); i++)
-		{
-			try {
-				q = sess.createQuery("from Projects where IdProjects= :ProjectID");
-				q.setString("ProjectID", ((Integer) up_association.get(i)).toString());
-				temp = q.list();
-			} catch (HibernateException e) {
-				e.printStackTrace();
-			}
-			
-			if(temp.size()!=0)
-			{
-				this.projectList.addAll(temp);
-			}
-			
-		}
-		
+    		Set projects = u.getProjects();
+    		this.projectList = new Vector();
+    		
+    		for(int i=0; i<projects.size(); i++)
+    		{
+    			this.projectList.add(projects.toArray()[i]);
+    		}
 	}
 
 	/**
@@ -138,14 +109,16 @@ public class ProjectBean {
 	 * @return Returns the projectList.
 	 */
 	public List getProjectList() {
-		this.getProjects();
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		User u = (User) session.getAttribute("User");
+		this.getProjects(u);
 		return projectList;
 	}
 
 	/**
 	 * @param projectList The projectList to set.
 	 */
-	public void setProjectList(List projectList) {
+	public void setProjectList(Vector projectList) {
 		this.projectList = projectList;
 	}
 }
