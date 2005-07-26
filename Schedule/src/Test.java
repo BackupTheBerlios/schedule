@@ -29,14 +29,7 @@ public class Test {
 	public static void main(String[] args) 
 	{
 		
-		MessageHandlerBean msg = new MessageHandlerBean();
-		List msgList = msg.getMessageList();
-		
-		for (int i=0; i < msgList.size(); i++)
-		{
-			Messages message = (Messages) msgList.get(i);
-			System.out.println(message.getSubject());
-		}
+		//Hier den Test-Case implementieren
 		
 	}
 }

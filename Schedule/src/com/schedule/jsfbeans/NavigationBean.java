@@ -27,7 +27,10 @@ public class NavigationBean {
 		{
 			return "messagepage";
 		}
-		
+		if(this.link.equals("projects"))
+		{
+			return "projectspage";
+		}
 		if(this.link.equals("logout"))
 		{
 			return "logoutpage";

@@ -29,6 +29,11 @@ public class MessageHandlerBean {
 	private String recipient;
 	
 	/**
+	 * List of unread Messages
+	 */
+	private List unreadMessages;
+	
+	/**
 	 * List of messages
 	 */
 	private List messageList;
@@ -48,6 +53,27 @@ public class MessageHandlerBean {
 		Login login = (Login) session.getAttribute("Login");
 		recipient = login.getScreenname();
 		this.getMessages();
+	}
+	
+	public List getUnreadMessages()
+	{
+		Session sess = HibernateManager.getSession();
+		Query q;
+		
+		try {
+			q = sess.createQuery("from Messages where Recipient= :Recipient and MessageRead= :MessageRead");
+			q.setString("Recipient", recipient);
+			q.setString("MessageRead", "false");
+			unreadMessages = (List) q.list();			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		return unreadMessages;
+	}
+	
+	public void setUnreadMessages(List aMessageList)
+	{
+		unreadMessages = aMessageList;
 	}
 	
 	public String getRecipient()
@@ -86,9 +112,8 @@ public class MessageHandlerBean {
 			System.out.println("Keine Nachrichten gefunden");
 		}
 		
-		
-		
 	}
+	
 	/**
 	 * @return Returns the messageList.
 	 */

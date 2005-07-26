@@ -1518,9 +1518,6 @@ A.calendarOtherMonth:visited {color : #DEDEDE; font-family : Arial, Helvetica, s
 .testTimerWarning {color : #FF0000;  font-size : 21px; letter-spacing : 2px;   font-family : Arial, Helvetica, sans-serif;  padding-bottom : 5px; padding-left : 5px; padding-top : 5px;}
 
 
-
-
-
 .beispiellayertagshow {position:absolute;visibility:visible;width:250;height:200;left:350;top:800;}
 
 .alertlayerbackground {background-color:#A8B6C6;}
@@ -1602,8 +1599,6 @@ A.forumcommand:visited { color : #303030; text-decoration : none; font-family : 
 .searchbar-input  { color : #000000; font-family : Arial, Helvetica, sans-serif; font-size : 10px;    } /* ersetzt textbrowsebar in searchbar */
 .searchbar-input-small {color : #000000; font-family:Arial,Helvetica,sans-serif;font-size:11px; }      /* ersetzt field-small */
 
-
-
 /* portal */
 
 .portaltitle	  {font-family:Arial,Helvetica,sans-serif;font-size:12px;}
@@ -1658,8 +1653,6 @@ A.tablinkkatalog:hover  {color:#294194;font-size:10px;font-family:Arial,Helvetic
 A.tablinkkatalog:link  {color:#294194;font-size:10px;font-family:Arial,Helvetica,sans-serif;text-decoration : none;}/** 11px laut Design-Cookbook**/
 A.tablinkkatalog:visited  {color:#294194;font-size:10px;font-family:Arial,Helvetica,sans-serif;text-decoration : none;}/** 11px laut Design-Cookbook**/
 
-
-
 /* Style für Rubrik */
 .rubrikLineFontCommon {color:#000000;font-family:Arial,Helvetica,sans-serif;font-size:12px;}
 .rubrikLineCommon {background-color: #666666;}
@@ -1671,10 +1664,15 @@ A.tablinkkatalog:visited  {color:#294194;font-size:10px;font-family:Arial,Helvet
 .rubrikLineTutor {background-color: #666666;}
 
 /* QTI */
-
 .tabstylebarqti {position:absolute;width:200;left:12;top:234px;z-index:4;}
 .tabstyleqticontent {position:absolute;left:0;top:284px;z-index:5;}
 .qtideleteAlertLayer{position:absolute;visibility:visible;width:250;height:200;left:200;top:150;}
 .qtiprivbartaskLearningRef  {position:absolute;z-index:5;left:11;background-color:#BFBFBF; }
 
 .feedbackprintpreviewsmalltext {color:#303030;font-family:Arial,Helvetica,sans-serif;font-size:10px;}
+
+/* Neue Styles für eSchedule */
+
+div#Messages {margin: 0em 35em 0em 0em; border: 1px solid silver;}
+div#Projects {float: right; width: 32em; border: 1px solid silver;}
+div#Blackboard {margin: 2em 35em 0em 0em; border: 1px solid silver;}

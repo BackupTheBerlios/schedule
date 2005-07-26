@@ -15,8 +15,9 @@
 <base href="<%=basePath%>">
 
 <title>Schedule Main Page</title>
-<link rel="stylesheet" type="text/css" href="pages/data/clixstylesv2.css">
-	
+<link rel="stylesheet" type="text/css"
+	href="pages/data/clixstylesv2.css">
+
 </head>
 <body>
 <f:view>
@@ -141,13 +142,11 @@
 						<table border="0" cellspacing="0">
 							<tr bgcolor="#8393A3">
 								<td width="10">&nbsp;</td>
-								<td width="250">aktuelles Datum: 
-									<%
-										java.util.Date date;
-										date = new java.util.Date();
-										out.println(date.toLocaleString());
-									%>
-								</td>
+								<td width="250">aktuelles Datum: <%
+		java.util.Date date;
+		date = new java.util.Date();
+		out.println(date.toLocaleString());
+	%></td>
 								<td width="300">&nbsp;</td>
 								<!-- TODO: Show users real name, not screenname, maybe...-->
 								<td width="190" align="right"><h:outputText
@@ -160,69 +159,87 @@
 							</tr>
 						</table>
 						<br>
-						<table border="0" cellspacing="0">
-							<tr bgcolor="#A8B6C6">
-								<td width="10">&nbsp;</td>
-								<td width="167"><h:commandLink
-									action="#{NavigationBean.gotoPage}"
-									value="#{bundle.str_messages}">
-									<f:param name="link" value="messages" />
-								</h:commandLink></td>
-								<td width="219"><h:outputText value="#{bundle.str_projects}" /></td>
-								<td width="260"><h:outputText value="#{bundle.str_blackboard}" /></td>
-								<td width="104">&nbsp;</td>
-							</tr>
-							<tr bgcolor="#A8B6C6" height="7">
-								<td width="10" height="7"
-									background="pages/data/naviseparator.gif"></td>
-								<td width="167" height="7"
-									background="pages/data/naviseparator.gif"></td>
-								<td width="219" height="7"
-									background="pages/data/naviseparator.gif"></td>
-								<td width="260" height="7"
-									background="pages/data/naviseparator.gif"></td>
-								<td width="104" height="7"
-									background="pages/data/naviseparator.gif"></td>
-							</tr>
-							<tr bgcolor="#C6DADA">
-								<td valign="top" width="10">&nbsp;</td>
-								<!-- Dummy content -->
-								<td valign="top" width="167">2 ungelesene Nachrichten
-								<p>von <a href="bsp">Reinhard 24.6.2005</a><br>
-								von <a href="bsp">Frank 25.6.2005</a>
-								</td>
-								<td valign="top" width="219">2 abonnierte Projekte
-								<p><a href="bsp">Projekt Schedule</a><br>
-								<a href="bsp">Projekt Weltherrschaft</a>
-								</td>
-								<td valign="top" width="260"><strong>25.6.2005 von <a href="bsp">Reinhard</a></strong><br>
-								<i>Hi Leute, das ist ein erster Vorschlag wie die Hauptseite
-								etwa aufgebaut werden könnte. Design ist natürlich wie immer
-								noch nicht drin!</i>
-								<p></p>
-								<strong>23.6.2005 von <a href="bsp">Reinhard</a></strong><br>
-								<i>Ich bin ein Blindtext. Von Geburt an. Es hat lange gedauert,
-								bis ich begriffen habe, was es bedeutet, ein blinder Text zu
-								sein. Auch der Optiker hilft da nicht weiter.</i></td>
-								<td valign="top" width="104">&nbsp;</td>
-							</tr>
-							<tr bgcolor="#C6DADA">
-								<td valign="top" width=10">&nbsp;</td>
-								<td valign="top" width="167">&nbsp;</td>
-								<td valign="top" width="219">&nbsp;</td>
-								<td valign="top" width="260">&nbsp;</td>
-								<td valign="top" width="104">&nbsp;</td>
-							</tr>
-							<tr bgcolor="#C6DADA">
-								<td valign="top" width=10">&nbsp;</td>
-								<td valign="top" width="167"><a href="bsp">Neue Nachricht</a></td>
-								<td valign="top" width="219"><a href="bsp">Neues Projekt
-								abonnieren</a></td>
-								<td valign="top" width="260"><a href="bsp">Neuen Eintrag
-								schreiben</a></td>
-								<td valign="top" width="104">&nbsp;</td>
-							</tr>
-						</table>
+						
+						<!-- Hier folgt der Div-Bereich für die Projekte -->
+						<div id="Projects">
+							<table width="100%" border="0" cellspacing="0">
+								<tr bgcolor="#A8B6C6">
+									<td>
+										<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_projects}">
+											<f:param name="link" value="projects" />
+										</h:commandLink>
+									</td>
+								</tr>
+								<tr bgcolor="#A8B6C6" height="7">
+									<td height="7" background="pages/data/naviseparator.gif"></td>
+								</tr>
+							</table>
+							
+							<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="projects">
+								Sie nehmen derzeit an Projekt(en) teil
+							</h:dataTable>
+						</div>
+
+						<!-- Der Div-Bereich für die Nachrichten folgt hier -->
+						<div id="Messages">
+							<table width="100%" border="0" cellspacing="0">
+								<tr bgcolor="#A8B6C6">
+									<td>
+										<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_messages}">
+											<f:param name="link" value="messages" />
+										</h:commandLink>
+									</td>
+								</tr>
+								<tr bgcolor="#A8B6C6" height="7">
+									<td height="7" background="pages/data/naviseparator.gif"></td>
+								</tr>
+							</table>
+							
+							<h:dataTable bgcolor="#C6DADA" width="100%" value="#{MessageBean.unreadMessages}" var="msg">
+								Sie haben  ungelesene Nachricht(en)
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="#{bundle.str_subject}" />
+									</f:facet>
+									<h:outputText value="#{msg.subject}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="#{bundle.str_sender}" />
+									</f:facet>
+									<h:outputText value="#{msg.user.login.screenname}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="#{bundle.str_date}" />
+									</f:facet>
+									<h:outputText value="#{msg.date}" />
+								</h:column>
+							</h:dataTable>
+						</div>
+			
+						<!-- Der Div-Bereich für das Blackboard folgt hier -->
+						<div id="Blackboard">
+							<table width="100%" border="0" cellspacing="0">
+								<tr bgcolor="#A8B6C6">
+									<td>
+										<h:commandLink action="#{NavigationBean.gotoPage}" value="#{bundle.str_blackboard}">
+											<f:param name="link" value="blackboard" />
+										</h:commandLink>
+									</td>
+								</tr>
+								<tr bgcolor="#A8B6C6" height="7">
+									<td height="7" background="pages/data/naviseparator.gif"></td>
+								</tr>
+							</table>
+							
+							<h:dataTable bgcolor="#C6DADA" width="100%" value="" var="msg">
+								Es befinden sich neue Nachricht(en) am Schwarzen Brett
+								
+							</h:dataTable>
+						</div>
+
+
 						</td>
 					</tr>
 					<tr height="225">

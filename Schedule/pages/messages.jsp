@@ -15,9 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<title>Schedule message center</title>
 
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<link rel="stylesheet" type="text/css" href="pages/data/clixstylesv2.css">
+
 </head>
   
 <body>
