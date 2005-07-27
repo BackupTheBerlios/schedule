@@ -44,6 +44,14 @@ public class LoginBean {
     public LoginBean()
     {
     }
+    
+    public String logoutUser()
+    {
+    		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.invalidate();
+		
+    		return "logoutsuccess";
+    }
 
     /**
      * Method for identifying a user
