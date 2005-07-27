@@ -201,11 +201,11 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-
-						<h:dataTable bgcolor="#C6DADA" width="100%"
-							value="#{MessageBean.unreadMessages}" var="msg">
-								Sie haben  ungelesene Nachricht(en)
-								<h:column>
+						<!-- Statusmeldung über Anzahl der ungelesenen Nachrichten	-->
+						Sie haben <h:outputText value="#{MessageBean.unreadMessagesCount}" /> ungelesene Nachricht(en)
+						<!-- Data Table für dynamische Ausgabe der Nachrichten -->
+						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{MessageBean.unreadMessages}" var="msg">
+							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
 								</f:facet>

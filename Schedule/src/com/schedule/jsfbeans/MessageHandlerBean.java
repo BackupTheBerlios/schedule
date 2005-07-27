@@ -40,6 +40,11 @@ public class MessageHandlerBean {
 	 */
 	private List messageList;
 	
+	/** Amount of unread messages */
+	private int unreadMessagesCount;
+	
+	/** Amount of overall messages */
+	private int messagesCount;
 	
 	/**
 	 * Constructor reads messages from database
@@ -50,6 +55,8 @@ public class MessageHandlerBean {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Login login = (Login) session.getAttribute("Login");
 		screenname = login.getScreenname();
+		unreadMessagesCount = 0;
+		messagesCount = 0;
 
 	}
 	
@@ -88,7 +95,7 @@ public class MessageHandlerBean {
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-
+		unreadMessagesCount = unreadMessages.size();
 		return unreadMessages;
 	}
 	
@@ -116,7 +123,7 @@ public class MessageHandlerBean {
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-
+		messagesCount = messageList.size();
 		return messageList;
 	}
 	
@@ -125,5 +132,23 @@ public class MessageHandlerBean {
 	 */
 	public void setMessageList(List messageList) {
 		this.messageList = messageList;
+	}
+	
+	/**
+	 * 
+	 * @return Returns the number of unread messages
+	 */
+	public int getUnreadMessagesCount()
+	{
+		return unreadMessagesCount;
+	}
+	
+	/**
+	 * 
+	 * @return Returns the number of overall messages
+	 */
+	public int getMessagesCount()
+	{
+		return messagesCount;
 	}
 }
