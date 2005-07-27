@@ -1680,3 +1680,10 @@ div#Appointments {margin: 2em 35em 0em 0em; border: 1px solid silver;}
 div#Tasks {margin: 2em 0em 0em 0em; float: right; width: 32em; border: 1px solid silver;}
 div#Blackboard {margin: 2em 35em 0em 0em; border: 1px solid silver;}
 
+/* Neue Styles	fuer showprojekte*/
+
+div#projtasks {margin: 0em 35em 0em 0em; border: 1px solid silver;}
+div#projappoint {float: right; width: 32em; border: 1px solid silver;}
+div#projboard {margin: 2em 35em 0em 0em; border: 1px solid silver;}
+div#projusers {margin: 2em 0em 0em 0em; float: right; width: 32em; border: 1px solid silver;}
+div#projgroups {margin: 2em 35em 0em 0em; border: 1px solid silver;}
