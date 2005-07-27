@@ -1673,7 +1673,7 @@ A.tablinkkatalog:visited  {color:#294194;font-size:10px;font-family:Arial,Helvet
 
 /* Neue Styles für eSchedule */
 
-div#Statuszeile {margin: 0em 0em 3em 0em;}
+div#Statuszeile {margin: 0em 0em 1em 0em;}
 div#Messages {margin: 0em 35em 0em 0em; border: 1px solid silver;}
 div#Projects {float: right; width: 32em; border: 1px solid silver;}
 div#Appointments {margin: 2em 35em 0em 0em; border: 1px solid silver;}

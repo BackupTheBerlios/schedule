@@ -2,11 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 
+
 <%
 		String path = request.getContextPath();
 		String basePath = request.getScheme() + "://" + request.getServerName()
 				+ ":" + request.getServerPort() + path + "/";
-		response.setHeader("Refresh", "60");
+		
+		/*response.setHeader("Refresh", "60");*/
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -138,8 +140,8 @@
 				<td rowspan="3" colspan="2" width="761">
 
 				<table width="760" border="0" cellspacing="0" cellpadding="0">
-					<tr height="50">
-						<td height="50"><!-- Statuszeile -->
+					<tr height="30">
+						<td height="30"><!-- Statuszeile -->
 						<div id="Statuszeile">
 						<table border="0" cellspacing="0">
 							<tr bgcolor="#8393A3">
@@ -162,6 +164,17 @@
 						</div>
 						</td>
 					</tr>
+					<tr height="60">
+						<td>	
+							<h1>
+								<!-- TODO: Vor- und Nachname des Users werden derzeit aus der ProjectBean gelesen 
+									 Sinnvoller wäre es wahrscheinlich die Informationen aus einer anderen Bean zu holen z.B. LoginBean -->							
+								<h:outputText value="Willkommen" />
+								<h:outputText value="#{ProjectBean.user.firstname}" />
+								<h:outputText value="#{ProjectBean.user.lastname}" />
+							</h1>
+						</td>
+					</tr>
 					<tr height="240">
 						<td height="240"><!-- Hier folgt der Div-Bereich für die Projekte -->
 						<div id="Projects">
@@ -176,9 +189,10 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
+						Sie nehmen derzeit an <h:outputText value="#{ProjectBean.projectCount}" /> Projekt(en) teil
 						<!-- Datatable für dynamische Inhalte --> 
-						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{ProjectBean.projectList}" var="projects">
-								Sie nehmen derzeit an Projekt(en) teil
+						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{ProjectBean.projectCount > 0}" value="#{ProjectBean.projectList}" var="projects">
+								
 								<h:column>
             						<f:facet name="header">
               							<h:outputText value="#{bundle.str_projectname}" />
@@ -202,9 +216,9 @@
 							</tr>
 						</table>
 						<!-- Statusmeldung über Anzahl der ungelesenen Nachrichten	-->
-						Sie haben <h:outputText value="#{MessageBean.unreadMessagesCount}" /> ungelesene Nachricht(en)
+						Sie haben <h:outputText value="#{MessageBean.unreadMessagesCount}" /> ungelesene Nachricht(en)						
 						<!-- Data Table für dynamische Ausgabe der Nachrichten -->
-						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{MessageBean.unreadMessages}" var="msg">
+						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{MessageBean.unreadMessagesCount > 0}" value="#{MessageBean.unreadMessages}" var="msg">
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
@@ -238,9 +252,12 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-
-						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{TaskBean.tasksList}" var="tasks">
-							Sie haben Aufgaben(en)
+						Sie haben <h:outputText value="#{TaskBean.taskCount}" /> Aufgaben(en)
+						
+						<!-- Data Table zur dynamischen Ausgabe der Tasks des Users
+						     Die Table soll nur angezeigt werden, wenn Tasks für den User vorhanden sind (rendered Attribut)  -->
+						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{TaskBean.taskCount > 0}" value="#{TaskBean.tasksList}" var="tasks">
+							
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
@@ -274,9 +291,12 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-
-						<h:dataTable bgcolor="#C6DADA" width="100%" value="#{AppointmentBean.appointmentsList}" var="appointments">
-							Sie haben Termin(e)
+						Sie haben <h:outputText value="#{AppointmentBean.appointmentCount}" /> Termin(e)
+						
+						<!-- Data Table für dynamische Ausgabe der Termine
+						     Tabelle soll nicht angezeigt werden, wenn keine Termine vorhanden sind (rendered Attribut) -->
+						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{AppointmentBean.appointmentCount > 0}" value="#{AppointmentBean.appointmentsList}" var="appointments">
+							
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />

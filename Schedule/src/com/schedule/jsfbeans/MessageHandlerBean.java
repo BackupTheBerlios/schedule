@@ -57,7 +57,8 @@ public class MessageHandlerBean {
 		screenname = login.getScreenname();
 		unreadMessagesCount = 0;
 		messagesCount = 0;
-
+		this.getUnreadMessages();	//um die Counter zu initialisieren
+		this.getMessageList();		//um die Counter zu initialisieren
 	}
 	
 	/**

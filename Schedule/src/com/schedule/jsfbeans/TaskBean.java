@@ -39,9 +39,13 @@ public class TaskBean {
     /** List of all tasks assigned to the current user */
     private Vector tasksList;
     
+    /** Number of tasks assigned to the current user */
+    private int taskCount;
+    
     public TaskBean() {
     	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     	user = (User) session.getAttribute("User");
+    	this.getTasksList();	// zum Initialiseren des Counters
     }
     
 	/**
@@ -94,7 +98,7 @@ public class TaskBean {
 	}
 	
 	/**
-	 * 
+	 * Returns a list of tasks assigned to the user
 	 * @return
 	 */
 	public Vector getTasksList()
@@ -107,15 +111,35 @@ public class TaskBean {
 			tasksList.add(tasks.toArray()[i]);
 		}
 		
+		taskCount = tasksList.size();
+		
 		return tasksList;
 	}
 	
 	/**
-	 * 
+	 * Sets a list of tasks for the user
 	 * @param aTasksList
 	 */
 	public void setTasksList(Vector aTasksList)
 	{
 		tasksList = aTasksList;
+	}
+	
+	/**
+	 * Returns the number of tasks assigned to the user
+	 * @return
+	 */
+	public int getTaskCount()
+	{
+		return taskCount;
+	}
+	
+	/**
+	 * Sets the number of tasks assigned to the user
+	 * @param aTaskCount
+	 */
+	public void setTaskCount(int aTaskCount)
+	{
+		taskCount = aTaskCount;
 	}
 }

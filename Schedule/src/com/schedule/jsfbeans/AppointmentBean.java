@@ -33,7 +33,11 @@ public class AppointmentBean {
     /** The user associated with this appointment */
     private User user;
 
+    /** List of all Appointments assigned to the current User */
     private Vector appointmentsList;
+    
+    /** Number of appointments assigned to the current User */
+    private int appointmentCount;
     
     /**
      * 
@@ -43,6 +47,7 @@ public class AppointmentBean {
     {
     	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     	user = (User) session.getAttribute("User");
+    	this.getAppointmentsList();		//zum Initialisieren des Counters
     }
     
 	/**
@@ -82,6 +87,10 @@ public class AppointmentBean {
 		this.subject = subject;
 	}
 	
+	/**
+	 * Returns a list of all appointments assigned to the current user
+	 * @return
+	 */
 	public Vector getAppointmentsList()
 	{
 		Set appointments = user.getAppointments();
@@ -92,11 +101,35 @@ public class AppointmentBean {
 			appointmentsList.add(appointments.toArray()[i]);
 		}
 		
+		appointmentCount = appointmentsList.size();
+		
 		return appointmentsList;
 	}
 	
+	/**
+	 * Sets the list of appointments for the current user
+	 * @param aAppointmentsList
+	 */
 	public void setAppointmentsList(Vector aAppointmentsList)
 	{
 		appointmentsList = aAppointmentsList;
+	}
+	
+	/**
+	 * Returns the number of appointments assigned to the current user
+	 * @return
+	 */
+	public int getAppointmentCount()
+	{
+		return appointmentCount;
+	}
+	
+	/**
+	 * Sets the number of appointments for the current user
+	 * @param aAppointmentCount
+	 */
+	public void setAppointmentCount(int aAppointmentCount)
+	{
+		appointmentCount = aAppointmentCount;
 	}
 }

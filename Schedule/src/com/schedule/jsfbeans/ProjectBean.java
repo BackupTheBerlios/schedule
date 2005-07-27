@@ -29,43 +29,44 @@ public class ProjectBean {
     /** The value of the simple description property. */
     private java.lang.String description;
     
-    /**
-     * Primary key of the associated user
-     */
-    private Integer myUID;
+    /** The user associated with this Project*/
+    private User user;
     
-    /**
-     * List of all projects
-     */
+    /** List of all projects */
     private Vector projectList;    
 
+    /** Amount of Projects assigned to the current User */
+    private int projectCount;
+    
     /**
      * Constructor
      *
      */
     public ProjectBean()
     {
-    		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    		User u = (User) session.getAttribute("User");
-		this.myUID = u.getIdUser();
-		this.getProjects(u);
-		
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	user = (User) session.getAttribute("User");
+		this.getProjectList();	
+    }
+
+    /**
+     * Returns the current User
+     * @return
+     */
+    public User getUser()
+    {
+    	return user;
     }
     
     /**
-     * Gets all projects from the database
+     * Sets the current User
+     * @param aUser
      */
-    public void getProjects(User u)
-	{
-    		Set projects = u.getProjects();
-    		this.projectList = new Vector();
-    		
-    		for(int i=0; i<projects.size(); i++)
-    		{
-    			this.projectList.add(projects.toArray()[i]);
-    		}
-	}
-
+    public void setUser(User aUser)
+    {
+    	user = aUser;
+    }
+    
 	/**
 	 * @return Returns the description.
 	 */
@@ -92,26 +93,19 @@ public class ProjectBean {
 	}
 
 	/**
-	 * @return Returns the myUID.
-	 */
-	public Integer getMyUID() {
-		return myUID;
-	}
-
-	/**
-	 * @param myUID The myUID to set.
-	 */
-	public void setMyUID(Integer myUID) {
-		this.myUID = myUID;
-	}
-
-	/**
 	 * @return Returns the projectList.
 	 */
 	public List getProjectList() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		User u = (User) session.getAttribute("User");
-		this.getProjects(u);
+		Set projects = user.getProjects();
+		projectList = new Vector();
+		
+		for(int i=0; i<projects.size(); i++)
+		{
+			this.projectList.add(projects.toArray()[i]);
+		}
+		
+		projectCount = projectList.size(); 
+		
 		return projectList;
 	}
 
@@ -120,5 +114,23 @@ public class ProjectBean {
 	 */
 	public void setProjectList(Vector projectList) {
 		this.projectList = projectList;
+	}
+	
+	/**
+	 * Returns the amount of projects assigned to the current user
+	 * @return
+	 */
+	public int getProjectCount()
+	{
+		return projectCount;
+	}
+	
+	/**
+	 * Sets the number of projects assigned to the current user
+	 * @param aProjectCount
+	 */
+	public void setProjectCount(int aProjectCount)
+	{
+		projectCount = aProjectCount;
 	}
 }
