@@ -143,8 +143,8 @@
 				<td rowspan="3" colspan="2" width="761">
 
 				<table width="760" border="0" cellspacing="0" cellpadding="0">
-					<tr height="50">
-						<td height="50"><!-- Statuszeile -->
+					<tr height="30">
+						<td height="30"><!-- Statuszeile -->
 						<div id="Statuszeile">
 						<table border="0" cellspacing="0">
 							<tr bgcolor="#8393A3">
@@ -165,6 +165,11 @@
 							</tr>
 						</table>
 						</div>
+						</td>
+					</tr>
+					<tr height="60">
+						<td>
+							<h1>Message Center</h1>
 						</td>
 					</tr>
 					<tr height="240">
