@@ -157,7 +157,11 @@
 								</f:facet>
 								<h:outputText value="#{projects.name}" />
 							</h:column>
-						</h:dataTable></div>
+						</h:dataTable>
+						<h:commandLink action="addprojectpage">
+							<h:outputText value="Neues Projekt anlegen" />
+						</h:commandLink>
+					</div>
 
 						<!-- Der Div-Bereich für die Nachrichten folgt hier -->
 						<div id="Messages">
@@ -182,7 +186,11 @@
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
 								</f:facet>
-								<h:outputText value="#{msg.subject}" />
+								<h:commandLink action="showmessagepage">
+									<h:outputText value="#{msg.subject}" />
+									<f:param name="Message" value="#{msg.idMessages}" />	
+								</h:commandLink>
+								
 							</h:column>
 							<h:column>
 								<f:facet name="header">

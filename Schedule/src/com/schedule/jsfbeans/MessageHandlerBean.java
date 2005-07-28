@@ -4,7 +4,7 @@
  */
 package com.schedule.jsfbeans;
 
-import java.util.List;
+import java.util.*;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -13,9 +13,8 @@ import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
-import com.schedule.hibernate.HibernateManager;
+import com.schedule.hibernate.*;
 
-import com.schedule.hibernate.Login;
 
 
 /**
@@ -45,6 +44,9 @@ public class MessageHandlerBean {
 	
 	/** Amount of overall messages */
 	private int messagesCount;
+	
+	/** The current Message included in this Request */
+	private Messages currentMessage;
 	
 	/**
 	 * Constructor reads messages from database
@@ -152,4 +154,43 @@ public class MessageHandlerBean {
 	{
 		return messagesCount;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public Messages getCurrentMessage()
+	{
+		FacesContext context = FacesContext.getCurrentInstance();
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		String aMessageId = ((String) requestMap.get("Message"));
+		
+		Session sess = HibernateManager.getSession();
+		Query q;
+		List messages = null;
+		
+		try {
+			q = sess.createQuery("from Messages where idMessages= :idMessages");
+			q.setString("idMessages", aMessageId);
+			messages = (List) q.list();			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
+		Messages aMessage = (Messages) messages.get(0);
+		
+		this.setCurrentMessage(aMessage);
+		
+		return currentMessage;
+	}
+	
+	/**
+	 * 
+	 * @param aCurrentMessage
+	 */
+	public void setCurrentMessage(Messages aCurrentMessage)
+	{
+		currentMessage = aCurrentMessage;
+	}
+	
 }

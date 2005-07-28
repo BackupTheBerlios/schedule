@@ -54,11 +54,15 @@
         
         <navigation-case>
             <from-outcome>home</from-outcome>
-            <to-view-id>/pages/test.jsp</to-view-id>
+            <to-view-id>/pages/main_new.jsp</to-view-id>
         </navigation-case>
          <navigation-case>
             <from-outcome>messages</from-outcome>
             <to-view-id>/pages/messages.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        	<from-outcome>showmessagepage</from-outcome>
+        	<to-view-id>/pages/showmessage.jsp</to-view-id>
         </navigation-case>
          <navigation-case>
             <from-outcome>calendar</from-outcome>
@@ -88,6 +92,10 @@
     		<navigation-case>
     			<from-outcome>projectspage</from-outcome>
     			<to-view-id>/pages/projects.jsp</to-view-id>
+    		</navigation-case>
+    		<navigation-case>
+    			<from-outcome>addprojectpage</from-outcome>
+    			<to-view-id>/pages/addproject.jsp</to-view-id>
     		</navigation-case>
     </navigation-rule>
     <navigation-rule>
