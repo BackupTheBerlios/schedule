@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
+import javax.faces.application.*;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import com.schedule.hibernate.User;
+import com.schedule.hibernate.*;
+
+import net.sf.hibernate.*;
 
 /**
  * @author reinhard
@@ -133,4 +136,40 @@ public class ProjectBean {
 	{
 		projectCount = aProjectCount;
 	}
+	
+	/**
+     * Adds a new Project
+     */ 
+    public String addProject()
+    {
+    	Session hbmsession = HibernateManager.getSession();
+		HibernateManager.beginTransaction();
+		
+		Projects newProject = new Projects();
+		newProject.setName(this.name);
+		newProject.setDescription(this.description);
+		
+		//Get User from Session
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		User u = (User) session.getAttribute("User");
+		newProject.getUsers().add(u);
+		//associate project to a user 
+		u.getProjects().add(newProject);
+		
+		try {
+			//Update DB Objects
+			hbmsession.saveOrUpdate(newProject);
+			hbmsession.saveOrUpdate(u);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Datenbankzugriff fehlgeschlagen");
+			facesContext.addMessage("registerForm", facesMessage);  
+			
+			return "failure";
+		}
+		
+		HibernateManager.commitTransaction();
+		return "success";
+    }
 }
