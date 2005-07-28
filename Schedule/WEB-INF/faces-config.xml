@@ -9,10 +9,12 @@
             <from-outcome>usersuccess</from-outcome>
             <to-view-id>/pages/main_new.jsp</to-view-id>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>adminsuccess</from-outcome>
             <to-view-id>/pages/adminmain.jsp</to-view-id>
         </navigation-case>
+       
         <navigation-case>
             <from-outcome>failure</from-outcome>
             <to-view-id>/pages/login.jsp</to-view-id>
@@ -88,7 +90,12 @@
     			<to-view-id>/pages/projects.jsp</to-view-id>
     		</navigation-case>
     </navigation-rule>
-    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>showprojectpage</from-outcome>
+            <to-view-id>/pages/showproject.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     <managed-bean>
     		<description>This bean is used for the navigation</description>
     		<managed-bean-name>NavigationBean</managed-bean-name>

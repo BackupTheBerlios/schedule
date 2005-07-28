@@ -37,7 +37,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <f:facet name="header">
               <h:outputText value="#{bundle.str_projectname}" />
             </f:facet>
-            <h:outputText value="#{pr.name}" />
+            
+            <h:commandLink action="showprojectspage" value="#{pr.name}">
+       			<f:param name="project" value="pr" />
+   		    </h:commandLink>
+   			
+            
+            
           </h:column>
           
           <h:column>
@@ -48,7 +54,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </h:column>
     
         </h:dataTable>
-
     </h:form>
 
 
@@ -56,3 +61,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</f:view>
 </body>
 </html>
+

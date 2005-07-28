@@ -149,7 +149,10 @@
 		java.util.Date date;
 		date = new java.util.Date();
 		out.println(date.toLocaleString());
-	%></td>
+	%>
+	
+	
+	</td>
 								<td width="300">&nbsp;</td>
 								<!-- TODO: Show users real name, not screenname, maybe...-->
 								<td width="190" align="right"><h:outputText
@@ -185,6 +188,7 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
+						ProjektID: <h:outputText value="#{NavigationBean.link}"/>
 					</div>
 					
 					<div id="projappoint">
