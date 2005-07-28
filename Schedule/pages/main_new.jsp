@@ -7,7 +7,7 @@
 		String path = request.getContextPath();
 		String basePath = request.getScheme() + "://" + request.getServerName()
 				+ ":" + request.getServerPort() + path + "/";
-		
+
 		/*response.setHeader("Refresh", "60");*/
 %>
 
@@ -26,54 +26,12 @@
 	<f:loadBundle basename="com.schedule.Internationalization" var="bundle" />
 	<h:form id="mainForm">
 		<table border="0" cellspacing="0" cellpadding="0">
-			<tr height="100">
-				<td colspan="2" width="151" height="100"
-					background="pages/data/schedule.gif">
-				<div align="center">&nbsp;<br>
-				<br>
-				<br>
-				(pre-alpha)</div>
-				</td>
-				<td width="10" height="100" background="pages/data/navitoppic.gif">
-				<table border="0" cellspacing="0" cellpadding="0" height="100">
-					<tr height="70">
-						<td width="10" height="70" background="pages/data/back_tab_70.gif"></td>
-					</tr>
-					<tr bgcolor="#103052" height="30">
-						<td width="10" height="30"></td>
-					</tr>
-				</table>
-				</td>
-				<td nowrap width="549" height="100">
-				<table width="549" border="0" cellspacing="0" cellpadding="0"
-					height="100">
-					<tr height="70">
-						<td width="549" height="70"
-							background="pages/data/back_tab_70.gif"><font size="5">ProjectPlaner</font></td>
-					</tr>
-					<tr bgcolor="#103052" height="30">
-						<td width="549" height="30"></td>
-					</tr>
-				</table>
-				</td>
-				<td width="212" height="100">
-				<table width="212" border="0" cellspacing="0" cellpadding="0"
-					height="100">
-					<tr bgcolor="#8393A3" height="65">
-						<td height="65">
-						<div align="center">&nbsp;(c)2005<br>
-						<h:commandLink action="#{NavigationBean.gotoPage}"
-							value="#{bundle.str_team}">
-							<f:param name="link" value="team" />
-						</h:commandLink></div>
-						</td>
-					</tr>
-					<tr bgcolor="#103052" height="35">
-						<td height="35" background="pages/data/back_tab.gif"></td>
-					</tr>
-				</table>
-				</td>
-			</tr>
+			
+			<!-- Die komplette Header-Zeile wird als Subview (header.jsp) eingefügt -->
+			<f:subview id="header">
+				<jsp:include page="header.jsp" />
+			</f:subview>
+			
 			<tr height="494">
 				<td width="150" height="494">
 				<div align="center">
@@ -165,14 +123,12 @@
 						</td>
 					</tr>
 					<tr height="60">
-						<td>	
-							<h1>
-								<!-- TODO: Vor- und Nachname des Users werden derzeit aus der ProjectBean gelesen 
-									 Sinnvoller wäre es wahrscheinlich die Informationen aus einer anderen Bean zu holen z.B. LoginBean -->							
-								<h:outputText value="Willkommen" />
-								<h:outputText value="#{ProjectBean.user.firstname}" />
-								<h:outputText value="#{ProjectBean.user.lastname}" />
-							</h1>
+						<td>
+						<h1><!-- TODO: Vor- und Nachname des Users werden derzeit aus der ProjectBean gelesen 
+									 Sinnvoller wäre es wahrscheinlich die Informationen aus einer anderen Bean zu holen z.B. LoginBean -->
+						<h:outputText value="Willkommen" /> <h:outputText
+							value="#{ProjectBean.user.firstname}" /> <h:outputText
+							value="#{ProjectBean.user.lastname}" /></h1>
 						</td>
 					</tr>
 					<tr height="240">
@@ -189,18 +145,19 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-						Sie nehmen derzeit an <h:outputText value="#{ProjectBean.projectCount}" /> Projekt(en) teil
-						<!-- Datatable für dynamische Inhalte --> 
-						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{ProjectBean.projectCount > 0}" value="#{ProjectBean.projectList}" var="projects">
-								
-								<h:column>
-            						<f:facet name="header">
-              							<h:outputText value="#{bundle.str_projectname}" />
-            						</f:facet>
-            						<h:outputText value="#{projects.name}" />
-          						</h:column>
-						</h:dataTable>
-					</div>
+						Sie nehmen derzeit an <h:outputText
+							value="#{ProjectBean.projectCount}" /> Projekt(en) teil <!-- Datatable für dynamische Inhalte -->
+						<h:dataTable bgcolor="#C6DADA" width="100%"
+							rendered="#{ProjectBean.projectCount > 0}"
+							value="#{ProjectBean.projectList}" var="projects">
+
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_projectname}" />
+								</f:facet>
+								<h:outputText value="#{projects.name}" />
+							</h:column>
+						</h:dataTable></div>
 
 						<!-- Der Div-Bereich für die Nachrichten folgt hier -->
 						<div id="Messages">
@@ -215,10 +172,12 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-						<!-- Statusmeldung über Anzahl der ungelesenen Nachrichten	-->
-						Sie haben <h:outputText value="#{MessageBean.unreadMessagesCount}" /> ungelesene Nachricht(en)						
-						<!-- Data Table für dynamische Ausgabe der Nachrichten -->
-						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{MessageBean.unreadMessagesCount > 0}" value="#{MessageBean.unreadMessages}" var="msg">
+						<!-- Statusmeldung über Anzahl der ungelesenen Nachrichten	--> Sie
+						haben <h:outputText value="#{MessageBean.unreadMessagesCount}" />
+						ungelesene Nachricht(en) <!-- Data Table für dynamische Ausgabe der Nachrichten -->
+						<h:dataTable bgcolor="#C6DADA" width="100%"
+							rendered="#{MessageBean.unreadMessagesCount > 0}"
+							value="#{MessageBean.unreadMessages}" var="msg">
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
@@ -252,29 +211,30 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-						Sie haben <h:outputText value="#{TaskBean.taskCount}" /> Aufgaben(en)
-						
-						<!-- Data Table zur dynamischen Ausgabe der Tasks des Users
+						Sie haben <h:outputText value="#{TaskBean.taskCount}" />
+						Aufgaben(en) <!-- Data Table zur dynamischen Ausgabe der Tasks des Users
 						     Die Table soll nur angezeigt werden, wenn Tasks für den User vorhanden sind (rendered Attribut)  -->
-						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{TaskBean.taskCount > 0}" value="#{TaskBean.tasksList}" var="tasks">
-							
+						<h:dataTable bgcolor="#C6DADA" width="100%"
+							rendered="#{TaskBean.taskCount > 0}"
+							value="#{TaskBean.tasksList}" var="tasks">
+
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
 								</f:facet>
 								<h:outputText value="#{tasks.subject}" />
-							</h:column>	
+							</h:column>
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_projectname}" />
 								</f:facet>
-								<h:outputText value="#{tasks.project.name}" /> 
+								<h:outputText value="#{tasks.project.name}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_tasksolved}" />
 								</f:facet>
-								<h:outputText value="#{tasks.solved}" /> 
+								<h:outputText value="#{tasks.solved}" />
 							</h:column>
 						</h:dataTable></div>
 
@@ -291,12 +251,13 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-						Sie haben <h:outputText value="#{AppointmentBean.appointmentCount}" /> Termin(e)
-						
-						<!-- Data Table für dynamische Ausgabe der Termine
+						Sie haben <h:outputText
+							value="#{AppointmentBean.appointmentCount}" /> Termin(e) <!-- Data Table für dynamische Ausgabe der Termine
 						     Tabelle soll nicht angezeigt werden, wenn keine Termine vorhanden sind (rendered Attribut) -->
-						<h:dataTable bgcolor="#C6DADA" width="100%" rendered="#{AppointmentBean.appointmentCount > 0}" value="#{AppointmentBean.appointmentsList}" var="appointments">
-							
+						<h:dataTable bgcolor="#C6DADA" width="100%"
+							rendered="#{AppointmentBean.appointmentCount > 0}"
+							value="#{AppointmentBean.appointmentsList}" var="appointments">
+
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
@@ -308,13 +269,13 @@
 									<h:outputText value="#{bundle.str_projectname}" />
 								</f:facet>
 								<h:outputText value="#{appointments.project.name}" />
-							</h:column>	
+							</h:column>
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_date}" />
 								</f:facet>
 								<h:outputText value="#{appointments.date}" />
-							</h:column>	
+							</h:column>
 						</h:dataTable></div>
 
 
