@@ -204,7 +204,13 @@
 								</f:facet>
 								<h:outputText value="#{msg.date}" />
 							</h:column>
-						</h:dataTable></div>
+						</h:dataTable>
+						
+						<h:commandLink action="newmessagepage">
+							<h:outputText value="Neue Nachricht erstellen" />
+						</h:commandLink>
+						
+						</div>
 
 						<!-- Hier folgt der Div-Bereich für die Tasks -->
 						<div id="Tasks">

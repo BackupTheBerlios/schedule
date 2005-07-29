@@ -1,32 +1,28 @@
 
-<%@ page language="java"%>
-<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
-<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
 
 <%
-		String path = request.getContextPath();
-		String basePath = request.getScheme() + "://" + request.getServerName()
-				+ ":" + request.getServerPort() + path + "/";
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
+	<base href="<%=basePath%>">
 
-<title>Schedule message center</title>
+	<title>Message Center - New Message</title>
 
-<link rel="stylesheet" type="text/css"
-	href="pages/data/clixstylesv2.css">
+	<link rel="stylesheet" type="text/css" 	href="pages/data/clixstylesv2.css">
 
 </head>
-
+  
 <body>
-<f:view>
-	<f:loadBundle basename="com.schedule.Internationalization" var="bundle" />
-	<h:form>
+	<f:view>
+		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
+		<h:form>
 		<table border="0" cellspacing="0" cellpadding="0">
 			
 			<f:subview id="header">
@@ -126,45 +122,40 @@
 					</tr>
 					<tr height="60">
 						<td>
-							<h1>Message Center</h1>
+							<h1>Neue Nachricht erstellen</h1>
 						</td>
 					</tr>
 					<tr height="240">
 						<td height="240">
-							<h:dataTable width="100%" value="#{MessageBean.messageList}" var="msg">
-
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="#{bundle.str_subject}" />
-								</f:facet>
-								<h:commandLink action="showmessagepage">
-									<h:outputText value="#{msg.subject}" />
-									<f:param name="Message" value="#{msg.idMessages}" />
-								</h:commandLink>
-							</h:column>
-
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="#{bundle.str_read}" />
-								</f:facet>
-								<h:outputText value="#{msg.messageRead}" />
-							</h:column>
-
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="#{bundle.str_sender}" />
-								</f:facet>
-								<h:outputText value="#{msg.user.login.screenname}" />
-							</h:column>
-							
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="#{bundle.str_date}" />
-								</f:facet>
-								<h:outputText value="#{msg.date}" />
-							</h:column>
-
-						</h:dataTable>
+							<!-- Tabelle für die Eingabemaske -->
+							<table border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="50">
+										<strong>An:</strong>
+									</td>
+									<td>
+										<h:inputText id="Recipient" value="#{MessageBean.recipient}" size="75" />
+									</td>
+								</tr>
+								<tr>
+									<td width="50"> 
+										<strong>Betreff:</strong>
+									</td>
+									<td>
+										<h:inputText id="Subject" value="#{MessageBean.subject}" size="75" />
+									</td>
+								</tr>
+								<tr>	
+									<td colspan="2">
+										<h:inputTextarea id="Body" value="#{MessageBean.body}" cols="80" rows="15" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<h:commandButton action="" value="Submit" />
+									</td> 
+								</tr>
+							</table>
 						</td>
 					</tr>
 					<tr height="225">
@@ -198,10 +189,7 @@
 				<td width="212">&nbsp;</td>
 			</tr>
 		</table>
-
-
-	</h:form>
-
-</f:view>
+		</h:form>
+	</f:view>
 </body>
 </html>

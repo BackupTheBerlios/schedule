@@ -24,19 +24,22 @@ import com.schedule.hibernate.*;
  */
 public class MessageHandlerBean {
 
-	/**
-	 * Screenname of currently logged in User
-	 */
+	/** Recipient of the new message */
+	private String recipient;
+	
+	/** Subject belonging to the new message */
+	private String subject;
+	
+	/** Body of the new message */
+	private String body;
+	
+	/** Screenname of currently logged in User */
 	private String screenname;
 	
-	/**
-	 * List of unread Messages
-	 */
+	/** List of unread Messages */
 	private List unreadMessages;
 	
-	/**
-	 * List of messages
-	 */
+	/** List of messages */
 	private List messageList;
 	
 	/** Amount of unread messages */
@@ -61,6 +64,48 @@ public class MessageHandlerBean {
 		messagesCount = 0;
 		this.getUnreadMessages();	//um die Counter zu initialisieren
 		this.getMessageList();		//um die Counter zu initialisieren
+	}
+	
+	/**
+	 * @return Returns the body.
+	 */
+	public String getBody() {
+		return body;
+	}
+	
+	/**
+	 * @param body The body to set.
+	 */
+	public void setBody(String body) {
+		this.body = body;
+	}
+	
+	/**
+	 * @return Returns the recipient.
+	 */
+	public String getRecipient() {
+		return recipient;
+	}
+	
+	/**
+	 * @param recipient The recipient to set.
+	 */
+	public void setRecipient(String recipient) {
+		this.recipient = recipient;
+	}
+	
+	/**
+	 * @return Returns the subject.
+	 */
+	public String getSubject() {
+		return subject;
+	}
+	
+	/**
+	 * @param subject The subject to set.
+	 */
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	
 	/**

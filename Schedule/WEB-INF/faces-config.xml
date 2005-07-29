@@ -64,6 +64,10 @@
         	<from-outcome>showmessagepage</from-outcome>
         	<to-view-id>/pages/showmessage.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+        	<from-outcome>newmessagepage</from-outcome>
+        	<to-view-id>/pages/newmessage.jsp</to-view-id>
+        </navigation-case>
          <navigation-case>
             <from-outcome>calendar</from-outcome>
             <to-view-id>/pages/calendar.jsp</to-view-id>
