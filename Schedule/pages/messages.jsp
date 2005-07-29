@@ -37,62 +37,11 @@
 				<td width="150" height="494">
 				<div align="center">
 				<!-- Navigation --> 
-				<table width="150" border="0" cellspacing="0" cellpadding="0"
-					height="494">
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="Projekt Home" href="pages/index.jsp">Schedule
-						Home</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="EMail an Reinhard Prechtl"
-							href="mailto:neo36@spymac.com">Reinhard Prechtl</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="EMail an Christian Sukale"
-							href="mailto:s0503706@fhtw-berlin.de">Christian Sukale</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="EMail an Frank Otto"
-							href="mailto:frank.otto@fhtw-berlin.de">Frank Otto</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="205">
-						<td width="150" height="205"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="104">
-						<td width="150" height="104"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-				</table>
+				
+				<f:subview id="navigation">
+					<jsp:include page="navigation.jsp" />
+				</f:subview>
+				
 				</div>
 				</td>
 				<td width="1" height="494"></td>
@@ -129,9 +78,14 @@
 							<h1>Message Center</h1>
 						</td>
 					</tr>
-					<tr height="240">
-						<td height="240">
-							<h:dataTable width="100%" value="#{MessageBean.messageList}" var="msg">
+					<tr height="40">
+						<td>
+							Auf dieser Seite finden Sie eine Übersicht über Ihre persönlichen Nachrichten.
+						</td>
+					</tr>
+					<tr height="200">
+						<td height="240" valign="top">
+							<h:dataTable width="100%" value="#{MessageBean.messageList}" var="msg" columnClasses="tableContent" cellpadding="2" cellspacing="0" headerClass="headerColumn" style="border: 1px soild silver">
 
 							<h:column>
 								<f:facet name="header">

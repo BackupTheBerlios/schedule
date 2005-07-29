@@ -1687,3 +1687,6 @@ div#projappoint {float: right; width: 32em; border: 1px solid silver;}
 div#projboard {margin: 2em 35em 0em 0em; border: 1px solid silver;}
 div#projusers {margin: 2em 0em 0em 0em; float: right; width: 32em; border: 1px solid silver;}
 div#projgroups {margin: 2em 35em 0em 0em; border: 1px solid silver;}
+
+.headerColumn {background-color: #A8B6C6;}
+.tableContent {background-color: #C6DADA;}
