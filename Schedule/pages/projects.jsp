@@ -37,11 +37,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <f:facet name="header">
               <h:outputText value="#{bundle.str_projectname}" />
             </f:facet>
-            
-            <h:commandLink action="showprojectspage" value="#{pr.name}">
-       			<f:param name="project" value="pr" />
-   		    </h:commandLink>
-   			
+   			<h:commandLink action="showprojectpage">
+									<h:outputText value="#{pr.name}" />
+									<f:param name="proj" value="#{pr.idProjects}" />
+			</h:commandLink>
             
             
           </h:column>

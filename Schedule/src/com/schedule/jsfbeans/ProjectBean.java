@@ -7,6 +7,7 @@
 package com.schedule.jsfbeans;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
@@ -41,6 +42,24 @@ public class ProjectBean {
     /** Amount of Projects assigned to the current User */
     private int projectCount;
     
+    /** current Project which is chosen by ex.from Projects Overview*/
+    private Projects currentProject;
+   
+    /**Name of the Project*/
+    private String projectName;
+    
+	/**
+	 * @return Returns the projectName.
+	 */
+	public String getProjectName() {
+		return projectName;
+	}
+	/**
+	 * @param projectName The projectName to set.
+	 */
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
     /**
      * Constructor
      *
@@ -172,4 +191,39 @@ public class ProjectBean {
 		HibernateManager.commitTransaction();
 		return "success";
     }
+	/**
+	 * @return Returns the currentProject.
+	 */
+	public Projects getCurrentProject() {
+		//Get Values from Request at point "proj"
+		FacesContext context = FacesContext.getCurrentInstance();
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		String aProjectsId = ((String) requestMap.get("proj"));
+		
+		//Create Session
+		Session sess = HibernateManager.getSession();
+		Query q;
+		List projects = null;
+		
+		try {
+			q = sess.createQuery("from Projects where idProjects= :idProjects");
+			q.setString("idProjects", aProjectsId);
+			//Write results from Query to projects
+			projects = (List) q.list();			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		//get the current Project
+		Projects aProject = (Projects) projects.get(0);
+		
+		this.setCurrentProject(aProject);
+		
+		return currentProject;
+	}
+	/**
+	 * @param currentProject The currentProject to set.
+	 */
+	public void setCurrentProject(Projects acurrentProject) {
+		this.currentProject = acurrentProject;
+	}
 }

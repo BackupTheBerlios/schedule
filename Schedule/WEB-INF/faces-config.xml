@@ -68,6 +68,10 @@
         	<from-outcome>newmessagepage</from-outcome>
         	<to-view-id>/pages/newmessage.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+        	<from-outcome>showprojectpage</from-outcome>
+        	<to-view-id>/pages/showproject.jsp</to-view-id>
+        </navigation-case>
          <navigation-case>
             <from-outcome>calendar</from-outcome>
             <to-view-id>/pages/calendar.jsp</to-view-id>

@@ -172,8 +172,12 @@
 							<h1>
 								<!-- TODO: Vor- und Nachname des Users werden derzeit aus der ProjectBean gelesen 
 									 Sinnvoller wäre es wahrscheinlich die Informationen aus einer anderen Bean zu holen z.B. LoginBean -->							
-								<h:outputText value="Willkommen" />
+								<h:outputText value="Willkommen im Project" />
+								<h:outputText value="#{ProjectBean.currentProject.name}" style="font-style: italic;" />
+								
 							</h1>
+								<h:outputText value="Projektbeschreibung:" />
+								<h:outputText value="#{ProjectBean.currentProject.description}" style="font-style: italic;" />
 						</td>
 					</tr>
 					<tr height="240">
@@ -188,7 +192,7 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-						ProjektID: <h:outputText value="#{NavigationBean.link}"/>
+						 
 					</div>
 					
 					<div id="projappoint">
