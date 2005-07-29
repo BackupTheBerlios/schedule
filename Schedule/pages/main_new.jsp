@@ -136,10 +136,22 @@
 						<div id="Projects">
 						<table width="100%" border="0" cellspacing="0">
 							<tr bgcolor="#A8B6C6">
-								<td><h:commandLink action="#{NavigationBean.gotoPage}"
+								<td><!--<h:commandLink action="#{NavigationBean.gotoPage}"
 									value="#{bundle.str_projects}">
 									<f:param name="link" value="projects" />
-								</h:commandLink></td>
+								</h:commandLink>-->
+								<h:dataTable width="100%"
+									value="#{ProjectBean.projectList}" var="pr">
+									<h:column>
+										<h:commandLink action="projectspage"
+										value="#{bundle.str_projects}">
+										<f:param name="proj" value="#{pr.idProjects}" />
+										</h:commandLink>
+									</h:column>
+								</h:dataTable>
+								
+								
+								</td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
 								<td height="7" background="pages/data/naviseparator.gif"></td>
