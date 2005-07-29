@@ -149,13 +149,17 @@
 							value="#{ProjectBean.projectCount}" /> Projekt(en) teil <!-- Datatable für dynamische Inhalte -->
 						<h:dataTable bgcolor="#C6DADA" width="100%"
 							rendered="#{ProjectBean.projectCount > 0}"
-							value="#{ProjectBean.projectList}" var="projects">
+							value="#{ProjectBean.projectList}" var="pr">
 
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_projectname}" />
 								</f:facet>
-								<h:outputText value="#{projects.name}" />
+								
+								<h:commandLink action="showprojectpage">
+									<h:outputText value="#{pr.name}" />
+									<f:param name="proj" value="#{pr.idProjects}" />
+								</h:commandLink>
 							</h:column>
 						</h:dataTable>
 						<h:commandLink action="addprojectpage">
