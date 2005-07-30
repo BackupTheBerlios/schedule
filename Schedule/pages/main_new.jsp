@@ -40,6 +40,7 @@
 				<f:subview id="navigation">
 					<jsp:include page="navigation.jsp" />
 				</f:subview>
+				
 				</div>
 				</td>
 				<td width="1" height="494"></td>
@@ -97,9 +98,9 @@
 						</table>
 						Sie nehmen derzeit an <h:outputText
 							value="#{ProjectBean.projectCount}" /> Projekt(en) teil <!-- Datatable für dynamische Inhalte -->
-						<h:dataTable bgcolor="#C6DADA" width="100%"
+						<h:dataTable width="100%"
 							rendered="#{ProjectBean.projectCount > 0}"
-							value="#{ProjectBean.projectList}" var="pr">
+							value="#{ProjectBean.projectList}" var="pr" cellpadding="2" cellspacing="0" headerClass="headerColumn" columnClasses="tableContent" style="border: 1px silver solid">
 
 							<h:column>
 								<f:facet name="header">
@@ -133,9 +134,9 @@
 						<!-- Statusmeldung über Anzahl der ungelesenen Nachrichten	--> Sie
 						haben <h:outputText value="#{MessageBean.unreadMessagesCount}" />
 						ungelesene Nachricht(en) <!-- Data Table für dynamische Ausgabe der Nachrichten -->
-						<h:dataTable bgcolor="#C6DADA" width="100%"
+						<h:dataTable width="100%"
 							rendered="#{MessageBean.unreadMessagesCount > 0}"
-							value="#{MessageBean.unreadMessages}" var="msg">
+							value="#{MessageBean.unreadMessages}" var="msg" cellpadding="2" cellspacing="0" columnClasses="tableContent" headerClass="headerColumn" style="border: 1px silver solid">
 							<h:column>
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_subject}" />
@@ -182,9 +183,9 @@
 						Sie haben <h:outputText value="#{TaskBean.taskCount}" />
 						Aufgaben(en) <!-- Data Table zur dynamischen Ausgabe der Tasks des Users
 						     Die Table soll nur angezeigt werden, wenn Tasks für den User vorhanden sind (rendered Attribut)  -->
-						<h:dataTable bgcolor="#C6DADA" width="100%"
+						<h:dataTable width="100%"
 							rendered="#{TaskBean.taskCount > 0}"
-							value="#{TaskBean.tasksList}" var="tasks">
+							value="#{TaskBean.tasksList}" var="tasks" cellpadding="2" cellspacing="0" columnClasses="tableContent" headerClass="headerColumn" style="border: 1px silver solid">
 
 							<h:column>
 								<f:facet name="header">
@@ -222,9 +223,9 @@
 						Sie haben <h:outputText
 							value="#{AppointmentBean.appointmentCount}" /> Termin(e) <!-- Data Table für dynamische Ausgabe der Termine
 						     Tabelle soll nicht angezeigt werden, wenn keine Termine vorhanden sind (rendered Attribut) -->
-						<h:dataTable bgcolor="#C6DADA" width="100%"
+						<h:dataTable width="100%"
 							rendered="#{AppointmentBean.appointmentCount > 0}"
-							value="#{AppointmentBean.appointmentsList}" var="appointments">
+							value="#{AppointmentBean.appointmentsList}" var="appointments" cellpadding="2" cellspacing="0" columnClasses="tableContent" headerClass="headerColumn" style="border: 1px silver solid">
 
 							<h:column>
 								<f:facet name="header">

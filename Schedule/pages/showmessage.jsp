@@ -32,62 +32,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr height="494">
 				<td width="150" height="494">
 				<div align="center">
-				<table width="150" border="0" cellspacing="0" cellpadding="0"
-					height="494">
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="Projekt Home" href="pages/index.jsp">Schedule
-						Home</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="EMail an Reinhard Prechtl"
-							href="mailto:neo36@spymac.com">Reinhard Prechtl</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="EMail an Christian Sukale"
-							href="mailto:s0503706@fhtw-berlin.de">Christian Sukale</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30">
-						<div align="center"><a title="EMail an Frank Otto"
-							href="mailto:frank.otto@fhtw-berlin.de">Frank Otto</a></div>
-						</td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="30">
-						<td width="150" height="30"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="205">
-						<td width="150" height="205"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="104">
-						<td width="150" height="104"></td>
-					</tr>
-					<tr bgcolor="#A8B6C6" height="7">
-						<td width="150" height="7"
-							background="pages/data/naviseparator.gif"></td>
-					</tr>
-				</table>
+				
+				<!-- Navigation -->
+				
+				<f:subview id="navigation">
+					<jsp:include page="navigation.jsp" />
+				</f:subview>
+				
 				</div>
 				</td>
 				<td width="1" height="494"></td>
