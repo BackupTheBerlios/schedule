@@ -6,6 +6,7 @@ package com.schedule.jsfbeans;
 
 import java.util.*;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -237,5 +238,45 @@ public class MessageHandlerBean {
 	{
 		currentMessage = aCurrentMessage;
 	}
+	
+	/**
+     * Adds a new Message
+     */ 
+    public String addMessage()
+    {
+    	//Hibernate Session holen
+    	Session hbmsession = HibernateManager.getSession();
+		HibernateManager.beginTransaction();
+		//neues Message-Objekt erzeugen und Attribute setzen
+		Messages newMessage = new Messages();
+		newMessage.setRecipient(this.recipient);
+		newMessage.setDate(new Date());
+		newMessage.setSubject(this.subject);
+		newMessage.setBody(this.body);
+		newMessage.setMessageRead(new Boolean(false));
+		/** TODO
+		 * An dieser Stelle muﬂ dann noch das Attachment gespeichert werden - sobald wir wissen wie
+		 */
+		//Get User from Session
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		User user = (User) session.getAttribute("User");
+		//Absender der Nachricht
+		newMessage.setUser(user);
+		
+		try {
+			//Update DB Objects
+			hbmsession.saveOrUpdate(newMessage);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Datenbankzugriff fehlgeschlagen");
+			facesContext.addMessage("registerForm", facesMessage);  
+			
+			return "failure";
+		}
+		
+		HibernateManager.commitTransaction();
+		return "success";
+    }
 	
 }

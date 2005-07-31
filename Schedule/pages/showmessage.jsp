@@ -76,7 +76,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<h:outputText value="Nachricht:" /> 
 								<h:outputText value="#{MessageBean.currentMessage.subject}" style="font-style: italic;" />
 								<h:outputText value="vom:" /> 
-								<h:outputText value="#{MessageBean.currentMessage.date}" style="font-style: italic;" />
+								<h:outputText value="#{MessageBean.currentMessage.date}" style="font-style: italic;">
+									<f:convertDateTime dateStyle="short" type="date" />
+								</h:outputText>
 							</h1>
 						</td>
 					</tr>
@@ -104,7 +106,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<strong>Datum:</strong>
 								</td>
 								<td>
-									 <h:outputText value="#{MessageBean.currentMessage.date}" />
+									 <h:outputText value="#{MessageBean.currentMessage.date}">
+									 	<f:convertDateTime dateStyle="short" type="both" />
+									 </h:outputText>
 								</td>	
 							</tr>
 							<tr>

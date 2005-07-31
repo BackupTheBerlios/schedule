@@ -115,7 +115,9 @@
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_date}" />
 								</f:facet>
-								<h:outputText value="#{msg.date}" />
+								<h:outputText value="#{msg.date}">
+									<f:convertDateTime dateStyle="short" type="date" />
+								</h:outputText>
 							</h:column>
 
 						</h:dataTable>

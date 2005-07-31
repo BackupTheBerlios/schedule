@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</tr>
 								<tr>
 									<td colspan="2">
-										<h:commandButton action="" value="Submit" />
+										<h:commandButton action="#{MessageBean.addMessage}" value="Senden" />
 									</td> 
 								</tr>
 							</table>
