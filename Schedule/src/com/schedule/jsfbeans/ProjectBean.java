@@ -189,7 +189,7 @@ public class ProjectBean {
 		}
 		
 		HibernateManager.commitTransaction();
-		return "success";
+		return "successAdd";
     }
 	/**
 	 * @return Returns the currentProject.
