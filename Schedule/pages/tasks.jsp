@@ -73,7 +73,7 @@
 					</tr>
 					<tr height="60">
 						<td>
-						<h1><h:outputText value="Project Center" /></h1>
+						<h1><h:outputText value="Aufgaben Center" /></h1>
 						</td>
 					</tr>
 					<tr height="40">
@@ -94,7 +94,7 @@
 								<h:commandLink action="showprojectpage">
 									<h:outputText value="#{task.subject}" />
 									
-								</h:commandLink>--->
+								</h:commandLink>
 
 							</h:column>
 
