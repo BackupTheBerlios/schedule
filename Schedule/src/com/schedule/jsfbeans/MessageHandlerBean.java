@@ -227,6 +227,15 @@ public class MessageHandlerBean {
 		
 		this.setCurrentMessage(aMessage);
 		
+		//Status der Nachricht auf "gelesen" setzen
+		currentMessage.setMessageRead(new Boolean(true));
+		try
+		{
+			sess.saveOrUpdate(currentMessage);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
 		return currentMessage;
 	}
 	
