@@ -55,6 +55,10 @@ public class NavigationBean {
 		{
 			return "projectspage";
 		}
+		if(this.link.equals("tasks"))
+		{
+			return "taskpage";
+		}
 		
 		return "startpage";
 	}

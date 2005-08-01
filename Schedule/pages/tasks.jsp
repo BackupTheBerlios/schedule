@@ -91,11 +91,7 @@
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_tasks}" />
 								</f:facet>
-								<h:commandLink action="showprojectpage">
 									<h:outputText value="#{task.subject}" />
-									
-								</h:commandLink>
-
 							</h:column>
 
 							<h:column>
