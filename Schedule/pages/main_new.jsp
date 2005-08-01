@@ -207,7 +207,11 @@
 								</f:facet>
 								<h:outputText value="#{tasks.solved}" />
 							</h:column>
-						</h:dataTable></div>
+						</h:dataTable>
+						<h:commandLink action="newtaskpage">
+							<h:outputText value="Neue Aufgabe erstellen" />
+						</h:commandLink>
+						</div>
 
 						<!-- Der Div-Bereich für die Appointments folgt hier -->
 						<div id="Appointments">
