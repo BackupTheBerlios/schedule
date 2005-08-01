@@ -23,7 +23,11 @@ public class TaskBean {
 	
 	/** The value of the simple subject property. */
     private java.lang.String subject;
+    
+    /** Description of a task */
+    private java.lang.String description;
 
+	
     /** The value of the simple pid property. */
     private java.lang.Integer pid;
 
@@ -47,6 +51,32 @@ public class TaskBean {
     	user = (User) session.getAttribute("User");
     	this.getTasksList();	// zum Initialiseren des Counters
     }
+    
+    /**
+	 * @return Returns the description.
+	 */
+	public java.lang.String getDescription() {
+		return description;
+	}
+	/**
+	 * @param description The description to set.
+	 */
+	public void setDescription(java.lang.String description) {
+		this.description = description;
+	}
+	/**
+	 * @return Returns the user.
+	 */
+	public User getUser() {
+		return user;
+	}
+	/**
+	 * @param user The user to set.
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+    
     
 	/**
 	 * @return Returns the pid.
