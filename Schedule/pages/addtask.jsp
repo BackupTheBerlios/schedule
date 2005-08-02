@@ -66,12 +66,12 @@
 					</tr>
 					<tr height="60">
 						<td>
-						<h1>Neues Projekt erstellen</h1>
+						<h1>Neuen Task erstellen</h1>
 						</td>
 					</tr>
 					<tr height="40">
 						<td>
-							Auf dieser Seite können Sie ein neues Projekt anlegen.
+							Auf dieser Seite können Sie neue Tasks anlegen.
 						</td>
 					</tr>
 					<tr height="200">
@@ -86,47 +86,28 @@
 							<tr>
 								<!----   TODO: 
 			Internationization fuer beschriftung labels u Buttons ------>
-								<td>Projektname:</td>
-								<td><h:inputText id="projName" value="#{ProjectBean.name}" /></td>
+								<td>Tasktitel:</td>
+								<td><h:inputText id="taskSubj" value="#{TaskBean.subject}" /></td>
 							</tr>
 							<tr>
 								<td>Beschreibung:</td>
-								<td><h:inputText id="projDescr"
-									value="#{ProjectBean.description}" /></td>
+								<td><h:inputText id="taskDescr"
+									value="#{TaskBean.description}" /></td>
+							</tr>
+							<tr>
+								<td>Projekt:</td>
+								<td><h:inputText id="taskProj"
+									value="#{TaskBean.pid}" /></td>
 							</tr>
 							<tr>
 								<td><h:commandButton id="submit"
-									action="#{ProjectBean.addProject}"
+									action="#{TaskBean.addTask}"
 									value="#{bundle.login_button_label}" /></td>
 								<td></td>
 							</tr>
 							<tr><td>
 							
-							
-							<h:dataTable value="#{ProjectBean.projectList}"
-							var="project" width="100%" headerClass="headerColumn"
-							columnClasses="tableContent" cellpadding="2" cellspacing="0"
-							style="border: 1px solid silver">
 
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="#{bundle.str_projectname}" />
-								</f:facet>
-								<h:commandLink action="showprojectpage">
-									<h:outputText value="#{project.name}" />
-									<f:param name="proj" value="#{project.idProjects}" />
-								</h:commandLink>
-
-							</h:column>
-
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="#{bundle.str_projectdescription}" />
-								</f:facet>
-								<h:outputText value="#{project.description}" />
-							</h:column>
-
-						</h:dataTable>
 							
 							</td><td></td></tr>
 						</table>
