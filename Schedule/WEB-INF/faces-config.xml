@@ -77,6 +77,14 @@
         	<from-outcome>taskpage</from-outcome>
         	<to-view-id>/pages/tasks.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+        	<from-outcome>addtaskpage</from-outcome>
+        	<to-view-id>/pages/addtask.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        	<from-outcome>showtaskpage</from-outcome>
+        	<to-view-id>/pages/showtask.jsp</to-view-id>
+        </navigation-case>
         
          <navigation-case>
             <from-outcome>calendar</from-outcome>
