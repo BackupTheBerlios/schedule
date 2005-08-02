@@ -77,7 +77,7 @@ public class RegisterBean {
 		
 		try {
 			q = hbmsession.createQuery("from Roles where name= :name");
-			q.setString("name", "Systemuser");
+			q.setString("name", "user");
 			roles = (List) q.list();			
 		} catch (HibernateException e) {
 			e.printStackTrace();
