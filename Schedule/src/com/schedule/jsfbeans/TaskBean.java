@@ -9,7 +9,11 @@ package com.schedule.jsfbeans;
 import java.util.*;
 
 import javax.servlet.http.*;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.*;
+
+import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Session;
 
 import com.schedule.hibernate.*;
 
@@ -51,6 +55,48 @@ public class TaskBean {
     	user = (User) session.getAttribute("User");
     	this.getTasksList();	// zum Initialiseren des Counters
     }
+    
+    
+    public String addTask()	{
+    	
+    	Session hbmsession = HibernateManager.getSession();
+		HibernateManager.beginTransaction();
+		Projects tempProject = new Projects();
+		
+		Tasks newTask = new Tasks();
+		newTask.setSubject(this.subject);
+		newTask.setDescription(this.description);
+		tempProject.setIdProjects(this.pid);
+		newTask.setProject(tempProject);
+		
+		
+		//Get User from Session
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		User u = (User) session.getAttribute("User");
+		newTask.setUser(u);
+		//associate project to a user 
+		u.getTasks().add(newTask);
+		
+		try {
+			//Update DB Objects
+			hbmsession.saveOrUpdate(newTask);
+			hbmsession.saveOrUpdate(u);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Datenbankzugriff fehlgeschlagen");
+			facesContext.addMessage("registerForm", facesMessage);  
+			
+			return "failure";
+		}
+		
+		HibernateManager.commitTransaction();
+	
+    	
+    	
+    	return "successAdd";
+    }
+    
     
     /**
 	 * @return Returns the description.
