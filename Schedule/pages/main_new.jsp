@@ -208,7 +208,7 @@
 								<h:outputText value="#{tasks.solved}" />
 							</h:column>
 						</h:dataTable>
-						<h:commandLink action="newtaskpage">
+						<h:commandLink action="addtaskpage">
 							<h:outputText value="Neue Aufgabe erstellen" />
 						</h:commandLink>
 						</div>
