@@ -37,14 +37,12 @@ public class TaskBean {
     /** Description of a task */
     private java.lang.String description;
 
-    /** The value of the simple pid property. */
-    private java.lang.Integer pid;
+   
 
     /** The value of the simple solved property. */
     private java.lang.Float solved;
 
-    /** The value of the simple tid1 property. */
-    private java.lang.Integer partOfTID;
+   
 
     /** The User associated with this Task */
     private User user;
@@ -63,6 +61,18 @@ public class TaskBean {
     {
     	taskCount = 0;
     	this.getTasksList();	// zum Initialiseren des Counters
+    }
+    
+    /** Reset all attributes */
+    public void resetObjectAttributes(){
+    		this.subject = null;
+    		this.tmpCurrProj = null;
+    		this.currProj = null;
+    		this.description = null;
+    		this.solved = null;
+    		this.user = null;
+    		this.tasksList = null;
+    		this.taskCount = 0;
     }
     
 	/**
@@ -128,6 +138,7 @@ public class TaskBean {
 		}
 		HibernateManager.commitTransaction();
 		HibernateManager.closeSession();
+		resetObjectAttributes();
 		return "successAddTask";
     	
     }
@@ -175,20 +186,8 @@ public class TaskBean {
 	}
     
     
-	/**
-	 * @return Returns the pid.
-	 */
-	public java.lang.Integer getPid() 
-	{
-		return pid;
-	}
-	/**
-	 * @param pid The pid to set.
-	 */
-	public void setPid(java.lang.Integer pid) 
-	{
-		this.pid = pid;
-	}
+	
+	
 	/**
 	 * @return Returns the solved.
 	 */
@@ -217,20 +216,7 @@ public class TaskBean {
 	{
 		this.subject = subject;
 	}
-	/**
-	 * @return Returns the tid1.
-	 */
-	public java.lang.Integer getPartOfTID() 
-	{
-		return partOfTID;
-	}
-	/**
-	 * @param tid1 The tid1 to set.
-	 */
-	public void setPartOfTID(java.lang.Integer partOfTID) 
-	{
-		this.partOfTID = partOfTID;
-	}
+	
 	
 	/**
 	 * Returns a list of tasks assigned to the user
