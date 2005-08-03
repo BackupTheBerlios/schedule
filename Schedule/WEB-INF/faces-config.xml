@@ -69,6 +69,15 @@
         	<to-view-id>/pages/newmessage.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
+        	<from-outcome>newappointmentpage</from-outcome>
+        	<to-view-id>/pages/addappointment.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        	<from-outcome>successAddAppoint</from-outcome>
+        	<to-view-id>/pages/main_new.jsp</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
         	<from-outcome>showprojectpage</from-outcome>
         	<to-view-id>/pages/showproject.jsp</to-view-id>
         </navigation-case>

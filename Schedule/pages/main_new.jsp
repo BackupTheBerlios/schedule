@@ -226,8 +226,8 @@
 								<td height="7" background="pages/data/naviseparator.gif"></td>
 							</tr>
 						</table>
-						Sie haben <h:outputText
-							value="#{AppointmentBean.appointmentCount}" /> Termin(e) <!-- Data Table für dynamische Ausgabe der Termine
+					
+						Sie haben <h:outputText value="#{AppointmentBean.appointmentCount}" /> Termin(e) <!-- Data Table für dynamische Ausgabe der Termine
 						     Tabelle soll nicht angezeigt werden, wenn keine Termine vorhanden sind (rendered Attribut) -->
 						<h:dataTable width="100%"
 							rendered="#{AppointmentBean.appointmentCount > 0}"
@@ -251,7 +251,11 @@
 								</f:facet>
 								<h:outputText value="#{appointments.date}" />
 							</h:column>
-						</h:dataTable></div>
+						</h:dataTable>
+						<h:commandLink action="newappointmentpage">
+							<h:outputText value="Neuen Termin erstellen" />
+						</h:commandLink>
+						</div>
 
 
 						</td>
