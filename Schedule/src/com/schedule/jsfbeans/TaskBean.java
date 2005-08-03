@@ -28,10 +28,15 @@ public class TaskBean {
 	/** The value of the simple subject property. */
     private java.lang.String subject;
     
+    /** */
+    private String tmpCurrProj;
+ 
+    /** */
+    private Integer currProj;
+
     /** Description of a task */
     private java.lang.String description;
 
-	
     /** The value of the simple pid property. */
     private java.lang.Integer pid;
 
@@ -50,37 +55,69 @@ public class TaskBean {
     /** Number of tasks assigned to the current user */
     private int taskCount;
     
-    public TaskBean() {
-    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    	Integer userId = (Integer) session.getAttribute("UserID");
-    	//this.getTasksList();	// zum Initialiseren des Counters
+    /**
+     * 
+     * Standardkonstruktor
+     */
+    public TaskBean() 
+    {
+    	taskCount = 0;
+    	this.getTasksList();	// zum Initialiseren des Counters
     }
     
-    
-    public String addTask()	{
-    	
+	/**
+	 * @return Returns the tmpCurrProj.
+	 */
+	public String getTmpCurrProj() 
+	{
+		return tmpCurrProj;
+	}
+	
+	/**
+	 * @param tmpCurrProj The tmpCurrProj to set.
+	 */
+	public void setTmpCurrProj(String tmpCurrProj) 
+	{
+		this.tmpCurrProj = tmpCurrProj;
+		
+		this.currProj = Integer.decode(tmpCurrProj);
+		
+		//this.currProj = i.intValue();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+    public String addTask()
+    {
+    	User user = null;
+    	Projects project = null;
     	Session hbmsession = HibernateManager.getSession();
 		HibernateManager.beginTransaction();
-		Projects tempProject = new Projects();
 		
+		// aktuellen User holen
+		user = this.getUser();
+		// im Drop-Down-Field ausgewähltes Projekt laden	
+		try {
+			project = (Projects) hbmsession.load(Projects.class, this.currProj);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		// neues Task-Objekt erstellen
 		Tasks newTask = new Tasks();
 		newTask.setSubject(this.subject);
 		newTask.setDescription(this.description);
-		tempProject.setIdProjects(this.pid);
-		newTask.setProject(tempProject);
+		newTask.setSolved(new Float(0.0));
+		newTask.setUser(user);
+		newTask.setProject(project);
 		
-		
-		//Get User from Session
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		User u = (User) session.getAttribute("User");
-		newTask.setUser(u);
 		//associate project to a user 
-		u.getTasks().add(newTask);
-		
+		user.getTasks().add(newTask);
 		try {
 			//Update DB Objects
 			hbmsession.saveOrUpdate(newTask);
-			hbmsession.saveOrUpdate(u);
+			hbmsession.flush();
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			FacesContext facesContext = FacesContext.getCurrentInstance(); 
@@ -89,14 +126,17 @@ public class TaskBean {
 			
 			return "failure";
 		}
-		
 		HibernateManager.commitTransaction();
-	
+		HibernateManager.closeSession();
+		return "successAddTask";
     	
-    	
-    	return "successAdd";
     }
-    
+	/**
+	 * @return Returns the currProj.
+	 */
+	public Integer getCurrProj() {
+		return currProj;
+	}
     
     /**
 	 * @return Returns the description.
@@ -104,25 +144,33 @@ public class TaskBean {
 	public java.lang.String getDescription() {
 		return description;
 	}
-	
 	/**
 	 * @param description The description to set.
 	 */
 	public void setDescription(java.lang.String description) {
 		this.description = description;
 	}
-	
 	/**
 	 * @return Returns the user.
 	 */
-	public User getUser() {
+	public User getUser() 
+	{
+		User user = null;
+		Session hbmsession = HibernateManager.getSession();
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	Integer userId = (Integer) session.getAttribute("UserID");
+    	try {
+    		user = (User) hbmsession.load(User.class, userId);
+    	} catch (HibernateException e) {
+    		e.printStackTrace();
+    	}
 		return user;
 	}
-	
 	/**
 	 * @param user The user to set.
 	 */
-	public void setUser(User user) {
+	public void setUser(User user) 
+	{
 		this.user = user;
 	}
     
@@ -130,56 +178,57 @@ public class TaskBean {
 	/**
 	 * @return Returns the pid.
 	 */
-	public java.lang.Integer getPid() {
+	public java.lang.Integer getPid() 
+	{
 		return pid;
 	}
-	
 	/**
 	 * @param pid The pid to set.
 	 */
-	public void setPid(java.lang.Integer pid) {
+	public void setPid(java.lang.Integer pid) 
+	{
 		this.pid = pid;
 	}
-	
 	/**
 	 * @return Returns the solved.
 	 */
-	public java.lang.Float getSolved() {
+	public java.lang.Float getSolved() 
+	{
 		return solved;
 	}
-	
 	/**
 	 * @param solved The solved to set.
 	 */
-	public void setSolved(java.lang.Float solved) {
+	public void setSolved(java.lang.Float solved) 
+	{
 		this.solved = solved;
 	}
-	
 	/**
 	 * @return Returns the subject.
 	 */
-	public java.lang.String getSubject() {
+	public java.lang.String getSubject() 
+	{
 		return subject;
 	}
-	
 	/**
 	 * @param subject The subject to set.
 	 */
-	public void setSubject(java.lang.String subject) {
+	public void setSubject(java.lang.String subject) 
+	{
 		this.subject = subject;
 	}
-	
 	/**
 	 * @return Returns the tid1.
 	 */
-	public java.lang.Integer getPartOfTID() {
+	public java.lang.Integer getPartOfTID() 
+	{
 		return partOfTID;
 	}
-	
 	/**
 	 * @param tid1 The tid1 to set.
 	 */
-	public void setPartOfTID(java.lang.Integer partOfTID) {
+	public void setPartOfTID(java.lang.Integer partOfTID) 
+	{
 		this.partOfTID = partOfTID;
 	}
 	
@@ -189,6 +238,7 @@ public class TaskBean {
 	 */
 	public Vector getTasksList()
 	{
+		User user = this.getUser();
 		Set tasks = user.getTasks();
 		tasksList = new Vector();
 		

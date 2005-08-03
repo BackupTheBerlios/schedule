@@ -6,18 +6,24 @@
  */
 package com.schedule.jsfbeans;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
-import javax.faces.application.*;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
-import com.schedule.hibernate.*;
+import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Query;
+import net.sf.hibernate.Session;
 
-import net.sf.hibernate.*;
+import com.schedule.hibernate.HibernateManager;
+import com.schedule.hibernate.Projects;
+import com.schedule.hibernate.User;
 
 /**
  * @author reinhard
@@ -45,6 +51,9 @@ public class ProjectBean {
     /**Name of the Project*/
     private String projectName;
     
+    /** */
+    private ArrayList projectListArray;
+
     
     /**
      * Constructor
@@ -232,4 +241,33 @@ public class ProjectBean {
 	public void setCurrentProject(Projects acurrentProject) {
 		this.currentProject = acurrentProject;
 	}
+	
+	/**
+	 * @return Returns the projectListArray.
+	 */
+	public ArrayList getProjectListArray() 
+	{
+		User user = this.getUser();
+		Set projects = user.getProjects();
+		projectListArray = new ArrayList();
+		
+		for(int i=0; i<projects.size(); i++)
+		{
+			Projects newpo = (Projects) projects.toArray()[i];
+			String neu = newpo.getName();
+			String projctnr = newpo.getIdProjects().toString();
+			
+			this.projectListArray.add(new SelectItem(projctnr,neu,"desc")); //Value, Label
+		}
+		
+		return projectListArray;
+	}
+	
+	/**
+	 * @param projectListArray The projectListArray to set.
+	 */
+	public void setProjectListArray(ArrayList projectListArray) {
+		this.projectListArray = projectListArray;
+	}
+
 }
