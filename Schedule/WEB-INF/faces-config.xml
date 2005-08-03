@@ -44,6 +44,10 @@
     <navigation-rule>
         <from-view-id>/pages/*</from-view-id>
         <navigation-case>
+        		<from-outcome>showappointmentspage</from-outcome>
+        		<to-view-id>/pages/appointments.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>startpage</from-outcome>
             <to-view-id>/pages/index.jsp</to-view-id>
         </navigation-case>

@@ -217,9 +217,8 @@
 						<div id="Appointments">
 						<table width="100%" border="0" cellspacing="0">
 							<tr bgcolor="#A8B6C6">
-								<td><h:commandLink action="#{NavigationBean.gotoPage}"
+								<td><h:commandLink action="showappointmentspage"
 									value="#{bundle.str_appointments}">
-									<f:param name="link" value="appointments" />
 								</h:commandLink></td>
 							</tr>
 							<tr bgcolor="#A8B6C6" height="7">
@@ -249,7 +248,9 @@
 								<f:facet name="header">
 									<h:outputText value="#{bundle.str_date}" />
 								</f:facet>
-								<h:outputText value="#{appointments.date}" />
+								<h:outputText value="#{appointments.date}" >
+									<f:convertDateTime dateStyle="short" type="date" />
+								</h:outputText>
 							</h:column>
 						</h:dataTable>
 						<h:commandLink action="newappointmentpage">
