@@ -92,13 +92,15 @@
 							</tr>
 							<tr>	
 								<td>Aufgabenbeschreibung:</td>
-								<td><h:inputText id="taskName" value="#{TaskBean.subject}" /></td>
+								<td><h:inputText id="taskName" value="#{TaskBean.subject}" size="42" /></td>
 							</tr>
 						
 							<tr>
 								<td>Beschreibung:</td>
-								<td><h:inputText id="taskDescr"
-									value="#{TaskBean.description}" /></td>
+								<td><h:inputTextarea id="taskDescr"
+									value="#{TaskBean.description}" cols="39" rows="10" />
+								
+								</td>
 							</tr>
 							<tr>
 								<td><h:commandButton id="submit"
