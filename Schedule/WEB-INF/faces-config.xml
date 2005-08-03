@@ -85,7 +85,10 @@
         	<from-outcome>showtaskpage</from-outcome>
         	<to-view-id>/pages/showtask.jsp</to-view-id>
         </navigation-case>
-        
+        <navigation-case>
+        	<from-outcome>successAddTask</from-outcome>
+        	<to-view-id>/pages/main_new.jsp</to-view-id>
+        </navigation-case>
          <navigation-case>
             <from-outcome>calendar</from-outcome>
             <to-view-id>/pages/calendar.jsp</to-view-id>

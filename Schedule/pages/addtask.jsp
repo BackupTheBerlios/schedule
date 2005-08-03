@@ -107,36 +107,6 @@
 								<td></td>
 							</tr>
 							<tr><td>
-							
-							<h:outputText
-							value="#{ProjectBean.projectCount}" /> Projekt(en) teil
-							<h:dataTable value="#{ProjectBean.projectList}"
-							var="project" width="100%" headerClass="headerColumn"
-							columnClasses="tableContent" cellpadding="2" cellspacing="0"
-							style="border: 1px solid silver">
-							
-							
-							
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="#{bundle.str_projectname}" />
-								</f:facet>
-								<h:commandLink action="showprojectpage">
-									<h:outputText value="#{project.name}" />
-									<f:param name="proj" value="#{project.idProjects}" />
-								</h:commandLink>
-
-							</h:column>
-
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Projektid" />
-								</f:facet>
-								<h:outputText value="#{project.idProjects}" />
-							</h:column>
-
-						</h:dataTable>
-							
 							</td><td></td></tr>
 						</table>
 					</tr>
