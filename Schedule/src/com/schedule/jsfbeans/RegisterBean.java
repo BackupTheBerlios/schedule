@@ -136,7 +136,7 @@ public class RegisterBean {
 			
 			return "failure";
 		}
-		
+		HibernateManager.closeSession();
 		return "success";
     }
 	

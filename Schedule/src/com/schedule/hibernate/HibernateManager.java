@@ -45,6 +45,7 @@ public class HibernateManager {
 	{
 		try {
 			HibernateSessionFactory.closeSession();
+			curSession = null;
 		} catch (HibernateException e) {
 			System.err.println("Fataler Hibernate Fehler! Session konnte nicht geschlossen werden!");
 			e.printStackTrace();

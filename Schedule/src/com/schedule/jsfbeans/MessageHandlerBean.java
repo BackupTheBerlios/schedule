@@ -58,8 +58,17 @@ public class MessageHandlerBean {
 	 */
 	public MessageHandlerBean()
 	{
+		Session sess = HibernateManager.getSession();
+		Login login = null;
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Login login = (Login) session.getAttribute("Login");
+		Integer loginId = (Integer) session.getAttribute("LoginID");
+		// Login-Objekt laden
+		try {
+			login = (Login) sess.load(Login.class, loginId);		
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
 		screenname = login.getScreenname();
 		unreadMessagesCount = 0;
 		messagesCount = 0;
@@ -160,7 +169,8 @@ public class MessageHandlerBean {
 	/**
 	 * @return Returns the messageList.
 	 */
-	public List getMessageList() {
+	public List getMessageList() 
+	{
 		
 		Session sess = HibernateManager.getSession();
 		Query q;
@@ -179,7 +189,8 @@ public class MessageHandlerBean {
 	/**
 	 * @param messageList The messageList to set.
 	 */
-	public void setMessageList(List messageList) {
+	public void setMessageList(List messageList) 
+	{
 		this.messageList = messageList;
 	}
 	
@@ -209,23 +220,16 @@ public class MessageHandlerBean {
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
 		Map requestMap = context.getExternalContext().getRequestParameterMap();
-		String aMessageId = ((String) requestMap.get("Message"));
+		Integer aMessageId = new Integer((String) requestMap.get("Message"));
 		
 		Session sess = HibernateManager.getSession();
-		Query q;
-		List messages = null;
+		
 		
 		try {
-			q = sess.createQuery("from Messages where idMessages= :idMessages");
-			q.setString("idMessages", aMessageId);
-			messages = (List) q.list();			
+			this.currentMessage = (Messages) sess.load(Messages.class, aMessageId);			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-		
-		Messages aMessage = (Messages) messages.get(0);
-		
-		this.setCurrentMessage(aMessage);
 		
 		//Status der Nachricht auf "gelesen" setzen
 		currentMessage.setMessageRead(new Boolean(true));
@@ -268,7 +272,14 @@ public class MessageHandlerBean {
 		 */
 		//Get User from Session
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		User user = (User) session.getAttribute("User");
+		Integer userId = (Integer) session.getAttribute("UserID");
+		User user = null;
+		try {
+			user = (User) hbmsession.load(User.class, userId);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
 		//Absender der Nachricht
 		newMessage.setUser(user);
 		
@@ -285,6 +296,7 @@ public class MessageHandlerBean {
 		}
 		
 		HibernateManager.commitTransaction();
+		HibernateManager.closeSession();
 		return "success";
     }
 	

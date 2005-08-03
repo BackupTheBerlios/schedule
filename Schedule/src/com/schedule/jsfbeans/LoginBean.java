@@ -19,6 +19,7 @@ import net.sf.hibernate.Session;
 import com.schedule.CryptoManager;
 import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.Login;
+import com.schedule.hibernate.User;
 
 
 /**
@@ -44,14 +45,6 @@ public class LoginBean {
     public LoginBean()
     {
     }
-    
-    public String logoutUser()
-    {
-    		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-		session.invalidate();
-		
-    		return "logoutsuccess";
-    }
 
     /**
      * Method for identifying a user
@@ -61,7 +54,8 @@ public class LoginBean {
     {
     		Session sess = HibernateManager.getSession();
     		Query q;
-    		List logins;
+    		List logins = null;
+    		List users = null;
     		
 		try {
 			q = sess.createQuery("from Login where screenname= :screenname and passwort= :password");
@@ -73,7 +67,7 @@ public class LoginBean {
 			return "failure";
 		}
 		
-		List users = null;
+		
 		try {
 			q = sess.createQuery("from User where idLogin= :idLogin");
 			q.setString("idLogin", ( (Login) logins.get(0) ).getIdLogin().toString());
@@ -82,11 +76,15 @@ public class LoginBean {
 			e.printStackTrace();
 		}
 		
+		Login login = (Login) logins.get(0);
+		User user = (User) users.get(0);
+		
 		if(logins.size()==1)
 		{
 			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-			session.setAttribute("Login", logins.get(0));
-			session.setAttribute("User", users.get(0));
+			session.setAttribute("LoginID", login.getIdLogin());
+			session.setAttribute("UserID", user.getIdUser());
+			HibernateManager.closeSession();
 			return "usersuccess";
 		} else {
     		FacesContext facesContext = FacesContext.getCurrentInstance(); 
@@ -94,8 +92,20 @@ public class LoginBean {
     		facesContext.addMessage("loginForm", facesMessage);        
     		return "failure";
 		}
+		
     }
     
+    /**
+     * 
+     * @return
+     */
+    public String logoutUser()
+    {
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.invalidate();
+		
+    	return "logoutsuccess";
+    }
 
 	/**
 	 * @return Returns the activestatus.

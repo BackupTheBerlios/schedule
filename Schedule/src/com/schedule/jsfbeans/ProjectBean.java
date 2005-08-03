@@ -33,9 +33,6 @@ public class ProjectBean {
     /** The value of the simple description property. */
     private java.lang.String description;
     
-    /** The user associated with this Project*/
-    private User user;
-    
     /** List of all projects */
     private Vector projectList;    
 
@@ -48,7 +45,38 @@ public class ProjectBean {
     /**Name of the Project*/
     private String projectName;
     
-	/**
+    
+    /**
+     * Constructor
+     *
+     */
+    public ProjectBean()
+    {	
+    	projectCount = 0;
+    	this.getProjectList();	
+    }
+
+    /**
+     * Returns the current User
+     * @return
+     */
+    public User getUser()
+    {
+    	User user = null;
+    	Session hbmsession = HibernateManager.getSession();
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	Integer userId = (Integer) session.getAttribute("UserID");
+		
+    	//User-Objekt laden
+		try {
+			user = (User) hbmsession.load(User.class, userId);		
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+    	return user;
+    }
+    
+    /**
 	 * @return Returns the projectName.
 	 */
 	public String getProjectName() {
@@ -60,34 +88,6 @@ public class ProjectBean {
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
-    /**
-     * Constructor
-     *
-     */
-    public ProjectBean()
-    {
-    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    	user = (User) session.getAttribute("User");
-		this.getProjectList();	
-    }
-
-    /**
-     * Returns the current User
-     * @return
-     */
-    public User getUser()
-    {
-    	return user;
-    }
-    
-    /**
-     * Sets the current User
-     * @param aUser
-     */
-    public void setUser(User aUser)
-    {
-    	user = aUser;
-    }
     
 	/**
 	 * @return Returns the description.
@@ -118,6 +118,7 @@ public class ProjectBean {
 	 * @return Returns the projectList.
 	 */
 	public List getProjectList() {
+		User user = this.getUser();
 		Set projects = user.getProjects();
 		projectList = new Vector();
 		
@@ -162,6 +163,7 @@ public class ProjectBean {
     public String addProject()
     {
     	Session hbmsession = HibernateManager.getSession();
+    	
 		HibernateManager.beginTransaction();
 		
 		Projects newProject = new Projects();
@@ -170,15 +172,18 @@ public class ProjectBean {
 		
 		//Get User from Session
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		User u = (User) session.getAttribute("User");
-		newProject.getUsers().add(u);
+		Integer userId = (Integer) session.getAttribute("UserID");
+		User user = this.getUser();
 		//associate project to a user 
-		u.getProjects().add(newProject);
+		user.getProjects().add(newProject);
+		newProject.getUsers().add(user);
+		
 		
 		try {
 			//Update DB Objects
+			hbmsession.saveOrUpdate(user);
 			hbmsession.saveOrUpdate(newProject);
-			hbmsession.saveOrUpdate(u);
+			hbmsession.flush();
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			FacesContext facesContext = FacesContext.getCurrentInstance(); 
@@ -189,6 +194,7 @@ public class ProjectBean {
 		}
 		
 		HibernateManager.commitTransaction();
+		HibernateManager.closeSession();
 		return "successAdd";
     }
 	/**

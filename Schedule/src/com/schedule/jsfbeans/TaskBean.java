@@ -52,8 +52,8 @@ public class TaskBean {
     
     public TaskBean() {
     	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    	user = (User) session.getAttribute("User");
-    	this.getTasksList();	// zum Initialiseren des Counters
+    	Integer userId = (Integer) session.getAttribute("UserID");
+    	//this.getTasksList();	// zum Initialiseren des Counters
     }
     
     
@@ -104,18 +104,21 @@ public class TaskBean {
 	public java.lang.String getDescription() {
 		return description;
 	}
+	
 	/**
 	 * @param description The description to set.
 	 */
 	public void setDescription(java.lang.String description) {
 		this.description = description;
 	}
+	
 	/**
 	 * @return Returns the user.
 	 */
 	public User getUser() {
 		return user;
 	}
+	
 	/**
 	 * @param user The user to set.
 	 */
@@ -130,42 +133,49 @@ public class TaskBean {
 	public java.lang.Integer getPid() {
 		return pid;
 	}
+	
 	/**
 	 * @param pid The pid to set.
 	 */
 	public void setPid(java.lang.Integer pid) {
 		this.pid = pid;
 	}
+	
 	/**
 	 * @return Returns the solved.
 	 */
 	public java.lang.Float getSolved() {
 		return solved;
 	}
+	
 	/**
 	 * @param solved The solved to set.
 	 */
 	public void setSolved(java.lang.Float solved) {
 		this.solved = solved;
 	}
+	
 	/**
 	 * @return Returns the subject.
 	 */
 	public java.lang.String getSubject() {
 		return subject;
 	}
+	
 	/**
 	 * @param subject The subject to set.
 	 */
 	public void setSubject(java.lang.String subject) {
 		this.subject = subject;
 	}
+	
 	/**
 	 * @return Returns the tid1.
 	 */
 	public java.lang.Integer getPartOfTID() {
 		return partOfTID;
 	}
+	
 	/**
 	 * @param tid1 The tid1 to set.
 	 */

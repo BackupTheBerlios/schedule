@@ -47,7 +47,7 @@ public class AppointmentBean {
     {
     	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     	user = (User) session.getAttribute("User");
-    	this.getAppointmentsList();		//zum Initialisieren des Counters
+    	//this.getAppointmentsList();		//zum Initialisieren des Counters
     }
     
 	/**
