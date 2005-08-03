@@ -109,8 +109,6 @@
 									<f:convertDateTime dateStyle="short" type="date" />
 									</h:inputText>
 								</td>
-				
-								</td>
 							</tr>
 							
 							<tr>

@@ -193,7 +193,7 @@
         <description>Bean which represents a project.</description>
         <managed-bean-name>ProjectBean</managed-bean-name>
         <managed-bean-class>com.schedule.jsfbeans.ProjectBean</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
+        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
