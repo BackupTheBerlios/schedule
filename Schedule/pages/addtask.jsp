@@ -14,7 +14,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Add a project</title>
+<title>Task hinzufügen</title>
 <link rel="stylesheet" type="text/css"
 	href="pages/data/clixstylesv2.css">
 </head>
