@@ -34,6 +34,12 @@ public abstract class AbstractProjects
     /** Alle Blackboard-Entries zu diesem Projekt */
     private java.util.Set blackboardEntries; 
     
+    /** Alle Tasks die zu diesem Projekt gehören */
+    private java.util.Set tasks;
+    
+    /** Alle Appointments zu diesem Projekt */
+    private java.util.Set appointments;
+    
     /**
      * Simple constructor of AbstractProjects instances.
      */
@@ -41,6 +47,8 @@ public abstract class AbstractProjects
     {
     	users = new java.util.HashSet();
     	blackboardEntries = new java.util.HashSet();
+    	tasks = new java.util.HashSet();
+    	appointments = new java.util.HashSet();
     }
 
     /**
@@ -144,6 +152,35 @@ public abstract class AbstractProjects
     }
     
     /**
+	 * @return Returns the tasks.
+	 */
+	public java.util.Set getTasks() {
+		return tasks;
+	}
+	
+	/**
+	 * @param tasks The tasks to set.
+	 */
+	public void setTasks(java.util.Set tasks) {
+		this.tasks = tasks;
+	}
+    
+    /**
+	 * @return Returns the appointments.
+	 */
+	public java.util.Set getAppointments() {
+		return appointments;
+	}
+	
+	/**
+	 * @param appointments The appointments to set.
+	 */
+	public void setAppointments(java.util.Set appointments) {
+		this.appointments = appointments;
+	}
+	
+    
+    /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs
      * @return boolean
@@ -181,4 +218,5 @@ public abstract class AbstractProjects
         }
         return this.hashValue;
     }
+	
 }

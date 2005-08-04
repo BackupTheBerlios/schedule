@@ -22,6 +22,15 @@
  			<one-to-many class="Blackboard" />
  		</set>
  		
+ 		<set name="tasks" inverse="true">
+ 			<key column="idProjects" />
+ 			<one-to-many class="Tasks" />
+ 		</set>
+ 		<set name="appointments" inverse="true">
+ 			<key column="idProjects" />
+ 			<one-to-many class="Appointments" />
+ 		</set>
+ 		
         <property name="name" column="Name" type="java.lang.String" />
         <property name="description" column="Description" type="java.lang.String" />
     </class>

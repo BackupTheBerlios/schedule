@@ -18,7 +18,6 @@ import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
 import net.sf.hibernate.HibernateException;
-import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
 import com.schedule.hibernate.HibernateManager;
@@ -42,13 +41,16 @@ public class ProjectBean {
     /** List of all projects */
     private Vector projectList;    
 
+    /** List of Tasks assigned to the current Project */
+    private Vector taskList;
+    
     /** Amount of Projects assigned to the current User */
     private int projectCount;
     
     /** current Project which is chosen by ex.from Projects Overview*/
     private Projects currentProject;
    
-    /**Name of the Project*/
+    /** Name of the Project*/
     private String projectName;
     
     /** */
@@ -149,6 +151,29 @@ public class ProjectBean {
 	}
 	
 	/**
+	 * @return Returns the taskList.
+	 */
+	public List getTaskList() 
+	{	
+		Projects project = this.getCurrentProject();
+		Set tasks = project.getTasks();
+		taskList = new Vector();
+		
+		for (int i=0; i < tasks.size(); i++)
+		{
+			taskList.add(tasks.toArray()[i]);
+		}
+		return taskList;
+	}
+	
+	/**
+	 * @param taskList The taskList to set.
+	 */
+	public void setTaskList(Vector taskList) {
+		this.taskList = taskList;
+	}
+	
+	/**
 	 * Returns the amount of projects assigned to the current user
 	 * @return
 	 */
@@ -187,7 +212,6 @@ public class ProjectBean {
 		user.getProjects().add(newProject);
 		newProject.getUsers().add(user);
 		
-		
 		try {
 			//Update DB Objects
 			hbmsession.saveOrUpdate(user);
@@ -211,30 +235,25 @@ public class ProjectBean {
 	 */
 	public Projects getCurrentProject() {
 		//Get Values from Request at point "proj"
+		Projects project = null;
 		FacesContext context = FacesContext.getCurrentInstance();
 		Map requestMap = context.getExternalContext().getRequestParameterMap();
-		String aProjectsId = ((String) requestMap.get("proj"));
+		Integer aProjectsId = new Integer((String) requestMap.get("proj"));
 		
 		//Create Session
 		Session sess = HibernateManager.getSession();
-		Query q;
-		List projects = null;
 		
 		try {
-			q = sess.createQuery("from Projects where idProjects= :idProjects");
-			q.setString("idProjects", aProjectsId);
-			//Write results from Query to projects
-			projects = (List) q.list();			
+			project = (Projects) sess.load(Projects.class, aProjectsId);			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-		//get the current Project
-		Projects aProject = (Projects) projects.get(0);
 		
-		this.setCurrentProject(aProject);
+		this.setCurrentProject(project);
 		
 		return currentProject;
 	}
+	
 	/**
 	 * @param currentProject The currentProject to set.
 	 */

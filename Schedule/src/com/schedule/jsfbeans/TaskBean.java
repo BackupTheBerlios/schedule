@@ -37,16 +37,9 @@ public class TaskBean {
     /** Description of a task */
     private java.lang.String description;
 
-   
-
     /** The value of the simple solved property. */
     private java.lang.Float solved;
-
    
-
-    /** The User associated with this Task */
-    private User user;
-    
     /** List of all tasks assigned to the current user */
     private Vector tasksList;
     
@@ -70,7 +63,6 @@ public class TaskBean {
     		this.currProj = null;
     		this.description = null;
     		this.solved = null;
-    		this.user = null;
     		this.tasksList = null;
     		this.taskCount = 0;
     }
@@ -122,11 +114,15 @@ public class TaskBean {
 		newTask.setUser(user);
 		newTask.setProject(project);
 		
-		//associate project to a user 
+		//associate task to a user 
 		user.getTasks().add(newTask);
+		//associate task with project
+		project.getTasks().add(newTask);
 		try {
 			//Update DB Objects
 			hbmsession.saveOrUpdate(newTask);
+			hbmsession.saveOrUpdate(user);
+			hbmsession.saveOrUpdate(project);
 			hbmsession.flush();
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -177,16 +173,6 @@ public class TaskBean {
     	}
 		return user;
 	}
-	/**
-	 * @param user The user to set.
-	 */
-	public void setUser(User user) 
-	{
-		this.user = user;
-	}
-    
-    
-	
 	
 	/**
 	 * @return Returns the solved.
@@ -195,6 +181,7 @@ public class TaskBean {
 	{
 		return solved;
 	}
+	
 	/**
 	 * @param solved The solved to set.
 	 */
@@ -202,6 +189,7 @@ public class TaskBean {
 	{
 		this.solved = solved;
 	}
+	
 	/**
 	 * @return Returns the subject.
 	 */
@@ -209,6 +197,7 @@ public class TaskBean {
 	{
 		return subject;
 	}
+	
 	/**
 	 * @param subject The subject to set.
 	 */
@@ -216,8 +205,7 @@ public class TaskBean {
 	{
 		this.subject = subject;
 	}
-	
-	
+
 	/**
 	 * Returns a list of tasks assigned to the user
 	 * @return

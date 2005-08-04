@@ -210,11 +210,15 @@ public class AppointmentBean {
 		newAppoint.setUser(user);
 		newAppoint.setProject(project);
 		
-		//associate project to a user 
-		user.getTasks().add(newAppoint);
+		//associate appointment to a user
+		user.getAppointments().add(newAppoint);
+		//associate appointment with project
+		project.getAppointments().add(newAppoint);
 		try {
 			//Update DB Objects
 			hbmsession.saveOrUpdate(newAppoint);
+			hbmsession.saveOrUpdate(user);
+			hbmsession.saveOrUpdate(project);
 			hbmsession.flush();
 		} catch (HibernateException e) {
 			e.printStackTrace();

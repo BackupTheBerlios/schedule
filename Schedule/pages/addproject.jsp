@@ -91,8 +91,10 @@
 							</tr>
 							<tr>
 								<td>Beschreibung:</td>
-								<td><h:inputText id="projDescr"
-									value="#{ProjectBean.description}" /></td>
+								<td>
+									<h:inputTextarea id="projDescr"
+									value="#{ProjectBean.description}" rows="15" cols="50" />
+								</td>
 							</tr>
 							<tr>
 								<td><h:commandButton id="submit"
