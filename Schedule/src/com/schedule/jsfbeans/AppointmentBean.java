@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpSession;
 
 import net.sf.hibernate.HibernateException;
@@ -28,8 +29,7 @@ import com.schedule.hibernate.User;
  */
 public class AppointmentBean {
 	
-	//private List liste;
-	
+	private int pageCounter;
 	/** The value of the simple subject property. */
     private java.lang.String subject;
     
@@ -62,7 +62,7 @@ public class AppointmentBean {
     {
    /* 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     	user = (User) session.getAttribute("User");*/
-    	
+    	pageCounter = 0;
     	appointmentCount = 0;
     	this.getAppointmentsList();
    
@@ -265,5 +265,24 @@ public class AppointmentBean {
     	
 		return user;
 	}
+	public void forward(ActionEvent event){
+		this.pageCounter +=8;
+	}
+	public void backward(ActionEvent event){
+		this.pageCounter -=8;
+		if(pageCounter < 0) pageCounter = 0;
+	}
 	
+	/**
+	 * @return Returns the pageCounter.
+	 */
+	public int getPageCounter() {
+		return pageCounter;
+	}
+	/**
+	 * @param pageCounter The pageCounter to set.
+	 */
+	public void setPageCounter(int pageCounter) {
+		this.pageCounter = pageCounter;
+	}
 }

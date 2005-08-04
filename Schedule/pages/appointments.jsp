@@ -83,7 +83,8 @@
 					</tr>
 					<tr height="200">
 						<td valign="top">
-						<h:dataTable width="100%"
+						<h:dataTable width="100%" first="#{AppointmentBean.pageCounter}"
+							rows="8" 
 							rendered="#{AppointmentBean.appointmentCount > 0}"
 							value="#{AppointmentBean.appointmentsList}" var="appointments" 
 							cellpadding="2" cellspacing="0" columnClasses="tableContent" 
@@ -115,6 +116,15 @@
 								<f:convertDateTime dateStyle="short" type="date" />
 								</h:outputText>
 							</h:column>
+							<f:facet name="footer">
+								<h:panelGroup>
+									<h:commandButton value= "zurück" action="backward" 
+									actionListener="#{AppointmentBean.backward}" />
+									<h:commandButton value ="vorwärts" action="forward" 
+									actionListener="#{AppointmentBean.forward}" />
+								</h:panelGroup>
+							</f:facet>
+							
 						</h:dataTable></td>
 					</tr>
 
