@@ -40,9 +40,6 @@ public class ProjectBean {
     
     /** List of all projects */
     private Vector projectList;    
-
-    /** List of Tasks assigned to the current Project */
-    private Vector taskList;
     
     /** Amount of Projects assigned to the current User */
     private int projectCount;
@@ -155,24 +152,33 @@ public class ProjectBean {
 	 */
 	public List getTaskList() 
 	{	
-		Projects project = this.getCurrentProject();
-		Set tasks = project.getTasks();
-		taskList = new Vector();
-		
-		for (int i=0; i < tasks.size(); i++)
-		{
-			taskList.add(tasks.toArray()[i]);
+		Session hbmsession = HibernateManager.getSession();
+		Projects project = this.getCurrentProject();	
+		List taskList = null;
+		try {
+			taskList = hbmsession.createFilter(project.getTasks(), "order by this.subject").list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
 		}
 		return taskList;
 	}
 	
 	/**
-	 * @param taskList The taskList to set.
+	 * @return Returns the userList.
 	 */
-	public void setTaskList(Vector taskList) {
-		this.taskList = taskList;
+	public List getUserList()
+	{
+		Session hbmsession = HibernateManager.getSession();
+		Projects project = this.getCurrentProject();
+		List userList = null;
+		try {
+			userList = hbmsession.createFilter(project.getUsers(), "order by this.login.screenname").list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		return userList;
 	}
-	
+		
 	/**
 	 * Returns the amount of projects assigned to the current user
 	 * @return
@@ -199,14 +205,12 @@ public class ProjectBean {
     	Session hbmsession = HibernateManager.getSession();
     	
 		HibernateManager.beginTransaction();
-		
+		// create new Project
 		Projects newProject = new Projects();
 		newProject.setName(this.name);
 		newProject.setDescription(this.description);
 		
-		//Get User from Session
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Integer userId = (Integer) session.getAttribute("UserID");
+		//get User from Session
 		User user = this.getUser();
 		//associate project to a user 
 		user.getProjects().add(newProject);
@@ -230,6 +234,7 @@ public class ProjectBean {
 		HibernateManager.closeSession();
 		return "successAdd";
     }
+    
 	/**
 	 * @return Returns the currentProject.
 	 */
@@ -250,7 +255,6 @@ public class ProjectBean {
 		}
 		
 		this.setCurrentProject(project);
-		
 		return currentProject;
 	}
 	
