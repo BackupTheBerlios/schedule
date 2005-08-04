@@ -6,8 +6,6 @@
  */
 package com.schedule.jsfbeans;
 
-import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -54,41 +52,43 @@ public class LoginBean {
     {
     		Session sess = HibernateManager.getSession();
     		Query q;
-    		List logins = null;
-    		List users = null;
+    		Login login = null;
+    		User user = null;
     		
 		try {
 			q = sess.createQuery("from Login where screenname= :screenname and passwort= :password");
 			q.setString("screenname", this.screenname);
 			q.setString("password", CryptoManager.getDigest(this.getPassword(), "SHA-1"));
-			logins = (List) q.list();			
+			login = (Login) q.uniqueResult();
+			
+			// Wenn der Login erfolgreich ist dann hole das zum Login gehörenden User-Objekt
+			// schreibe anschließend Login- und User-ID in die Http Session
+		
+			if (login != null) 
+			{
+				try {
+					user = (User) sess.createQuery("from User where idLogin= :idLogin")
+					.setString("idLogin", login.getIdLogin().toString())
+					.uniqueResult();
+				} catch (HibernateException e) {
+					e.printStackTrace();
+				}
+				
+				HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+				session.setAttribute("LoginID", login.getIdLogin());
+				session.setAttribute("UserID", user.getIdUser());
+				HibernateManager.closeSession();
+				return "usersuccess";
+			} else {
+				FacesContext facesContext = FacesContext.getCurrentInstance(); 
+	    		FacesMessage facesMessage = new FacesMessage("Unkorrekte Logindaten!");
+	    		facesContext.addMessage("loginForm", facesMessage);        
+	    		return "failure";
+			}
+				
 		} catch (HibernateException e) {
-			e.printStackTrace();
-			return "failure";
-		}
-		
-		
-		try {
-			q = sess.createQuery("from User where idLogin= :idLogin");
-			q.setString("idLogin", ( (Login) logins.get(0) ).getIdLogin().toString());
-			users = (List) q.list();
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		}
-		
-		Login login = (Login) logins.get(0);
-		User user = (User) users.get(0);
-		
-		if(logins.size()==1)
-		{
-			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-			session.setAttribute("LoginID", login.getIdLogin());
-			session.setAttribute("UserID", user.getIdUser());
-			HibernateManager.closeSession();
-			return "usersuccess";
-		} else {
-    		FacesContext facesContext = FacesContext.getCurrentInstance(); 
-    		FacesMessage facesMessage = new FacesMessage("Unkorrekte Logindaten!");
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+    		FacesMessage facesMessage = new FacesMessage("Fehler beim Loginvorgang!");
     		facesContext.addMessage("loginForm", facesMessage);        
     		return "failure";
 		}
