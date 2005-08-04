@@ -97,6 +97,12 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">
+									<h:outputText value="#{bundle.str_description}" />
+								</f:facet>
+								<h:outputText value="#{appointments.description}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
 									<h:outputText value="#{bundle.str_projectname}" />
 								</f:facet>
 								<h:outputText value="#{appointments.project.name}" />
