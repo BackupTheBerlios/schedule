@@ -6,16 +6,19 @@
  */
 package com.schedule.jsfbeans;
 
-import java.util.*;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.context.*;
-import javax.servlet.http.*;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Session;
 
-import com.schedule.hibernate.*;
+import com.schedule.hibernate.Appointments;
+import com.schedule.hibernate.HibernateManager;
+import com.schedule.hibernate.Projects;
+import com.schedule.hibernate.User;
 
 /**
  * @author reinhard
@@ -24,6 +27,8 @@ import com.schedule.hibernate.*;
  * Window - Preferences - Java - Code Style - Code Templates
  */
 public class AppointmentBean {
+	
+	//private List liste;
 	
 	/** The value of the simple subject property. */
     private java.lang.String subject;
@@ -44,7 +49,7 @@ public class AppointmentBean {
     private User user;
 
     /** List of all Appointments assigned to the current User */
-    private Vector appointmentsList;
+    private List appointmentsList;
     
     /** Number of appointments assigned to the current User */
     private int appointmentCount;
@@ -131,28 +136,24 @@ public class AppointmentBean {
 	 * Returns a list of all appointments assigned to the current user
 	 * @return
 	 */
-	public Vector getAppointmentsList()
+	
+	public List getAppointmentsList()
 	{
+		
+		
 		User user = this.getUser();
-		Set appointments = user.getAppointments();
-		appointmentsList = new Vector();
-		
-		for(int i=0; i<appointments.size(); i++)
-		{
-			appointmentsList.add(appointments.toArray()[i]);
-		}
-		
-		appointmentCount = appointmentsList.size();
-		
-		return appointmentsList;
+		this.appointmentCount = this.appointmentsList.size();
+		return this.appointmentsList;
+		//return appointmentsList;
 		
 	}
-	
+
 	/**
 	 * Sets the list of appointments for the current user
 	 * @param aAppointmentsList
 	 */
-	public void setAppointmentsList(Vector aAppointmentsList)
+	
+	public void setAppointmentsList(List aAppointmentsList)
 	{
 		appointmentsList = aAppointmentsList;
 	}
@@ -239,8 +240,13 @@ public class AppointmentBean {
 	 */
 	public User getUser() 
 	{
+		
+		//sortedUsers = s.createFilter( group.getUsers(), "order by this.name" ).list();
 		User user = null;
 		Session hbmsession = HibernateManager.getSession();
+		
+		
+		
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     		Integer userId = (Integer) session.getAttribute("UserID");
     	try {
@@ -248,6 +254,15 @@ public class AppointmentBean {
     	} catch (HibernateException e) {
     		e.printStackTrace();
     	}
+    	try {
+			this.appointmentsList = hbmsession.createFilter(user.getAppointments(), "order by this.date").list();
+			
+		} catch (HibernateException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	
+    	
 		return user;
 	}
 	
