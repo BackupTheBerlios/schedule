@@ -16,7 +16,23 @@
 								</f:facet>
 								<h:outputText value="#{task.subject}" />
 							</h:column>
-						</h:dataTable>					</div>										<div id="projappoint">						<table width="100%" border="0" cellspacing="0">							<tr bgcolor="#A8B6C6">								<td><h:outputText value="#{bundle.str_appointments}" /></td>							</tr>							<tr bgcolor="#A8B6C6" height="7">								<td height="7" background="pages/data/naviseparator.gif"></td>							</tr>						</table>					</div>										<div id="projboard">						<table width="100%" border="0" cellspacing="0">							<tr bgcolor="#A8B6C6">								<td><h:outputText value="#{bundle.str_blackboard}" /></td>							</tr>							<tr bgcolor="#A8B6C6" height="7">								<td height="7" background="pages/data/naviseparator.gif"></td>							</tr>						</table>					</div>										<div id="projusers">						<table width="100%" border="0" cellspacing="0">							<tr bgcolor="#A8B6C6">								<td><h:outputText value="#{bundle.str_projectmembers}" /></td>							</tr>							<tr bgcolor="#A8B6C6" height="7">								<td height="7" background="pages/data/naviseparator.gif"></td>							</tr>						</table>
+						</h:dataTable>					</div>										<div id="projappoint">						<table width="100%" border="0" cellspacing="0">							<tr bgcolor="#A8B6C6">								<td><h:outputText value="#{bundle.str_appointments}" /></td>							</tr>							<tr bgcolor="#A8B6C6" height="7">								<td height="7" background="pages/data/naviseparator.gif"></td>							</tr>						</table>
+						<h:dataTable value="#{ProjectBean.appointmentList}" var="appointment">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_subject}" />
+								</f:facet>
+								<h:outputText value="#{appointment.subject}" />
+							</h:column>
+						</h:dataTable>					</div>										<div id="projboard">						<table width="100%" border="0" cellspacing="0">							<tr bgcolor="#A8B6C6">								<td><h:outputText value="#{bundle.str_blackboard}" /></td>							</tr>							<tr bgcolor="#A8B6C6" height="7">								<td height="7" background="pages/data/naviseparator.gif"></td>							</tr>						</table>
+						<h:dataTable value="#{ProjectBean.blackboardEntryList}" var="bbEntry">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle.str_subject}" />
+								</f:facet>
+								<h:outputText value="#{bbEntry.subject}" />
+							</h:column>
+						</h:dataTable>					</div>										<div id="projusers">						<table width="100%" border="0" cellspacing="0">							<tr bgcolor="#A8B6C6">								<td><h:outputText value="#{bundle.str_projectmembers}" /></td>							</tr>							<tr bgcolor="#A8B6C6" height="7">								<td height="7" background="pages/data/naviseparator.gif"></td>							</tr>						</table>
 						<h:dataTable value="#{ProjectBean.userList}" var="user">
 							<h:column>
 								<f:facet name="header">

@@ -44,6 +44,12 @@ public class ProjectBean {
     /** List of all tasks assigned to the current Project */
     private List taskList;
     
+    /** List of all appoinments assigned to the current Project */ 
+    private List appointmentList;
+    
+    /** List of all Entries on the Blackboard assigned to the current Project */
+    private List blackboardEntryList;
+    
     /** List of all users assigned to the current Project */
     private List userList;
     
@@ -183,6 +189,63 @@ public class ProjectBean {
 	public void setTaskList(List aTaskList)
 	{
 		taskList = aTaskList;
+	}
+	
+	/**
+	 * @return Returns the appointmentList.
+	 */
+	public List getAppointmentList() 
+	{	
+		if (isHasProject())
+		{
+			Session hbmsession = HibernateManager.getSession();
+			Projects project = this.getCurrentProject();	
+			try {
+				appointmentList = hbmsession.createFilter(project.getAppointments(), "order by this.subject").list();
+			} catch (HibernateException e) {
+				e.printStackTrace();
+			}
+			return appointmentList;
+		} else {
+			return appointmentList;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param aAppointmentList
+	 */
+	public void setAppointmentList(List aAppointmentList)
+	{
+		taskList = aAppointmentList;
+	}
+	
+	/**
+	 * @return Returns the blackboardEntryList.
+	 */
+	public List getBlackboardEntryList() 
+	{
+		if (isHasProject())
+		{
+			Session hbmsession = HibernateManager.getSession();
+			Projects project = this.getCurrentProject();	
+			try {
+				blackboardEntryList = hbmsession.createFilter(project.getBlackboardEntries(), "order by this.subject").list();
+			} catch (HibernateException e) {
+				e.printStackTrace();
+			}
+			return blackboardEntryList;
+		} else {
+			return blackboardEntryList;
+		}
+		
+	}
+	
+	/**
+	 * @param blackboardEntryList The blackboardEntryList to set.
+	 */
+	public void setBlackboardEntryList(List blackboardEntryList) {
+		this.blackboardEntryList = blackboardEntryList;
 	}
 	
 	/**

@@ -29,7 +29,9 @@ import com.schedule.hibernate.User;
  */
 public class AppointmentBean {
 	
+	/** */
 	private int pageCounter;
+	
 	/** The value of the simple subject property. */
     private java.lang.String subject;
     
@@ -139,12 +141,18 @@ public class AppointmentBean {
 	
 	public List getAppointmentsList()
 	{
-		
-		
+		Session hbmsession = HibernateManager.getSession();
 		User user = this.getUser();
+		try {
+			this.appointmentsList = hbmsession.createFilter(user.getAppointments(), "order by this.date").list();
+			
+		} catch (HibernateException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		this.appointmentCount = this.appointmentsList.size();
 		return this.appointmentsList;
-		//return appointmentsList;
 		
 	}
 
@@ -241,33 +249,24 @@ public class AppointmentBean {
 	public User getUser() 
 	{
 		
-		//sortedUsers = s.createFilter( group.getUsers(), "order by this.name" ).list();
 		User user = null;
 		Session hbmsession = HibernateManager.getSession();
 		
-		
-		
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    		Integer userId = (Integer) session.getAttribute("UserID");
+    	Integer userId = (Integer) session.getAttribute("UserID");
     	try {
     		user = (User) hbmsession.load(User.class, userId);
     	} catch (HibernateException e) {
     		e.printStackTrace();
     	}
-    	try {
-			this.appointmentsList = hbmsession.createFilter(user.getAppointments(), "order by this.date").list();
-			
-		} catch (HibernateException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-    	
     	
 		return user;
 	}
+	
 	public void forward(ActionEvent event){
 		this.pageCounter +=8;
 	}
+	
 	public void backward(ActionEvent event){
 		this.pageCounter -=8;
 		if(pageCounter < 0) pageCounter = 0;
@@ -279,6 +278,7 @@ public class AppointmentBean {
 	public int getPageCounter() {
 		return pageCounter;
 	}
+	
 	/**
 	 * @param pageCounter The pageCounter to set.
 	 */
