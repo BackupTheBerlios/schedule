@@ -41,8 +41,17 @@ public class ProjectBean {
     /** List of all projects */
     private Vector projectList;    
     
+    /** List of all tasks assigned to the current Project */
+    private List taskList;
+    
+    /** List of all users assigned to the current Project */
+    private List userList;
+    
     /** Amount of Projects assigned to the current User */
     private int projectCount;
+    
+    /** Defines whether a request has a project ID or not */
+    private boolean hasProject;
     
     /** current Project which is chosen by ex.from Projects Overview*/
     private Projects currentProject;
@@ -152,15 +161,28 @@ public class ProjectBean {
 	 */
 	public List getTaskList() 
 	{	
-		Session hbmsession = HibernateManager.getSession();
-		Projects project = this.getCurrentProject();	
-		List taskList = null;
-		try {
-			taskList = hbmsession.createFilter(project.getTasks(), "order by this.subject").list();
-		} catch (HibernateException e) {
-			e.printStackTrace();
+		if (isHasProject())
+		{
+			Session hbmsession = HibernateManager.getSession();
+			Projects project = this.getCurrentProject();	
+			try {
+				taskList = hbmsession.createFilter(project.getTasks(), "order by this.subject").list();
+			} catch (HibernateException e) {
+				e.printStackTrace();
+			}
+			return taskList;
+		} else {
+			return taskList;
 		}
-		return taskList;
+	}
+	
+	/**
+	 * 
+	 * @param aTaskList
+	 */
+	public void setTaskList(List aTaskList)
+	{
+		taskList = aTaskList;
 	}
 	
 	/**
@@ -168,15 +190,19 @@ public class ProjectBean {
 	 */
 	public List getUserList()
 	{
-		Session hbmsession = HibernateManager.getSession();
-		Projects project = this.getCurrentProject();
-		List userList = null;
-		try {
-			userList = hbmsession.createFilter(project.getUsers(), "order by this.login.screenname").list();
-		} catch (HibernateException e) {
-			e.printStackTrace();
+		if (isHasProject())
+		{
+			Session hbmsession = HibernateManager.getSession();
+			Projects project = this.getCurrentProject();
+			try {
+				userList = hbmsession.createFilter(project.getUsers(), "order by this.login.screenname").list();
+			} catch (HibernateException e) {
+				e.printStackTrace();
+			}
+			return userList;
+		} else {
+			return userList;
 		}
-		return userList;
 	}
 		
 	/**
@@ -234,6 +260,29 @@ public class ProjectBean {
 		HibernateManager.closeSession();
 		return "successAdd";
     }
+    
+    /**
+	 * @return Returns the hasProject.
+	 */
+	public boolean isHasProject() 
+	{
+		FacesContext context = FacesContext.getCurrentInstance();
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		if(requestMap.get("proj") != null)
+		{
+			hasProject = true;
+		} else {
+			hasProject = false;
+		}
+		return hasProject;
+	}
+	
+	/**
+	 * @param hasProject The hasProject to set.
+	 */
+	public void setHasProject(boolean hasProject) {
+		this.hasProject = hasProject;
+	}
     
 	/**
 	 * @return Returns the currentProject.
