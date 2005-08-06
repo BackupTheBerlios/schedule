@@ -28,8 +28,14 @@ public abstract class AbstractProjects
     /** The value of the simple description property. */
     private java.lang.String description;
 
+    /** Id of User who created this project */
+    private java.lang.Integer adminId;
+    
     /** Die aktuellen User, die dieses Projekt bearbeiten */
     private java.util.Set users;
+    
+    /** Eine Liste alle User-Gruppen dieses Projektes */
+    private java.util.Set groups;
     
     /** Alle Blackboard-Entries zu diesem Projekt */
     private java.util.Set blackboardEntries; 
@@ -46,6 +52,7 @@ public abstract class AbstractProjects
     public AbstractProjects()
     {
     	users = new java.util.HashSet();
+    	groups = new java.util.HashSet();
     	blackboardEntries = new java.util.HashSet();
     	tasks = new java.util.HashSet();
     	appointments = new java.util.HashSet();
@@ -116,6 +123,20 @@ public abstract class AbstractProjects
     }
 
     /**
+	 * @return Returns the adminId.
+	 */
+	public java.lang.Integer getAdminId() {
+		return adminId;
+	}
+	
+	/**
+	 * @param adminId The adminId to set.
+	 */
+	public void setAdminId(java.lang.Integer adminId) {
+		this.adminId = adminId;
+	}
+    
+    /**
      * liefert die User zurück, die dieses Projekt bearbeiten
      * @return java.util.Set users
      */
@@ -133,6 +154,22 @@ public abstract class AbstractProjects
     	this.users = users;
     }
     
+	/**
+	 * liefert alle User-Gruppen zurück, die zu diesem Projekt gehören
+	 * @return Returns the groups.
+	 */
+	public java.util.Set getGroups() {
+		return groups;
+	}
+	
+	/**
+	 * setzt die User-Gruppen für dieses Projekt
+	 * @param groups The groups to set.
+	 */
+	public void setGroups(java.util.Set groups) {
+		this.groups = groups;
+	}
+	
     /**
      * liefert die User zurück, die dieses Projekt bearbeiten
      * @return java.util.Set users

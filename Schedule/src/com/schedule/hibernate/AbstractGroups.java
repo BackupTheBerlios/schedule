@@ -33,7 +33,7 @@ public abstract class AbstractGroups
     private java.util.Set user;
     
     /** Das Projekt zu dem diese Gruppe gehört */
-    private Projects project;
+    private java.util.Set projects;
     
     /**
      * Simple constructor of AbstractGroups instances.
@@ -41,6 +41,7 @@ public abstract class AbstractGroups
     public AbstractGroups()
     {
     	user = new java.util.HashSet();
+    	projects = new java.util.HashSet();
     }
 
     /**
@@ -129,18 +130,18 @@ public abstract class AbstractGroups
      * liefert das Projekt zurück, zu dem diese Gruppe gehört
      * @return Projects project
      */
-    public Projects getProject()
+    public java.util.Set getProjects()
     {
-    	return project;
+    	return projects;
     }
     
     /**
      * setzt das Projekt, zu dem diese Gruppe gehört
      * @param project
      */
-    public void setProject(Projects project)
+    public void setProjects(java.util.Set aProjects)
     {
-    	this.project = project;
+    	this.projects = aProjects;
     }
     
     /**

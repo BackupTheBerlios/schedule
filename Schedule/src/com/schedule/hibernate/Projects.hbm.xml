@@ -17,6 +17,10 @@
  			<key column="idProjects" />
  			<many-to-many column="idUser" class="User" />	
  		</set>
+ 		<set name="groups" table="ProjectsGroups" inverse="true">
+ 			<key column="idProjects" />
+ 			<many-to-many column="idGroups" class="Groups" />
+ 		</set>
  		<set name="blackboardEntries" inverse="true">
  			<key column="idProjects" />
  			<one-to-many class="Blackboard" />
@@ -33,6 +37,7 @@
  		
         <property name="name" column="Name" type="java.lang.String" />
         <property name="description" column="Description" type="java.lang.String" />
+        <property name="adminId" column="AdminId" type="java.lang.Integer" />
     </class>
     
 </hibernate-mapping>

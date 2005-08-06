@@ -17,7 +17,10 @@
         	<many-to-many column="idUser" class="User" />
         </set>
  
- 		<many-to-one name="project" column="idProjects" class="Projects" not-null="true" />
+ 		<set name="projects" table="ProjectsGroups">
+        	<key column="idGroups" />
+        	<many-to-many column="idProjects" class="Projects" />
+        </set>
  
         <property name="name" column="Name" type="java.lang.String" />
         <property name="description" column="Description" type="java.lang.String" />

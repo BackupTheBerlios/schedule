@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Session;
 
+import com.schedule.hibernate.Groups;
 import com.schedule.hibernate.HibernateManager;
 import com.schedule.hibernate.Projects;
 import com.schedule.hibernate.User;
@@ -118,12 +119,14 @@ public class ProjectBean {
 	public java.lang.String getDescription() {
 		return description;
 	}
+	
 	/**
 	 * @param description The description to set.
 	 */
 	public void setDescription(java.lang.String description) {
 		this.description = description;
 	}
+	
 	/**
 	 * @return Returns the name.
 	 */
@@ -292,23 +295,34 @@ public class ProjectBean {
     public String addProject()
     {
     	Session hbmsession = HibernateManager.getSession();
-    	
+//    	get User from Session
+		User user = this.getUser();
+		
 		HibernateManager.beginTransaction();
 		// create new Project
 		Projects newProject = new Projects();
 		newProject.setName(this.name);
 		newProject.setDescription(this.description);
+		newProject.setAdminId(user.getIdUser());
 		
-		//get User from Session
-		User user = this.getUser();
-		//associate project to a user 
+		//create new "default UserGroup" for new Project
+		Groups defaultGroup = new Groups();
+		defaultGroup.setName("default");
+		defaultGroup.setDescription("Das ist die default Usergroup. Alle User des Projekts finden sie hier.");
+		defaultGroup.getProjects().add(newProject);
+		defaultGroup.getUser().add(user);
+		
+		//associate project to a user
+		user.getGroups().add(defaultGroup);
 		user.getProjects().add(newProject);
 		newProject.getUsers().add(user);
+		newProject.getGroups().add(defaultGroup);
 		
 		try {
 			//Update DB Objects
 			hbmsession.saveOrUpdate(user);
 			hbmsession.saveOrUpdate(newProject);
+			hbmsession.saveOrUpdate(defaultGroup);
 			hbmsession.flush();
 		} catch (HibernateException e) {
 			e.printStackTrace();
