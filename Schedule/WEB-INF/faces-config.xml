@@ -42,6 +42,15 @@
     </navigation-rule>
     
     <navigation-rule>
+        <from-view-id>/pages/showproject.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/pages/main_new.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
         <from-view-id>/pages/*</from-view-id>
         <navigation-case>
         		<from-outcome>showappointmentspage</from-outcome>
@@ -103,7 +112,7 @@
         	<to-view-id>/pages/main_new.jsp</to-view-id>
         </navigation-case>
          <navigation-case>
-            <from-outcome>calendar</from-outcome>
+            <from-outcome>calendarpage</from-outcome>
             <to-view-id>/pages/calendar.jsp</to-view-id>
         </navigation-case>
         
@@ -136,12 +145,9 @@
     			<to-view-id>/pages/addproject.jsp</to-view-id>
     		</navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <navigation-case>
-            <from-outcome>showprojectpage</from-outcome>
-            <to-view-id>/pages/showproject.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+	
+	
+
     <navigation-rule>
         <from-view-id>/pages/addproject.jsp</from-view-id>
         <navigation-case>
@@ -237,6 +243,15 @@
         <managed-bean-class>com.schedule.jsfbeans.BlackboardBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    
+    <managed-bean>
+        <description>Bean which represents a calendar.</description>
+        <managed-bean-name>CalendarBean</managed-bean-name>
+        <managed-bean-class>com.schedule.jsfbeans.CalendarBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+
 
 </faces-config>
 
