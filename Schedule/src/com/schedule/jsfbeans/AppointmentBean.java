@@ -1,8 +1,6 @@
 /*
  * Created on 24.06.2005
  *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 package com.schedule.jsfbeans;
 
@@ -22,10 +20,8 @@ import com.schedule.hibernate.Projects;
 import com.schedule.hibernate.User;
 
 /**
- * @author reinhard
+ * @author Kevin Klein
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 public class AppointmentBean {
 	
@@ -62,12 +58,9 @@ public class AppointmentBean {
      */
     public AppointmentBean()
     {
-   /* 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    	user = (User) session.getAttribute("User");*/
     	pageCounter = 0;
     	appointmentCount = 0;
     	this.getAppointmentsList();
-   
     }
     
     /**
@@ -147,7 +140,6 @@ public class AppointmentBean {
 			this.appointmentsList = hbmsession.createFilter(user.getAppointments(), "order by this.date").list();
 			
 		} catch (HibernateException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		

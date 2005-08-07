@@ -1,8 +1,5 @@
 /*
- * Created on 24.06.2005
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * 
  */
 package com.schedule.jsfbeans;
 
@@ -10,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Vector;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -26,10 +22,8 @@ import com.schedule.hibernate.Projects;
 import com.schedule.hibernate.User;
 
 /**
- * @author reinhard
+ * @author Christian Sukale
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 public class ProjectBean {
 	
@@ -40,7 +34,7 @@ public class ProjectBean {
     private java.lang.String description;
     
     /** List of all projects */
-    private Vector projectList;    
+    private List projectList;    
     
     /** List of all tasks assigned to the current Project */
     private List taskList;
@@ -53,6 +47,9 @@ public class ProjectBean {
     
     /** List of all users assigned to the current Project */
     private List userList;
+    
+    /** List of all user groups which are to be found in this project */
+    private List groupsList;
     
     /** Amount of Projects assigned to the current User */
     private int projectCount;
@@ -143,14 +140,14 @@ public class ProjectBean {
 	/**
 	 * @return Returns the projectList.
 	 */
-	public List getProjectList() {
+	public List getProjectList() 
+	{
+		Session hbmsession = HibernateManager.getSession();
 		User user = this.getUser();
-		Set projects = user.getProjects();
-		projectList = new Vector();
-		
-		for(int i=0; i<projects.size(); i++)
-		{
-			this.projectList.add(projects.toArray()[i]);
+		try {
+			projectList = hbmsession.createFilter(user.getProjects(), "order by this.name").list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
 		}
 		
 		projectCount = projectList.size(); 
@@ -161,7 +158,7 @@ public class ProjectBean {
 	/**
 	 * @param projectList The projectList to set.
 	 */
-	public void setProjectList(Vector projectList) {
+	public void setProjectList(List projectList) {
 		this.projectList = projectList;
 	}
 	
@@ -270,7 +267,35 @@ public class ProjectBean {
 			return userList;
 		}
 	}
+	
+	/**
+	 * @return Returns the blackboardEntryList.
+	 */
+	public List getGroupsList() 
+	{
+		if (isHasProject())
+		{
+			Session hbmsession = HibernateManager.getSession();
+			Projects project = this.getCurrentProject();	
+			try {
+				groupsList = hbmsession.createFilter(project.getGroups(), "order by this.name").list();
+			} catch (HibernateException e) {
+				e.printStackTrace();
+			}
+			return groupsList;
+		} else {
+			return groupsList;
+		}
 		
+	}
+	
+	/**
+	 * @param blackboardEntryList The blackboardEntryList to set.
+	 */
+	public void setGroupsList(List groupsList) {
+		this.groupsList = groupsList;
+	}
+	
 	/**
 	 * Returns the amount of projects assigned to the current user
 	 * @return
@@ -295,7 +320,7 @@ public class ProjectBean {
     public String addProject()
     {
     	Session hbmsession = HibernateManager.getSession();
-//    	get User from Session
+    	// get User from Session
 		User user = this.getUser();
 		
 		HibernateManager.beginTransaction();
@@ -364,9 +389,9 @@ public class ProjectBean {
 	/**
 	 * @return Returns the currentProject.
 	 */
-	public Projects getCurrentProject() {
+	public Projects getCurrentProject() 
+	{
 		//Get Values from Request at point "proj"
-		Projects project = null;
 		FacesContext context = FacesContext.getCurrentInstance();
 		Map requestMap = context.getExternalContext().getRequestParameterMap();
 		Integer aProjectsId = new Integer((String) requestMap.get("proj"));
@@ -375,19 +400,19 @@ public class ProjectBean {
 		Session sess = HibernateManager.getSession();
 		
 		try {
-			project = (Projects) sess.load(Projects.class, aProjectsId);			
+			currentProject = (Projects) sess.load(Projects.class, aProjectsId);			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
 		
-		this.setCurrentProject(project);
 		return currentProject;
 	}
 	
 	/**
 	 * @param currentProject The currentProject to set.
 	 */
-	public void setCurrentProject(Projects acurrentProject) {
+	public void setCurrentProject(Projects acurrentProject) 
+	{
 		this.currentProject = acurrentProject;
 	}
 	

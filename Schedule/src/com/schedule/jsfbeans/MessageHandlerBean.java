@@ -16,11 +16,9 @@ import net.sf.hibernate.Session;
 
 import com.schedule.hibernate.*;
 
-
-
 /**
  * 
- * @author reinhard
+ * @author Christian Sukale
  *
  */
 public class MessageHandlerBean {

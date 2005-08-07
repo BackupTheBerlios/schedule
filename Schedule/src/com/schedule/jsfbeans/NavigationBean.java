@@ -5,7 +5,7 @@
 package com.schedule.jsfbeans;
 
 /**
- * @author reinhard
+ * @author Kevin Klein
  *
  */
 public class NavigationBean {
