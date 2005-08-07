@@ -171,7 +171,7 @@
     		<description>This bean is used for the registration process</description>
     		<managed-bean-name>RegisterBean</managed-bean-name>
     		<managed-bean-class>com.schedule.jsfbeans.RegisterBean</managed-bean-class>
-    		<managed-bean-scope>session</managed-bean-scope>
+    		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 
     <managed-bean>

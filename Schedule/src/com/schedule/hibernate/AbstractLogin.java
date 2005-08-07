@@ -29,7 +29,10 @@ public abstract class AbstractLogin
     private java.lang.String passwort;
 
     /** The value of the simple active property. */
-    private java.lang.Byte active;
+    private java.lang.Boolean active;
+    
+    /** The user associated with this Login */
+    private User user;
     
     /**
      * Simple constructor of AbstractLogin instances.
@@ -106,7 +109,7 @@ public abstract class AbstractLogin
      * Return the value of the Active column.
      * @return java.lang.Byte
      */
-    public java.lang.Byte getActive()
+    public java.lang.Boolean getActive()
     {
         return this.active;
     }
@@ -115,11 +118,27 @@ public abstract class AbstractLogin
      * Set the value of the Active column.
      * @param active
      */
-    public void setActive(java.lang.Byte active)
+    public void setActive(java.lang.Boolean active)
     {
         this.active = active;
     }
     
+	/**
+	 * Returns the user associated with this login
+	 * @return Returns the user.
+	 */
+	public User getUser() {
+		return user;
+	}
+	
+	/**
+	 * Sets the user for this login
+	 * @param user The user to set.
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
     /**
      * Implementation of the equals comparison on the basis of equality of the primary key values.
      * @param rhs

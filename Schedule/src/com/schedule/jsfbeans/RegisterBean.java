@@ -93,7 +93,7 @@ public class RegisterBean {
 		Login hbmlogin = new Login();
 		hbmlogin.setPasswort(CryptoManager.getDigest(this.password, "SHA-1"));
 		hbmlogin.setScreenname(this.screenname);
-		hbmlogin.setActive(new Byte("1"));
+		hbmlogin.setActive(new Boolean("true"));
 		
 		User hbmuser = new User();
 		hbmuser.setFirstname(this.firstname);
@@ -104,13 +104,15 @@ public class RegisterBean {
 		hbmuser.setCity(this.city);
 		hbmuser.setStreet(this.street);
 		hbmuser.setZip(this.zip);
+		//assign login and role to user
 		hbmuser.setLogin(hbmlogin);
 		hbmuser.setRole(hbmrole);
+		//assign user to login
+		hbmlogin.setUser(hbmuser);
 		
-	
 		try {
 			hbmsession.saveOrUpdate(hbmlogin);
-			hbmsession.saveOrUpdate(hbmuser);	
+			hbmsession.saveOrUpdate(hbmuser);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			

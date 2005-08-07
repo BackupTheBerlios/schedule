@@ -62,13 +62,8 @@ public class LoginBean {
 		
 			if (login != null) 
 			{
-				try {
-					user = (User) sess.createQuery("from User where idLogin= :idLogin")
-					.setString("idLogin", login.getIdLogin().toString())
-					.uniqueResult();
-				} catch (HibernateException e) {
-					e.printStackTrace();
-				}
+				//User zu diesem Login laden
+				user = login.getUser();
 				
 				HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 				session.setAttribute("LoginID", login.getIdLogin());
