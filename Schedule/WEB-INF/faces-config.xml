@@ -156,6 +156,14 @@
         </navigation-case>
     </navigation-rule>
     
+     <navigation-rule>
+        <from-view-id>/pages/upload.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/pages/uploadResult.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
     <managed-bean>
     		<description>This bean is used for the navigation</description>
     		<managed-bean-name>NavigationBean</managed-bean-name>
@@ -249,6 +257,12 @@
         <managed-bean-name>CalendarBean</managed-bean-name>
         <managed-bean-class>com.schedule.jsfbeans.CalendarBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>UploadBean</managed-bean-name>
+        <managed-bean-class>com.schedule.jsfbeans.UploadBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
 
