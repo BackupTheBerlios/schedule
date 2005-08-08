@@ -37,7 +37,7 @@
     		<from-view-id>*</from-view-id>
     		<navigation-case>
     			<from-outcome>logoutsuccess</from-outcome>
-    			<to-view-id>/pages/logout.jsp</to-view-id>
+    			<to-view-id>/pages/index.jsp</to-view-id>
     		</navigation-case>
     </navigation-rule>
     
@@ -122,7 +122,7 @@
         </navigation-case>
         <navigation-case>
         		<from-outcome>logoutpage</from-outcome>
-        		<to-view-id>/pages/logout.jsp</to-view-id>
+        		<to-view-id>/pages/index.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
         		<from-outcome>registerpage</from-outcome>
