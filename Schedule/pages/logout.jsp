@@ -27,9 +27,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<f:view>
 		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
-		<h:form id="logoutForm">
-            <!-- TODO: Internationalization! -->
-            <h:commandButton value="Abmelden" action="#{LoginBean.logoutUser}"></h:commandButton>
+		<h:form id="logoutForm">        
+        	<h:messages />
+        	<h:commandLink action="startpage" value="Zur Startseite" />
         </h:form>
 	</f:view>
 </body>

@@ -92,9 +92,17 @@ public class LoginBean {
      */
     public String logoutUser()
     {
-    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-		session.invalidate();
-		
+    	try {
+    		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+    		session.invalidate();
+    		FacesContext context = FacesContext.getCurrentInstance();
+    		FacesMessage succMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Logoutvorgang erfolgreich!", "Logoutvorgang erfolgreich");
+    		context.addMessage(null, succMsg);
+    	} catch (IllegalStateException e) {
+    		FacesContext context = FacesContext.getCurrentInstance();
+    		FacesMessage succMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Logoutvorgang fehlgeschlagen!", "Logoutvorgang fehlgeschlagen");
+    		context.addMessage(null, succMsg);
+    	}
     	return "logoutsuccess";
     }
 

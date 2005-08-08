@@ -62,7 +62,7 @@
 								<!-- TODO: Show users real name, not screenname, maybe...-->
 								<td width="190" align="right"><h:outputText
 									value="#{LoginBean.screenname}" /> <h:commandLink
-									action="#{NavigationBean.gotoPage}"
+									action="#{LoginBean.logoutUser}"
 									value="#{bundle.str_logout}">
 									<f:param name="link" value="logout" />
 								</h:commandLink></td>
