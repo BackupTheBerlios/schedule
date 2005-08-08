@@ -40,10 +40,7 @@
 			<tr bgcolor="#8393A3" height="65">
 				<td height="65">
 				<div align="center">&nbsp;(c)2005<br>
-				</f:verbatim> <h:commandLink action="#{NavigationBean.gotoPage}"
-					value="#{bundle.str_team}">
-					<f:param name="link" value="team" />
-				</h:commandLink> <f:verbatim></div>
+				</div>
 				</td>
 			</tr>
 			<tr bgcolor="#103052" height="35">

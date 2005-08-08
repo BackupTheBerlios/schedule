@@ -117,7 +117,7 @@
 								</h:outputText>
 							</h:column>
 							<f:facet name="footer">
-								<h:panelGroup>
+								<h:panelGroup rendered="#{AppointmentBean.appointmentCount > 8}">
 									<h:commandButton value= "zurück" action="backward" 
 									actionListener="#{AppointmentBean.backward}" />
 									<h:commandButton value ="vorwärts" action="forward" 
