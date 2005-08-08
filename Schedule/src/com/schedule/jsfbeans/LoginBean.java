@@ -65,7 +65,7 @@ public class LoginBean {
 				//User zu diesem Login laden
 				user = login.getUser();
 				
-				HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+				HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 				session.setAttribute("LoginID", login.getIdLogin());
 				session.setAttribute("UserID", user.getIdUser());
 				HibernateManager.closeSession();
@@ -93,7 +93,7 @@ public class LoginBean {
     public String logoutUser()
     {
     	try {
-    		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+    		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     		session.invalidate();
     		FacesContext context = FacesContext.getCurrentInstance();
     		FacesMessage succMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Logoutvorgang erfolgreich!", "Logoutvorgang erfolgreich");
