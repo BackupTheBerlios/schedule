@@ -164,6 +164,14 @@
         </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+        <from-view-id>/pages/newmessage.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/main_new.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
     <managed-bean>
     		<description>This bean is used for the navigation</description>
     		<managed-bean-name>NavigationBean</managed-bean-name>

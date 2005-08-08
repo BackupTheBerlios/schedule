@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<f:view>
 		<f:loadBundle basename="com.schedule.Internationalization" var="bundle"/>
-		<h:form>
+		<h:form enctype="multipart/form-data">
 		<table border="0" cellspacing="0" cellpadding="0">
 			
 			<f:subview id="header">
@@ -104,16 +104,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<tr>
 									<td colspan="2">
         								
-        								<h:form id="MyForm" enctype="multipart/form-data" >
+        								<h:form id="MyForm" enctype="multipart/form-data" rendered="#{MessageBean.isSet == 0}">
       								 	<h:outputLabel for="myFileId" value="File: "/>
        									 <x:inputFileUpload id="myFileId"
-         								   value="#{UploadBean.myFile}"
+         								   value="#{MessageBean.myFile}"
          								   storage="file"
          								   required="true"/>
-       									 <h:commandButton value="Submit"
-           									 action="#{UploadBean.processMyFile}"/>
+       									 <h:commandButton
+           									 action="#{MessageBean.processMyFile}" value="Upload"/>
 									</h:form>
-        								
+									<h:panelGrid columns="2" border="0" cellspacing="5" rendered="#{MessageBean.isSet == 1}">
+
+        								<h:outputText value="FileName:"/>
+        <h:outputText value="#{MessageBean.myFile.name}" />
+
+        <h:outputText value="FileSize:"/>
+        <h:outputText value="#{MessageBean.myFile.size}" />
+
+    </h:panelGrid>
         								</td>
         
 								</tr>

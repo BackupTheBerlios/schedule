@@ -129,6 +129,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<h:inputTextarea value="#{MessageBean.currentMessage.body}" cols="80" rows="15" readonly="true" /> 		
 								</td>
 							</tr>
+							<tr>
+							<td>
+								
+								<h:outputLink value="#{MessageBean.currentMessage.attachment}"><h:outputText value="#{MessageBean.currentMessage.attachment}" /></h:outputLink>
+								
+							</td>
+							</tr>
 						</table>
 						</td>
 					</tr>

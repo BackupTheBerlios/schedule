@@ -4,11 +4,18 @@
  */
 package com.schedule.jsfbeans;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.security.MessageDigest;
 import java.util.*;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
+
+import org.apache.myfaces.custom.fileupload.UploadedFile;
 
 import net.sf.hibernate.HibernateException;
 import net.sf.hibernate.Query;
@@ -23,6 +30,13 @@ import com.schedule.hibernate.*;
  */
 public class MessageHandlerBean {
 
+	private UploadedFile myFile;
+    private String myParam = "MD5";
+    private String myResult;
+    private int isSet = 0;
+    
+    private String savePath;
+    
 	/** Recipient of the new message */
 	private String recipient;
 	
@@ -50,12 +64,94 @@ public class MessageHandlerBean {
 	/** The current Message included in this Request */
 	private Messages currentMessage;
 	
+	public UploadedFile getMyFile() {
+        return myFile;
+    }
+
+    public void setMyFile(UploadedFile myFile) {
+        this.myFile = myFile;
+    }
+
+    public String getMyParam() {
+        return myParam;
+    }
+
+    public void setMyParam(String myParam) {
+        this.myParam = myParam;
+    }
+
+    public String getMyResult() {
+        return myResult;
+    }
+
+    public void setMyResult(String myResult) {
+        this.myResult = myResult;
+    }
+    public String processMyFile() {
+        try {
+        		BufferedOutputStream os = null;
+        		String bla = FacesContext.getCurrentInstance().getViewRoot().getViewId();//   getViewRoot().getViewId() ;
+            MessageDigest md
+                = MessageDigest.getInstance(myParam);
+            InputStream in = new BufferedInputStream(
+                myFile.getInputStream());
+            this.savePath = this.savePath + myFile.getName();
+            os = new BufferedOutputStream(
+            	       new FileOutputStream( this.savePath ) ); //Zielverzeichniss
+            
+            try {
+                byte[] buffer = new byte[64 * 1024];
+                int count;
+                while ((count = in.read(buffer)) > 0){
+                    md.update(buffer, 0, count);
+                    os.write(buffer, 0, count);
+                    
+                }
+            } finally {
+                in.close();
+            }
+            byte hash[] = md.digest();
+            StringBuffer buf = new StringBuffer();
+            for (int i = 0; i < hash.length; i++) {
+                int b = hash[i] & 0xFF;
+                int c = (b >> 4) & 0xF;
+                c = c < 10 ? '0' + c : 'A' + c - 10;
+                buf.append((char) c);
+                c = b & 0xF;
+                c = c < 10 ? '0' + c : 'A' + c - 10;
+                buf.append((char) c);
+            }
+            myResult = buf.toString();
+            this.isSet = 1;
+            return "OK";
+        } catch (Exception x) {
+            FacesMessage message = new FacesMessage(
+                FacesMessage.SEVERITY_FATAL,
+                x.getClass().getName(), x.getMessage());
+            FacesContext.getCurrentInstance().addMessage(
+                null, message);
+            return null;
+        }
+    }
+	/**
+	 * @return Returns the isSet.
+	 */
+	public int getIsSet() {
+		return this.isSet;
+	}
+	/**
+	 * @param isSet The isSet to set.
+	 */
+	public void setIsSet(int isSet) {
+		this.isSet = isSet;
+	}
 	/**
 	 * Constructor reads messages from database
 	 *
 	 */
 	public MessageHandlerBean()
 	{
+		savePath = "/";
 		Session sess = HibernateManager.getSession();
 		Login login = null;
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -255,6 +351,7 @@ public class MessageHandlerBean {
      */ 
     public String addMessage()
     {
+    	
     	//Hibernate Session holen
     	Session hbmsession = HibernateManager.getSession();
 		HibernateManager.beginTransaction();
@@ -265,6 +362,8 @@ public class MessageHandlerBean {
 		newMessage.setSubject(this.subject);
 		newMessage.setBody(this.body);
 		newMessage.setMessageRead(new Boolean(false));
+		newMessage.setAttachment(this.savePath);
+		
 		/** TODO
 		 * An dieser Stelle muß dann noch das Attachment gespeichert werden - sobald wir wissen wie
 		 */
@@ -289,13 +388,34 @@ public class MessageHandlerBean {
 			FacesContext facesContext = FacesContext.getCurrentInstance(); 
 			FacesMessage facesMessage = new FacesMessage("Datenbankzugriff fehlgeschlagen");
 			facesContext.addMessage("registerForm", facesMessage);  
-			
+			//TODO: DELETE UPLOADED FILE (this.savePath)
 			return "failure";
 		}
 		
 		HibernateManager.commitTransaction();
 		HibernateManager.closeSession();
+		this.isSet = 0;
+		resetAttributes();
 		return "success";
     }
+    public void resetAttributes(){
+    	this.screenname = null;
+    	this.body = null;
+    	this.recipient = null;
+    	this.subject = null;
+    	this.savePath = "/";
+    }
 	
+	/**
+	 * @return Returns the savePath.
+	 */
+	public String getSavePath() {
+		return savePath;
+	}
+	/**
+	 * @param savePath The savePath to set.
+	 */
+	public void setSavePath(String savePath) {
+		this.savePath = savePath;
+	}
 }

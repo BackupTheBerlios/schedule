@@ -23,7 +23,7 @@
 <body>
 <f:view>
 	<f:loadBundle basename="com.schedule.Internationalization" var="bundle" />
-	<h:form id="MyForm" enctype="multipart/form-data" >
+	<h:form id="MyForm" enctype="multipart/form-data" rendered="#{UploadBean.isSet == 0}">
 
     <h:messages globalOnly="true" styleClass="message"/>
 

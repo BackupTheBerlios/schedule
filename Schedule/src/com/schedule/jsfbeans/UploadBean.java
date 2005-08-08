@@ -24,6 +24,7 @@ public class UploadBean {
 	private UploadedFile myFile;
     private String myParam = "MD5";
     private String myResult;
+    private int isSet = 0;
 
     public UploadedFile getMyFile() {
         return myFile;
@@ -81,6 +82,7 @@ public class UploadBean {
                 buf.append((char) c);
             }
             myResult = buf.toString();
+            this.isSet = 1;
             return "OK";
         } catch (Exception x) {
             FacesMessage message = new FacesMessage(
@@ -91,4 +93,16 @@ public class UploadBean {
             return null;
         }
     }
+	/**
+	 * @return Returns the isSet.
+	 */
+	public int getIsSet() {
+		return this.isSet;
+	}
+	/**
+	 * @param isSet The isSet to set.
+	 */
+	public void setIsSet(int isSet) {
+		this.isSet = isSet;
+	}
 }

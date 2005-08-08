@@ -21,13 +21,13 @@
 <body>
 <f:view>
 
-    <h:panelGrid columns="2" border="0" cellspacing="5">
+    <h:panelGrid columns="2" border="0" cellspacing="5" rendered="#{UploadBean.isSet == 1}">
 
         <h:outputText value="FileName:"/>
-        <h:outputText value="#{UploadBean.myFile.name}"/>
+        <h:outputText value="#{UploadBean.myFile.name}" />
 
         <h:outputText value="FileSize:"/>
-        <h:outputText value="#{UploadBean.myFile.size}"/>
+        <h:outputText value="#{UploadBean.myFile.size}" />
 
         <h:outputText value="Param:"/>
         <h:outputText value="#{UploadBean.myParam}"/>
