@@ -2,6 +2,7 @@
 <%@ page language="java" %>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://myfaces.apache.org/extensions" prefix="x"%>
 
 <%
 String path = request.getContextPath();
@@ -100,6 +101,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<h:inputTextarea id="Body" value="#{MessageBean.body}" cols="80" rows="15" />
 									</td>
 								</tr>
+								<tr>
+									<td colspan="2">
+        								
+        								<h:form id="MyForm" enctype="multipart/form-data" >
+      								 	<h:outputLabel for="myFileId" value="File: "/>
+       									 <x:inputFileUpload id="myFileId"
+         								   value="#{UploadBean.myFile}"
+         								   storage="file"
+         								   required="true"/>
+       									 <h:commandButton value="Submit"
+           									 action="#{UploadBean.processMyFile}"/>
+									</h:form>
+        								
+        								</td>
+        
+								</tr>
+								
 								<tr>
 									<td colspan="2">
 										<h:commandButton action="#{MessageBean.addMessage}" value="Senden" />
