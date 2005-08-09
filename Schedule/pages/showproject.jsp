@@ -61,6 +61,34 @@
 								<f:facet name="header">
 									<h:outputText value="Name" />
 								</f:facet>
-								<h:outputText value="#{group.name}" />
+								
+									<h:outputText value="#{group.name}" />
+								
 							</h:column>
-						</h:dataTable>					</div>						</td>					</tr>					<tr height="225">						<td height="225"></td>					</tr>				</table>				</td>			<tr height="15">				<td rowspan="3" width="150">				<div align="center"></div>				</td>				<td width="1"></td>				<td width="10"></td>			</tr>			<tr>				<td width="1"></td>				<td width="10"></td>			</tr>			<tr height="15">				<td width="1" height="15"></td>				<td width="10" height="15"></td>				<td width="549" height="15">&nbsp;</td>				<td width="212" height="15">&nbsp;</td>			</tr>			<tr>				<td width="150"></td>				<td width="1"></td>				<td width="10"></td>				<td width="549">&nbsp;</td>				<td width="212">&nbsp;</td>			</tr>		</table>	</h:form></f:view></body></html>
+						</h:dataTable>					</div>
+					
+					<div id="projadmin">
+						<table width="100%" border="0" cellspacing="0">
+							<tr bgcolor="#A8B6C6">
+								<td><h:outputText value="#{bundle.str_projectadmin}" /></td>
+							</tr>
+							<tr bgcolor="#A8B6C6" height="7">
+								<td height="7" background="pages/data/naviseparator.gif"></td>
+							</tr>
+						</table>
+						<h:dataTable value="#{ProjectBean.groupsList}" var="group" rendered="#{ProjectBean.isAdmin == true}" cellpadding="2" cellspacing="0" columnClasses="tableContent" headerClass="headerColumn" width="100%">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Projektmitglieder verwalten" />
+								</f:facet>
+								<h:commandLink action="projadduser" actionListener="#{ProjectBean.projectToAddUser}">
+									<h:outputText value="Projektmitglieder hinzufuegen" />
+								</h:commandLink>
+								<f:verbatim><br/></f:verbatim>
+								<h:commandLink action="projdeluser" actionListener="#{ProjectBean.projectToAddUser}">
+									<h:outputText value="Projektmitglieder entfernen" />
+								</h:commandLink>
+								
+							</h:column>
+						</h:dataTable>
+					</div>						</td>					</tr>					<tr height="225">						<td height="225"></td>					</tr>				</table>				</td>			<tr height="15">				<td rowspan="3" width="150">				<div align="center"></div>				</td>				<td width="1"></td>				<td width="10"></td>			</tr>			<tr>				<td width="1"></td>				<td width="10"></td>			</tr>			<tr height="15">				<td width="1" height="15"></td>				<td width="10" height="15"></td>				<td width="549" height="15">&nbsp;</td>				<td width="212" height="15">&nbsp;</td>			</tr>			<tr>				<td width="150"></td>				<td width="1"></td>				<td width="10"></td>				<td width="549">&nbsp;</td>				<td width="212">&nbsp;</td>			</tr>		</table>	</h:form></f:view></body></html>
