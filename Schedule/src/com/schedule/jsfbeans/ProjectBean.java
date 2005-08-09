@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.lang.Integer;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
@@ -66,6 +68,25 @@ public class ProjectBean {
     /** */
     private ArrayList projectListArray;
 
+    /** determines if a user is project admin or not*/
+    private boolean isAdmin;
+    
+    /** determines the project a admin user is allowed to add user*/
+    private Projects addUserToProject;
+    
+    /** List of all exsisting users */
+    private List allUserList;
+    
+    /** List of all exsisting users */
+    private ArrayList allUserListArray;
+    
+    /** List of all users associated with the current project*/
+    private ArrayList allProjectUserListArray;
+    
+    /** user which should be added to a project*/
+    private String tempAddUser;
+    
+    
     
     /**
      * Constructor
@@ -74,6 +95,7 @@ public class ProjectBean {
     public ProjectBean()
     {	
     	projectCount = 0;
+    	setIsAdmin(false);
     	this.getProjectList();	
     }
 
@@ -144,6 +166,7 @@ public class ProjectBean {
 	{
 		Session hbmsession = HibernateManager.getSession();
 		User user = this.getUser();
+		
 		try {
 			projectList = hbmsession.createFilter(user.getProjects(), "order by this.name").list();
 		} catch (HibernateException e) {
@@ -396,6 +419,7 @@ public class ProjectBean {
 		Map requestMap = context.getExternalContext().getRequestParameterMap();
 		Integer aProjectsId = new Integer((String) requestMap.get("proj"));
 		
+		
 		//Create Session
 		Session sess = HibernateManager.getSession();
 		
@@ -405,6 +429,14 @@ public class ProjectBean {
 			e.printStackTrace();
 		}
 		
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	Integer aUserId = (Integer) session.getAttribute("UserID");
+		
+		if (this.currentProject.getAdminId().equals(aUserId)) {
+			setIsAdmin(true);
+		} 	else {
+				setIsAdmin(false);
+			}
 		return currentProject;
 	}
 	
@@ -444,4 +476,196 @@ public class ProjectBean {
 		this.projectListArray = projectListArray;
 	}
 
+	/**
+	 * @return Returns the isAdmin.
+	 */
+	public boolean getIsAdmin() {
+		return isAdmin;
+	}
+	/**
+	 * @param isAdmin The isAdmin to set.
+	 */
+	public void setIsAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	/**
+	 * @return Returns the addUserToProject.
+	 */
+	public Projects getAddUserToProject() {
+		return addUserToProject;
+	}
+	/**
+	 * @param addUserToProject The addUserToProject to set.
+	 */
+	public void setAddUserToProject(Projects addUserToProject) {
+		this.addUserToProject = addUserToProject;
+	}
+	/**
+	 * set the current project to add user to.
+	 */
+	public void projectToAddUser(ActionEvent event) {
+		
+		setAddUserToProject(this.currentProject);
+		
+		
+	}
+	/**
+	 * @return Returns the allUserList.
+	 */
+	public List getAllUserList() {
+		
+		Session hbmsession = HibernateManager.getSession();
+		
+		try {
+			allUserList = hbmsession.createCriteria(User.class).list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
+		return allUserList;
+	}
+	/**
+	 * @param allUserList The allUserList to set.
+	 */
+	public void setAllUserList(List allUserList) {
+		this.allUserList = allUserList;
+	}
+	/**
+	 * @return Returns the tempAddUser.
+	 */
+	public String getTempAddUser() {
+		return tempAddUser;
+	}
+	/**
+	 * @param tempAddUser The tempAddUser to set.
+	 */
+	public void setTempAddUser(String tempAddUser) {
+		this.tempAddUser = tempAddUser;
+	}
+	/**
+	 * @return Returns the allUserListArray.
+	 */
+	public ArrayList getAllUserListArray() {
+		
+		allUserList = this.getAllUserList();
+		setAllUserList(allUserList);
+		allUserListArray = new ArrayList();
+		
+		for (int i=0;i<allUserList.size();i++)	{
+			User tmpUser = (User)allUserList.get(i);
+			if (!addUserToProject.getUsers().contains(tmpUser))	{
+				String tempUserString = new String((String)(tmpUser.getLastname() +", "+ tmpUser.getFirstname()));
+				String tempUserId = new String((new Integer(i)).toString());
+				this.allUserListArray.add(new SelectItem(tempUserId,tempUserString));
+			}
+			
+		}
+		return allUserListArray;
+	}
+	
+	public ArrayList getAllProjectUserListArray() {
+		
+		allUserList = this.getAllUserList();
+		setAllUserList(allUserList);
+		allProjectUserListArray = new ArrayList();
+		
+		for (int i=0;i<allUserList.size();i++)	{
+			User tmpUser = (User)allUserList.get(i);
+			if (addUserToProject.getUsers().contains(tmpUser))	{
+				String tempUserString = new String((String)(tmpUser.getLastname() +", "+ tmpUser.getFirstname()));
+				String tempUserId = new String((new Integer(i)).toString());
+				this.allProjectUserListArray.add(new SelectItem(tempUserId,tempUserString));
+			}
+			
+		}
+		return allProjectUserListArray;
+	}
+	
+	
+	
+	/**
+	 * @param allUserListArray The allUserListArray to set.
+	 */
+	public void setAllUserListArray(ArrayList allUserListArray) {
+		this.allUserListArray = allUserListArray;
+	}
+	
+	public String addUserToProjectTeam()	{
+		String resultString = new String();
+		Integer tempAddUserInt = new Integer(this.tempAddUser);
+		User tempAddUser = (User)allUserList.get(tempAddUserInt.intValue());
+		Projects tempAddProject = this.addUserToProject;
+		
+		Session hbmsession = HibernateManager.getSession();
+		HibernateManager.beginTransaction();
+		
+		//associate project to user 
+		tempAddUser.getProjects().add(tempAddProject);
+		//associate user to project 
+		tempAddProject.getUsers().add(tempAddUser);
+		
+		try {
+			//Update DB Objects
+			hbmsession.saveOrUpdate(tempAddProject);
+			hbmsession.saveOrUpdate(tempAddUser);
+			
+			hbmsession.flush();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Datenbankzugriff fehlgeschlagen");
+			facesContext.addMessage("registerForm", facesMessage);  
+			
+			return "failureAddUser";
+		}
+		HibernateManager.commitTransaction();
+		HibernateManager.closeSession();
+		tempAddUser = null;
+		tempAddProject = null;
+		return "successAddUser";
+		
+		
+		
+		
+		
+	}
+	
+	
+	public String delUserFromProjectTeam() {
+		
+		Integer tempDelUserInt = new Integer(this.tempAddUser);
+		User tempDelUser = (User)allUserList.get(tempDelUserInt.intValue());
+		Projects tempDelProject = this.addUserToProject;
+		
+		Session hbmsession = HibernateManager.getSession();
+		HibernateManager.beginTransaction();
+		
+		//del project to user 
+		tempDelUser.getProjects().remove(tempDelProject);
+		//del user to project 
+		tempDelProject.getUsers().remove(tempDelUser);
+		
+		try {
+			//Update DB Objects
+			hbmsession.saveOrUpdate(tempDelProject);
+			hbmsession.saveOrUpdate(tempDelUser);
+			
+			hbmsession.flush();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			FacesContext facesContext = FacesContext.getCurrentInstance(); 
+			FacesMessage facesMessage = new FacesMessage("Datenbankzugriff fehlgeschlagen");
+			facesContext.addMessage("registerForm", facesMessage);  
+			
+			return "failureDelUser";
+		}
+		HibernateManager.commitTransaction();
+		HibernateManager.closeSession();
+		tempDelUser = null;
+		tempDelProject = null;
+		return "successDelUser";
+	}
+	
+	
+	
 }
