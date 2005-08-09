@@ -47,7 +47,32 @@
             <from-outcome>home</from-outcome>
             <to-view-id>/pages/main_new.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>projadduser</from-outcome>
+            <to-view-id>/pages/addprojuser.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>projdeluser</from-outcome>
+            <to-view-id>/pages/delprojuser.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/pages/addprojuser.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>successAddUser</from-outcome>
+            <to-view-id>/pages/main_new.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/pages/delprojuser.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>successDelUser</from-outcome>
+            <to-view-id>/pages/main_new.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
     
     
     <navigation-rule>
@@ -156,6 +181,8 @@
         </navigation-case>
     </navigation-rule>
     
+    
+    
      <navigation-rule>
         <from-view-id>/pages/upload.jsp</from-view-id>
         <navigation-case>
@@ -164,6 +191,10 @@
         </navigation-case>
     </navigation-rule>
     
+
+      
+    
+
     <navigation-rule>
         <from-view-id>/pages/newmessage.jsp</from-view-id>
         <navigation-case>
@@ -172,6 +203,7 @@
         </navigation-case>
     </navigation-rule>
     
+
     <managed-bean>
     		<description>This bean is used for the navigation</description>
     		<managed-bean-name>NavigationBean</managed-bean-name>
@@ -201,7 +233,7 @@
         <description>Bean which represents a users login.</description>
         <managed-bean-name>LoginBean</managed-bean-name>
         <managed-bean-class>com.schedule.jsfbeans.LoginBean</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
+        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
