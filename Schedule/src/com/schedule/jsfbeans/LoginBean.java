@@ -65,7 +65,7 @@ public class LoginBean {
 				//User zu diesem Login laden
 				user = login.getUser();
 				
-				HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+				HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 				session.setAttribute("LoginID", login.getIdLogin());
 				session.setAttribute("UserID", user.getIdUser());
 				HibernateManager.closeSession();
