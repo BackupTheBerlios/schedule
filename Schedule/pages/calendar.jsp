@@ -1,7 +1,7 @@
 <%@ page language="java"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 
 <%
@@ -83,6 +83,9 @@
 						</td>
 					</tr>
 	
+				
+				
+				
 					<tr height="200">
 						<td valign="top">
 						
@@ -363,6 +366,12 @@
 					
 					
 					
+				
+				
+				
+				
+				
+				
 
 					<tr height="225">
 						<td height="225"></td>
