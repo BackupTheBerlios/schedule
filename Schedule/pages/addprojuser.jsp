@@ -105,9 +105,7 @@
 										<f:param name="proj" value="#{ProjectBean.addUserToProject.idProjects}" />
 									</h:commandButton>
 								</td>
-								<td><h:outputText value="blub" />
-									<h:outputText value="#{ProjectBean.addUserToProject.idProjects}" />
-								</td>
+								<td></td>
 							</tr>
 							<tr><td>
 							</td><td></td></tr>
