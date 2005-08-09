@@ -95,30 +95,13 @@ public class CalendarBean {
 	
 	/** Constrauctor for CalendarBean */
 	public CalendarBean() {
-		//calendarList = new Vector();
+		
 		getNow();
 		setRange(3);
 		setCountDate(0);
-		
-		//for(int i=0; i<this.range; i++) {
-			
-			Calendar tempCal = getDatePointer();
-			
-			//tempCal.add(Calendar.HOUR, + (int) (dateUnit));
-			//myDate nDate = new myDate(tempCal);
-			//this.calendarList.add(nDate);
-			
-			
-			//setCountDate(getCountDate()+1);
-			//now.add(Calendar.HOUR, + (int) (dateUnit));
-			//myDate nDate = new myDate(now);
-			//dateString = now.getTime().toString();
-			//System.out.println(nDate.getDateString()+" --- " + i + " ---- "+ getCountDate());
-			//this.calendarList.add((myDate)nDate);
-			//System.out.println(calendarList);
-			//System.out.println(((myDate)calendarList.get(i)).getDateString());
-		//}
-	}
+
+		Calendar tempCal = getDatePointer();
+		}
 	
 	
 	
@@ -149,24 +132,23 @@ public class CalendarBean {
 			if (startDay == 1) {
 				startDay = -6;
 				}
-			System.out.println("--------------"+tempDate.getTime().toString()+"---------"+dayOfWeek+ "--------- "+startDay+ " ----------------");
+			
 			for (int i=startDay;i<startDay+7;i++){
 				
-				//Calendar calendar = new Calendar();
-				System.out.println("--------------vor");
+				
+				
 				Calendar tempDate2 = Calendar.getInstance();
-				System.out.println("--------------mitte"+getDatePointer().getTime());
+				
 				tempDate2.setTime(getDatePointer().getTime());
-				System.out.println("--------------nach");
-				//if (i<0){tempDate2.add(Calendar.HOUR, - (int)(dateUnit*i));}
+				
+				
 				tempDate2.add(Calendar.HOUR, + (int)(dateUnit*i));
 				myDate wDate = new myDate(tempDate2);
-				System.out.println("---------------"+wDate.getDateString()+"------------- Loop = "+i+"------------");
+				
 				this.weekList.add(wDate);
-				//System.out.println(tempDate2.getTime().toString());
 			}
-		}else {System.out.println("-------------- NICHT DRIN ----------------");}
-		System.out.println("-------------- GEHE RAUS ----------------");
+		}else {}
+		
 		return weekList;
 	}
 	
@@ -204,10 +186,10 @@ public class CalendarBean {
 		
 		if (this.datePointer == null){
 			this.datePointer = Calendar.getInstance();
-			System.out.println("Generiere neues Datum");
-			//this.datePointer.add(Calendar.HOUR, - (int) (dateUnit));
+			
+			
 		}	else {
-			//this.datePointer.add(Calendar.HOUR, + (int) (dateUnit));
+			
 			}
 		
 		return datePointer;
@@ -282,7 +264,7 @@ public class CalendarBean {
 			q = hbmsession.createFilter(user.getAppointments(), "where this.date like :Date");
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
 			q.setString("Date",formatter.format(this.datePointer.getTime()));
-			System.out.println(this.datePointer.getTime().toString());
+			
 			this.appointmentsList = q.list();
 		} catch (HibernateException e1) {
 			// TODO Auto-generated catch block
@@ -411,13 +393,12 @@ public class CalendarBean {
 	public myDate getWeekPointer() {
 		List tempList = getWeekList();
 		this.weekPointer = (myDate)tempList.get(0);
-		System.out.println("-----------WEEKPOINTER-------------"+this.weekPointer.getDateString()+"----------------------");
-		tempList.remove(0);
+			tempList.remove(0);
 		//if(tempList.size() == 0)	{
 		weekPointerCounter++;
 		if(weekPointerCounter >= 7)	{
 			this.weekList = null;
-			System.out.println("------------------WEEKLIST RESETED--------------------");
+			
 			weekPointerCounter = 0;
 		}
 		
